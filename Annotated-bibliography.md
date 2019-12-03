@@ -1,7 +1,18 @@
 
-# Annotated Bibliography
+# Annotated Bibliography <!-- omit in toc -->
 
 A collection of papers and articles related to extraordinary access.
+
+## Contents <!-- omit in toc -->
+
+- [Technical Papers](#technical-papers)
+  - [Key Recovery: Inert and Public](#key-recovery-inert-and-public)
+  - [Making Decryption Accountable](#making-decryption-accountable)
+  - [How to Share a Secret](#how-to-share-a-secret)
+- [Policy Papers](#policy-papers)
+  - [Privacy Versus Security... Are We Done Yet?](#privacy-versus-security-are-we-done-yet)
+  - [On the Incommensurability of Laws and Technical Mechanisms: Or, What Cryptography Can't Do](#on-the-incommensurability-of-laws-and-technical-mechanisms-or-what-cryptography-cant-do)
+- [Journalism](#journalism)
 
 <!-- How to organize? By medium? By focus? -->
 
@@ -196,9 +207,9 @@ isbn="978-3-030-03251-7"
 
 ## Journalism
 
-## Template
+## Template <!-- omit in toc -->
 
-### Title
+### Title <!-- omit in toc -->
 
 - Summary:
 - Purpose:
