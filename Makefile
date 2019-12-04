@@ -1,23 +1,24 @@
 DOCNAME := Thesis
 BIBNAME := Bibliography
-
+OUTDIR := build
 TEMPLATE := simple-thesis-dissertation
+TEMPLATE_IS_CLONED := $(TEMPLATE)/Fonts
 ENVIRON := TEXINPUTS='.:./$(TEMPLATE)/:' TEXFORMATS='.:./$(TEMPLATE)/:'
 
-.PHONY: clean
 .PHONY: all
-.PHONY: full-clean
+.PHONY: clean
 
-all: $(DOCNAME).pdf
+all: $(OUTDIR)/$(DOCNAME).pdf
 
-Fonts: $(TEMPLATE)
+$(TEMPLATE_IS_CLONED):
+	git submodule init
+	git submodule update --init --force --remote
+
+Fonts: | $(TEMPLATE_IS_CLONED)
 	if [[ ! -L Fonts ]]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
 
-$(DOCNAME).pdf: $(DOCNAME).tex $(BIBNAME).bib Fonts
-	$(ENVIRON) latexmk -xelatex $(DOCNAME).tex
-
-full-clean: clean
-	rm -rf *.pdf
+$(OUTDIR)/$(DOCNAME).pdf: $(DOCNAME).tex $(BIBNAME).bib | Fonts $(TEMPLATE_IS_CLONED)
+	$(ENVIRON) latexmk -xelatex -outdir=$(OUTDIR) $(DOCNAME).tex
 
 clean:
-	rm -rf *.aux *.log *.out *.fls *.fdb_latexmk *.synctex.gz
+	rm -rf $(OUTDIR)
