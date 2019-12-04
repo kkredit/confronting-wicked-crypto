@@ -1,0 +1,16 @@
+/Fonts
+
+# latex
+*.log
+*.pdf
+*.synctex.gz
+*.aux
+*.out
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.nav
+*.snm
+*.toc
+
