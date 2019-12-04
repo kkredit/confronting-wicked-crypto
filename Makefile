@@ -11,7 +11,7 @@ ENVIRON := TEXINPUTS='.:./$(TEMPLATE)/:' TEXFORMATS='.:./$(TEMPLATE)/:'
 all: $(DOCNAME).pdf
 
 Fonts: $(TEMPLATE)
-	ln -s $(TEMPLATE)/Fonts Fonts
+	if [[ ! -L Fonts ]]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
 
 $(DOCNAME).pdf: $(DOCNAME).tex $(BIBNAME).bib Fonts
 	$(ENVIRON) latexmk -xelatex $(DOCNAME).tex
