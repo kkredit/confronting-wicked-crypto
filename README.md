@@ -46,4 +46,3 @@ attempt to identify a principled path forward.
 
 This thesis is made available under the Creative Commons Public License, Attribution-ShareAlike 4.0
 International. A copy of the full license is available in the [LICENSE](LICENSE) file.
-

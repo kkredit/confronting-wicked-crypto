@@ -15,7 +15,7 @@ $(TEMPLATE_IS_CLONED):
 	git submodule update --init --force --remote
 
 Fonts: | $(TEMPLATE_IS_CLONED)
-	if [[ ! -L Fonts ]]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
+	if [ ! -L Fonts ]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
 
 $(OUTDIR)/$(DOCNAME).pdf: $(DOCNAME).tex $(BIBNAME).bib | Fonts $(TEMPLATE_IS_CLONED)
 	$(ENVIRON) latexmk -xelatex -outdir=$(OUTDIR) $(DOCNAME).tex
