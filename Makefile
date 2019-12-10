@@ -1,7 +1,7 @@
 DOCNAME := Thesis
 BIBNAME := Bibliography
 OUTDIR := build
-TEMPLATE := simple-thesis-dissertation
+TEMPLATE := gvsu-thesis-template
 TEMPLATE_IS_CLONED := $(TEMPLATE)/Fonts
 ENVIRON := TEXINPUTS='.:./$(TEMPLATE)/:' TEXFORMATS='.:./$(TEMPLATE)/:'
 
