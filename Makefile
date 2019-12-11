@@ -18,7 +18,7 @@ Fonts: | $(TEMPLATE_IS_CLONED)
 	if [ ! -L Fonts ]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
 
 $(OUTDIR)/$(DOCNAME).pdf: $(DOCNAME).tex $(BIBNAME).bib | Fonts $(TEMPLATE_IS_CLONED)
-	$(ENVIRON) latexmk -xelatex -outdir=$(OUTDIR) $(DOCNAME).tex
+	$(ENVIRON) latexmk -jobname=Thesis-GVSU -xelatex -outdir=$(OUTDIR) $(DOCNAME).tex
 
 clean:
 	rm -rf $(OUTDIR)

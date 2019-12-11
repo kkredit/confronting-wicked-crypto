@@ -20,6 +20,14 @@
 %% PREAMBLE.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{etoolbox}
+\usepackage{pdftexcmds}
+
+\newbool{GVSU} % default is false
+\ifnum\pdfstrcmp{\jobname}{Thesis-GVSU}=0
+    \booltrue{GVSU}
+\fi
+
 % Document properties.
 \def\DocumentTitle{Principled Extraordinary Access}
 \def\AuthorName{Kevin Kredit}
@@ -54,5 +62,8 @@ bookmarksnumbered}
 \begin{document}
 
 This is the document.
+\ifGVSU
+GVSU!
+\fi
 
 \end{document}
