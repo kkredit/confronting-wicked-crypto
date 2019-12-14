@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INFILE="Annotated-bibliography.md"
-OUTFILE="Bibliography.bib"
+OUTFILE="Thesis.bib"
 PRINTLN="false"
 
 echo "% This is an auto-generated bibliography file based on $INFILE" > $OUTFILE

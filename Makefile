@@ -1,5 +1,4 @@
 DOCNAME := Thesis
-BIBNAME := Bibliography
 OUTDIR := build
 TEMPLATE := gvsu-thesis-template
 TEMPLATE_IS_CLONED := $(TEMPLATE)/Fonts
@@ -17,7 +16,7 @@ $(TEMPLATE_IS_CLONED):
 Fonts: | $(TEMPLATE_IS_CLONED)
 	if [ ! -L Fonts ]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
 
-$(OUTDIR)/$(DOCNAME).pdf: $(DOCNAME).tex $(BIBNAME).bib | Fonts $(TEMPLATE_IS_CLONED)
+$(OUTDIR)/$(DOCNAME).pdf: $(DOCNAME).tex $(DOCNAME).bib | Fonts $(TEMPLATE_IS_CLONED)
 	$(ENVIRON) latexmk -jobname=Thesis-GVSU -xelatex -outdir=$(OUTDIR) $(DOCNAME).tex
 
 clean:
