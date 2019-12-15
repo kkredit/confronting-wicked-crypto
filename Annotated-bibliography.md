@@ -29,7 +29,7 @@ A collection of papers and articles related to extraordinary access.
 - Notes:
 
 ```bib
-@InProceedings{10.1007/978-3-319-61273-7_6,
+@InProceedings{inert_and_public_recovery,
 author="Boyd, Colin
 and Boyen, Xavier
 and Carr, Christopher
@@ -67,7 +67,7 @@ isbn="978-3-319-61273-7"
 - Notes:
 
 ```bib
-@InProceedings{10.1007/978-3-319-71075-4_11,
+@InProceedings{making_decryption_accountable,
 author="Ryan, Mark D.",
 editor="Stajano, Frank
 and Anderson, Jonathan
@@ -98,7 +98,7 @@ isbn="978-3-319-71075-4"
 - Notes:
 
 ```bib
-@article{Shamir:1979:SS:359168.359176,
+@article{how_to_share_a_secret,
 author = {Shamir, Adi},
 title = {How to Share a Secret},
 journal = {Commun. ACM},
@@ -137,7 +137,7 @@ keywords = {cryptography, interpolation, key management},
 - Notes:
 
 ```bib
-@Inbook{Stalla-Bourdillon2014,
+@Inbook{privacy_vs_security_done,
 author="Stalla-Bourdillon, Sophie",
 title="Privacy Versus Security{\ldots} Are We Done Yet?",
 bookTitle="Privacy vs. Security",
@@ -173,7 +173,7 @@ url="https://doi.org/10.1007/978-1-4471-6530-9_1"
 ### On the Incommensurability of Laws and Technical Mechanisms: Or, What Cryptography Can't Do
 
 ```bib
-@InProceedings{10.1007/978-3-030-03251-7_31,
+@InProceedings{what_crypto_can_and_cant_do,
 author="Feigenbaum, Joan
 and Weitzner, Daniel J.",
 editor="Maty{\'a}{\v{s}}, Vashek
