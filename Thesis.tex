@@ -20,10 +20,10 @@
 %% PREAMBLE.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Setup GVSU build conditional to use as '\ifGVSU ... \fi'
 \usepackage{etoolbox}
 \usepackage{pdftexcmds}
-
-\newbool{GVSU} % default is false
+\newbool{GVSU}
 \ifnum\pdfstrcmp{\jobname}{Thesis-GVSU}=0
     \booltrue{GVSU}
 \fi
@@ -31,6 +31,8 @@
 % Document properties.
 \def\DocumentTitle{Principled Extraordinary Access}
 \def\AuthorName{Kevin Kredit}
+\def\Year{2020}
+\def\DefenseDate{December Nth, 2020}
 
 % PDF settings and properties.
 \hypersetup{
@@ -61,9 +63,29 @@ bookmarksnumbered}
 
 \begin{document}
 
-This is the document.
+\input{Thesis-TitlePage.tex}
+
 \ifGVSU
-GVSU!
+    \includepdf{Forms/ThesisApproval.pdf}
+    \pagenumbering{arabic}
+    \setcounter{page}{3}
+\else
+    \pagenumbering{roman}
+\fi
+
+\input{Thesis-FrontMatter.tex} % Dedication, Acknowledgements, Preface, Abstract, TOCs, and Keys
+
+\ifGVSU
+\else
+    \pagenumbering{arabic}
+\fi
+
+\input{Thesis-Chapter-Intro.tex}
+
+\input{Thesis-BackMatter.tex} % Bibliography and Vita
+
+\ifGVSU
+    \includepdf{Forms/ScholarWorksAgreement.pdf}
 \fi
 
 \end{document}
