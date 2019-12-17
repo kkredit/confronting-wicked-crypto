@@ -1,56 +1,82 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% DEDICATION PAGE.
+%%                                               DEDICATION PAGE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begingroup
-\centering
+% Page only present if \Dedication is non-empty.
+\ifx\Dedication\empty
+\else
+    \begingroup
 
-\textbf{Dedication}
+    \centering
+    \textbf{Dedication}
 
-\flushleft
+    \flushleft
+    \Dedication
 
-Insert dedication here. \lipsum[1]
-
-\endgroup
-
-\clearpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ACKNOWLEDGMENTS.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begingroup
-\centering
-
-\textbf{Acknowledgments} % Change to "Acknowledgment" if only one
-
-\flushleft
-
-Insert acknowledgments here. \lipsum[2]
-
-\endgroup
-
-\clearpage
+    \endgroup
+    \clearpage
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ABSTRACT.
+%%                                               ACKNOWLEDGMENTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begingroup
-\centering
+% Page only present if \Acknowledgements is non-empty.
+\ifx\Acknowledgements\empty
+\else
+    \begingroup
 
-\textbf{Abstract}
+    \centering
+    \textbf{Acknowledgments}
 
-\flushleft
+    \flushleft
+    \Acknowledgements
 
-Insert abstract here. \lipsum[1]
-
-\endgroup
-
-\clearpage
+    \endgroup
+    \clearpage
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% TABLE OF CONTENTS (TOC), LISTS OF FIGURES, TABLES, ETC.
+%%                                                       PREFACE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Page only present if \Preface is non-empty.
+\ifx\Preface\empty
+\else
+    \begingroup
+
+    \centering
+    \textbf{Preface}
+
+    \flushleft
+    \Preface
+
+    \endgroup
+    \clearpage
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                      ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Error out if \Abstract is empty.
+\ifx\Abstract\empty
+    \errmessage \Abstract must not be empty!
+\else
+    \begingroup
+
+    \centering
+    \textbf{Abstract}
+
+    \flushleft
+    \Abstract
+
+    \endgroup
+    \clearpage
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       TABLE OF CONTENTS (TOC), LISTS OF FIGURES, TABLES, ETC.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \tableofcontents
