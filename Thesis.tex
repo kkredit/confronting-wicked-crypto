@@ -20,13 +20,16 @@
 %%                                                      PREAMBLE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Setup GVSU build conditional to use as '\ifGVSU ... \fi'
-\usepackage{etoolbox}
+% Packages
 \usepackage{pdftexcmds}
+
+% Setup bools (\ifBoolName ... \fi)
 \newbool{GVSU}
 \ifnum\pdfstrcmp{\jobname}{Thesis-GVSU}=0
     \booltrue{GVSU}
 \fi
+\newbool{HasListOfTables}
+\newbool{HasListOfFigures}
 
 % Document properties
 \def\DocumentTitle{Principled Extraordinary Access}
@@ -62,11 +65,13 @@ bookmarksnumbered}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % If not using, leave blank.
-
 \def\Dedication{For Kristen.}
 \def\Acknowledgements{I'd like to thank my fish.}
 \def\Preface{}
 \def\Abstract{This is a thesis.}
+
+% \booltrue{HasListOfTables}
+% \booltrue{HasListOfFigures}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                               ACTUAL DOCUMENT
