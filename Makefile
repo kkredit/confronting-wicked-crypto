@@ -3,7 +3,7 @@ OUTDIR := build
 TEMPLATE := gvsu-thesis-template
 TEMPLATE_IS_CLONED := $(TEMPLATE)/Fonts
 
-SOURCES := $(wildcard *.tex) $(wildcard *.bib) $(wildcard $(TEMPLATE)/*.cls)
+SOURCES := $(wildcard *.tex) $(wildcard *.bib) $(wildcard Forms/*.pdf) $(wildcard $(TEMPLATE)/*.cls)
 LATEX_OPTS := -xelatex -bibtex -outdir=$(OUTDIR) -halt-on-error -file-line-error
 LATEX_PATHS := '.:./$(TEMPLATE):'
 ENVIRON := TEXINPUTS=$(LATEX_PATHS) TEXFORMATS=$(LATEX_PATHS)
