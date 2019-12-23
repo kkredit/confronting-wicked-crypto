@@ -10,11 +10,14 @@
 %% public domain; see <http://unlicense.org> for details.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% See "README.md" for instructions on compiling this document.
-
 \documentclass[letterpaper,nonstopmode,draftmode]{gvsuthesis}
 % Class options:
-% a4paper, letterpaper, nonstopmode, draftmode.
+% [a4paper, letterpaper]
+% nonstopmode
+% draftmode
+% [*doublespacing*, singlespacing, onehalfspacing]
+% msfonts
+% sansfonts
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                      PREAMBLE
@@ -59,6 +62,16 @@ hidelinks,
 breaklinks,
 bookmarksnumbered}
 \pagestyle{plain}
+
+% GVSU formatting mods
+\ifGVSU
+    \setromanfont{Times New Roman}
+    \setsansfont{Arial}
+    \setmonofont{Courier New}
+    \setmainfont{Times New Roman}
+\else
+    \singlespacing
+\fi
 
 % Macros
 
