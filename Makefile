@@ -16,8 +16,8 @@ PRETTY_JOB := Thesis
 .PHONY: gvsu
 .PHONY: clean
 
-gvsu: $(OUTDIR)/$(GVSU_JOB).pdf
 pretty: $(OUTDIR)/$(PRETTY_JOB).pdf
+gvsu: $(OUTDIR)/$(GVSU_JOB).pdf
 all: gvsu pretty
 
 $(TEMPLATE_IS_CLONED):
