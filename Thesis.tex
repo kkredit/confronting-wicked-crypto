@@ -71,12 +71,13 @@ bookmarksnumbered}
     \setmainfont{Times New Roman}
 \else
     \singlespacing
+    \boolfalse{IncludeForms}
 \fi
 
 % Macros
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                            FRONT-MATTER SETUP
+%%                                                TEMPLATE SETUP
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % If not using, leave blank.
@@ -95,29 +96,23 @@ bookmarksnumbered}
 
 \begin{document}
 
-\input{Thesis-TitlePage.tex}
+% Front-matter:
+%   Title page
+%   Approval page
+%   Dedication
+%   Acknowledgements
+%   Preface
+%   Abstract
+%   TOCs
+\input{Thesis-FrontMatter.tex}
 
-\ifGVSU
-    \includepdf{Forms/ThesisApproval.pdf}
-    \pagenumbering{arabic}
-    \setcounter{page}{3}
-\else
-    \pagenumbering{roman}
-\fi
-
-\input{Thesis-FrontMatter.tex} % Dedication, Acknowledgements, Preface, Abstract, TOCs, and Keys
-
-\ifGVSU
-\else
-    \pagenumbering{arabic}
-\fi
-
+% Thesis chapters
 \input{Thesis-Chapter-Intro.tex}
 
-\input{Thesis-BackMatter.tex} % Bibliography and Vita
-
-\ifGVSU
-    \includepdf{Forms/ScholarWorksAgreement.pdf}
-\fi
+% Back-matter:
+%   Bibliography
+%   Curriculum Vitae
+%   ScholarWorks Agreement
+\input{Thesis-BackMatter.tex}
 
 \end{document}
