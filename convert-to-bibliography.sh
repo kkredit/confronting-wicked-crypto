@@ -7,7 +7,7 @@ PRINTLN="false"
 echo "% This is an auto-generated bibliography file based on $INFILE" > $OUTFILE
 echo "" >> $OUTFILE
 
-while read LINE; do
+while read -r LINE; do
 
   if [[ "$LINE" =~ '```' ]]; then
     echo "" >> $OUTFILE
@@ -15,7 +15,7 @@ while read LINE; do
   fi
 
   if [[ "$PRINTLN" == "true" ]]; then
-    echo $LINE >> $OUTFILE
+    echo -E $LINE >> $OUTFILE
   fi
 
   if [[ "$LINE" =~ '```bib' ]]; then

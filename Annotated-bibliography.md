@@ -12,6 +12,7 @@ A collection of papers and articles related to extraordinary access.
 - [Policy Papers](#policy-papers)
   - [Privacy Versus Security... Are We Done Yet?](#privacy-versus-security-are-we-done-yet)
   - [On the Incommensurability of Laws and Technical Mechanisms: Or, What Cryptography Can't Do](#on-the-incommensurability-of-laws-and-technical-mechanisms-or-what-cryptography-cant-do)
+  - [What if Responsible Encryption Back-Doors Were Possible?](#what-if-responsible-encryption-back-doors-were-possible)
 - [Journalism](#journalism)
 
 <!-- How to organize? By medium? By focus? -->
@@ -202,6 +203,28 @@ rules-principles gap makes for incommensurate debate between legal and technical
 steps that each discipline can take to move toward more coherent policy for the networked, digital
 environment.",
 isbn="978-3-030-03251-7"
+}
+```
+
+### What if Responsible Encryption Back-Doors Were Possible?
+
+- Summary:
+- Purpose:
+- Premises:
+- Contributions:
+- Policy comments:
+- Technical comments:
+- Notes:
+
+```bib
+@article{benaloh_2019,
+title={What if Responsible Encryption Back-Doors Were Possible?},
+howpublished={\url{https://www.lawfareblog.com/what-if-responsible-encryption-back-doors-were-possible}},
+journal={Lawfare},
+publisher={The Lawfare Institute},
+author={Benaloh, Josh},
+year={2019},
+month={Oct}
 }
 ```
 

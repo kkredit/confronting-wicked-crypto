@@ -42,6 +42,11 @@ proposals put forth by Ozzie, Savage, and their colleagues. Using a threat model
 proposals, it will analyze the state of the art for access to data at rest on encrypted devices and
 attempt to identify a principled path forward.
 
+## Usage
+
+To build the document, run `make`. The tools [cite](https://github.com/rgieseke/cite) and
+[scholarref](https://adamsgaard.dk/scholarref.html) are quite handy for generating Bibtex citations.
+
 ## License
 
 This thesis is made available under the Creative Commons Public License, Attribution-ShareAlike 4.0
