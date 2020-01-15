@@ -13,6 +13,7 @@ function cleanup() {
     if [[ 2 == $? ]]; then
         printf "$USAGE"
     fi
+    set +x
     popd &>/dev/null
 }
 trap cleanup EXIT
@@ -33,6 +34,13 @@ if [[ ! $(which getdoi) ]]; then
 fi
 
 ##################################################################### ARGUMENTS
+# while getopts "hv" arg; do
+#   case $arg in
+#     h) printexit 2 "Usage:" ;;
+#     v) set -x ;;
+#   esac
+# done
+
 (( 2 <= $# )) || printexit 2 "Incorrect args"
 SUBDIR=${1/\//}
 [ -d $SUBDIR ] || printexit 2 "SUBDIR=$SUBDIR must exist"
@@ -71,7 +79,7 @@ BIBTEX_CITATION=$(curl -v -d "$JSON" -H "Content-Type: application/json" \
 TITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+title =" | cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
 [[ "" != "$TITLE" ]] || printexit 1 "Could not extract a title citation from $BIBTEX_CITATION"
 SHORTTITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+shorttitle =" | cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
-if [[ "" != $SHORTTITLE && 40 < $(echo $TITLE | wc -c) ]]; then
+if [[ "" != $SHORTTITLE ]] && (( 40 < $(echo $TITLE | wc -c) )); then
     FILE=$SUBDIR/$(echo $SHORTTITLE | tr -cd '[:alnum:]._-').md
 else
     FILE=$SUBDIR/$(echo $TITLE | tr -cd '[:alnum:]._-').md
