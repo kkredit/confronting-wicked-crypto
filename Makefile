@@ -27,7 +27,10 @@ $(TEMPLATE_IS_CLONED):
 Fonts: | $(TEMPLATE_IS_CLONED)
 	if [ ! -L Fonts ]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
 
-$(DOCNAME).bib: Annotated-bibliography.md
+Annotated-bibliography.md:
+	cd reading && ./bib-gen.sh
+
+$(DOCNAME).bib: | Annotated-bibliography.md
 	./convert-to-bibliography.sh
 
 $(OUTDIR)/$(GVSU_JOB).pdf: $(SOURCES) | $(TEMPLATE_IS_CLONED) Fonts
