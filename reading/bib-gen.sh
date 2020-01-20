@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd $(basename $0) &>/dev/null
+pushd $(dirname $0) &>/dev/null
 function cleanup() {
   popd &>/dev/null
 }

@@ -50,7 +50,6 @@ SOURCE="${@:2}"
 DOCKER_IMAGE="zotero/translation-server"
 DOCKER_PORT=1969
 if [[ 0 == $(docker container ls | grep $DOCKER_IMAGE | wc -l) ]]; then
-    docker pull $DOCKER_IMAGE
     docker run -d -p $DOCKER_PORT:$DOCKER_PORT --rm $DOCKER_IMAGE
     sleep 15
 fi
