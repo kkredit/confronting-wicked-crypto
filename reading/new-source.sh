@@ -42,7 +42,7 @@ fi
 # done
 
 (( 2 <= $# )) || printexit 2 "Incorrect args"
-SUBDIR=${1/\//}
+SUBDIR=$1
 [ -d $SUBDIR ] || printexit 2 "SUBDIR=$SUBDIR must exist"
 SOURCE="${@:2}"
 
@@ -50,25 +50,35 @@ SOURCE="${@:2}"
 DOCKER_IMAGE="zotero/translation-server"
 DOCKER_PORT=1969
 if [[ 0 == $(docker container ls | grep $DOCKER_IMAGE | wc -l) ]]; then
+    echo "Launching Zotero container..."
     docker run -d -p $DOCKER_PORT:$DOCKER_PORT --rm $DOCKER_IMAGE
     sleep 15
 fi
 
 ##################################################################### DATA FETCHING
 FORMAT=bibtex
+CURL_TIMEOUT=5
 
-JSON=$(curl -v -d "$SOURCE" -H "Content-Type: text/plain" \
+function bad_json() {
+    [[ $(echo $@ | grep -v "{") ]]
+}
+
+echo "Trying as a DOI..."
+JSON=$(curl -m $CURL_TIMEOUT -d "$SOURCE" -H "Content-Type: text/plain" \
                     127.0.0.1:$DOCKER_PORT/search 2>/dev/null)
-if [[ 0 != $? || "Bad Request" == "$JSON" || "No identifiers found" == "$JSON" ]]; then
-    JSON=$(curl -v -d "$SOURCE" -H "Content-Type: text/plain" \
+if bad_json $JSON; then
+    echo "Trying as a URL..."
+    JSON=$(curl -m $CURL_TIMEOUT -d "$SOURCE" -H "Content-Type: text/plain" \
                     127.0.0.1:$DOCKER_PORT/web 2>/dev/null)
 fi
-if [[ "" == "$JSON" || "Remote page not found" == "$JSON" || "URL not provided" == "$JSON" ]]; then
+if bad_json $JSON; then
+    echo "Trying to fetch the DOI..."
     DOI=$(getdoi "$SOURCE")
-    JSON=$(curl -v -d "$DOI" -H "Content-Type: text/plain" \
+    echo "Trying as DOI $DOI..."
+    JSON=$(curl -m $CURL_TIMEOUT -d "$DOI" -H "Content-Type: text/plain" \
                     127.0.0.1:$DOCKER_PORT/search 2>/dev/null)
 fi
-if [[ "" == "$JSON" || "No identifiers found" == "$JSON" ]]; then
+if bad_json $JSON; then
     printexit 1 "Could not identify data source from $SOURCE"
 fi
 BIBTEX_CITATION=$(curl -v -d "$JSON" -H "Content-Type: application/json" \
@@ -85,21 +95,31 @@ TITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+title =" | cut -d{ -f 2- | cut -d, 
 printf "Fetched data for resource titled:\n  \"$TITLE\"\n"
 read -r -p "Is this correct? [y/N] " response
 [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] || printexit 1 "Sorry."
+echo
 
 ##################################################################### CHECK FILE EXISTS
+FILE=$SUBDIR/$(echo $TITLE | tr -cd '[:alnum:]._-').md
+
 SHORTTITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+shorttitle =" | \
                     cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
-if [[ "" != $SHORTTITLE ]] && (( 40 < $(echo $TITLE | wc -c) )); then
-    FILE=$SUBDIR/$(echo $SHORTTITLE | tr -cd '[:alnum:]._-').md
-else
-    FILE=$SUBDIR/$(echo $TITLE | tr -cd '[:alnum:]._-').md
+[[ "" != "$SHORTTITLE" ]] && SHORTFILE=$SUBDIR/$(echo $SHORTTITLE | tr -cd '[:alnum:]._-').md
+
+if [[ "" != "$SHORTFILE" ]]; then
+    printf "File will be named:\n  \"$FILE\"\n"
+    printf "Also have shorter name:\n  \"$SHORTFILE\"\n"
+    read -r -p "Prefer the short title? [y/N] " response
+    [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] && FILE=$SHORTFILE
+    echo
 fi
 
-echo "Creating file $FILE."
 [[ ! -f $FILE ]] || printexit 1 "File $FILE already exists!"
 
 ##################################################################### ADDITIONAL INFO
 NEW_CITATION_NAME=false
+
+function citation_missing_field() {
+    [[ $(echo $BIBTEX_CITATION | grep -v "\s$1 =") ]]
+}
 
 function insert_bibtex_field() {
     LINE_1="$(echo -e "$BIBTEX_CITATION" | head -n 1)"
@@ -108,15 +128,16 @@ function insert_bibtex_field() {
     BIBTEX_CITATION="$(echo -e "$LINE_1\n$1\n$LINE_REST")"
 }
 
-if [[ $(echo $BIBTEX_CITATION | grep -v "\sdate =") ]]; then
+if citation_missing_field "date" && citation_missing_field "year"; then
     echo "Could not find date. Paste date in formay 'YYYY-MM-DD'"
     read -r -p "Date: " DATE
+    echo
     CITE_DATE="\tdate = {$DATE},"
     insert_bibtex_field "$CITE_DATE"
     NEW_CITATION_NAME=true
 fi
 
-if [[ $(echo $BIBTEX_CITATION | grep -v "\sauthor =") ]]; then
+if citation_missing_field "author"; then
     echo "Could not find author. Paste names till finished, then enter 'x'"
     AUTHORS="\tauthor = {"
     ISFIRST=true
@@ -128,6 +149,7 @@ if [[ $(echo $BIBTEX_CITATION | grep -v "\sauthor =") ]]; then
         $ISFIRST || AUTHORS+=" and "
         AUTHORS+="$LNAME, $FNAME"
     done
+    echo
     AUTHORS+="},"
     insert_bibtex_field "$AUTHORS"
     NEW_CITATION_NAME=true
@@ -135,12 +157,13 @@ fi
 
 if $NEW_CITATION_NAME; then
     CITATION_AUTHOR="$(echo "$BIBTEX_CITATION" | grep '\sauthor =' | cut -d{ -f2 | cut -d, -f1)"
-    CITATION_YEAR="$(echo "$BIBTEX_CITATION" | grep '\sdate =' | \
-                        cut -d{ -f2 | cut -d} -f1 | cut -d- -f1)"
+    CITATION_YEAR="$(echo "$BIBTEX_CITATION" | grep '\syear =' | cut -d{ -f2 | cut -d} -f1)"
+    [[ "" != "$CITATION_YEAR" ]] || CITATION_YEAR="$(echo "$BIBTEX_CITATION" | grep '\sdate =' | \
+                                                        cut -d{ -f2 | cut -d} -f1 | cut -d- -f1)"
     UNDERSCORE="_"
     NEW_NAME="$(echo "$CITATION_AUTHOR$UNDERSCORE$CITATION_YEAR" | tr '[:upper:]' '[:lower:]')"
     CURRENT_NAME="$(echo "$BIBTEX_CITATION" | head -1 | cut -d{ -f2 | cut -d, -f1)"
-    BIBTEX_CITATION="$(echo "$BIBTEX_CITATION" | sed "s/$CURRENT_NAME/$NEW_NAME/")"
+    BIBTEX_CITATION="$(echo "$BIBTEX_CITATION" | sed "s|$CURRENT_NAME|$NEW_NAME|")"
 fi
 
 ##################################################################### CREATE FILE
@@ -163,6 +186,7 @@ $FORMATTED_CITATION
 \`\`\`
 EOF
 
+echo "Created file $FILE"
 git add $FILE
 codium $FILE
 ./bib-gen.sh
