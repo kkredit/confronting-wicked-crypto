@@ -75,28 +75,75 @@ BIBTEX_CITATION=$(curl -v -d "$JSON" -H "Content-Type: application/json" \
                     "127.0.0.1:$DOCKER_PORT/export?format=$FORMAT" 2>/dev/null)
 [[ "" != "$BIBTEX_CITATION" ]] || printexit 1 "Could not extract $FORMAT citation from $SOURCE"
 
+# Remove empty lines
+BIBTEX_CITATION="$(echo "$BIBTEX_CITATION" | sed '/^[[:space:]]*$/d')"
+
+##################################################################### VERIFICATION
 TITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+title =" | cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
 [[ "" != "$TITLE" ]] || printexit 1 "Could not extract a title citation from $BIBTEX_CITATION"
-SHORTTITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+shorttitle =" | cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
+
+printf "Fetched data for resource titled:\n  \"$TITLE\"\n"
+read -r -p "Is this correct? [y/N] " response
+[[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] || printexit 1 "Sorry."
+
+##################################################################### CHECK FILE EXISTS
+SHORTTITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+shorttitle =" | \
+                    cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
 if [[ "" != $SHORTTITLE ]] && (( 40 < $(echo $TITLE | wc -c) )); then
     FILE=$SUBDIR/$(echo $SHORTTITLE | tr -cd '[:alnum:]._-').md
 else
     FILE=$SUBDIR/$(echo $TITLE | tr -cd '[:alnum:]._-').md
 fi
 
-##################################################################### VERIFICATION
-
-printf "Fetched data for resource titled:\n  \"$TITLE\"\n"
-read -r -p "Is this correct? [y/N] " response
-[[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] || printexit 1 "Sorry."
-
-##################################################################### CREATE FILE
 echo "Creating file $FILE."
 [[ ! -f $FILE ]] || printexit 1 "File $FILE already exists!"
 
-if [[ ! $(echo $BIBTEX_CITATION | grep "author =") ]]; then
-    TIP_ADD_AUTHOR="% To add author, insert: author = {Last, First},"
+##################################################################### ADDITIONAL INFO
+NEW_CITATION_NAME=false
+
+function insert_bibtex_field() {
+    LINE_1="$(echo -e "$BIBTEX_CITATION" | head -n 1)"
+    LEN_REST=$(( $(echo "$BIBTEX_CITATION" | wc -l) - 1 ))
+    LINE_REST="$(echo "$BIBTEX_CITATION" | tail -n $LEN_REST)"
+    BIBTEX_CITATION="$(echo -e "$LINE_1\n$1\n$LINE_REST")"
+}
+
+if [[ $(echo $BIBTEX_CITATION | grep -v "\sdate =") ]]; then
+    echo "Could not find date. Paste date in formay 'YYYY-MM-DD'"
+    read -r -p "Date: " DATE
+    CITE_DATE="\tdate = {$DATE},"
+    insert_bibtex_field "$CITE_DATE"
+    NEW_CITATION_NAME=true
 fi
+
+if [[ $(echo $BIBTEX_CITATION | grep -v "\sauthor =") ]]; then
+    echo "Could not find author. Paste names till finished, then enter 'x'"
+    AUTHORS="\tauthor = {"
+    ISFIRST=true
+    while true; do
+        read -r -p "Author first name: " FNAME
+        [[ "x" == "$FNAME" ]] && break
+        read -r -p "Author last name: " LNAME
+        [[ "x" == "$LNAME" ]] && break
+        $ISFIRST || AUTHORS+=" and "
+        AUTHORS+="$LNAME, $FNAME"
+    done
+    AUTHORS+="},"
+    insert_bibtex_field "$AUTHORS"
+    NEW_CITATION_NAME=true
+fi
+
+if $NEW_CITATION_NAME; then
+    CITATION_AUTHOR="$(echo "$BIBTEX_CITATION" | grep '\sauthor =' | cut -d{ -f2 | cut -d, -f1)"
+    CITATION_YEAR="$(echo "$BIBTEX_CITATION" | grep '\sdate =' | \
+                        cut -d{ -f2 | cut -d} -f1 | cut -d- -f1)"
+    UNDERSCORE="_"
+    NEW_NAME="$(echo "$CITATION_AUTHOR$UNDERSCORE$CITATION_YEAR" | tr '[:upper:]' '[:lower:]')"
+    CURRENT_NAME="$(echo "$BIBTEX_CITATION" | head -1 | cut -d{ -f2 | cut -d, -f1)"
+    BIBTEX_CITATION="$(echo "$BIBTEX_CITATION" | sed "s/$CURRENT_NAME/$NEW_NAME/")"
+fi
+
+##################################################################### CREATE FILE
 FORMATTED_CITATION="$(echo "$TIP_ADD_AUTHOR$BIBTEX_CITATION" | \
                         sed '/^$/d' | sed 's/\t/  /' | fold -s -w 100 - | sed 's/ *$//g')"
 
