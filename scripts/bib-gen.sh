@@ -8,7 +8,7 @@ trap cleanup EXIT
 
 OUTFILE="../Thesis.bib"
 
-echo "% This is an auto-generated bibliography file built by $0" > $OUTFILE
+echo "% This is an auto-generated bibliography file built by $(basename $0)" > $OUTFILE
 echo "" >> $OUTFILE
 
 for FILE in $(find . -type f -name "*.md"); do
