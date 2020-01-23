@@ -8,7 +8,7 @@ SUBDIR - Directory under which to create the new notes file
 SOURCE - The DOI or URL of the new material
 "
 
-pushd $(git rev-parse --show-toplevel)/Reading &>/dev/null
+pushd $(git rev-parse --show-toplevel)/reading &>/dev/null
 function cleanup() {
     if [[ 2 == $? ]]; then
         printf "$USAGE"
@@ -34,15 +34,8 @@ if [[ ! $(which getdoi) ]]; then
 fi
 
 ##################################################################### ARGUMENTS
-# while getopts "hv" arg; do
-#   case $arg in
-#     h) printexit 2 "Usage:" ;;
-#     v) set -x ;;
-#   esac
-# done
-
 (( 2 <= $# )) || printexit 2 "Incorrect args"
-SUBDIR=$1
+SUBDIR=$(echo $1 | sed 's:/*$::')
 [ -d $SUBDIR ] || printexit 2 "SUBDIR=$SUBDIR must exist"
 SOURCE="${@:2}"
 
@@ -92,17 +85,18 @@ BIBTEX_CITATION="$(echo "$BIBTEX_CITATION" | sed '/^[[:space:]]*$/d')"
 TITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+title =" | cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
 [[ "" != "$TITLE" ]] || printexit 1 "Could not extract a title citation from $BIBTEX_CITATION"
 
-printf "Fetched data for resource titled:\n  \"$TITLE\"\n"
+echo "Fetched data for resource titled:"
+echo "  \"$TITLE\""
 read -r -p "Is this correct? [y/N] " response
 [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] || printexit 1 "Sorry."
 echo
 
 ##################################################################### CHECK FILE EXISTS
-FILE=$SUBDIR/$(echo $TITLE | tr -cd '[:alnum:]._-').md
+FILE=$SUBDIR/$(echo $TITLE | tr -cd '[:alnum:]_-').md
 
 SHORTTITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+shorttitle =" | \
                     cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
-[[ "" != "$SHORTTITLE" ]] && SHORTFILE=$SUBDIR/$(echo $SHORTTITLE | tr -cd '[:alnum:]._-').md
+[[ "" != "$SHORTTITLE" ]] && SHORTFILE=$SUBDIR/$(echo $SHORTTITLE | tr -cd '[:alnum:]_-').md
 
 if [[ "" != "$SHORTFILE" ]]; then
     printf "File will be named:\n  \"$FILE\"\n"
@@ -129,7 +123,7 @@ function insert_bibtex_field() {
 }
 
 if citation_missing_field "date" && citation_missing_field "year"; then
-    echo "Could not find date. Paste date in formay 'YYYY-MM-DD'"
+    echo "Could not find date. Paste date in format 'YYYY-MM-DD'"
     read -r -p "Date: " DATE
     echo
     CITE_DATE="\tdate = {$DATE},"
@@ -144,10 +138,17 @@ if citation_missing_field "author"; then
     while true; do
         read -r -p "Author first name: " FNAME
         [[ "x" == "$FNAME" ]] && break
-        read -r -p "Author last name: " LNAME
-        [[ "x" == "$LNAME" ]] && break
         $ISFIRST || AUTHORS+=" and "
-        AUTHORS+="$LNAME, $FNAME"
+        read -r -p "Author last name: " LNAME
+        if [[ "" == "$LNAME" ]] && [[ "" == "$FNAME" ]]; then
+            printerr 1 "Cannot have empty author name"
+        elif [[ "" == "$LNAME" ]]; then
+            AUTHORS+="$FNAME"
+        elif [[ "" == "$FNAME" ]]; then
+            AUTHORS+="$LNAME"
+        else
+            AUTHORS+="$LNAME, $FNAME"
+        fi
     done
     echo
     AUTHORS+="},"
@@ -156,7 +157,8 @@ if citation_missing_field "author"; then
 fi
 
 if $NEW_CITATION_NAME; then
-    CITATION_AUTHOR="$(echo "$BIBTEX_CITATION" | grep '\sauthor =' | cut -d{ -f2 | cut -d, -f1)"
+    CITATION_AUTHOR="$(echo "$BIBTEX_CITATION" | grep '\sauthor =' | \
+                            cut -d' ' -f3 | tr -cd '[:alnum:]')"
     CITATION_YEAR="$(echo "$BIBTEX_CITATION" | grep '\syear =' | cut -d{ -f2 | cut -d} -f1)"
     [[ "" != "$CITATION_YEAR" ]] || CITATION_YEAR="$(echo "$BIBTEX_CITATION" | grep '\sdate =' | \
                                                         cut -d{ -f2 | cut -d} -f1 | cut -d- -f1)"
@@ -167,8 +169,9 @@ if $NEW_CITATION_NAME; then
 fi
 
 ##################################################################### CREATE FILE
+FOLD_COL=120
 FORMATTED_CITATION="$(echo "$TIP_ADD_AUTHOR$BIBTEX_CITATION" | \
-                        sed '/^$/d' | sed 's/\t/  /' | fold -s -w 100 - | sed 's/ *$//g')"
+                        sed '/^$/d' | sed 's/\t/  /' | fold -s -w $FOLD_COL - | sed 's/ *$//g')"
 
 cat > $FILE <<EOF
 # $TITLE
@@ -187,6 +190,9 @@ $FORMATTED_CITATION
 EOF
 
 echo "Created file $FILE"
+if [[ $(echo $FORMATTED_CITATION | grep "{http" | grep -v "}") ]]; then
+    echo "WARNING: may have cut-off URL in citation"
+fi
 git add $FILE
 codium $FILE
-./bib-gen.sh
+../scripts/bib-gen.sh

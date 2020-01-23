@@ -28,7 +28,7 @@ Fonts: | $(TEMPLATE_IS_CLONED)
 	if [ ! -L Fonts ]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
 
 $(DOCNAME).bib:
-	./reading/bib-gen.sh
+	./scripts/bib-gen.sh
 
 $(OUTDIR)/$(GVSU_JOB).pdf: $(SOURCES) | $(TEMPLATE_IS_CLONED) Fonts
 	$(ENVIRON) latexmk -jobname=$(GVSU_JOB) $(LATEX_OPTS) $(DOCNAME)

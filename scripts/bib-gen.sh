@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pushd $(dirname $0) &>/dev/null
+pushd $(git rev-parse --show-toplevel)/reading &>/dev/null
 function cleanup() {
   popd &>/dev/null
 }
