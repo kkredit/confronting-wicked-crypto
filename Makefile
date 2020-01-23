@@ -5,6 +5,7 @@ TEMPLATE_IS_CLONED := $(TEMPLATE)/Fonts
 
 SOURCES := $(wildcard *.tex) $(wildcard *.bib) $(wildcard Forms/*.pdf) $(wildcard $(TEMPLATE)/*.tex) $(wildcard $(TEMPLATE)/*.cls)
 LATEX_OPTS := -xelatex -bibtex -outdir=$(OUTDIR) -halt-on-error -file-line-error
+LIVE_OPTS := -pvc
 LATEX_PATHS := '.:./$(TEMPLATE):'
 ENVIRON := TEXINPUTS=$(LATEX_PATHS) TEXFORMATS=$(LATEX_PATHS)
 
@@ -14,6 +15,8 @@ PRETTY_JOB := Thesis
 .PHONY: all
 .PHONY: pretty
 .PHONY: gvsu
+.PHONY: live
+.PHONY: gvsu-live
 .PHONY: clean
 
 pretty: $(OUTDIR)/$(PRETTY_JOB).pdf
@@ -35,6 +38,12 @@ $(OUTDIR)/$(GVSU_JOB).pdf: $(SOURCES) | $(TEMPLATE_IS_CLONED) Fonts
 
 $(OUTDIR)/$(PRETTY_JOB).pdf: $(SOURCES) | $(TEMPLATE_IS_CLONED) Fonts
 	$(ENVIRON) latexmk -jobname=$(PRETTY_JOB) $(LATEX_OPTS) $(DOCNAME)
+
+live:
+	$(ENVIRON) latexmk -jobname=$(PRETTY_JOB) $(LATEX_OPTS) $(LIVE_OPTS) $(DOCNAME)
+
+gvsu-live:
+	$(ENVIRON) latexmk -jobname=$(GVSU_JOB) $(LATEX_OPTS) $(LIVE_OPTS) $(DOCNAME)
 
 clean:
 	rm -rf $(OUTDIR)
