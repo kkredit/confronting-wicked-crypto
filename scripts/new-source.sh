@@ -189,10 +189,18 @@ $FORMATTED_CITATION
 \`\`\`
 EOF
 
-echo "Created file $FILE"
+##################################################################### WARNINGS
 if [[ $(echo $FORMATTED_CITATION | grep "{http" | grep -v "}") ]]; then
     echo "WARNING: may have cut-off URL in citation"
 fi
+
+REF_NAME="$(echo "$FORMATTED_CITATION" | head -1 | cut -d{ -f2 | cut -d, -f1)"
+if [[ $(cat ../Thesis.bib | grep $REF_NAME) ]]; then
+    echo "WARNING: possible citation name collision using \"$REF_NAME\""
+fi
+
+##################################################################### FINAL STEPS
+echo "Created file $FILE"
 git add $FILE
 codium $FILE
 ../scripts/bib-gen.sh
