@@ -122,6 +122,7 @@ function insert_bibtex_field() {
     BIBTEX_CITATION="$(echo -e "$LINE_1\n$1\n$LINE_REST")"
 }
 
+# TODO: replace with month, year
 if citation_missing_field "date" && citation_missing_field "year"; then
     echo "Could not find date. Paste date in format 'YYYY-MM-DD'"
     read -r -p "Date: " DATE
