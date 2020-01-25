@@ -1,6 +1,10 @@
 # Attorney General Barr and Encryption - Schneier on Security
 
 - Summary:
+  - The AG is recognizing security-vs-security over security-vs-privacy
+  - Talk is on DIM again
+  - Differentiating classes of tech is not useful
+  - Security against general attackers is still more important
 - Purpose:
 - Premises:
 - Contributions:
@@ -10,6 +14,11 @@
   - The lines between military and corporate and consumer tech don't really exist in this realm
   - On security-vs-security, Schneier sides with security-from-everyone-attacking over
       security-from-those-we-can't-access
+  - AG argument:
+    - AG: balance 99% security to allow 80% LE access, not 99.5% security for 0% LE access
+    - I don't think those numbers accurately reflect the current state of cybersecurity. Average
+        companies and individuals are _not_ secure against 99% of attacks.
+  - The lack of data from LEAs makes the problem very hard to gauge.
 - Technical comments:
   - Barr is bringing the conversation back to data-in-motion
 - Notes:
