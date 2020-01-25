@@ -1,10 +1,23 @@
 # Pa. Court: Suspect Can't Be Compelled To Reveal Password
 
 - Summary:
+  - PA court declares PINs and PWs protected under 5th amendment
 - Purpose:
 - Premises:
 - Contributions:
 - Policy comments:
+  - "Justice Debra Todd said that unlike a blood sample, there is “no physical manifestation” of a
+      password. As such, that makes a password testimonial in nature and protected by the Fifth
+      Amendment."
+    - There is a legal difference between physical evidence and testimonial evidence. Is digital
+        content physical? Is the PIN not physically manifested in system memory?
+    - "'As a passcode is necessarily memorized, one cannot reveal a passcode without revealing the
+        contents of one’s mind,' Todd wrote in an opinion joined by Chief Justice Thomas Saylor and
+        Justices Christine Donohue and David Wecht."
+    - It's about revealing the contents of one's mind.
+  - Rights advocates (here the ACLU and EFF) have strange bedfellows. It looks bad to side with
+      those known to be guilty, but the rights of the weak are the rights of us all. Rights matter
+      most when they need to be used.
 - Technical comments:
 - Notes:
 

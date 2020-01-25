@@ -11,3 +11,5 @@
 | LE      | Law Enforcement                       |
 | LEA     | Law Enforcement Agencies              |
 | LEO     | Law Enforcement Officers              |
+| PIN     | Personal Identification Number        |
+| PW      | Password                              |
