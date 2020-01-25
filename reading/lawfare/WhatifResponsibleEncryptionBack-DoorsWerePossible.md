@@ -12,7 +12,7 @@
       the marketplace... a rational consumer will select a vendor that provides better security."
     - This is based in nice theory, but cost and speed to market are 1000x more important to
         companies and consumers than security.
-    - There are many ideas like this
+    - There are several ideas like this in the article.
 - Technical comments:
 - Notes:
   - "One of the fundamental constitutional precepts that the U.S. Supreme Court has recognized is
