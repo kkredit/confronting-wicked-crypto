@@ -126,7 +126,6 @@ function insert_bibtex_field() {
     BIBTEX_CITATION="$(echo -e "$LINE_1\n$1\n$LINE_REST")"
 }
 
-# TODO: replace with month, year
 if citation_missing_field "month"; then
     echo "Could not find month. Paste month in the format 'jan' or leave blank if NA"
     read -r -p "Month: " MONTH
@@ -155,6 +154,7 @@ if citation_missing_field "author"; then
         read -r -p "Author first name: " FNAME
         [[ "x" == "$FNAME" ]] && break
         $ISFIRST || AUTHORS+=" and "
+        ISFIRST=false
         read -r -p "Author last name: " LNAME
         if [[ "" == "$LNAME" ]] && [[ "" == "$FNAME" ]]; then
             printerr 1 "Cannot have empty author name"

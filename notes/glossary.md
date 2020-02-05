@@ -5,6 +5,8 @@
 | Acronym | Meaning                               |
 | ------- | ------------------------------------- |
 | CP      | Child Pornography                     |
+| CSAM    | Child Sexual Abuse Material           |
+| DE      | Device Encryption                     |
 | DIM     | Data In Motion                        |
 | DAR     | Data At Rest                          |
 | E2E     | End To End                            |
