@@ -8,6 +8,7 @@ SUBDIR - Directory under which to create the new notes file
 SOURCE - The DOI or URL of the new material
 "
 
+ORIG_DIR=$(pwd)
 pushd $(git rev-parse --show-toplevel)/reading &>/dev/null
 function cleanup() {
     if [[ 2 == $? ]]; then
@@ -35,7 +36,10 @@ fi
 
 ##################################################################### ARGUMENTS
 (( 2 <= $# )) || printexit 2 "Incorrect args"
-SUBDIR=$(echo $1 | sed 's:/*$::')
+case "$1" in
+    /*) SUBDIR=$(echo $1 | sed 's:/*$::') ;;
+    *)  SUBDIR=$ORIG_DIR/$(echo $1 | sed 's:/*$::') ;;
+esac
 [ -d $SUBDIR ] || printexit 2 "SUBDIR=$SUBDIR must exist"
 SOURCE="${@:2}"
 
