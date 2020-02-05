@@ -1,12 +1,11 @@
-
 # Principled Extraordinary Access
 
 This repository contains the source for my master's thesis on principled approaches to extraordinary
 access. Major influences include the Carnegie Encryption Working Group's ["Moving the Encryption
 Policy Conversation
 Forward"](https://carnegieendowment.org/2019/09/10/moving-encryption-policy-conversation-forward-pub-79573)
-and Stefan Savage's ["Lawful Device Access without Mass Surveillance
-Risk"](https://cseweb.ucsd.edu/~savage/papers/lawful.pdf).
+and Mayank Varia's ["A Roadmap for Exceptional Access
+Research"](https://www.lawfareblog.com/roadmap-exceptional-access-research).
 
 ## Motivation
 
@@ -44,8 +43,10 @@ attempt to identify a principled path forward.
 
 ## Usage
 
-To build the document, run `make`. The tools [cite](https://github.com/rgieseke/cite) and
-[scholarref](https://adamsgaard.dk/scholarref.html) are quite handy for generating Bibtex citations.
+To build the document, run `make`. The tools [Zotero Translation
+Server](https://github.com/zotero/translation-server) and
+[scholarref](https://adamsgaard.dk/scholarref.html), combined with the helper scripts in `scripts/`,
+are quite handy for generating Bibtex citations.
 
 ## License
 
