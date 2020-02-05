@@ -1,0 +1,48 @@
+===
+title: >
+  Exceptional Access
+subTitle: Arguments For and Against
+author: Kevin Kredit
+date: February 4, 2020
+color:
+    colorScheme: colorbrewer-category9
+    tagColors:
+        pro: 0
+        con: 1
+model:
+    removeTagsFromText: true
+===
+
+/**
+ * The high-level arguments for and against exceptional access
+**/
+
+
+/*
+Central claims
+*/
+
+// "EA is good" -- far too broad, dismissed prima facie
+// "We should build EA systems" -- also dismissed prima facie
+// "EA is a net benefit to public security" -- admits our common interest, public
+//      security
+// "EA is a net benefit to society" -- admits that public security isn't all
+//      that's at stake
+
+[Exceptional Access]: Cryptosystems with exceptional access represent a net
+benefit to society.
+
+
+/*
+Arguments of the debate
+*/
+
+<Argument from power>:
+Exceptional access to encrypted data gives inappropriate power to the state.
+#con
+
+(1) EA shifts power from individuals to the state
+(2) The state already has enough, or too much, power over the individual
+----
+(3) EA represents a danger to society
+    -> [Exceptional Access]
