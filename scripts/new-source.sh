@@ -127,12 +127,23 @@ function insert_bibtex_field() {
 }
 
 # TODO: replace with month, year
-if citation_missing_field "date" && citation_missing_field "year"; then
-    echo "Could not find date. Paste date in format 'YYYY-MM-DD'"
-    read -r -p "Date: " DATE
+if citation_missing_field "month"; then
+    echo "Could not find month. Paste month in the format 'jan' or leave blank if NA"
+    read -r -p "Month: " MONTH
     echo
-    CITE_DATE="\tdate = {$DATE},"
-    insert_bibtex_field "$CITE_DATE"
+    if [[ "" != "$MONTH" ]]; then
+        CITE_MONTH="\tmonth = {$MONTH},"
+        insert_bibtex_field "$CITE_MONTH"
+    fi
+fi
+
+if citation_missing_field "year"; then
+    echo "Could not find year. Paste year in the format YYYY"
+    read -r -p "Year: " YEAR
+    echo
+    [[ "" == "$YEAR" ]] && printerr 1 "Cannot have empty year"
+    CITE_YEAR="\tyear = {$YEAR},"
+    insert_bibtex_field "$CITE_YEAR"
     NEW_CITATION_NAME=true
 fi
 
