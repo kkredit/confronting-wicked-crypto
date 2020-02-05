@@ -1,5 +1,6 @@
 {
     "latex-workshop.latex.external.build.command": "make all",
     "latex-workshop.bibtex-format.surround": "Quotation marks",
-    "latex-workshop.latex.outDir": "%DIR%/build"
+    "latex-workshop.latex.outDir": "%DIR%/build",
+    "cSpell.enabled": true
 }
