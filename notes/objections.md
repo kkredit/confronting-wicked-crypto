@@ -1,4 +1,3 @@
-
 # Objections
 
 Research in this topic elicits objections on many levels. This document lists, classifies, and
@@ -6,43 +5,49 @@ responds to them in a short and informal manner.
 
 ## Unsorted Complete List of Objections
 
-- Lawful access is a slippery slope
-- Access tools are powerful in the wrong hands
-- Encryption is the basis for all trust on the internet
-- Criminals, being criminals, will flout the law and use encryption anyway
-- Usage scope will creep; it will be abused and used for unintended purposes
-- Industry doesn't want this for ideological reasons
-- Industry doesn't want this for competitiveness reasons
-- US legislature is incompetent with tech (see CFAA, telecoms regulation) so cannot be trusted with
-    encryption regulation
-- [Outdated bad proposal] is hopelessly inadequate
-- Government should not have absolute access to data
-- When a control is easily circumventable, the only ones hurt are the ignorant
-- There is no overlap between crimes severe enough to warrant access and suspects using poor enough
-    op-sec for this to help
-- Government is already too powerful
-- Repressive governments will use this against reformers and activists
-- Making technological progress illegal is backward
+1.  Lawful access is a slippery slope
+2.  Access tools are powerful in the wrong hands
+3.  Encryption is the basis for all trust on the internet
+4.  Criminals, being criminals, will flout the law and use encryption anyway
+5.  Usage scope will creep; it will be abused and used for unintended purposes
+6.  Industry doesn't want this for ideological reasons
+7.  Industry doesn't want this for competitiveness reasons
+8.  US legislature is incompetent with tech (see CFAA, telecoms regulation) so cannot be trusted
+    with encryption regulation
+9.  [Outdated bad proposal] is hopelessly inadequate
+10. Government should not have absolute access to data
+11. When a control is easily circumventable, the only ones hurt are the ignorant
+12. There is no overlap between crimes severe enough to warrant access and suspects using poor
+    enough op-sec for this to help
+13. Government is already too powerful
+14. Repressive governments will use this against reformers and activists
+15. Making technological progress illegal is backward
+16. [Some respected security authority] says it's a bad idea
+17. The people I often agree with say it's a bad idea
 
 ## Reflection
 
-Without responding to each argument in turn, most objections fall into one of three categories:
+Without responding to each argument in turn, most objections fall into one of four categories:
 
-- Power
-  - Scope will creep (slippery slope)
-  - Government already has enough, or too much, power
-  - Tools could end up in the wrong hands
-  - The wrong people will be hurt
-- Implementation
-  - Encryption is too foundational for integrity and confidentiality to compromise
-  - US legislature is incompetent with tech policy
-  - Current proposals are inadequate
-  - Current proposals will hurt US international competitiveness
-- Fallacy
-  - Strawman attacks
-  - Appeal to authority
-  - Bandwagoning
-  - Nirvana fallacy (demanding perfection)
+* Ideology
+  * Absolute right to privacy (10, 13)
+  * Outlawing technological progress is backwards (15)
+* Power
+  * Scope will creep (1, 5)
+  * Government already has enough, or too much, power (6, 10, 13)
+  * Tools could end up in the wrong hands (2)
+  * The wrong people will be hurt (4, 11, 14)
+* Implementation
+  * Encryption is too foundational for integrity and confidentiality to compromise (3)
+  * US legislature is incompetent with tech policy (8)
+  * Current proposals are inadequately secure (9)
+  * Current proposals will hurt US international competitiveness (7)
+  * Current proposals will not address the problems we're hoping to fix (4, 12)
+* Fallacy
+  * Strawman attacks (9)
+  * Appeal to authority (16)
+  * Bandwagoning (17)
+  * Nirvana fallacy (demanding perfection)
 
 Objections based on concerns over the balance of power created by an extraordinary access mechanism
 are extremely important. Objections based on implementation issues are also important. Objections
@@ -71,13 +76,3 @@ of the government is more important than the individual's privacy. A perfectly u
 encryption says the individual's privacy is more important than any amount of societal will. A
 principled extraordinary access scheme says that the individual's and society's wills are held in
 balance. -->
-
-## Categories of Objections
-
-1. Power
-2. Implementation
-3. Irresponsibility
-
-### Description
-
-### Tables
