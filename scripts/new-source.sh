@@ -47,9 +47,9 @@ SOURCE="${@:2}"
 DOCKER_IMAGE="zotero/translation-server"
 DOCKER_PORT=1969
 if [[ 0 == $(docker container ls | grep $DOCKER_IMAGE | wc -l) ]]; then
-    echo "Launching Zotero container..."
-    docker run -d -p $DOCKER_PORT:$DOCKER_PORT --rm $DOCKER_IMAGE
-    sleep 15
+    echo "Launching Zotero container (30s)..."
+    docker run -d -p $DOCKER_PORT:$DOCKER_PORT --rm $DOCKER_IMAGE >/dev/null
+    sleep 30
 fi
 
 ##################################################################### DATA FETCHING

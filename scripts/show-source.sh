@@ -1,15 +1,11 @@
 #!/bin/bash
 
 # set -x
-pushd $(git rev-parse --show-toplevel)/reading >/dev/null
-function cleanup() {
-    popd > /dev/null
-    set +x
-}
-trap cleanup EXIT
+ORIG_DIR=$(pwd)
+cd $(git rev-parse --show-toplevel)/reading
 
-if [[ $# == 1 && -f $1 ]]; then
-    FILE=$1
+if [[ 1 == $# && -f $ORIG_DIR/$1 ]]; then
+    FILE=$ORIG_DIR/$1
 else
     FILE="$(grep -riIsc "$@" . | sort -t: -n -k2 | tail -1 | cut -d: -f1)"
     FILE="$(readlink -f "$FILE")"
