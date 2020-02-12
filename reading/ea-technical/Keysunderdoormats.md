@@ -32,11 +32,44 @@
 - Technical comments:
   - Lack of detail from LEAs
   - Many govt bodies, including the NSA, have an official COTS policy. There is no difference
-      between military intotech hardware and commercial
+      between military infotech hardware and commercial
   - Technical discussion is fairly high level
   - Scenarios:
     - Messaging DIM:
+      - [High level description of use of symmetric and asymmetric keys]
+      - Proposal: encrypt the symmetric key a second time with an escrowed key
+        - Problem 1: this precludes forward secrecy; all data ever encrypted this way would become
+            vulnerable as soon as the escrowed key is (inevitably) revealed
+          - "If any of the private escrowing keys are ever compromised, then all data that ever made
+              use of the compromised key is permanently compromised"
+          - "All known methods of achieving third-party escrow are incompatible with forward secrecy"
+          - There is also trend to ephemeral messaging
+        - Problem 2: this precludes authenticated encryption
+          - (I'm not sure why; couldn't you still sign the message using your private key?)
+            - Or maybe you can, but this is the 90s way they mention and more difficult to implement correctly
+        - Problem 3: who controls the escrowed keys?
+          - In USA, maybe FBI
+          - But what about internationally? Why would France cooperate with the FBI when that's annoying to them, and
+              why would China when they're intelligence competitors?
+          - Would there be encryption safe havens, where people ship their data to store safely like the wealthy do with
+              their bank accounts now?
     - Device DAR:
+      - Proposal: device mfr maintains ability to unlock device (keys or otherwise) and responds to warrants
+        - Authors point out that companies often already do this; the difficulty is scale
+        - Problem 1: how will the KEK be encrypted?
+          - Vendor supplied keys?
+            - Auth between vendors and agencies
+            - How to know it is for the correct device?
+            - If use HW (savage_lawful_2018), solutions are expensive to deploy and probably impossible to fix
+          - LEA supplied keys?
+            - Auth between vendor and agencies
+            - Key updates (must change keys if exposed)
+            - How many keys can be installed?
+          - LEA must ship the device back to the mfr?
+            - Eliminates auth questions
+            - Must still store keys over a long period of time
+        - Problem 2: jurisdiction and international keys
+          - National keys? What about travelers? Install keys at border? That adds all kinds of vulnerabilities
 - Notes:
   - They start breaking out arguments right in the abstract
   - Very "us v. them"

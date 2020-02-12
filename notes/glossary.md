@@ -11,6 +11,7 @@
 | DAR     | Data At Rest                          |
 | E2E     | End To End                            |
 | EA      | Exceptional (or Extraordinary) Access |
+| KEK     | Key Encrypting Key (for DE)           |
 | LE      | Law Enforcement                       |
 | LEA     | Law Enforcement Agencies              |
 | LEO     | Law Enforcement Officers              |
