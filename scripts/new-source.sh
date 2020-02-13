@@ -57,7 +57,7 @@ FORMAT=bibtex
 CURL_TIMEOUT=5
 
 function bad_json() {
-    [[ $(echo $@ | grep -v "{") ]]
+    [[ 0 == $# ]] || [[ $(echo $@ | grep -v "{") ]]
 }
 
 echo "Trying as a DOI..."
