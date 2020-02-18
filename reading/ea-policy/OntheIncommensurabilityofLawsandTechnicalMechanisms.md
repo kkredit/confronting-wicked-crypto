@@ -20,7 +20,11 @@
       - There is a fine balance; pols should bring the principles, techs should bring the possibles, and together we'll
           make the rules
     - Technical: bring transparency and accountability to operation of principles
-      - 
+      - Two primary benefits:
+        - "Enable fact-based consideration of whether laws are working properly"
+        - "Increase public confidence that laws are actually being followed"
+      - Also counters lack of data from FBI on the magnitude of the harm, e.g. on number of devices/cases that are
+          causing trouble
 - Policy comments:
   - Legal framework for providing data to law enforcement: All Writs Act
     - Scope is far from legally settled in extent and technological form
