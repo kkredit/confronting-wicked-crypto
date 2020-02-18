@@ -5,5 +5,9 @@
     "cSpell.enabled": true,
     "editor.rulers": [
         120
+    ],
+    "cSpell.words": [
+        "schneier",
+        "snowden"
     ]
 }
