@@ -91,9 +91,14 @@ TITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+title =" | cut -d{ -f 2- | cut -d, 
 
 echo "Fetched data for resource titled:"
 echo "  \"$TITLE\""
-read -r -p "Is this correct? [y/N] " response
-[[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] || printexit 1 "Sorry."
-echo
+CONT=true
+while [ true ]; do
+    read -r -p "Is this correct? [y/n/s] " response
+    [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] && break
+    [[ "$response" =~ ^([nN][oO]|[nN])$ ]] && printexit 1 "Sorry."
+    [[ "$response" =~ ^([sS][hH][oO][wW]|[sS])$ ]] && echo -n "$BIBTEX_CITATION"
+    echo
+done
 
 ##################################################################### CHECK FILE EXISTS
 FILE=$SUBDIR/$(echo $TITLE | tr -cd '[:alnum:]_-').md
