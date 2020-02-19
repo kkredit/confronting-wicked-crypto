@@ -24,6 +24,9 @@ responds to them in a short and informal manner.
 15. Making technological progress illegal is backward
 16. [Some respected security authority] says it's a bad idea
 17. The people I often agree with say it's a bad idea
+18. Bad actors will exploit EA mechanisms for their own gain
+19. International cooperation and jurisdictional issues are a big struggle
+20. LEAs already have plenty of paths to plaintext and criminal evidence
 
 ## Reflection
 
