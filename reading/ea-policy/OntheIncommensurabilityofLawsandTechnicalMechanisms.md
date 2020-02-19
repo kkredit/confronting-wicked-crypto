@@ -25,6 +25,7 @@
         - "Increase public confidence that laws are actually being followed"
       - Also counters lack of data from FBI on the magnitude of the harm, e.g. on number of devices/cases that are
           causing trouble
+      - See stajano_making_2017
 - Policy comments:
   - Legal framework for providing data to law enforcement: All Writs Act
     - Scope is far from legally settled in extent and technological form

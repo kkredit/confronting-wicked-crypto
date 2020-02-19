@@ -1,12 +1,43 @@
 # rayozzie/clear
 
 - Summary:
+  - A proposal for DE EA
+  - See response, tromer_2018
 - Purpose:
 - Premises:
 - Contributions:
 - Policy comments:
+  - Arguments against:
+    - Products constantly under attack
+    - Homogeneous products for global market
+    - Unintended consequences globally
+    - Risks are unbounded (after Snowden revelations)
+  - Conterarguments:
+    - Secure key management (at corporate scale) is already a thing
+    - Large vendors have the resources to comply with govt regulations worldwide
+    - Large vendors have the resources to act as privacy defending counterbalance to govts
+  - Further arguements:
+    - The most important thing is _defaults_ on _most popular services and devices_
 - Technical comments:
+  - Proposed solution avoids some pitfalls:
+    - No weakened encryption protocols
+    - No new trust relationships (can argue that have more trust in mfr, but tbh we already really trust them)
+    - No new HW
+    - No new processes between govt and vendors
+  - Weaknesses:
+    - Requires operation/trust of HW, SW on device (reasonable since the focus is on _defaults_, not advanced actors)
+  - Defense in depth -- double encrypt using multiple protocols; preserve forward secrecy (no details); have means to
+      update SW and keys (no details)
 - Notes:
+  - The diagrams aren't fancy, but it is nice to have visuals. Does cybersecurity academia look down on visuals?
+
+>I claim that this "vendor-authorized EA" procedure demonstrates that there is at least one technical method that does
+not materially increase cybersecurity risk, even against state-level adversaries.
+
+>Software Update is a very high-risk technology and practice. If it were being proposed today, no sane person would
+believe that it could be implemented at scale. In theory, it just can’t work. But it works in practice because of the
+strong economic and business need for it to exist. Software update has exhibited critical vulnerabilities, and there are
+no vulnerabilities that are more rapidly addressed.
 
 ```bib
 @misc{ozzie_2018,
