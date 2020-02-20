@@ -1,5 +1,5 @@
 {
-    "latex-workshop.latex.external.build.command": "make all",
+    "latex-workshop.latex.external.build.command": "./scripts/wait-till-pdf-updated.sh",
     "latex-workshop.bibtex-format.surround": "Quotation marks",
     "latex-workshop.latex.outDir": "%DIR%/build",
     "cSpell.enabled": true,
