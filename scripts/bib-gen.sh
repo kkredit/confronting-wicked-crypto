@@ -1,10 +1,7 @@
 #!/bin/bash
 
-pushd $(git rev-parse --show-toplevel)/reading &>/dev/null
-function cleanup() {
-  popd &>/dev/null
-}
-trap cleanup EXIT
+set -e
+cd $READING_DIR
 
 OUTFILE="../Thesis.bib"
 

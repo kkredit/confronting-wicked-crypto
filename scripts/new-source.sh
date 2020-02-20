@@ -9,13 +9,11 @@ SOURCE - The DOI or URL of the new material
 "
 
 ORIG_DIR=$(pwd)
-pushd $(git rev-parse --show-toplevel)/reading &>/dev/null
+cd $READING_DIR
 function cleanup() {
     if [[ 2 == $? ]]; then
         printf "$USAGE"
     fi
-    set +x
-    popd &>/dev/null
 }
 trap cleanup EXIT
 

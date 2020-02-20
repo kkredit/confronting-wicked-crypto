@@ -10,6 +10,7 @@
 
 ### Policy Goals
 
+- Support all forms of online security
 - Preclude mass surveillance
 - Preclude human rights abuse
 - Include transparency (matyas_incommensurability_2018, savage_lawful_2018)

@@ -2,7 +2,7 @@
 
 # set -x
 ORIG_DIR=$(pwd)
-cd $(git rev-parse --show-toplevel)/reading
+cd $READING_DIR
 
 if [[ 1 == $# && -f $ORIG_DIR/$1 ]]; then
     FILE=$ORIG_DIR/$1
