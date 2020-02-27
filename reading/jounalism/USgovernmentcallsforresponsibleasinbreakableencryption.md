@@ -13,7 +13,7 @@
   - Argument: "criminals don’t obey the law. Law abiding citizens would be forced to use hobbled
       encryption while criminals continued to choose the strongest encryption available."
   - Argument: FBI needs to get into phones for 7500 cases
-    - Counter: in 2013 alone, 3.1M cell phones were taken. Without strong ecnryption, that would be
+    - Counter: in 2013 alone, 3.1M cell phones were taken. Without strong encryption, that would be
         a disaster for crime and privacy.
   - Argument: Encryption is needed for activists and journalists in repressive countries
 - Technical comments:
@@ -26,9 +26,9 @@
       not when it's a user _feature_
   - Also makes the point that security is already a game of tradeoffs
   - And do we want to appear to be working harder on security that keeps out LEAs while we still
-      suck at so many of the fundementals as an industry?
+      suck at so many of the fundamentals as an industry?
 - Notes:
-  - Scheier partakes in the unhelpful exagerations, saying that "a certain piece of paper" isn't
+  - Schneier partakes in the unhelpful exaggerations, saying that "a certain piece of paper" isn't
       magic and this is mathematically "ridiculous." He certainly has been following this for a long
       time and has heard more of these conversations than I. But if we assume any goodwill on the
       part of lawmakers and LEAs, then we can talk to them and work together on some sort of
