@@ -31,6 +31,8 @@ Kludge:
 
 Prereqs: | $(TEMPLATE_IS_CLONED) Fonts Kludge
 
+# TODO: Add images build step
+
 $(DOCNAME).bib:
 	./scripts/bib-gen.sh
 
