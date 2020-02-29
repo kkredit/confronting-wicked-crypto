@@ -7,6 +7,7 @@ BINDIR   := build
 
 SOURCES  := $(wildcard $(SRCDIR)/*.argdown)
 IMAGES := $(patsubst $(SRCDIR)/%.argdown,$(BINDIR)/%.pdf,$(SOURCES))
+IMAGE_SVGS := $(patsubst $(SRCDIR)/%.argdown,$(BINDIR)/%.svg,$(SOURCES))
 
 .PHONY: all clean
 
@@ -18,5 +19,8 @@ clean:
 $(BINDIR):
 	mkdir -p $(BINDIR)
 
-$(IMAGES): $(BINDIR)/%.pdf : $(SRCDIR)/%.argdown | $(BINDIR)
-	argdown map $< $(BINDIR)
+$(IMAGE_SVGS): $(BINDIR)/%.svg : $(SRCDIR)/%.argdown | $(BINDIR)
+	argdown map --format svg $< $(BINDIR)
+
+$(IMAGES): $(BINDIR)/%.pdf : $(BINDIR)/%.svg
+	inkscape -z -D --file=$< --export-pdf=$@

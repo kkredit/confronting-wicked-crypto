@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source $(git rev-parse --show-toplevel)/scripts/sourceme.sh
 # set -x
 ORIG_DIR=$(pwd)
 cd $READING_DIR

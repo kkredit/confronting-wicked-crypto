@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source $(git rev-parse --show-toplevel)/scripts/sourceme.sh
+
 ##################################################################### SCRIPT SETUP
 USAGE="
 $0 SUBDIR SOURCE

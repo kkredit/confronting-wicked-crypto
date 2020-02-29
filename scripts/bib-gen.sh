@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+source $(git rev-parse --show-toplevel)/scripts/sourceme.sh
 cd $READING_DIR
 
 OUTFILE="../Thesis.bib"
