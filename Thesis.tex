@@ -35,6 +35,7 @@
 \newbool{HasListOfTables}
 \newbool{HasListOfFigures}
 \newbool{HasCurriculumVitae}
+\newbool{UseAccentInRefs}
 
 % Document properties
 \def\DocumentTitle{Principled Extraordinary Access}
@@ -76,6 +77,18 @@ bookmarksnumbered}
 \fi
 
 % Macros
+% \booltrue{UseAccentInRefs} % Uncomment to use accent colors
+\ifUseAccentInRefs
+    \newcommand{\mychap}[1]{\Chapter~\cref{#1}}
+    \newcommand{\mysec}[1]{\Section~\sref{#1}}
+    \newcommand{\myfig}[1]{\Figure~\fref{#1}}
+    \newcommand{\mytab}[1]{\Table~\tref{#1}}
+\else
+    \newcommand{\mychap}[1]{Chapter~\ref{#1}}
+    \newcommand{\mysec}[1]{Section~\ref{#1}}
+    \newcommand{\myfig}[1]{Figure~\ref{#1}}
+    \newcommand{\mytab}[1]{Table~\ref{#1}}
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                TEMPLATE SETUP
