@@ -54,7 +54,7 @@ fi
 
 ##################################################################### DATA FETCHING
 FORMAT=bibtex
-CURL_TIMEOUT=5
+CURL_TIMEOUT=20
 
 function bad_json() {
     [[ 0 == $# ]] || [[ $(echo $@ | grep -v "{") ]]
