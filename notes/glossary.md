@@ -22,8 +22,18 @@
 | NED     | Non-Ephemeral Data                                |
 | PIN     | Personal Identification Number                    |
 | PW      | Password                                          |
+| SE      | Strong Encryption                                 |
 
 ## Terms
 
-- Backdoor: generally, a non-standard route to plaintext; in practice, this term is used differently by different
-    parties, and is too stigmatized to convey meaning.
+* Backdoor: generally, a non-standard route to plaintext; in practice, this term is used differently by different
+  parties, and is too stigmatized to convey meaning.
+* Common Carrier: a party that transports goods and is not responsible for their contents or loss, granted they meet
+  certain requirements. Applicability to electronic telecommunications is formalized for ISPs, but not for online
+  platforms.
+* The Four Horsemen (of the Infocalypse): four reasons that governments and law enforcement agencies use, ostensibly as
+  scare tactics, into drumming up support for EA. The four horsemen are:
+  * Terrorists
+  * Pedophiles (child pornographers)
+  * Drug dealers
+  * Money launderers (traditional by Tim May; or kidnappers, Schneier)
