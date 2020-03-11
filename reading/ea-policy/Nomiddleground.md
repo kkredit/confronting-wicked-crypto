@@ -45,7 +45,7 @@ breaking into them.
   url = {https://www.ecfr.eu/publications/summary/no_middle_ground_moving_on_from_the_crypto_wars},
   abstract = {The ‘second crypto war’ is in full swing; European governments need to stop trying to defeat
 encryption and get more sophisticated themselves instead.},
-  journal = {European Council on Foreign Relations},
+  publisher = {European Council on Foreign Relations},
   language = {en},
   urldate = {2020-02-05}
 }
