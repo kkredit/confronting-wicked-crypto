@@ -5,7 +5,10 @@ source $(git rev-parse --show-toplevel)/scripts/sourceme.sh
 ORIG_DIR=$(pwd)
 cd $READING_DIR
 
-if [[ 1 == $# && -f $ORIG_DIR/$1 ]]; then
+if (( 2 <= $# )) && [[ "-a" == "$1" ]]; then
+    eval "grep -riIsl \"${@:2}\""
+    exit 0
+elif [[ 1 == $# && -f $ORIG_DIR/$1 ]]; then
     FILE=$ORIG_DIR/$1
 else
     FILE="$(grep -riIsc "$@" . | sort -t: -n -k2 | tail -1 | cut -d: -f1)"
