@@ -32,7 +32,7 @@
   certain requirements. Applicability to electronic telecommunications is formalized for ISPs, but not for online
   platforms.
 * The Four Horsemen (of the Infocalypse): four reasons that governments and law enforcement agencies use, ostensibly as
-  scare tactics, into drumming up support for EA. The four horsemen are:
+  scare tactics, to drums up support for EA. The four horsemen are:
   * Terrorists
   * Pedophiles (child pornographers)
   * Drug dealers
