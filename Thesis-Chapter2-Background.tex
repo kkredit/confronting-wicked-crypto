@@ -1,6 +1,12 @@
 \chapter{Background}
 \label{chap-background}
 
+This chapter summarizes the history of encryption and the exceptional access debate, introduces argument maps, and
+introduces threat modeling with data flow diagrams.
+
+\section{A Brief History of Encryption}
+\label{sec-history}
+
 Private use of encryption has a contentious history. [Some highlights.]
 
 Electronic encryption must be understood as a technological development embedded in the longer history of privacy and
@@ -16,59 +22,17 @@ who focus on its role in security rely on its absolute power.
 
 % Encryption requires absolute cryptographic fidelity in order to provide security.
 
-\section{Exceptional Access: Arguments For and Against}
-\label{sec-argsbackground}
+\subsection{Regulatory Environment}
+\label{sec-reg-environment}
 
-The debate over exceptional access takes place on two fundamental levels:
-\begin{enumerate}
-    \item Whether cryptosystems with exceptional access represent a net benefit to society
-    \item Whether and how to conduct exceptional access research
-\end{enumerate}
+\subsubsection*{US Efforts to Regulate Encryption}
 
-These arguments are introduced here and analyzed in detail in \mychap{chap-arguments}.
-[This section is currently written in outline-format, but will be drafted in a narrative, introductory style, as these
-arguments are the focus of a later chapter.]
+\subsubsection*{Regulations around the World}
 
-\subsection{Arguments For}
+\subsection{Technical Approaches}
+\label{sec-tech-approaches}
 
-Why EA is a benefit to society:
-\begin{itemize}
-    \item Absolute privacy is not a right
-    \item Encryption gives too much power to the individual
-    \item EA would allow more crimes to be prevented and prosecuted
-\end{itemize}
-
-Why to research EA:
-\begin{itemize}
-    \item EA done well would be more secure and privacy preserving than EA done poorly
-    \item The threat of legislative action creates urgency
-\end{itemize}
-
-\subsection{Arguments Against}
-
-Why EA is a danger to society:
-\begin{itemize}
-    \item Privacy is an absolute right
-    \item Exceptional access gives too much power to the state
-    \item Exceptional access is not possible in an acceptably secure manner
-\end{itemize}
-
-Why not to research EA:
-\begin{itemize}
-    \item With both security and privacy in a poor state, research should be focused on strengthening, not weakening,
-            them
-    \item The technical community should not entertain delusions about what is truly possible
-\end{itemize}
-
-\section{Regulatory Environment}
-
-\subsection{US Efforts to Regulate Encryption}
-
-\subsection{Regulations around the World}
-
-\section{Technical Approaches}
-
-\subsection{Historical Approaches}
+\subsubsection*{Historical Approaches}
 
 Historical approaches and proposals out of the first crypto war that saw various amounts of support.
 
@@ -79,7 +43,7 @@ Historical approaches and proposals out of the first crypto war that saw various
     \item Partial key escrow (see \cite{denning_taxonomy_1996})
 \end{itemize}
 
-\subsection{Modern Proposals}
+\subsubsection*{Modern Proposals}
 
 Recent proposals out of the second crypto war that have various levels of support.
 
@@ -90,3 +54,9 @@ Recent proposals out of the second crypto war that have various levels of suppor
     \item Lawful hacking \cite{nguyen_lawful_2017} \cite{soesanto_2018}
     \item Forced password disclosure \cite{bittenbender_2019}, see \cite{kerr_encryption_2017}
 \end{itemize}
+
+\section{Argument Maps}
+\label{sec-arg-maps-intro}
+
+\section{Threat Models and Data Flow Diagrams}
+\label{sec-threat-model-intro}

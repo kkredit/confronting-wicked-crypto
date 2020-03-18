@@ -28,6 +28,13 @@
 - 1996-1999: SAFE Act is prop0sed several times, has hearings, and gains support.
 - 1999: Clinton administration executively implements almost all of SAFE Act proposals, and the bill is dropped (!).
 
+## From kerr_encryption_2017
+
+- 1587: Mary Queen of Scots was convicted of treason and then beheaded when her role in an assassination plot against
+    Queen Elizabeth was revealed by the decryption of private letters among the conspirators"
+- 1807: "during the treason trial of Aaron Burr, the prosecution attempted to decipher Burr’s encrypted messages by
+    forcing his private secretary to testify about their plaintext meaning"
+
 ## From Me
 
 - What is triggering this round?
