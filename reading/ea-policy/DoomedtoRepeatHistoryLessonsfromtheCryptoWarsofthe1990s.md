@@ -33,8 +33,7 @@
   title = {Doomed to {Repeat} {History}? {Lessons} from the {Crypto} {Wars} of the 1990s},
   shorttitle = {Doomed to {Repeat} {History}?},
   url =
-{https://www.newamerica.org/cybersecurity-initiative/policy-papers/doomed-to-repeat-history-lessons-from-the-crypto-wars
--of-the-1990s/},
+{https://www.newamerica.org/cybersecurity-initiative/policy-papers/doomed-to-repeat-history-lessons-from-the-crypto-wars-of-the-1990s/},
   abstract = {An overview of lessons from the Crypto Wars of the 1990s for current policy-makers.},
   language = {en},
   urldate = {2020-03-11},
