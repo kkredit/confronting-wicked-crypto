@@ -17,6 +17,8 @@
 
 ## From kehl_right_2015
 
+- 1976: ITAR is passed--"products that contained strong encryption had been controlled under the International Traffic
+    in Arms Regulations and subject to strict export requirements."
 - 1993: Clinton white house introduces Clipper Chip
 - 1994: Industry reacts negatively to the proposal
 - 1994: Matt Blaze discovers a flaw in the chip design
@@ -25,7 +27,7 @@
     encryption and to relax export controls on encryption.' It included provisions that would have barred the government
     from creating a mandatory key escrow system and would also have removed export restrictions on most generally
     available software and hardware containing encryption."
-- 1996-1999: SAFE Act is prop0sed several times, has hearings, and gains support.
+- 1996-1999: SAFE Act is proposed several times, has hearings, and gains support.
 - 1999: Clinton administration executively implements almost all of SAFE Act proposals, and the bill is dropped (!).
 
 ## From kerr_encryption_2017
@@ -34,6 +36,18 @@
     Queen Elizabeth was revealed by the decryption of private letters among the conspirators"
 - 1807: "during the treason trial of Aaron Burr, the prosecution attempted to decipher Burr’s encrypted messages by
     forcing his private secretary to testify about their plaintext meaning"
+
+## From luciano_cryptology_1987
+
+- 50 B.C.: Julius Caesar uses the Caesar cipher to encrypt personal correspondence
+
+## From zimmermann_1996
+
+- 1991: Senate introduces, but does not pass, a bill mandating access to plain text contents when authorized by law
+- 1991: Phil Zimmermann releases PGP, "a public-key encryption software package for the protection of electronic mail";
+    "I did it because I wanted cryptography to be made available to the American public before it became illegal to use
+    it. I gave it away for free so that it would achieve wide dispersal, to inoculate the body politic."
+- 1996: Zimmermann testifies before the senate in favor of encryption and removing the export control
 
 ## From Me
 
