@@ -6,11 +6,18 @@ ORIG_DIR=$(pwd)
 cd $READING_DIR
 
 if (( 2 <= $# )) && [[ "-a" == "$1" ]]; then
+    # Show all
     eval "grep -riIsl \"${@:2}\""
     exit 0
 elif [[ 1 == $# && -f $ORIG_DIR/$1 ]]; then
+    # Show a file based on path
     FILE=$ORIG_DIR/$1
+elif [[ 1 == $# ]] && $(grep -riIsq "@*{$1,"); then
+    # Show a file based on bibtex ref
+    FILE="$(grep -riIsl "@*{$1," . | head -1)"
+    FILE="$(readlink -f "$FILE")"
 else
+    # Show the file with the most string matches
     FILE="$(grep -riIsc "$@" . | sort -t: -n -k2 | tail -1 | cut -d: -f1)"
     FILE="$(readlink -f "$FILE")"
 fi
