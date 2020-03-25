@@ -4,8 +4,10 @@
 This chapter summarizes the history of encryption and the exceptional access debate, introduces argument maps as a
 logical modeling tool, and introduces threat modeling with data flow diagrams.
 
-\section{A Brief History of Encryption}
+\section{Historical Context}
 \label{sec-history}
+
+\subsection{Encryption History and the First Crypto War}
 
 Electronic encryption is a new technology, but the field of cryptography is old, as demand for privacy is as old as
 communication itself. The most well known ancient example of rudimentary encryption is the Caesar cipher, named after
@@ -49,7 +51,7 @@ technologies include the financial system, local and global; industrial control 
 health information systems; private, government, and military communications; and the integrity of the internet as a
 whole.
 
-If the cryptographic primitives that compose these systems were to be compromised, the systems they compose could
+If the cryptographic primitives that compose these systems were to be compromised, the systems they comprise could
 collapse. If the financial system loses integrity, health information systems lose confidentiality, critical
 infrastructure loses availability, government communications lose authenticity and non-repudiation, or the internet as a
 whole loses integrity, inconceivably large damage would occur.
@@ -78,18 +80,18 @@ All these realities--government discomfort with absolute privacy, rapidly increa
 and a blossoming computer industry foundationally reliant on cryptography--came to a head in what has become known as
 the First Crypto War.
 
-In 1976, the same year Diffie and Hellmann published their research in public key cryptography, the U.S. Congress passes
+In 1976, the same year Diffie and Hellmann published their research in public key cryptography, the U.S. Congress passed
 the Arms Export Control Act and declares that strong cryptography is subject to export controls \cite{kehl_right_2015}.
-In 1991, the U.S. Senate introduces, but does not pass, a bill mandating access to plain text contents when authorized
-by law; in response, Philip Zimmermann releases PGP (Pretty Good Privacy), a public key encryption tool to secure email,
-in order that strong cryptography be ``made available to the American public before it became illegal to use''
-\cite{zimmermann_1996}. In 1993, the Clinton administration introduces Clipper Chip with the goal of ``providing the
-public with strong cryptographic tools without sacrificing the ability of law enforcement and intelligence agencies to
-access unencrypted versions of those communications'' \cite{thompson_2015}. Citing the foundational role of cryptography
-in security--and the potential of human rights abuses for compromised privacy--industry and prominent technical leaders
-reacted negatively to the chip \cite{kehl_right_2015} \cite{zimmermann_1996}. When security researcher Matt Blaze
-discovered flaws that allowed users to subvert the Clipper Chip mechanisms \cite{blaze_protocol_1994}, the proposal
-died.
+In 1991, the U.S. Senate introduced, but did not pass, a bill mandating access to plain text contents when authorized by
+law; in response, Philip Zimmermann released PGP (Pretty Good Privacy), a public key encryption tool to secure email, in
+order that strong cryptography be ``made available to the American public before it became illegal to use''
+\cite{zimmermann_1996}. In 1993, the Clinton administration introduced Clipper Chip \cite{press_1993} with the goal of
+``providing the public with strong cryptographic tools without sacrificing the ability of law enforcement and
+intelligence agencies to access unencrypted versions of those communications'' \cite{thompson_2015}. Citing the
+foundational role of cryptography in security--and the potential of human rights abuses for compromised
+privacy--industry and prominent technical leaders reacted negatively to the chip \cite{kehl_right_2015}
+\cite{zimmermann_1996}. When security researcher Matt Blaze discovered flaws that allowed users to subvert the Clipper
+Chip mechanisms \cite{blaze_protocol_1994}, the proposal died.
 
 Despite the failure of the Clipper Chip, the debate over access to strong encryption continued, primarily focused on
 various key escrow proposals \cite{thompson_2015}. In 1996, two bills were introduced in the US Congress. In the Senate,
@@ -106,22 +108,85 @@ this time, there was "an overwhelming amount of evidence against moving ahead wi
 \cite{thompson_2015}, and in 1999 the Clinton administration abruptly changed course, adopting almost all SAFE Act
 proposals \cite{kehl_right_2015}. This development marks the end of the First Crypto War.
 
-Two developments sewed the seeds for the Second Crypto War, and three set if off. The first seed was actually a
-non-development: when the Clinton administration changed its encryption policy, the U.S. House dropped the SAFE Act
-\cite{kehl_right_2015}. This meant that rather than being written in the pen of law, encryption policy was written in
-the pencil of executive order. The second seed was the events of and reaction to morning of September 11, 2001.
+\subsection{The Second Crypto War and the Current Context}
+
+Two developments sewed the seeds for the Second Crypto War. The first was actually a non-development: when the Clinton
+administration changed its encryption policy, the U.S. House dropped the SAFE Act \cite{kehl_right_2015}. This meant
+that rather than being written in the pen of law, encryption policy was written in the pencil of executive order. The
+second development was the events of and reaction to morning of September 11, 2001.
 
 Three developments have triggered the Second Crypto War.
-(1) The 2013 Snowden revelations
-(2) The mid-2010s spread of default device encryption in smartphones
-(3) The late-2010s spread of default E2E encryption in messaging services
+\begin{enumerate}
+    \item The 2013 Snowden revelations
+    \item The mid-2010s spread of default device encryption in smartphones
+    \item The late-2010s spread of default E2E encryption in messaging services
+\end{enumerate}
+
+Characteristic elements of the Second Crypto War include:
+\begin{enumerate}
+    \item The Apple v. FBI case over access to the San Bernardino shooter's iPhone \cite{schulze_clipper_2017}
+    \item A return to the Four Horsemen \cite{schneier_scaring_2019}, with a (warranted \cite{keller_internet_2019})
+            focus currently on CSAM \cite{geller_2019}
+    \item "Security vs Security" vs "Security vs Privacy" \cite{stalla_bourdillon_privacy_2014} \cite{schneier_2019}
+    \item Pendulating emphasis on DIM/E2E and DAR/DE \cite{schneier_2019}
+    \item A political landscape marked by uncertainty, extremism, misinformation, and most recently, a pandemic that
+            will have unknown impacts
+\end{enumerate}
+
+That brings us to where the debate stands today. A December 2019 U.S. Senate Judiciary Committee featured the top two
+U.S. parties both expressing anger over whether data should be ``beyond the reach of the law'' and expressed threats
+like ``get your act together, or we will gladly get your act together for you'' \cite{geller_2019}. In March 2020, the
+Republican atop the Senate Judiciary Committee introduced S.3398, the EARN IT Act of 2020, which seeks to establish a
+16-chair committee with the power to revoke online platforms' liability protection for user-submitted content if the
+committee determines the platform is not doing enough to fight child sexual abuse material (CSAM), a legal synonym for
+child pornography \cite{graham_s3398_2020}. As illustrated by an in-depth article by the \textit{New York Times}
+\cite{keller_internet_2019} that likely triggered the December 2019 hearing, the problem is enormous; however, critics
+largely see the EARN IT Act as an attempt to indirectly yet effectively outlaw E2E \cite{newman_2020}
+\cite{pfefferkorn_2020}.
+
+% TODO: create timeline! https://tex.stackexchange.com/questions/196794/how-can-you-create-a-vertical-timeline
+
+The following sections summarize the encryption regulatory environment and technical approaches to exceptional access.
 
 \subsection{Regulatory Environment}
 \label{sec-reg-environment}
 
 \subsubsection*{US Efforts to Regulate Encryption}
 
+The following laws and regulations have been applied to cases involving cryptography and access to encrypted
+information:
+
+\begin{itemize}
+    \item The Bill of Rights: Amendments I, IV, and V \cite{madison_1791}
+    \item The Arms Export Control Act (AECA) of 1976 established export controls over strong encryption techniques
+        introduced ITAR (International Traffic in Arms Regulations) \cite{morgan_hr13680_1976} \cite{kehl_right_2015}
+    \item The Computer Fraud and Abuse Act (CFAA) of 1986 \cite{hughes_hr4718_1986} \cite{wolff_computer_2016}
+    \item The Communications Assistance for Law Enforcement Act (CALEA) of 1994 \cite{edwards_hr4922_1994}
+    \item \dots
+\end{itemize}
+
+The following are proposed laws and regulations that did not go into effect or have yet to be voted on:
+
+\begin{itemize}
+    \item The Clipper Chip \cite{press_1993} \cite{thompson_2015}
+    \item The SAFE Act \cite{goodlatte_hr3011_1996}
+    \item The EARN IT Act \cite{graham_s3398_2020}
+    \item \dots
+\end{itemize}
+
 \subsubsection*{Regulations around the World}
+
+The following is a very brief account of the regulatory environment in various jurisdictions around the world:
+
+\begin{itemize}
+    \item Australia: in 2018 passed its Assistance and Access bill \cite{ag_2018} \cite{newman_2018}
+    \item UK: Investigatory Powers Act \cite{legislature_2016}
+    \item EU: GDPR
+    \item China: \cite{donahue_comparative_2018}
+    \item Israel: \cite{donahue_comparative_2018}
+    \item Japan, Korea? -- can't find anything
+    \item \dots
+\end{itemize}
 
 \subsection{Technical Approaches}
 \label{sec-tech-approaches}
@@ -152,6 +217,8 @@ Recent proposals out of the second crypto war that have various levels of suppor
 
 \section{Argument Maps}
 \label{sec-arg-maps-intro}
+
+
 
 \section{Threat Models and Data Flow Diagrams}
 \label{sec-threat-model-intro}
