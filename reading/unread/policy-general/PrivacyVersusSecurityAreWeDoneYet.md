@@ -1,5 +1,6 @@
 # Privacy Versus Security… Are We Done Yet?
 
+read next
 - Summary:
 - Purpose:
 - Premises:
@@ -9,7 +10,7 @@
 - Notes:
 
 ```bib
-@incollection{stalla-bourdillon_privacy_2014,
+@incollection{stalla_bourdillon_privacy_2014,
   address = {London},
   title = {Privacy {Versus} {Security}… {Are} {We} {Done} {Yet}?},
   isbn = {9781447165293 9781447165309},

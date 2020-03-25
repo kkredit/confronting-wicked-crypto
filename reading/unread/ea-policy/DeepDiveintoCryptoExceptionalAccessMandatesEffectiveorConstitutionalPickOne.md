@@ -1,6 +1,7 @@
 # Deep Dive into Crypto “Exceptional Access” Mandates: Effective or Constitutional—Pick One
 
 - Summary:
+  - Argument that workarounds either make EA ineffective or illegal
 - Purpose:
 - Premises:
 - Contributions:

@@ -1,5 +1,6 @@
 # A comparative analysis of international encryption policies en route to a domestic solution
 
+read next
 - Summary:
 - Purpose:
 - Premises:

@@ -1,6 +1,10 @@
 # S.3398 - 116th Congress (2019-2020): EARN IT Act of 2020
 
 - Summary:
+  - Senate bill S.3398, the EARN IT Act of 2020 to establish a CSAM commission that has the power to revoke liability
+      protection for online platforms if they do not take "sufficient measures" to prevent CSAM
+  - This is largely seen as an attempt to prevent E2E
+  - See also: pfefferkorn_2020, newman_2020
 - Purpose:
 - Premises:
 - Contributions:
@@ -9,7 +13,7 @@
 - Notes:
 
 ```bib
-@misc{graham_s.3398_2020,
+@misc{graham_s3398_2020,
   type = {webpage},
   title = {S.3398 - 116th {Congress} (2019-2020): {EARN} {IT} {Act} of 2020},
   copyright = {Text is government work},

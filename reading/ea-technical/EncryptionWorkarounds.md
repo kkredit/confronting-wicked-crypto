@@ -1,5 +1,6 @@
 # Encryption Workarounds
 
+read next
 - Summary:
   - Goes into 6 encryption workarounds (not including EA) and their implications
 - Purpose:

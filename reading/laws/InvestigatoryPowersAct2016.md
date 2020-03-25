@@ -1,6 +1,7 @@
 # Investigatory Powers Act 2016
 
 - Summary:
+  - UK's Investigatory Powers Act of 2016
 - Purpose:
 - Premises:
 - Contributions:

@@ -11,9 +11,9 @@
   - Despite the deep technical interrelation between encryption and general security, lawmakers say
       EA "isn't about that". Well, EA laws would be!
   - Very imposing words quoted below
-  - This year roughly marks a change in emphasis from terrorism to CP
+  - This year roughly marks a change in emphasis from terrorism to CSAM
     - This argument is more emotional, though there are increasingly hard facts to back up the scale
-        of the CP issue. (See Times article)
+        of the CSAM issue. (See Times article)
   - "Sen. Sheldon Whitehouse (D-R.I.) asked if Silicon Valley was prepared to accept liability for
       deaths that resulted from investigators’ inability to access encrypted data."
     - Well, as we've seen elsewhere (ACLU and EFF defenses), basic rights are what protect us all,

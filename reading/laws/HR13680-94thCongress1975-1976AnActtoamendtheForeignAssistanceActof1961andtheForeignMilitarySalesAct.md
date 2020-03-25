@@ -1,6 +1,8 @@
 # H.R.13680 - 94th Congress (1975-1976): An Act to amend the Foreign Assistance Act of 1961 and the Foreign Military Sales Act
 
 - Summary:
+  - U.S. HR.13680, the Arms Export Control Act of 1976, which amends previous acts and establishes ITAR (International
+      Traffic in Arms Regulations)
 - Purpose:
 - Premises:
 - Contributions:
@@ -9,7 +11,7 @@
 - Notes:
 
 ```bib
-@misc{morgan_h.r.13680_1976,
+@misc{morgan_hr13680_1976,
   type = {webpage},
   title = {H.{R}.13680 - 94th {Congress} (1975-1976): {An} {Act} to amend the {Foreign} {Assistance} {Act} of 1961 and
 the {Foreign} {Military} {Sales} {Act}, and for other purposes.},

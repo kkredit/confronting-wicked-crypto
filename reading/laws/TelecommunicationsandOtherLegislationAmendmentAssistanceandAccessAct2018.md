@@ -1,6 +1,7 @@
 # Telecommunications and Other Legislation Amendment (Assistance and Access) Act 2018
 
 - Summary:
+  - Australia's Telecommunications and Other Legislation Amendment (Assistance and Access) Act 2018
 - Purpose:
 - Premises:
 - Contributions:

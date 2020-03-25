@@ -1,6 +1,7 @@
 # H.R.4922 - 103rd Congress (1993-1994): Communications Assistance for Law Enforcement Act
 
 - Summary:
+  - U.S. HR.4922 Communications Assistance for Law Enforcement Act (CALEA) of 1994
 - Purpose:
 - Premises:
 - Contributions:
@@ -9,7 +10,7 @@
 - Notes:
 
 ```bib
-@misc{edwards_h.r.4922_1994,
+@misc{edwards_hr4922_1994,
   type = {webpage},
   title = {H.{R}.4922 - 103rd {Congress} (1993-1994): {Communications} {Assistance} for {Law} {Enforcement} {Act}},
   copyright = {Text is government work},

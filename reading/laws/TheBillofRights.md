@@ -9,6 +9,11 @@
 - Technical comments:
 - Notes:
 
+> Amendment I  
+Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or
+abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the
+Government for a redress of grievances.
+
 >Amendment IV  
 The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and
 seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation,
@@ -22,7 +27,7 @@ nor shall be compelled in any criminal case to be a witness against himself, nor
 property, without due process of law; nor shall private property be taken for public use, without just compensation.
 
 ```bib
-@misc{madison_2015,
+@misc{madison_1791,
   author = {Madison, James and Mason, George},
   title = {The {Bill} of {Rights}: {A} {Transcription}},
   shorttitle = {The {Bill} of {Rights}},
@@ -35,7 +40,7 @@ Rotunda in the National Archives Museum.},
   language = {en},
   urldate = {2020-01-28},
   journal = {National Archives},
-  month = nov,
-  year = {2015}
+  month = dec,
+  year = {1791}
 }
 ```

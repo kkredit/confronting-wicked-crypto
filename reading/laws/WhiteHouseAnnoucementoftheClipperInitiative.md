@@ -1,6 +1,7 @@
 # White House Annoucement of the Clipper Initiative
 
 - Summary:
+  - Public White House statement announcing the Clipper Chip Initiative
 - Purpose:
 - Premises:
 - Contributions:
