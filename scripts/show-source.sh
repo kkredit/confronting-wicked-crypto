@@ -18,7 +18,13 @@ elif [[ 1 == $# ]] && $(grep -riIsq "@*{$1,"); then
     FILE="$(readlink -f "$FILE")"
 else
     # Show the file with the most string matches
-    FILE="$(grep -riIsc "$@" . | sort -t: -n -k2 | tail -1 | cut -d: -f1)"
+    FILE_W_NUM="$(grep -riIsc "$@" . | sort -t: -n -k2 | tail -1)"
+    NUM="$(echo $FILE_W_NUM | cut -d: -f2)"
+    if (( $NUM == 0 )); then
+        echo "No matches"
+        exit 1
+    fi
+    FILE="$(echo $FILE_W_NUM | cut -d: -f1)"
     FILE="$(readlink -f "$FILE")"
 fi
 
