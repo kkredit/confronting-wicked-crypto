@@ -1,26 +1,120 @@
 \chapter{Background}
 \label{chap-background}
 
-This chapter summarizes the history of encryption and the exceptional access debate, introduces argument maps, and
-introduces threat modeling with data flow diagrams.
+This chapter summarizes the history of encryption and the exceptional access debate, introduces argument maps as a
+logical modeling tool, and introduces threat modeling with data flow diagrams.
 
 \section{A Brief History of Encryption}
 \label{sec-history}
 
-Private use of encryption has a contentious history. [Some highlights.]
+Electronic encryption is a new technology, but the field of cryptography is old, as demand for privacy is as old as
+communication itself. The most well known ancient example of rudimentary encryption is the Caesar cipher, named after
+the character transposition technique Julius Caesar used to protect private correspondence
+\cite{luciano_cryptology_1987}. Significant developments include the first formal cryptographic study by Arab scholars
+in the eighth century, advancements made out of necessity in the twentieth century's world wars, and the application of
+computers to cryptographic problems \cite{kahn_codebreakers_1996}. Claude Shannon's formalized the modern ``mathematical
+analysis of cryptography'' in 1949 \cite{shannon_communication_1949}, and Whitfield Diffie and Martin Hellman published
+research on public key cryptography in 1976 \cite{diffie_new_1976}.
 
-Electronic encryption must be understood as a technological development embedded in the longer history of privacy and
-human rights. [This is where I'd like to understand more of the legal side. With a historical perspective.]
+Public key cryptography, paired with computer networking and personal computing advances in the 1980s, for the first
+time put the power of strong encryption in the hands of ordinary people. However, the privacy provided by cryptography
+is a powerful tool, and privacy is a property governments strive to regulate. The use of encryption for for private
+purposes has a contentious history. In 1587, Mary Queen of Scots was convicted of treason based on evidence from
+decrypted letters, and in 1807, prosecutors trying Aaron Burr for treason tried to force testimony from his secretary on
+the contents of encrypted messages \cite{kerr_encryption_2017}. Government's natural stance towards privacy makes it
+inherently uncomfortable with the rapid increase in availability of strong encryption.
 
-Privacy is not encryption's only purpose, however. Encryption is the technical foundation for many forms of computer and
-network security. [Properties: confidentiality, authentication, integrity, non-repudiation; primitives: hashed
-passwords, digital signatures, ...; technologies: PKI, TLS, SSO/Kerberos, VPNs, disk encryption, blockchains, ...]
+% Electronic encryption must be understood as a technological development embedded in the longer history of privacy and
+% human rights. [This is where I'd like to understand more of the legal side. With a historical perspective.]
 
-Electronic encryption's dual role as enabler of perfect privacy and cornerstone of computer security may be the central
+Privacy is not encryption's only purpose, however.
+
+% Spoofing                  Authentication
+% Tampering                 Integrity
+% Repudiation               Non- Repudiation
+% Information Disclosure    Confidentiality
+% Denial of Service         Availability
+% Elevation of Privilege    Authorization
+
+Cryptography is the technical foundation for many forms of computer and network security, at every scale. Security is
+often defined in terms of several properties: authentication, integrity, non-repudiation, confidentiality, availability,
+and authorization \cite{shostack_threat_2014}. Security properties are systems properties, but systems properties emerge
+from the composition of their parts, and innumerable primitives and technologies rely on cryptography.
+
+Cryptographic primitives include symmetric key encryption, public key encryption, one-way hash functions, and digital
+signatures. A few technologies that directly rely on these primitives include TLS (transport layer security), PKI
+(public key infrastructure), SSO (single sign on, e.g. Kerberos), VPNs (virtual private networks), secure password
+storage, disk encryption tools, and secure- and trusted-boot processes. A few systems that directly rely on these
+technologies include the financial system, local and global; industrial control systems and critical infrastructure;
+health information systems; private, government, and military communications; and the integrity of the internet as a
+whole.
+
+If the cryptographic primitives that compose these systems were to be compromised, the systems they compose could
+collapse. If the financial system loses integrity, health information systems lose confidentiality, critical
+infrastructure loses availability, government communications lose authenticity and non-repudiation, or the internet as a
+whole loses integrity, inconceivably large damage would occur.
+
+% Let us break security down into three scales: primitives, technologies, and systems. A primitive is a conceptual
+% building block that serves a single technical function. A technology is a set of implemented primitives glued together
+% to provide useful features. A system is a collection of technologies that collectively serve the ultimate outcome.
+% The security properties critical at the systems level depend
+
+% Primitives: one-way hashes enable integrity checks, block ciphers enable efficient confidential data storage, and
+% digital signature enable non-repudiation
+
+% Technologies: Transport Layer Security (TLS) enables confidentiality and integrity over the internet, Kerberos enables
+% convenient authentication, and virtual private networks (VPNs) enable confidential and authenticated remote network
+% connections
+
+% Systems: ...
+
+Electronic encryption's dual role as enabler of strong privacy and cornerstone of computer security may be the central
 conflict in the exceptional access debate. Those who focus on its role in privacy object to its absolute power. Those
 who focus on its role in security rely on its absolute power.
 
 % Encryption requires absolute cryptographic fidelity in order to provide security.
+
+All these realities--government discomfort with absolute privacy, rapidly increasing availability of strong encryption,
+and a blossoming computer industry foundationally reliant on cryptography--came to a head in what has become known as
+the First Crypto War.
+
+In 1976, the same year Diffie and Hellmann published their research in public key cryptography, the U.S. Congress passes
+the Arms Export Control Act and declares that strong cryptography is subject to export controls \cite{kehl_right_2015}.
+In 1991, the U.S. Senate introduces, but does not pass, a bill mandating access to plain text contents when authorized
+by law; in response, Philip Zimmermann releases PGP (Pretty Good Privacy), a public key encryption tool to secure email,
+in order that strong cryptography be ``made available to the American public before it became illegal to use''
+\cite{zimmermann_1996}. In 1993, the Clinton administration introduces Clipper Chip with the goal of ``providing the
+public with strong cryptographic tools without sacrificing the ability of law enforcement and intelligence agencies to
+access unencrypted versions of those communications'' \cite{thompson_2015}. Citing the foundational role of cryptography
+in security--and the potential of human rights abuses for compromised privacy--industry and prominent technical leaders
+reacted negatively to the chip \cite{kehl_right_2015} \cite{zimmermann_1996}. When security researcher Matt Blaze
+discovered flaws that allowed users to subvert the Clipper Chip mechanisms \cite{blaze_protocol_1994}, the proposal
+died.
+
+Despite the failure of the Clipper Chip, the debate over access to strong encryption continued, primarily focused on
+various key escrow proposals \cite{thompson_2015}. In 1996, two bills were introduced in the US Congress. In the Senate,
+it was S.1726, the Pro-C0DE Act of 1996, to abolish the export controls on encryptions software \cite{burns_s1726_1996}.
+In the House, it was HR.3011, the SAFE Act of 1996, to explicitly allow arbitrarily strong encryption for all legal
+activity \cite{goodlatte_hr3011_1996}. Indeed, the SAFE Act went further, including ``provisions that would have
+barred the government from creating a mandatory key escrow system and would also have removed export restrictions on
+most generally available software and hardware containing encryption'' \cite{kehl_right_2015}. Zimmermann, the author of
+PGP, who had by this time endured an investigation by the Customs Service for publishing his work, testified before the
+Senate in favor of the Pro-C0DE Act \cite{zimmermann_1996}. The the Pro-C0DE Act passed, but the SAFE Act did not.
+
+From 1996 to 1999, the SAFE Act was proposed several times, had hearings, and gained support \cite{kehl_right_2015}. By
+this time, there was "an overwhelming amount of evidence against moving ahead with any key escrow schemes"
+\cite{thompson_2015}, and in 1999 the Clinton administration abruptly changed course, adopting almost all SAFE Act
+proposals \cite{kehl_right_2015}. This development marks the end of the First Crypto War.
+
+Two developments sewed the seeds for the Second Crypto War, and three set if off. The first seed was actually a
+non-development: when the Clinton administration changed its encryption policy, the U.S. House dropped the SAFE Act
+\cite{kehl_right_2015}. This meant that rather than being written in the pen of law, encryption policy was written in
+the pencil of executive order. The second seed was the events of and reaction to morning of September 11, 2001.
+
+Three developments have triggered the Second Crypto War.
+(1) The 2013 Snowden revelations
+(2) The mid-2010s spread of default device encryption in smartphones
+(3) The late-2010s spread of default E2E encryption in messaging services
 
 \subsection{Regulatory Environment}
 \label{sec-reg-environment}
@@ -37,8 +131,7 @@ who focus on its role in security rely on its absolute power.
 Historical approaches and proposals out of the first crypto war that saw various amounts of support.
 
 \begin{itemize}
-    \item Clipper chip
-    \item Government key escrow
+    \item Clipper chip/third-party key escrow \cite{blaze_protocol_1994}
     \item Oblivious key escrow \cite{goos_oblivious_1996}
     \item Partial key escrow (see \cite{denning_taxonomy_1996})
 \end{itemize}
@@ -51,8 +144,10 @@ Recent proposals out of the second crypto war that have various levels of suppor
     \item CLEAR \cite{ozzie_2018}
     \item Device escrow with HW \cite{savage_lawful_2018}
     \item Computational, blockchain approaches \cite{phan_key_2017}
-    \item Lawful hacking \cite{nguyen_lawful_2017} \cite{soesanto_2018}
-    \item Forced password disclosure \cite{bittenbender_2019}, see \cite{kerr_encryption_2017}
+    \item Lawful hacking \cite{nguyen_lawful_2017} \cite{soesanto_2018} \cite{kerr_encryption_2017}
+    \item Forced password disclosure \cite{bittenbender_2019} \cite{kerr_encryption_2017}
+    \item Alternative paths to plaintext (access device while unlocked; find copies elsewhere)
+        \cite{kerr_encryption_2017}
 \end{itemize}
 
 \section{Argument Maps}
