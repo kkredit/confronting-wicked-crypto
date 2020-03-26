@@ -1,5 +1,6 @@
 # Law Enforcement's Dilemma: Fighting 21st Century Encrypted Communications with 20th Century Legislation
 
+read next
 - Summary:
 - Purpose:
 - Premises:
@@ -13,7 +14,7 @@
   title = {Law {Enforcement}'s {Dilemma}: {Fighting} 21st {Century} {Encrypted} {Communications}
 with 20th {Century} {Legislation}},
   shorttitle = {Law {Enforcement}'s {Dilemma}},
-  url = {https://www.hsdl.org/?abstract&did=},
+  url = {https://www.hsaj.org/articles/14547},
   abstract = {From the thesis abstract: This thesis explores the issue law enforcement has been
 confronting since the Edward Snowden leaks prompted technology companies to design their
 communication devices with enhanced encryption. As a result of these modifications, many
