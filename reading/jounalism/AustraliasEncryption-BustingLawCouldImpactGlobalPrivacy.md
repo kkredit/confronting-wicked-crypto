@@ -20,6 +20,8 @@
 @article{newman_2018,
   author = {Newman, Lily Hay},
   date = {2018-12-07},
+  year = {2018},
+  month = {dec},
   title = {Australia's {Encryption}-{Busting} {Law} {Could} {Impact} {Global} {Privacy}},
   issn = {1059-1028},
   url = {https://www.wired.com/story/australia-encryption-law-global-impact/},

@@ -13,7 +13,7 @@
 ```bib
 @book{kahn_codebreakers_1996,
   address = {New York},
-  edition = {Rev. ed.},
+  edition = {2},
   title = {The codebreakers: the story of secret writing},
   isbn = {9780684831305},
   shorttitle = {The codebreakers},
