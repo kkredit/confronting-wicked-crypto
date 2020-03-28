@@ -8,6 +8,7 @@
 - Policy comments:
 - Technical comments:
 - Notes:
+  - Copy available [here](https://www.dropbox.com/s/megypbw4z81unwp/Thorsen Digital Journalism - Cryptic journalism (Accepted Manuscript).pdf)
 
 ```bib
 @article{thorsen_cryptic_2017,
