@@ -19,13 +19,8 @@ function cleanup() {
 }
 trap cleanup EXIT
 
-function printexit() {
-    echo "${@:2}"
-    exit $1
-}
-
 ##################################################################### DEPENDENCIES
-[[ 0 < $(which docker | wc -l) ]] || printexit 1 "Docker must be installed."
+[[ 0 < $(which docker | wc -l) ]] || exitprint 1 "Docker must be installed."
 if [[ ! $(which getdoi) ]]; then
     echo "Installing scholarref tools..."
     git clone git://src.adamsgaard.dk/scholarref ../../scholarref &>/dev/null
@@ -35,12 +30,12 @@ if [[ ! $(which getdoi) ]]; then
 fi
 
 ##################################################################### ARGUMENTS
-(( 2 <= $# )) || printexit 2 "Incorrect args"
+(( 2 <= $# )) || exitprint 2 "Incorrect args"
 case "$1" in
     /*) SUBDIR=$(echo $1 | sed 's:/*$::') ;;
     *)  SUBDIR=$ORIG_DIR/$(echo $1 | sed 's:/*$::') ;;
 esac
-[ -d $SUBDIR ] || printexit 2 "SUBDIR=$SUBDIR must exist"
+[ -d $SUBDIR ] || exitprint 2 "SUBDIR=$SUBDIR must exist"
 SOURCE="${@:2}"
 
 ##################################################################### ZOTERO CONTAINER
@@ -76,18 +71,18 @@ if bad_json $JSON; then
                     127.0.0.1:$DOCKER_PORT/search 2>/dev/null)
 fi
 if bad_json $JSON; then
-    printexit 1 "Could not identify data source from $SOURCE"
+    exitprint 1 "Could not identify data source from $SOURCE"
 fi
 BIBTEX_CITATION=$(curl -v -d "$JSON" -H "Content-Type: application/json" \
                     "127.0.0.1:$DOCKER_PORT/export?format=$FORMAT" 2>/dev/null)
-[[ "" != "$BIBTEX_CITATION" ]] || printexit 1 "Could not extract $FORMAT citation from $SOURCE"
+[[ "" != "$BIBTEX_CITATION" ]] || exitprint 1 "Could not extract $FORMAT citation from $SOURCE"
 
 # Remove empty lines
 BIBTEX_CITATION="$(echo "$BIBTEX_CITATION" | sed '/^[[:space:]]*$/d')"
 
 ##################################################################### VERIFICATION
 TITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+title =" | cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
-[[ "" != "$TITLE" ]] || printexit 1 "Could not extract a title citation from $BIBTEX_CITATION"
+[[ "" != "$TITLE" ]] || exitprint 1 "Could not extract a title citation from $BIBTEX_CITATION"
 
 echo "Fetched data for resource titled:"
 echo "  \"$TITLE\""
@@ -95,7 +90,7 @@ CONT=true
 while [ true ]; do
     read -r -p "Is this correct? [y/n/s] " response
     [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] && break
-    [[ "$response" =~ ^([nN][oO]|[nN])$ ]] && printexit 1 "Sorry."
+    [[ "$response" =~ ^([nN][oO]|[nN])$ ]] && exitprint 1 "Sorry."
     [[ "$response" =~ ^([sS][hH][oO][wW]|[sS])$ ]] && echo -n "$BIBTEX_CITATION"
     echo
 done
@@ -115,7 +110,7 @@ if [[ "" != "$SHORTFILE" ]]; then
     echo
 fi
 
-[[ ! -f $FILE ]] || printexit 1 "File $FILE already exists!"
+[[ ! -f $FILE ]] || exitprint 1 "File $FILE already exists!"
 
 ##################################################################### ADDITIONAL INFO
 NEW_CITATION_NAME=false

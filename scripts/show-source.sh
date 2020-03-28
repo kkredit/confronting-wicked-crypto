@@ -37,6 +37,7 @@ NAME="$(cat "$FILE" | head -1 | sed 's/# //')"
 AUTHOR="$(cat "$FILE" | grep -A1 "\sauthor =" | tr '\n' ' ' | cut -d{ -f2 | cut -d} -f1)"
 REF="$(cat "$FILE" | grep -A1 "\`bib" | tr '\n' ' ' | cut -d{ -f2 | cut -d, -f1)"
 URL=$(cat "$FILE" | grep -A1 "\surl =" | tr '\n' ' ' | cut -d{ -f2 | cut -d} -f1)
+CIT_COUNT=$($SCRIPTS_DIR/count-citations.sh -n $REF)
 
 YELLOW='\e[0;33m'
 LIGHT_GREEN='\e[1;32m'
@@ -51,5 +52,5 @@ echo
 echo -e "$BLUE$URL$NO_COLOR"
 echo -e "$FILE"
 echo
-echo -e "cite as $LIGHT_GREEN$REF$NO_COLOR"
+echo -e "cite as $LIGHT_GREEN$REF$NO_COLOR (cited in $CIT_COUNT place$(((1 == CIT_COUNT)) || echo s))"
 echo
