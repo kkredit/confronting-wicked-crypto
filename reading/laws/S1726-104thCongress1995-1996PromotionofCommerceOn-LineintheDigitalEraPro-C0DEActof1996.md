@@ -2,6 +2,9 @@
 
 - Summary:
   - Senate bill S.1726, Pro-C0DE Act of 1996, to abolish the export controls on encryptions software
+  - Bill proposed in:
+    - 1996 (this link)
+    - 1997 - https://www.congress.gov/bill/105th-congress/senate-bill/377
 - Purpose:
 - Premises:
 - Contributions:

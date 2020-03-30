@@ -2,6 +2,7 @@
 
 - Summary:
   - House bill HR.3011, SAFE Act of 1996, to explicitly allow arbitrarily strong encryption for all legal activity
+  - See also [govtrack](https://www.govtrack.us/congress/bills/104/hr3011)
 - Purpose:
 - Premises:
 - Contributions:
