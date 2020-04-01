@@ -2,27 +2,32 @@
 
 ## Acronyms
 
-| Acronym | Meaning                                           |
-| ------- | ------------------------------------------------- |
-| AV      | Anti-virus (software)                             |
-| CALEA   | Communications Assistance for Law Enforcement Act |
-| CFAA    | Computer Fraud and Abuse Act                      |
-| CP      | Child Pornography                                 |
-| CSAM    | Child Sexual Abuse Material                       |
-| DE      | Device Encryption                                 |
-| DIM     | Data In Motion                                    |
-| DAR     | Data At Rest                                      |
-| E2E     | End To End                                        |
-| EA      | Exceptional (or Extraordinary) Access             |
-| ED      | Ephemeral Data                                    |
-| KEK     | Key Encrypting Key (for DE)                       |
-| LE      | Law Enforcement                                   |
-| LEA     | Law Enforcement Agencies                          |
-| LEO     | Law Enforcement Officers                          |
-| NED     | Non-Ephemeral Data                                |
-| PIN     | Personal Identification Number                    |
-| PW      | Password                                          |
-| SE      | Strong Encryption                                 |
+| Acronym | Meaning                                                       |
+| ------- | ------------------------------------------------------------- |
+| AV      | Anti-virus (software)                                         |
+| AECA    | The Arms Export Control Act of 1976                           |
+| CALEA   | Communications Assistance for Law Enforcement Act of 1994     |
+| CFAA    | Computer Fraud and Abuse Act of 1986                          |
+| CP      | Child Pornography                                             |
+| CSAM    | Child Sexual Abuse Material                                   |
+| DE      | Device Encryption                                             |
+| DIM     | Data In Motion                                                |
+| DAR     | Data At Rest                                                  |
+| E2E     | End To End                                                    |
+| EA      | Exceptional (or Extraordinary) Access                         |
+| ECPA    | Electronic Communications Privacy Act of 1986                 |
+| ED      | Ephemeral Data                                                |
+| FISA    | Foreign Intelligence Surveillance Act of 1978                 |
+| FISC    | Foreign Intelligence Surveillance Court (established by FISA) |
+| ITAR    | International Traffic in Arms Regulations (part of the AECA)  |
+| KEK     | Key Encrypting Key (for DE)                                   |
+| LE      | Law Enforcement                                               |
+| LEA     | Law Enforcement Agencies                                      |
+| LEO     | Law Enforcement Officers                                      |
+| NED     | Non-Ephemeral Data                                            |
+| PIN     | Personal Identification Number                                |
+| PW      | Password                                                      |
+| SE      | Strong Encryption                                             |
 
 ## Terms
 
@@ -32,7 +37,7 @@
   certain requirements. Applicability to electronic telecommunications is formalized for ISPs, but not for online
   platforms.
 * The Four Horsemen (of the Infocalypse): four reasons that governments and law enforcement agencies use, ostensibly as
-  scare tactics, to drums up support for EA. The four horsemen are:
+  scare tactics, to drum up support for EA. The four horsemen are:
   * Terrorists
   * Pedophiles (child pornographers)
   * Drug dealers
