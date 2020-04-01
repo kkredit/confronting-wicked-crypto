@@ -14,13 +14,21 @@ function check_for_duplicate_refname() {
   fi
 }
 
+function sanitize_language_field() {
+  if [[ "$REF" =~ "language" ]]; then
+    for PATTERN in "n" "ng" "nglish" "n_GB" "n_US" "n\\\\_GB" "n\\\\_US" "n-GB" "n-US"; do
+      REF=${REF/\{[Ee]$PATTERN\}/\{english\}}
+    done
+  fi
+}
+
 echo "% This is an auto-generated bibliography file built by $(basename $0)" > $OUTFILE
-echo "" >> $OUTFILE
+echo >> $OUTFILE
 
 for FILE in $(find . -type f -name "*.md"); do
   ROWS=( $(grep -n '```' $FILE | cut -d: -f1) )
   REF="$(sed -n $(( ${ROWS[0]} + 1 )),$(( ${ROWS[1]} - 1 ))p $FILE)"
   check_for_duplicate_refname
+  sanitize_language_field
   echo "$REF" >> $OUTFILE
-  echo >> $OUTFILE
 done

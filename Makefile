@@ -56,5 +56,5 @@ gvsu-live: | Prereqs
 	$(ENVIRON) latexmk -jobname=$(GVSU_JOB) $(LATEX_OPTS) $(LIVE_OPTS) $(DOCNAME)
 
 clean:
-	rm -rf $(OUTDIR)
+	rm -rf $(OUTDIR) $(DOCNAME).bib
 	make -C $(ARG_SRC_DIR) clean
