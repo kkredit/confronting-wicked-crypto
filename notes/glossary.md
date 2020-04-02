@@ -4,8 +4,9 @@
 
 | Acronym | Meaning                                                       |
 | ------- | ------------------------------------------------------------- |
-| AV      | Anti-virus (software)                                         |
 | AECA    | The Arms Export Control Act of 1976                           |
+| AV      | Anti-virus (software)                                         |
+| AWA     | All Writs Act of 1789                                         |
 | CALEA   | Communications Assistance for Law Enforcement Act of 1994     |
 | CFAA    | Computer Fraud and Abuse Act of 1986                          |
 | CP      | Child Pornography                                             |

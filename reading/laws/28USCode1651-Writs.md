@@ -1,6 +1,8 @@
 # 28 U.S. Code § 1651 - Writs
 
 - Summary:
+  - The 1789 All Writs Act
+  - Serves as a legal backstop when other, more specific laws don't apply; designed to be a loophole stopper
 - Purpose:
 - Premises:
 - Contributions:
