@@ -7,6 +7,10 @@ logical modeling tool, and introduces threat modeling with data flow diagrams.
 \section{Historical Context}
 \label{sec-history}
 
+The problem of strong encryption and exceptional access exists in a historical and technical context. The following
+sections describe encryption history, the present context, encryption regulations, and some proposed technical \ac{EA}
+solutions.
+
 \subsection{Encryption History and the First Crypto War}
 \label{sec-crypto-cwi}
 
@@ -19,6 +23,7 @@ computers to cryptographic problems \cite{kahn_codebreakers_1996}. Claude Shanno
 analysis of cryptography'' in 1949 \cite{shannon_communication_1949}, and Whitfield Diffie and Martin Hellman published
 research on public key cryptography in 1976 \cite{diffie_new_1976}.
 
+% TODO: explain public key cryptography enough to justify the following
 Public key cryptography, paired with computer networking and personal computing advances in the 1980s, for the first
 time put the power of strong encryption in the hands of ordinary people. However, the privacy provided by cryptography
 is a powerful tool, and privacy is a property governments strive to regulate. The use of encryption for for private
@@ -39,18 +44,19 @@ Privacy is not encryption's only purpose, however.
 % Denial of Service         Availability
 % Elevation of Privilege    Authorization
 
+% TODO: Kalafut: do these paragraphs belong here? It really is an aside on the importance of crypto. Possibly put in
+%       their own section earlier.
 Cryptography is the technical foundation for many forms of computer and network security, at every scale. Security is
 often defined in terms of several properties: authentication, integrity, non-repudiation, confidentiality, availability,
 and authorization \cite{shostack_threat_2014}. Security properties are systems properties, but systems properties emerge
 from the composition of their parts, and innumerable primitives and technologies rely on cryptography.
 
 Cryptographic primitives include symmetric key encryption, public key encryption, one-way hash functions, and digital
-signatures. A few technologies that directly rely on these primitives include TLS (transport layer security), PKI
-(public key infrastructure), SSO (single sign on, e.g. Kerberos), VPNs (virtual private networks), secure password
-storage, disk encryption tools, and secure- and trusted-boot processes. A few systems that directly rely on these
-technologies include the financial system, local and global; industrial control systems and critical infrastructure;
-health information systems; private, government, and military communications; and the integrity of the internet as a
-whole.
+signatures. A few technologies that directly rely on these primitives include \ac{TLS}, \ac{PKI}, \ac{SSO} (e.g.
+Kerberos), \ac{VPN}, secure password storage, disk encryption tools, and secure- and trusted-boot processes. A few
+systems that directly rely on these technologies include the financial system, local and global; industrial control
+systems and critical infrastructure; health information systems; private, government, and military communications; and
+the integrity of the internet as a whole.
 
 If the cryptographic primitives that compose these systems were to be compromised, the systems they comprise could
 collapse. If the financial system loses integrity, health information systems lose confidentiality, critical
@@ -72,118 +78,122 @@ whole loses integrity, inconceivably large damage would occur.
 % Systems: ...
 
 Electronic encryption's dual role as enabler of strong privacy and cornerstone of computer security may be the central
-conflict in the EA debate. Those who focus on its role in privacy object to its absolute power. Those
-who focus on its role in security rely on its absolute power.
+conflict in the EA debate. Those who focus on its role in privacy object to its absolute power. Those who focus on its
+role in security rely on its absolute power.
 
 % Encryption requires absolute cryptographic fidelity in order to provide security.
 
 All these realities--government discomfort with absolute privacy, rapidly increasing availability of strong encryption,
 and a blossoming computer industry foundationally reliant on cryptography--came to a head in what has become known as
-the First Crypto War.
+the first crypto war.
 
 In 1976, the same year Diffie and Hellmann published their research in public key cryptography, the U.S. Congress passed
-the Arms Export Control Act and declares that strong cryptography is subject to export controls \cite{kehl_right_2015}.
-In 1991, the U.S. Senate introduced, but did not pass, a bill mandating access to plain text contents when authorized by
-law; in response, Philip Zimmermann released PGP (Pretty Good Privacy), a public key encryption tool to secure email, in
-order that strong cryptography be ``made available to the American public before it became illegal to use''
-\cite{zimmermann_1996}. In 1993, the Clinton administration introduced Clipper Chip \cite{press_1993} with the goal of
-``providing the public with strong cryptographic tools without sacrificing the ability of law enforcement and
-intelligence agencies to access unencrypted versions of those communications'' \cite{thompson_2015}. Citing the
-foundational role of cryptography in security--and the potential of human rights abuses for compromised
-privacy--industry and prominent technical leaders reacted negatively to the initiative \cite{kehl_right_2015}
-\cite{zimmermann_1996}. When security researcher Matt Blaze discovered flaws that allowed users to subvert the Clipper
-Chip mechanisms \cite{blaze_protocol_1994}, the proposal died.
+the \ac{AECA} and declared that strong cryptography is subject to export controls \cite{kehl_right_2015}. In 1991, the
+U.S. Senate introduced, but did not pass, a bill mandating access to plain text contents when authorized by law; in
+response, Philip Zimmermann released \ac{PGP}, a public key encryption tool to secure email, in order that strong
+cryptography be ``made available to the American public before it became illegal to use'' \cite{zimmermann_1996}. In
+1993, the Clinton administration introduced the \term{clipperchip} \cite{press_1993} with the goal of ``providing the
+public with strong cryptographic tools without sacrificing the ability of law enforcement and intelligence agencies to
+access unencrypted versions of those communications'' \cite{thompson_2015}. Citing the foundational role of cryptography
+in security--and the potential of human rights abuses for compromised privacy--industry and prominent technical leaders
+reacted negatively to the initiative \cite{kehl_right_2015} \cite{zimmermann_1996}. When security researcher Matt Blaze
+discovered flaws that allowed users to subvert the \term{clipperchip} mechanisms \cite{blaze_protocol_1994}, the
+proposal died.
 
-Despite the failure of the Clipper Chip, the debate over access to strong encryption continued, primarily focused on
-various key escrow proposals \cite{thompson_2015}. In 1996, two bills were introduced in the US Congress. In the Senate,
-it was S.1726, the Pro-C0DE Act of 1996, to abolish the export controls on encryption software \cite{burns_s1726_1996}.
-In the House, it was HR.3011, the SAFE Act of 1996, to explicitly allow arbitrarily strong encryption for all legal
-activity \cite{goodlatte_hr3011_1996}. Indeed, the SAFE Act went further, including ``provisions that would have
-barred the government from creating a mandatory key escrow system and would also have removed export restrictions on
-most generally available software and hardware containing encryption'' \cite{kehl_right_2015}. Zimmermann, the author of
-PGP, who had by this time endured an investigation by the Customs Service for publishing his work, testified before the
-Senate in favor of the Pro-C0DE Act \cite{zimmermann_1996}. In November of that year, the Clinton administration
-released an executive order effectively removing export controls on strong encryption products, along the lines of the
-Pro-C0DE Act \cite{clinton_1996}.
+Despite the failure of the \term{clipperchip}, the debate over access to strong encryption continued, primarily focused
+on various key escrow proposals \cite{thompson_2015}. In 1996, two bills were introduced in the US Congress. In the
+Senate, it was S.1726, the Pro-C0DE Act of 1996, to abolish the export controls on encryption software
+\cite{burns_s1726_1996}. In the House, it was HR.3011, the SAFE Act of 1996, to explicitly allow arbitrarily strong
+encryption for all legal activity \cite{goodlatte_hr3011_1996}. Indeed, the SAFE Act went further, including
+``provisions that would have barred the government from creating a mandatory key escrow system and would also have
+removed export restrictions on most generally available software and hardware containing encryption''
+\cite{kehl_right_2015}. Zimmermann, the author of PGP, who had by this time endured an investigation by the Customs
+Service for publishing his work, testified before the Senate in favor of the Pro-C0DE Act \cite{zimmermann_1996}. In
+November of that year, the Clinton administration released an executive order effectively removing export controls on
+strong encryption products, along the lines of the Pro-C0DE Act \cite{clinton_1996}.
 
 From 1996 to 1999, the SAFE Act was proposed several times, had hearings, and gained support \cite{kehl_right_2015}. By
 this time, there was ``an overwhelming amount of evidence against moving ahead with any key escrow schemes''
 \cite{thompson_2015}, and in 1999 the Clinton administration abruptly changed course, adopting almost all SAFE Act
-proposals \cite{kehl_right_2015}. This development marks the end of the First Crypto War.
+proposals \cite{kehl_right_2015}. This development marks the end of the first crypto war.
 
 \subsection{The Second Crypto War and the Current Context}
 \label{sec-cwii-context}
 
-Two developments paved the way for the Second Crypto War. The first was actually a non-development: when the Clinton
+Two developments paved the way for the second crypto war. The first was actually a non-development: when the Clinton
 administration changed its encryption policy, the U.S. House dropped the SAFE Act \cite{kehl_right_2015}. Also un-passed
 were the related Pro-C0DE Act, Encrypted Communications Privacy Act (not to be confused with the \textit{Electronic}
-Communications Privacy Act (ECPA) of 1986), and Encryption Protects the Rights of Individuals from Violation and Abuse
-in CYberspace (E-PRIVACY) Act \cite{leahy_s376_1997} \cite{ashcroft_s2067_1998}. This legislative failure meant that
-rather than being written in the pen of law, encryption policy was written in the pencil of executive order.
+Communications Privacy Act \acs{ECPA} of 1986), and Encryption Protects the Rights of Individuals from Violation and
+Abuse in CYberspace (E-PRIVACY) Act \cite{leahy_s376_1997} \cite{ashcroft_s2067_1998}. This legislative failure meant
+that rather than being written in the pen of law, encryption policy was written in the pencil of executive order.
 
 The second development was the events of and reaction to the morning of September 11, 2001. When the U.S. had already
 been expanding police surveillance activities to combat communism, crime, drugs, and terrorism, the scale and audacity
 of the September 11 attacks to some justified yet greater investigatory powers \cite{bloss_escalating_2007}. October of
 2001 saw passage of the USA PATRIOT Act, which had several significant impacts: it weakened the limitation for using
-FISA requests on U.S. citizens; it expanded the scope of what could be compelled via FISA orders; it authorized
-``roving'' wiretaps; and it increased the power of National Security Letters (NSLs), which can be used without judicial
-review to compel information from electronic service providers while precluding any public release of the event
+\ac{FISA} requests on U.S. citizens; it expanded the scope of what could be compelled via \ac{FISA} orders; it
+authorized ``roving'' wiretaps; and it increased the power of \acp{NSL}, which can be used without judicial review
+to compel information from electronic service providers while precluding any public disclosure of the event
 \cite{sensenbrenner_2001} \cite{shamsi_2011}. The government was performing more surveillance than ever, and even these
 weakened limitations would be repeatedly violated \cite{shamsi_2011} \cite{tucker_2020}.
 
 If the weakness of data protection laws and absence of encryption protection laws left the door open for a second crypto
 war, and increased government surveillance set events in motion toward conflict, it was the 2013 Snowden revelations
-that constituted the crossing of the threshold. Though policies such as the U.S. National Security Agency (NSA)'s
-warrantless wiretapping caused a stir, it was the mass data collection under the agency's PRISM and related programs
-that caused the real public outcry \cite{landau_making_2013}. With the public interest focused on digital privacy,
-encryption promised a technical solution. Under pressure from both the human rights field and from ordinary users
-demanding improved digital privacy, U.S. tech companies responded by introducing default device encryption for
-data-at-rest (DAR) and end-to-end (E2E) encryption for data-in-motion (DIM) \cite{treguer_us_2018}.
+that constituted the crossing of the threshold. Though policies such as the U.S. \ac{NSA}'s warrantless wiretapping
+caused a stir, it was the mass data collection under the agency's \term{PRISM} and related programs that caused the real
+public outcry \cite{landau_making_2013}. With the public interest focused on digital privacy, encryption promised a
+technical solution. Under pressure from both the human rights field and from ordinary users demanding improved digital
+privacy, U.S. tech companies responded by introducing default device encryption for \ac{DAR} and \ac{E2E} encryption for
+\ac{DIM} \cite{treguer_us_2018}.
 
-Strong encryption's transition into being caused the First Crypto War; likewise, strong encryption's transition into
-ubiquity is causing the Second Crypto War.
+% TODO: choose one.
+Strong encryption's emergence caused the first crypto war, and now its proliferation has caused the second.
+
+% The emergence of strong encryption caused the first crypto war, and now its proliferation has caused the second.
+
+% The first crypto war resulted from strong encryption's emergence, and now the second has resulted from its
+% proliferation.
 
 The U.S. corporate response to Snowden should not be overly construed as a morally motivated defense of civil rights, as
 their behavior is a matter of several practical factors \cite{treguer_us_2018}, not least of which is the pursuit of
 basic digital security. Recall encryption and cryptography's critical role in security as described in
 \mysec{sec-crypto-cwi}, and that encryption's dual role as enabler of strong privacy and cornerstone of computer
-security is a central conflict in the EA debate. When questioned by lawmakers, technical leaders and
-executives have repeatedly appealed to the fact that strong cryptography is a necessity for security
-\cite{schulze_clipper_2017}.
+security is a central conflict in the \ac{EA} debate. When questioned by lawmakers, technical leaders and executives
+have repeatedly appealed to the fact that strong cryptography is a necessity for security \cite{schulze_clipper_2017}.
 
-Several events and arguments have come to characterize the Second Crypto War.
+Several events and arguments have come to characterize the second crypto war.
 
-\paragraph*{``Security vs. Security''} The relationship between security and privacy is sometimes viewed as antagonistic,
-an assumption implicit in in the ``nothing-to-hide'' argument, but discussions in recent years have shown that the
-debate is more about ``Security vs. Security'' than ``Security vs. Privacy'' \cite{stalla_bourdillon_privacy_2014}. In
-this context, there are two types of security: public security, the pursuit of law enforcement, and cybersecurity, the
-pursuit of tech professionals. Both sides of the debate have by now acknowledged that privacy and public security are
-not always in conflict, and in fact EA's effects on public security vs. cybersecurity--which in return affects public
-security--may be more important \cite{schneier_2019}.
+\paragraph*{``Security vs. Security''} The relationship between security and privacy is sometimes viewed as
+antagonistic, an assumption implicit in in the ``nothing-to-hide'' argument, but discussions in recent years have shown
+that the debate is more about ``Security vs. Security'' than ``Security vs. Privacy''
+\cite{stalla_bourdillon_privacy_2014}. In this context, there are two types of security: public security, the pursuit of
+law enforcement, and cybersecurity, the pursuit of tech professionals. Both sides of the debate have by now acknowledged
+that privacy and public security are not always in conflict, and in fact \ac{EA}'s effects on public security vs.
+cybersecurity--which in return affects public security--may be more important \cite{schneier_2019}.
 
 \paragraph*{Apple vs. FBI} The 2015 San Bernardino terror attack in which the suspect was killed, leaving behind a
-locked iPhone, resulted in the first major battle of the Second Crypto War. The FBI issued an order under the All Writs
-Act to compel Apple to unlock the device, which was among the first generation of Apple's fully encrypted iPhones; Apple
-objected on grounds that it was ``unreasonably burdensome'' and would undercut the integrity of all iOS devices
-\cite{schulze_clipper_2017}. The case occupied U.S. District courts, the media, and the political world's attention from
-February 16, 2016, when the warrant was issued, to March 28, when the FBI announced they had gained access to the phone
-through alternate means \cite{novet_2016}. Even though the phone proved not to have any important data
-\cite{schulze_clipper_2017}, the high profile case featured two characteristic elements of the new crypto wars,
+locked iPhone, resulted in the first major battle of the second crypto war. The \ac{FBI} issued an order under the
+\acrlong{AWA} to compel Apple to unlock the device, which was among the first generation of Apple's fully encrypted
+iPhones; Apple objected on grounds that it was ``unreasonably burdensome'' and would undercut the integrity of all iOS
+devices \cite{schulze_clipper_2017}. The case occupied U.S. District courts, the media, and the political world's
+attention from February 16, 2016, when the warrant was issued, to March 28, when the \ac{FBI} announced they had gained
+access to the phone through alternate means \cite{novet_2016}. Even though the phone proved not to have any important
+data \cite{schulze_clipper_2017}, the high profile case featured two characteristic elements of the new crypto wars,
 terrorism and device encryption. Shortly after the case ended, a pair of Republican and Democratic senators jointly
 released a discussion draft of a bill that would have forced Apple to comply \cite{burr_2016}. The draft did not make it
 to the floor, and the unresolved nature of the court case left the legal debate wide open.
 
-\paragraph*{The Four Horsemen} In the 1990s, an influential encryption advocate coined the phrase ``The Four Horsemen of
-the Infocalypse'' to describe four reasons that governments and law enforcement agencies use to undercut public support
-for strong encryption \cite{may_1994}. The traditional list includes terrorists, pedophiles, drug dealers, and money
-launderers, though sometimes kidnappers are substituted for money launderers \cite{schneier_scaring_2019}. Reflecting
-the times, the First Crypto War emphasized drug trafficking whereas the Second Crypto War is emphasizing terrorism and
-child pornography \cite{schulze_clipper_2017}. The focus on terrorism is likely a result of culture that emerged from
-the September 11 terror attacks as well as the San Bernardino terror attack that launched the Apple vs. FBI case; the
+\paragraph*{\term{horsemen}} In the 1990s, an influential encryption advocate coined the phrase ``\term{horsemen-full}''
+to describe four reasons that governments and law enforcement agencies use to undercut public support for strong
+encryption \cite{may_1994}. The traditional list includes terrorists, pedophiles, drug dealers, and money launderers,
+though sometimes kidnappers are substituted for money launderers \cite{schneier_scaring_2019}. Reflecting the times, the
+first crypto war emphasized drug trafficking whereas the second crypto war is emphasizing terrorism and child
+pornography \cite{schulze_clipper_2017}. The focus on terrorism is likely a result of culture that emerged from the
+September 11 terror attacks as well as the San Bernardino terror attack that launched the Apple vs. \ac{FBI} case; the
 focus on child pornography is likely a result of the growth of the ``dark web'' and a severe, in-depth 2019
 investigation by the \textit{New York Times} \cite{keller_internet_2019}.
 
-\paragraph*{DIM vs. DAR} A pendulating emphasis on DIM/E2E and DAR/DE \cite{schneier_2019}.
+\paragraph*{\ac{DIM} vs. \ac{DAR}} A pendulating emphasis on DIM/E2E and DAR/DE \cite{schneier_2019}.
 
 \paragraph*{Volatile Politics} A political landscape marked by uncertainty, extremism, misinformation, and most
 recently, a pandemic that will have unknown impacts.
@@ -193,10 +203,10 @@ U.S. parties both expressing anger over whether data should be ``beyond the reac
 like ``get your act together, or we will gladly get your act together for you'' \cite{geller_2019}. In March 2020, the
 Republican atop the Senate Judiciary Committee introduced S.3398, the EARN IT Act of 2020, which seeks to establish a
 16-chair committee with the power to revoke online platforms' liability protection for user-submitted content if the
-committee determines the platform is not doing enough to fight child sexual abuse material (CSAM), a legal synonym for
+committee determines the platform is not doing enough to fight \ac{CSAM}, a legal synonym for
 child pornography \cite{graham_s3398_2020}. As illustrated by an in-depth article by the \textit{New York Times}
 \cite{keller_internet_2019} that likely triggered the December 2019 hearing, the problem is enormous; however, critics
-largely see the EARN IT Act as an attempt to indirectly yet effectively outlaw E2E \cite{newman_2020}
+largely see the EARN IT Act as an attempt to indirectly yet effectively outlaw \ac{E2E} encryption \cite{newman_2020}
 \cite{pfefferkorn_2020}.
 
 % TODO: keep up to date
@@ -207,28 +217,28 @@ The following sections summarize the encryption regulatory environment and techn
 \subsection{Regulatory Environment}
 \label{sec-reg-environment}
 
-\subsubsection*{US Efforts to Regulate Encryption}
+\subsubsection*{U.S. Efforts to Regulate Encryption}
 
 The following laws and regulations have been applied to cases involving surveillance, cryptography, and access to
 encrypted information:
 
 \begin{itemize}
-    \item The All Writs Act \cite{congress_1789}
-    \item The Bill of Rights: Amendments I, IV, and V \cite{madison_1791}
-    \item The Arms Export Control Act (AECA) of 1976 established export controls over strong encryption techniques
+    \item \acf{AWA} of 1789 \cite{congress_1789}
+    \item Bill of Rights: Amendments I, IV, and V \cite{madison_1791}
+    \item \acf{AECA} of 1976 established export controls over strong encryption techniques
         introduced ITAR (International Traffic in Arms Regulations) \cite{morgan_hr13680_1976} \cite{kehl_right_2015}
-    \item Foreign Intelligence Surveillance (FISA) Act \cite{rodino_1978}
+    \item \acf{FISA} of 1978 \cite{rodino_1978}
         (FISA has been the subject of frequent FBI abuse: \cite{shamsi_2011} \cite{tucker_2020})
         % (the FBI almost lost some provisions; follow up on https://apnews.com/110ff653e98478da66765897dde3d613,
         %     https://www.washingtontimes.com/news/2020/mar/15/adam-schiff-fisa-reform-intervention-protects-fbi-/,
         %     https://saraacarter.com/fisa-senate-passes-measure-extending-surveillance-powers-abuses-not-addressed/)
-    \item The Computer Fraud and Abuse Act (CFAA) of 1986 \cite{hughes_hr4718_1986} \cite{wolff_computer_2016}
-    \item Electronic Communications Privacy Act (ECPA) of 1986 \cite{kastenmeier_hr4952_1986}
-    \item The Communications Assistance for Law Enforcement Act (CALEA) of 1994 \cite{edwards_hr4922_1994}
+    \item \acf{CFAA} of 1986 \cite{hughes_hr4718_1986} \cite{wolff_computer_2016}
+    \item \acf{ECPA} of 1986 \cite{kastenmeier_hr4952_1986}
+    \item \acf{CALEA} of 1994 \cite{edwards_hr4922_1994}
     \item Uniting and Strengthening America by Providing Appropriate Tools Required to Intercept and Obstruct Terrorism
         (USA PATRIOT ACT) Act of 2001 \cite{sensenbrenner_2001}
-    \item Protect America Act (PAA) of 2007 \cite{mcconnell_s1927_2007}
-    \item FISA Amendments Act of 2008 \cite{reyes_hr6304_2008}
+    \item \acf{PAA} of 2007 \cite{mcconnell_s1927_2007}
+    \item \acf{FISAAA} of 2008 \cite{reyes_hr6304_2008}
     \item Uniting and Strengthening America by Fulfilling Rights and Ensuring Effective Discipline Over Monitoring
         (USA FREEDOM) Act of 2015 \cite{sensenbrenner_2015}
     \item \dots
@@ -237,7 +247,7 @@ encrypted information:
 The following are proposed laws and regulations that did not go into effect or have yet to be voted on:
 
 \begin{itemize}
-    \item The Clipper Chip \cite{press_1993} \cite{thompson_2015}
+    \item The \term{clipperchip} \cite{press_1993} \cite{thompson_2015}
     \item The SAFE Act \cite{goodlatte_hr3011_1996}
     \item Encrypted Communications Privacy Act (mix of SE protection and EA guidelines?) \cite{leahy_s376_1997}
     \item Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act

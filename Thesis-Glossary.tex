@@ -1,0 +1,103 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                       GLOSSARY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Reference using the schema
+%
+%   \ac{}   -- general: abbreviation except first time is full
+%   \acs{}  -- short: abbreviation
+%   \acl{}  -- long: definition
+%   \acf{}  -- full: definition (abbreviation)
+%
+%   pluralization       -- append "p", e.g. \acp{}
+%   capitalize first    -- capitalize first of command, e.g. \Ac{}
+%   capitalize all      -- capitalize all of command, e.g. \AC{}
+%
+%   See page 85 of the documentation:
+%   http://ctan.math.utah.edu/ctan/tex-archive/macros/latex/contrib/glossaries-extra/glossaries-extra-manual.pdf
+
+\makeglossaries
+
+\newcommand{\newterm}[3]{
+    \newglossaryentry{#1}{
+        name={#2},
+        description={#3}
+    }
+}
+\newcommand{\term}{\ac}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                          TERMS
+
+% NOTE: Do not end with a period. The package adds this for you.
+% TODO: auto-update glossary.md. This should be the master, because it is more fully specified
+
+% Start terms
+\newterm{clipperchip}{Clipper Chip}{
+    A 1993 initiative by the Clinton administration to provide ``the public with strong cryptographic tools without
+    sacrificing the ability of law enforcement and intelligence agencies to access unencrypted versions of those
+    communications'' via hardware additions to consumer electronics. The proposal faced opposition, and died in 1994
+    when security researcher Matt Blaze discovered flaws that allowed users to subvert the Clipper Chip mechanisms
+}
+
+\newterm{PRISM}{PRISM}{
+    An NSA program unveiled by Edward Snowden involving the mass collection of  internet communications data of non-U.S.
+    persons and those communicating with them
+}
+
+\newterm{horsemen}{The Four Horsemen}{
+    Four reasons that governments and law enforcement agencies use to undercut public support for strong encryption. The
+    four horsemen are terrorists, pedophiles (child pornographers), drug dealers (and traffickers), and money launderers
+    (or kidnappers)
+}
+
+\newterm{horsemen-full}{The Four Horsemen of the Infocalypse}{
+    The long name for ``The Four Horsemen''
+}
+% End terms
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                       ACRONYMS
+
+% Start acronyms
+\newabbreviation{AECA}{AECA}{Arms Export Control Act}
+\newabbreviation{AV}{AV}{anti-virus}
+\newabbreviation{AWA}{AWA}{All Writs Act}
+\newabbreviation{CALEA}{CALEA}{Communications Assistance for Law Enforcement Act}
+\newabbreviation{CFAA}{CFAA}{Computer Fraud and Abuse Act}
+\newabbreviation{CP}{CP}{child pornography}
+\newabbreviation{CSAM}{CSAM}{child sexual abuse material}
+\newabbreviation{DE}{DE}{device encryption}
+\newabbreviation{DIM}{DIM}{data in motion}
+\newabbreviation{DAR}{DAR}{data at rest}
+\newabbreviation{E2E}{E2E}{end to end}
+\newabbreviation{EA}{EA}{exceptional (or extraordinary) access}
+\newabbreviation{ECPA}{ECPA}{Electronic Communications Privacy Act}
+\newabbreviation{ED}{ED}{ephemeral data}
+\newabbreviation{FBI}{FBI}{Federal Bureau of Investigation}
+\newabbreviation{FISA}{FISA}{Foreign Intelligence Surveillance Act}
+\newabbreviation{FISAAA}{FISAAA}{FISA Amendments Act}
+\newabbreviation{FISC}{FISC}{Foreign Intelligence Surveillance Court}
+\newabbreviation{ITAR}{ITAR}{International Traffic in Arms Regulations}
+\newabbreviation{KEK}{KEK}{key encrypting key}
+\newabbreviation{LE}{LE}{law enforcement}
+\newabbreviation{LEA}{LEA}{law enforcement agency}
+\newabbreviation{LEO}{LEO}{law enforcement officer}
+\newabbreviation{NED}{NED}{non-ephemeral data}
+\newabbreviation{NSA}{NSA}{National Security Agency}
+\newabbreviation{NSL}{NSL}{National Security Letter}
+\newabbreviation{PAA}{PAA}{Protect America Act}
+\newabbreviation{PGP}{PGP}{Pretty Good Privacy}
+\newabbreviation{PIN}{PIN}{personal identification number}
+\newabbreviation{PKI}{PKI}{public key infrastructure}
+\newabbreviation{PW}{PW}{password}
+\newabbreviation{SE}{SE}{strong encryption}
+\newabbreviation{SSO}{SSO}{single sign-on}
+\newabbreviation{TLS}{TLS}{Transport Layer Security}
+\newabbreviation{VPN}{VPN}{virtual private network}
+% End acronyms
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                    UN-OFFICIAL
+
+\newcommand{\US}{U.S. } % Not good; doesn't handle spacing, periods at ends of sentences very well

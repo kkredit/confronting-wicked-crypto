@@ -30,8 +30,8 @@ $(TEMPLATE_IS_CLONED):
 Fonts: | $(TEMPLATE_IS_CLONED)
 	if [ ! -L Fonts ]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
 
+# FIXME: Kludge to fix broken VSCode LatexWorkshop
 build/build:
-	# FIXME: Kludge to fix broken VSCode LatexWorkshop
 	mkdir -p build
 	ln -s . build/build
 
@@ -40,6 +40,9 @@ $(IMAGES):
 
 $(DOCNAME).bib:
 	./scripts/bib-gen.sh
+
+$(DOCNAME)-Glossary.tex: notes/glossary.md
+	./scripts/update-acronyms.sh
 
 Prereqs: | $(TEMPLATE_IS_CLONED) Fonts build/build $(IMAGES) $(DOCNAME).bib
 

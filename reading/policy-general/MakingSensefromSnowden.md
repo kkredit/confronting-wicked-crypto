@@ -7,6 +7,8 @@
 - Contributions:
 - Policy comments:
 - Technical comments:
+  - PRISM: a program that involved the mass collection of internet communications data of non-U.S. persons and those
+      communicating with them
 - Notes:
   - PDF available [here](https://privacyink.org/pdf/MakingSense.pdf)
 

@@ -1,7 +1,8 @@
 # Source this file
 
-export READING_DIR="$(git rev-parse --show-toplevel)/reading"
-export SCRIPTS_DIR="$(git rev-parse --show-toplevel)/scripts"
+export BASE_DIR="$(git rev-parse --show-toplevel)"
+export READING_DIR="$BASE_DIR/reading"
+export SCRIPTS_DIR="$BASE_DIR/scripts"
 
 export YELLOW='\e[0;33m'
 export LIGHT_GREEN='\e[1;32m'
@@ -19,3 +20,4 @@ alias new="$SCRIPTS_DIR/new-source.sh"
 alias show="$SCRIPTS_DIR/show-source.sh"
 alias gen="$SCRIPTS_DIR/bib-gen.sh"
 alias cite="$SCRIPTS_DIR/count-citations.sh"
+alias todo="(cd $BASE_DIR && grep -n TODO *.tex)"
