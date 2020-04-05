@@ -7,7 +7,9 @@ cd $READING_DIR
 
 if (( 2 <= $# )) && [[ "-a" == "$1" ]]; then
     # Show all
-    eval "grep -riIsl \"${@:2}\""
+    for FILE in $(eval "grep -riIsl \"${@:2}\""); do
+        readlink -f $FILE
+    done
     exit 0
 elif [[ 1 == $# && -f $ORIG_DIR/$1 ]]; then
     # Show a file based on path
