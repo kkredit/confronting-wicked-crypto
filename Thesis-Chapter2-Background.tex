@@ -1,7 +1,7 @@
 \chapter{Background}
 \label{chap-background}
 
-The problem of strong encryption and exceptional access exists in a techinical, historical, and regulatory context. This
+The problem of strong encryption and exceptional access exists in a technical, historical, and regulatory context. This
 chapter introduces cryptography, summarizes the history of encryption and the crypto wars, lists relevant encryption
 regulations, and lists prominent technical \ac{EA} proposals. It then introduces argument maps as a logical modeling
 tool, and introduces threat modeling with data flow diagrams.
@@ -18,13 +18,34 @@ processes for translating from plaintext to ciphertext and back are \ac{encrypti
 cipher ensures that only those with the correct secret information, the \ac{key}, can perform encryption or decryption
 on the text.
 
-There are two broad classes of cryptographic ciphers--symmetric and asymmetric. In traditional \ac{sym-crypto},
+% There are two classes of cryptographic ciphers--stream and block
+
+There are two major cryptographic protocol families--symmetric and asymmetric. In traditional \ac{sym-crypto},
 encryption and decryption are performed with the same key, and both parties must have this key in order to communicate
 securely. In \ac{asym-crypto}, encryption and decryption are performed with separate, paired keys, called the public key
 and the private key. The innovation of \ac{public-key-crypto} is that the public key is not secret, and using this
 technique, two parties can communicate securely without requiring an a previously agreed upon shared secret.
 
-Secrecy is not cryptography's only purpose, however.
+One can also define two major cryptographic applications--securing \acf{DIM} and \acf{DAR}. Each application is a
+different problem that results in different solutions. \Ac{DIM} typically uses long-lived \ac{asym-crypto} keys to
+perform authentication and establish short-lived \ac{sym-crypto} sessions keys; the sessions keys perform the actual
+encryption of the data in transit. Important properties of \ac{DIM} encryption protocols are \ac{forward-secrecy}, which
+ensures that a leaked private key or session key does not compromise any other private key or session key, and
+\ac{replay-protection}, which ensures that messages cannot be replayed by an attacker without detection
+\cite{bellovin_thinking_2016}. \Ac{E2EE} for instant messaging services is an example of encryption for \ac{DIM}.
+
+\Ac{DAR} by nature must use long-lived keys for encryption. Instead of being negotiated and randomly generated at
+encryption-time, as \ac{DIM} session keys are, these keys are either derived from a password stored in human memory or
+are stored somewhere in computer memory, which often takes place with the assistance of dedicated hardware.
+\Ac{disk-encryption} for laptops and mobile devices is an example of encryption for \ac{DAR}.
+
+Data secrecy is not cryptography's only purpose, however.
+
+Cryptography is the technical foundation for many forms of computer and network security, at every scale. Security is
+often defined in terms of several properties: authentication, integrity, non-repudiation, confidentiality, availability,
+and authorization \cite{shostack_threat_2014}. Security properties are systems properties, but systems properties emerge
+from the composition of their parts, and innumerable primitives and technologies rely on cryptography.
+
 % Spoofing                  Authentication
 % Tampering                 Integrity
 % Repudiation               Non- Repudiation
@@ -32,12 +53,7 @@ Secrecy is not cryptography's only purpose, however.
 % Denial of Service         Availability
 % Elevation of Privilege    Authorization
 
-Cryptography is the technical foundation for many forms of computer and network security, at every scale. Security is
-often defined in terms of several properties: authentication, integrity, non-repudiation, confidentiality, availability,
-and authorization \cite{shostack_threat_2014}. Security properties are systems properties, but systems properties emerge
-from the composition of their parts, and innumerable primitives and technologies rely on cryptography.
-
-Cryptographic primitives include symmetric key encryption, public key encryption, one-way hash functions, and digital
+Cryptographic primitives include symmetric key encryption, symmetric key encryption, one-way hash functions, and digital
 signatures. A few technologies that directly rely on these primitives include \ac{TLS}, \ac{PKI}, \ac{SSO} (e.g.
 Kerberos), \acp{VPN}, secure password storage, disk encryption tools, and secure- and trusted-boot processes. A few
 systems that directly rely on these technologies include the financial system, local and global; industrial control
@@ -66,7 +82,7 @@ Electronic encryption's dual role as enabler of strong privacy and cornerstone o
 conflict in the EA debate. Those who focus on its role in privacy object to its absolute power. Those who focus on its
 role in security rely on its absolute power.
 
-% Encryption requires absolute cryptographic fidelity in order to provide security.
+
 
 \section{Encryption History}
 \label{sec-crypto-history}
@@ -102,7 +118,7 @@ strong encryption.
 
 All these realities--government discomfort with absolute privacy, rapidly increasing availability of strong encryption,
 and a blossoming computer industry foundationally reliant on cryptography--came to a head in what has become known as
-the first crypto war.
+\ac{the-cw1}.
 
 In 1976, the same year Diffie and Hellmann published their research in public key cryptography, the U.S. Congress passed
 the \ac{AECA} and declared that strong cryptography is subject to export controls \cite{kehl_right_2015}. In 1991, the
@@ -132,12 +148,12 @@ strong encryption products, along the lines of the Pro-C0DE Act \cite{clinton_19
 From 1996 to 1999, the SAFE Act was proposed several times, had hearings, and gained support \cite{kehl_right_2015}. By
 this time, there was ``an overwhelming amount of evidence against moving ahead with any key escrow schemes''
 \cite{thompson_2015}, and in 1999 the Clinton administration abruptly changed course, adopting almost all SAFE Act
-proposals \cite{kehl_right_2015}. This development marks the end of the first crypto war.
+proposals \cite{kehl_right_2015}. This development marks the end of \ac{the-cw1}.
 
 \subsection{The Second Crypto War}
 \label{sec-history-cw2}
 
-Two developments paved the way for the second crypto war. The first was actually a non-development: when the Clinton
+Two developments paved the way for \ac{the-cw2}. The first was actually a non-development: when the Clinton
 administration changed its encryption policy, the U.S. House dropped the SAFE Act \cite{kehl_right_2015}. Also un-passed
 were the related Pro-C0DE Act, Encrypted Communications Privacy Act (not to be confused with the \textit{Electronic}
 Communications Privacy Act \acs{ECPA} of 1986), and Encryption Protects the Rights of Individuals from Violation and
@@ -160,10 +176,10 @@ that constituted the crossing of the threshold. Though policies such as the U.S.
 caused a stir, it was the mass data collection under the agency's \term{PRISM} and related programs that caused the real
 public outcry \cite{landau_making_2013}. With the public interest focused on digital privacy, encryption promised a
 technical solution. Under pressure from both the human rights field and from ordinary users demanding improved digital
-privacy, U.S. tech companies responded by introducing default device encryption for \ac{DAR} and \ac{E2E} encryption for
-\ac{DIM} \cite{treguer_us_2018}.
+privacy, U.S. tech companies responded by introducing default device encryption for \acl{DAR} and \acl{E2E} encryption
+for \acl{DIM} \cite{treguer_us_2018}.
 
-The emergence of strong encryption caused the first crypto war; its proliferation is causing the second.
+The emergence of strong encryption caused \ac{the-cw1}; its proliferation is causing the second.
 
 The U.S. corporate response to Snowden should not be overly construed as a morally motivated defense of civil rights, as
 their behavior is a matter of several practical factors \cite{treguer_us_2018}, not least of which is the pursuit of
@@ -175,7 +191,7 @@ have repeatedly appealed to the fact that strong cryptography is a necessity for
 \subsection{Current Context}
 \label{sec-history-current}
 
-Several events and arguments have come to characterize the second crypto war.
+Several events and arguments have come to characterize \ac{the-cw2}.
 
 \paragraph*{``Security vs. Security''} The relationship between security and privacy is sometimes viewed as
 antagonistic, an assumption implicit in in the ``nothing-to-hide'' argument, but discussions in recent years have shown
@@ -186,31 +202,40 @@ that privacy and public security are not always in conflict, and in fact \ac{EA}
 cybersecurity--which in return affects public security--may be more important \cite{schneier_2019}.
 
 \paragraph*{Apple vs. FBI} The 2015 San Bernardino terror attack in which the suspect was killed, leaving behind a
-locked iPhone, resulted in the first major battle of the second crypto war. The \ac{FBI} issued an order under the
-\acrlong{AWA} to compel Apple to unlock the device, which was among the first generation of Apple's fully encrypted
-iPhones; Apple objected on grounds that it was ``unreasonably burdensome'' and would undercut the integrity of all iOS
-devices \cite{schulze_clipper_2017}. The case occupied U.S. District courts, the media, and the political world's
-attention from February 16, 2016, when the warrant was issued, to March 28, when the \ac{FBI} announced they had gained
-access to the phone through alternate means \cite{novet_2016}. Even though the phone proved not to have any important
-data \cite{schulze_clipper_2017}, the high profile case featured two characteristic elements of the new crypto wars,
+locked iPhone, resulted in the first major battle of \ac{the-cw2}. The \ac{FBI} issued an order under the \acrlong{AWA}
+to compel Apple to unlock the device, which was among the first generation of Apple's fully encrypted iPhones; Apple
+objected on grounds that it was ``unreasonably burdensome'' and would undercut the integrity of all iOS devices
+\cite{schulze_clipper_2017}. The case occupied U.S. District courts, the media, and the political world's attention from
+February 16, 2016, when the warrant was issued, to March 28, when the \ac{FBI} announced they had gained access to the
+phone through alternate means \cite{novet_2016}. Even though the phone proved not to have any important data
+\cite{schulze_clipper_2017}, the high profile case featured two characteristic elements of the new crypto wars,
 terrorism and device encryption. Shortly after the case ended, a pair of Republican and Democratic senators jointly
 released a discussion draft of a bill that would have forced Apple to comply \cite{burr_2016}. The draft did not make it
 to the floor, and the unresolved nature of the court case left the legal debate wide open.
 
-\paragraph*{\term{horsemen}} In the 1990s, an influential encryption advocate coined the phrase ``\term{horsemen-full}''
+\paragraph*{\Term{horsemen}} In the 1990s, an influential encryption advocate coined the phrase ``\term{horsemen-full}''
 to describe four reasons that governments and law enforcement agencies use to undercut public support for strong
 encryption \cite{may_1994}. The traditional list includes terrorists, pedophiles, drug dealers, and money launderers,
-though sometimes kidnappers are substituted for money launderers \cite{schneier_scaring_2019}. Reflecting the times, the
-first crypto war emphasized drug trafficking whereas the second crypto war is emphasizing terrorism and child
-pornography \cite{schulze_clipper_2017}. The focus on terrorism is likely a result of culture that emerged from the
-September 11 terror attacks as well as the San Bernardino terror attack that launched the Apple vs. \ac{FBI} case; the
-focus on child pornography is likely a result of the growth of the ``dark web'' and a severe, in-depth 2019
-investigation by the \textit{New York Times} \cite{keller_internet_2019}.
+though sometimes kidnappers are substituted for money launderers \cite{schneier_scaring_2019}. Reflecting the times,
+\ac{the-cw1} emphasized drug trafficking whereas \ac{the-cw2} is emphasizing terrorism and child pornography
+\cite{schulze_clipper_2017}. The focus on terrorism is likely a result of culture that emerged from the September 11
+terror attacks as well as the San Bernardino terror attack that launched the Apple vs. \ac{FBI} case; the focus on child
+pornography is likely a result of the growth of the ``dark web'' and a severe, in-depth 2019 investigation by the
+\textit{New York Times} \cite{keller_internet_2019}.
 
-\paragraph*{\ac{DIM} vs. \ac{DAR}} A pendulating emphasis on DIM/E2E and DAR/DE \cite{schneier_2019}.
+\paragraph*{\ac{DIM} vs. \ac{DAR}} As noted in \mysec{sec-crypto-basics}, securing \acl{DIM} and \acl{DAR} are two
+different problems that result in different solutions. Therefore, both technical and policy proposals often split their
+recommendations along these lines \cite{group_2019} \cite{owen_law_2018}. The focus from law enforcement in the U.S. has
+pendulated between each of these applications a few times \cite{schneier_2019}. The typical \ac{DIM} application is
+\ac{E2EE} in instant messaging applications, whereas the typical \ac{DAR} application is \ac{disk-encryption} of mobile
+phones. A research group at Carnegie Mellon with participants from both sides of the debate has identified \ac{EA} for
+\ac{DAR} as the more tractable problem \cite{group_2019}.
 
-\paragraph*{Volatile Politics} A political landscape marked by uncertainty, extremism, misinformation, and most
-recently, a pandemic that will have unknown impacts.
+\paragraph*{Volatile Politics} Finally, \ac{the-cw2} is taking place amongst a political landscape marked by
+uncertainty, extremism, misinformation, and most recently, a pandemic that will have unknown impacts. Since legislature
+is part of the broader data security threat model, its behavior is important. Unfortunately, the dynamics of present
+leadership and the lack of reliable data on what law enforcement agencies need make it difficult for the technical
+community to engage productively with policy makers \cite{granick_2018}.
 
 That brings us to where the debate stands today. A December 2019 U.S. Senate Judiciary Committee featured the top two
 U.S. parties both expressing anger over whether data should be ``beyond the reach of the law'' and expressed threats
@@ -223,10 +248,11 @@ child pornography \cite{graham_s3398_2020}. As illustrated by an in-depth articl
 largely see the EARN IT Act as an attempt to indirectly yet effectively outlaw \ac{E2E} encryption \cite{newman_2020}
 \cite{pfefferkorn_2020}.
 
-% NOTE: keep up to date
+% NOTE: keep up to date, including the section above mentioning the pandemic
 % IDEA: create timeline! https://tex.stackexchange.com/questions/196794/how-can-you-create-a-vertical-timeline
 
 The following sections summarize the encryption regulatory environment and technical approaches to exceptional access.
+
 
 
 \section{Regulatory Environment}
@@ -269,7 +295,7 @@ The following are proposed laws and regulations that did not go into effect or h
         (like above?) \cite{ashcroft_s2067_1998}
     \item Encryption for the National Interest Act and Tax Relief for Responsible Encryption Act (introduced by same rep
         on same day) \cite{goss_hr2616_1999} \cite{goss_hr2617_1999}
-    \item Compiance with Court Orders Act of 2016 (discussion draft) \cite{burr_2016}
+    \item Compliance with Court Orders Act of 2016 (discussion draft) \cite{burr_2016}
     \item The Secure Data Act (federal SE protections) \cite{lofgren_hr5823_2018}
     \item The ENCRYPT Act (state SE protections) \cite{lieu_hr4170_2019}
     \item The EARN IT Act \cite{graham_s3398_2020}
@@ -296,7 +322,7 @@ The following is a very brief account of the regulatory environment in various j
 
 \subsection{Historical Approaches}
 
-Historical approaches and proposals out of the first crypto war that saw various amounts of support.
+Historical approaches and proposals out of \ac{the-cw1} that saw various amounts of support.
 
 \begin{itemize}
     \item Clipper chip/third-party key escrow \cite{blaze_protocol_1994}
@@ -306,7 +332,7 @@ Historical approaches and proposals out of the first crypto war that saw various
 
 \subsection{Modern Proposals}
 
-Recent proposals out of the second crypto war that have various levels of support.
+Recent proposals out of \ac{the-cw2} that have various levels of support.
 
 \begin{itemize}
     \item CLEAR \cite{ozzie_2018}

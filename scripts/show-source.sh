@@ -12,8 +12,11 @@ if (( 2 <= $# )) && [[ "-a" == "$1" ]]; then
     done
     exit 0
 elif [[ 1 == $# && -f $ORIG_DIR/$1 ]]; then
-    # Show a file based on path
+    # Show a file based on relative path
     FILE=$ORIG_DIR/$1
+elif [[ 1 == $# && -f $1 ]]; then
+    # Show a file based on absolute path
+    FILE=$1
 elif [[ 1 == $# ]] && $(grep -riIsq "@*{$1,"); then
     # Show a file based on bibtex ref
     FILE="$(grep -riIsl "@*{$1," . | head -1)"

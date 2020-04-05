@@ -34,6 +34,15 @@
 % IDEA: auto-update glossary.md. This should be the master, because it is more fully specified
 
 % Start terms
+\newterm{the-cw1}{the first crypto war}{
+    The flurry of evolution and conflict in encryption policy during the 1990s, characterized by episodes around export
+    controls, \ac{PGP}, the \ac{clipperchip}, and early key escrow proposals
+}
+\newterm{the-cw2}{the second crypto war}{
+    The flurry of conflict in encryption policy during the late 2010s to present, characterized by angst from the
+    Snowden revelations, the proliferation of strong encryption, and the Apple vs. FBI case
+}
+
 \newterm{clipperchip}{Clipper Chip}{
     A 1993 initiative by the Clinton administration to provide ``the public with strong cryptographic tools without
     sacrificing the ability of law enforcement and intelligence agencies to access unencrypted versions of those
@@ -78,6 +87,19 @@
 \newterm{sym-crypto}{symmetric cryptography}{
     A cipher scheme where encryption and decryption are performed with the same key
 }
+
+\newterm{forward-secrecy}{forward secrecy}{
+    A property of \ac{DIM} encryption protocols that ensures that a leaked private key or session key does not
+    compromise any other private key or session key
+}
+\newterm{replay-protection}{replay protection}{
+    A property of \ac{DIM} encryption protocols that ensures that messages cannot be replayed by an attacker without
+    detection
+}
+
+\newterm{disk-encryption}{disk encryption}{
+    An application of ecnryption for \ac{DAR} that involves encrypting the contents
+}
 % End terms
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,6 +117,7 @@
 \newabbreviation{DIM}{DIM}{data in motion}
 \newabbreviation{DAR}{DAR}{data at rest}
 \newabbreviation{E2E}{E2E}{end to end}
+\newabbreviation{E2EE}{E2EE}{end to end encryption}
 \newabbreviation{EA}{EA}{exceptional access}
 \newabbreviation{ECPA}{ECPA}{Electronic Communications Privacy Act}
 \newabbreviation{ED}{ED}{ephemeral data}

@@ -19,6 +19,7 @@
 | DIM     | data in motion                                    |
 | DAR     | data at rest                                      |
 | E2E     | end to end                                        |
+| E2EE    | end to end encryption                             |
 | EA      | exceptional access                                |
 | ECPA    | Electronic Communications Privacy Act             |
 | ED      | ephemeral data                                    |
