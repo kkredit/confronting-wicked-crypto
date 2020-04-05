@@ -1,50 +1,30 @@
 \chapter{Background}
 \label{chap-background}
 
-This chapter summarizes the history of encryption and the exceptional access debate, introduces argument maps as a
-logical modeling tool, and introduces threat modeling with data flow diagrams.
+The problem of strong encryption and exceptional access exists in a techinical, historical, and regulatory context. This
+chapter introduces cryptography, summarizes the history of encryption and the crypto wars, lists relevant encryption
+regulations, and lists prominent technical \ac{EA} proposals. It then introduces argument maps as a logical modeling
+tool, and introduces threat modeling with data flow diagrams.
 
-\section{Context of the Debate}
-\label{sec-context}
 
-The problem of strong encryption and exceptional access exists in a historical, regulatory, and technical context. The
-following sections describe encryption basics, the history of the crypto wars, the present context, encryption
-regulations, and some proposed technical \ac{EA} solutions.
 
-\subsection{Encryption History}
-\label{sec-crypto-history}
+\section{Cryptography Basics}
+\label{sec-crypto-basics}
 
-The section provides an overview of encryption from ancient to contemporary times.
+\Ac{cryptography} is the study of techniques for communicating secretly in the presence of third parties. This is
+performed by using some \ac{cipher} to translate between \ac{plaintext} and \ac{ciphertext}. The cipher is the tool or
+algorithm that performs the translation, plaintext is the original data, and ciphertext is the encoded data. The
+processes for translating from plaintext to ciphertext and back are \ac{encryption} and \ac{decryption}. A well-designed
+cipher ensures that only those with the correct secret information, the \ac{key}, can perform encryption or decryption
+on the text.
 
-\subsubsection{Encryption Basics}
-\label{sec-history-basics}
+There are two broad classes of cryptographic ciphers--symmetric and asymmetric. In traditional \ac{sym-crypto},
+encryption and decryption are performed with the same key, and both parties must have this key in order to communicate
+securely. In \ac{asym-crypto}, encryption and decryption are performed with separate, paired keys, called the public key
+and the private key. The innovation of \ac{public-key-crypto} is that the public key is not secret, and using this
+technique, two parties can communicate securely without requiring an a previously agreed upon shared secret.
 
-% TODO: Cryptography is <blah blah>
-
-Electronic encryption is a new technology, but the field of cryptography is old, as demand for privacy is as old as
-communication itself. The most well known ancient example of rudimentary encryption is the Caesar cipher, named after
-the character transposition technique Julius Caesar used to protect private correspondence
-\cite{luciano_cryptology_1987}. Significant developments include the first formal cryptographic study by Arab scholars
-in the eighth century, advancements made out of necessity in the twentieth century's world wars, and the application of
-computers to cryptographic problems \cite{kahn_codebreakers_1996}. Claude Shannon's formalized the modern ``mathematical
-analysis of cryptography'' in 1949 \cite{shannon_communication_1949}, and Whitfield Diffie and Martin Hellman published
-research on public key cryptography in 1976 \cite{diffie_new_1976}.
-
-% TODO: Public key cryptography is <blah blah>
-
-Public key cryptography, paired with computer networking and personal computing advances in the 1980s, for the first
-time put the power of strong encryption in the hands of ordinary people. However, the privacy provided by cryptography
-is a powerful tool, and privacy is a property governments strive to regulate. The use of encryption for for private
-purposes has a contentious history. In 1587, Mary Queen of Scots was convicted of treason based on evidence from
-decrypted letters, and in 1807, prosecutors trying Aaron Burr for treason tried to force testimony from his secretary on
-the contents of encrypted messages \cite{kerr_encryption_2017}. Government's natural stance towards privacy makes it
-inherently uncomfortable with the rapid increase in availability of strong encryption.
-
-% Electronic encryption must be understood as a technological development embedded in the longer history of privacy and
-% human rights. [This is where I'd like to understand more of the legal side. With a historical perspective.]
-
-Privacy is not encryption's only purpose, however.
-
+Secrecy is not cryptography's only purpose, however.
 % Spoofing                  Authentication
 % Tampering                 Integrity
 % Repudiation               Non- Repudiation
@@ -64,11 +44,6 @@ systems that directly rely on these technologies include the financial system, l
 systems and critical infrastructure; health information systems; private, government, and military communications; and
 the integrity of the internet as a whole.
 
-If the cryptographic primitives that compose these systems were to be compromised, the systems they comprise could
-collapse. If the financial system loses integrity, health information systems lose confidentiality, critical
-infrastructure loses availability, government communications lose authenticity and non-repudiation, or the internet as a
-whole loses integrity, inconceivably large damage would occur.
-
 % Let us break security down into three scales: primitives, technologies, and systems. A primitive is a conceptual
 % building block that serves a single technical function. A technology is a set of implemented primitives glued together
 % to provide useful features. A system is a collection of technologies that collectively serve the ultimate outcome.
@@ -81,16 +56,48 @@ whole loses integrity, inconceivably large damage would occur.
 % convenient authentication, and virtual private networks (VPNs) enable confidential and authenticated remote network
 % connections
 
-% Systems: ...
+If the cryptographic primitives that compose these systems were to be compromised, the systems they comprise could
+collapse. If the financial system loses integrity, health information systems lose confidentiality, critical
+infrastructure loses availability, government communications lose authenticity and non-repudiation, or the internet as a
+whole loses integrity, inconceivably large damage would occur.
 
-% FIXME: Kristen doesn't like the wording
+% FIXME: Kristen doesn't like the wording; also remove word "electronic"?
 Electronic encryption's dual role as enabler of strong privacy and cornerstone of computer security may be the central
 conflict in the EA debate. Those who focus on its role in privacy object to its absolute power. Those who focus on its
 role in security rely on its absolute power.
 
 % Encryption requires absolute cryptographic fidelity in order to provide security.
 
-\subsubsection{The First Crypto War}
+\section{Encryption History}
+\label{sec-crypto-history}
+
+The section provides an overview of encryption from ancient to contemporary times.
+
+\subsection{Encryption In the Past}
+\label{sec-history-old}
+
+Computerized encryption is a new technology, but the field of cryptography is old, as demand for privacy is as old as
+communication itself. The most well known ancient example of rudimentary encryption is the Caesar cipher, named after
+the character transposition technique Julius Caesar used to protect private correspondence
+\cite{luciano_cryptology_1987}. Significant developments include the first formal cryptographic study by Arab scholars
+in the eighth century, advancements made out of necessity in the twentieth century's world wars, and the application of
+computers to cryptographic problems \cite{kahn_codebreakers_1996}. Claude Shannon's formalized the modern ``mathematical
+analysis of cryptography'' in 1949 \cite{shannon_communication_1949}, and Whitfield Diffie and Martin Hellman published
+research on \ac{public-key-crypto} in 1976 \cite{diffie_new_1976}.
+
+The discovery of \ac{public-key-crypto} was an important advance. Combined with computer networking and personal
+computing advances in the 1980s, it for the first time put the power of strong encryption in the hands of ordinary
+people. However, the privacy provided by cryptography is a powerful tool, and privacy is a property governments strive
+to regulate. The use of encryption for for private purposes has a contentious history. In 1587, Mary Queen of Scots was
+convicted of treason based on evidence from decrypted letters, and in 1807, prosecutors trying Aaron Burr for treason
+tried to force testimony from his secretary on the contents of encrypted messages \cite{kerr_encryption_2017}.
+Government's natural stance towards privacy makes it inherently uncomfortable with the rapid increase in availability of
+strong encryption.
+
+% Electronic encryption must be understood as a technological development embedded in the longer history of privacy and
+% human rights.
+
+\subsection{The First Crypto War}
 \label{sec-history-cw1}
 
 All these realities--government discomfort with absolute privacy, rapidly increasing availability of strong encryption,
@@ -127,7 +134,7 @@ this time, there was ``an overwhelming amount of evidence against moving ahead w
 \cite{thompson_2015}, and in 1999 the Clinton administration abruptly changed course, adopting almost all SAFE Act
 proposals \cite{kehl_right_2015}. This development marks the end of the first crypto war.
 
-\subsubsection{The Second Crypto War}
+\subsection{The Second Crypto War}
 \label{sec-history-cw2}
 
 Two developments paved the way for the second crypto war. The first was actually a non-development: when the Clinton
@@ -142,8 +149,8 @@ been expanding police surveillance activities to combat communism, crime, drugs,
 of the September 11 attacks to some justified yet greater investigatory powers \cite{bloss_escalating_2007}. October of
 2001 saw passage of the USA PATRIOT Act, which had several significant impacts: it weakened the limitation for using
 \ac{FISA} requests on U.S. citizens; it expanded the scope of what could be compelled via \ac{FISA} orders; it
-authorized ``roving'' wiretaps; and it increased the power of \acp{NSL}, which can be used without judicial review
-to compel information from electronic service providers while precluding any public disclosure of the event
+authorized ``roving'' wiretaps; and it increased the power of \acp{NSL}, which can be used without judicial review to
+compel information from digital service providers while precluding any public disclosure of the event
 \cite{sensenbrenner_2001} \cite{shamsi_2011}. The government was performing more surveillance than ever, and even these
 weakened limitations would be repeatedly violated \cite{shamsi_2011} \cite{tucker_2020}.
 
@@ -161,11 +168,11 @@ The emergence of strong encryption caused the first crypto war; its proliferatio
 The U.S. corporate response to Snowden should not be overly construed as a morally motivated defense of civil rights, as
 their behavior is a matter of several practical factors \cite{treguer_us_2018}, not least of which is the pursuit of
 basic digital security. Recall encryption and cryptography's critical role in security as described in
-\mysec{sec-crypto-cwi}, and that encryption's dual role as enabler of strong privacy and cornerstone of computer
+\mysec{sec-crypto-basics}, and that encryption's dual role as enabler of strong privacy and cornerstone of computer
 security is a central conflict in the \ac{EA} debate. When questioned by lawmakers, technical leaders and executives
 have repeatedly appealed to the fact that strong cryptography is a necessity for security \cite{schulze_clipper_2017}.
 
-\subsubsection{Current Context}
+\subsection{Current Context}
 \label{sec-history-current}
 
 Several events and arguments have come to characterize the second crypto war.
@@ -221,10 +228,11 @@ largely see the EARN IT Act as an attempt to indirectly yet effectively outlaw \
 
 The following sections summarize the encryption regulatory environment and technical approaches to exceptional access.
 
-\subsection{Regulatory Environment}
+
+\section{Regulatory Environment}
 \label{sec-reg-environment}
 
-\subsubsection*{U.S. Efforts to Regulate Encryption}
+\subsection{U.S. Efforts to Regulate Encryption}
 
 The following laws and regulations have been applied to cases involving surveillance, cryptography, and access to
 encrypted information:
@@ -268,7 +276,7 @@ The following are proposed laws and regulations that did not go into effect or h
     \item \dots
 \end{itemize}
 
-\subsubsection*{Regulations around the World}
+\subsection{Regulations around the World}
 
 The following is a very brief account of the regulatory environment in various jurisdictions around the world:
 
@@ -282,10 +290,11 @@ The following is a very brief account of the regulatory environment in various j
     \item \dots General, see \cite{budish_encryption_2018}
 \end{itemize}
 
-\subsection{Technical Approaches}
+
+\section{Technical Approaches}
 \label{sec-tech-approaches}
 
-\subsubsection*{Historical Approaches}
+\subsection{Historical Approaches}
 
 Historical approaches and proposals out of the first crypto war that saw various amounts of support.
 
@@ -295,7 +304,7 @@ Historical approaches and proposals out of the first crypto war that saw various
     \item Partial key escrow (see \cite{denning_taxonomy_1996})
 \end{itemize}
 
-\subsubsection*{Modern Proposals}
+\subsection{Modern Proposals}
 
 Recent proposals out of the second crypto war that have various levels of support.
 
@@ -309,12 +318,16 @@ Recent proposals out of the second crypto war that have various levels of suppor
         \cite{kerr_encryption_2017}
 \end{itemize}
 
+
+
 \section{Argument Maps}
 \label{sec-arg-maps-intro}
 
 {\color{red} Planning to write about this much.} \lipsum[40]
 
 \lipsum[40]
+
+
 
 \section{Threat Models and Data Flow Diagrams}
 \label{sec-threat-model-intro}
