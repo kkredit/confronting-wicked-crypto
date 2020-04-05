@@ -4,15 +4,22 @@
 This chapter summarizes the history of encryption and the exceptional access debate, introduces argument maps as a
 logical modeling tool, and introduces threat modeling with data flow diagrams.
 
-\section{Historical Context}
-\label{sec-history}
+\section{Context of the Debate}
+\label{sec-context}
 
-The problem of strong encryption and exceptional access exists in a historical and technical context. The following
-sections describe encryption history, the present context, encryption regulations, and some proposed technical \ac{EA}
-solutions.
+The problem of strong encryption and exceptional access exists in a historical, regulatory, and technical context. The
+following sections describe encryption basics, the history of the crypto wars, the present context, encryption
+regulations, and some proposed technical \ac{EA} solutions.
 
-\subsection{Encryption History and the First Crypto War}
-\label{sec-crypto-cwi}
+\subsection{Encryption History}
+\label{sec-crypto-history}
+
+The section provides an overview of encryption from ancient to contemporary times.
+
+\subsubsection{Encryption Basics}
+\label{sec-history-basics}
+
+% TODO: Cryptography is <blah blah>
 
 Electronic encryption is a new technology, but the field of cryptography is old, as demand for privacy is as old as
 communication itself. The most well known ancient example of rudimentary encryption is the Caesar cipher, named after
@@ -23,7 +30,8 @@ computers to cryptographic problems \cite{kahn_codebreakers_1996}. Claude Shanno
 analysis of cryptography'' in 1949 \cite{shannon_communication_1949}, and Whitfield Diffie and Martin Hellman published
 research on public key cryptography in 1976 \cite{diffie_new_1976}.
 
-% TODO: explain public key cryptography enough to justify the following
+% TODO: Public key cryptography is <blah blah>
+
 Public key cryptography, paired with computer networking and personal computing advances in the 1980s, for the first
 time put the power of strong encryption in the hands of ordinary people. However, the privacy provided by cryptography
 is a powerful tool, and privacy is a property governments strive to regulate. The use of encryption for for private
@@ -44,8 +52,6 @@ Privacy is not encryption's only purpose, however.
 % Denial of Service         Availability
 % Elevation of Privilege    Authorization
 
-% TODO: Kalafut: do these paragraphs belong here? It really is an aside on the importance of crypto. Possibly put in
-%       their own section earlier.
 Cryptography is the technical foundation for many forms of computer and network security, at every scale. Security is
 often defined in terms of several properties: authentication, integrity, non-repudiation, confidentiality, availability,
 and authorization \cite{shostack_threat_2014}. Security properties are systems properties, but systems properties emerge
@@ -53,7 +59,7 @@ from the composition of their parts, and innumerable primitives and technologies
 
 Cryptographic primitives include symmetric key encryption, public key encryption, one-way hash functions, and digital
 signatures. A few technologies that directly rely on these primitives include \ac{TLS}, \ac{PKI}, \ac{SSO} (e.g.
-Kerberos), \ac{VPN}, secure password storage, disk encryption tools, and secure- and trusted-boot processes. A few
+Kerberos), \acp{VPN}, secure password storage, disk encryption tools, and secure- and trusted-boot processes. A few
 systems that directly rely on these technologies include the financial system, local and global; industrial control
 systems and critical infrastructure; health information systems; private, government, and military communications; and
 the integrity of the internet as a whole.
@@ -83,6 +89,9 @@ conflict in the EA debate. Those who focus on its role in privacy object to its 
 role in security rely on its absolute power.
 
 % Encryption requires absolute cryptographic fidelity in order to provide security.
+
+\subsubsection{The First Crypto War}
+\label{sec-history-cw1}
 
 All these realities--government discomfort with absolute privacy, rapidly increasing availability of strong encryption,
 and a blossoming computer industry foundationally reliant on cryptography--came to a head in what has become known as
@@ -118,8 +127,8 @@ this time, there was ``an overwhelming amount of evidence against moving ahead w
 \cite{thompson_2015}, and in 1999 the Clinton administration abruptly changed course, adopting almost all SAFE Act
 proposals \cite{kehl_right_2015}. This development marks the end of the first crypto war.
 
-\subsection{The Second Crypto War and the Current Context}
-\label{sec-cwii-context}
+\subsubsection{The Second Crypto War}
+\label{sec-history-cw2}
 
 Two developments paved the way for the second crypto war. The first was actually a non-development: when the Clinton
 administration changed its encryption policy, the U.S. House dropped the SAFE Act \cite{kehl_right_2015}. Also un-passed
@@ -155,6 +164,9 @@ basic digital security. Recall encryption and cryptography's critical role in se
 \mysec{sec-crypto-cwi}, and that encryption's dual role as enabler of strong privacy and cornerstone of computer
 security is a central conflict in the \ac{EA} debate. When questioned by lawmakers, technical leaders and executives
 have repeatedly appealed to the fact that strong cryptography is a necessity for security \cite{schulze_clipper_2017}.
+
+\subsubsection{Current Context}
+\label{sec-history-current}
 
 Several events and arguments have come to characterize the second crypto war.
 
