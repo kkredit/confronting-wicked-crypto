@@ -18,6 +18,7 @@ GVSU_JOB := Thesis-GVSU
 PRETTY_JOB := Thesis
 
 .PHONY: all pretty gvsu live gvsu-live clean Prereqs
+# TODO: build from a container. I don't trust myself to keep this environment working!
 
 pretty: $(OUTDIR)/$(PRETTY_JOB).pdf
 gvsu: $(OUTDIR)/$(GVSU_JOB).pdf

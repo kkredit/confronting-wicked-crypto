@@ -19,7 +19,7 @@
 | DIM     | data in motion                                    |
 | DAR     | data at rest                                      |
 | E2E     | end to end                                        |
-| EA      | exceptional (or extraordinary) access             |
+| EA      | exceptional access                                |
 | ECPA    | Electronic Communications Privacy Act             |
 | ED      | ephemeral data                                    |
 | FBI     | Federal Bureau of Investigation                   |

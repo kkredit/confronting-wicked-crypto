@@ -1,43 +1,88 @@
 \chapter{Introduction}
 \label{chap-introduction}
 
-Exceptional access is a wicked problem. Characterized by a dynamic technological environment, disagreement about
-underlying values, and resistance to a clear solution, the debate on exceptional access refuses to end. This paper will
-not attempt to end the debate, but to inform it with additional structure.
+Difficult policy matters are sometimes classified as wicked problems. Wicked problems are defined not by their moral
+nature, but by their vicious persistence. These problems have multiple causes and no clear solution; attempted solutions
+have unintended consequences, and the complex environment results in chronic policy failure
+\cite{commission_tackling_2018}.
 
-% TODO: define exceptional access, and the problem statement
+\Acl{EA} is a wicked problem. In encryption policy, \ac{EA} is alternative means of decryption reserved for law
+enforcement use. Characterized by a dynamic technological environment, disagreement about underlying values, and
+resistance to a clear solution, the debate on \acl{EA} refuses to end. This paper will not attempt to end the debate,
+but to inform it with additional structure.
 
 \section{Motivation}
+\label{sec-motivation}
 
-\begin{itemize}
-    % TODO: Why strong encryption is important + Why some want exceptional access
-    \item In the pursuit of data privacy, regulatory action is part of the threat model--and action is likely
-    \item If the technical community acts, we can not only be prepared for regulation, but lead and shape it
-\end{itemize}
+% \begin{itemize}
+%     % TODO: Why strong encryption is important + Why some want exceptional access
+%     \item In the pursuit of data privacy, regulatory action is part of the threat model--and action is likely
+%     \item If the technical community acts, we can not only be prepared for regulation, but lead and shape it
+% \end{itemize}
+
+% TODO: clarify structure of argument in this whole section; it is a little hacked together and logically scattered
+
+The conflict at the heart of the debate is that the same cryptographic and design principles that underlie all digital
+security also enable an unprecedented degree of individual privacy. Encryption is a foundational tool to the integrity
+and confidentiality of all connected computing systems. Its increasing ubiquity in communications and storage provides
+clear benefits and should be welcomed by all. In a world where information security is frightfully poor yet increasingly
+important, strong encryption's necessity can not be understated. However, the privacy afforded by certain encryption
+technologies hampers law enforcement investigations and hides wrongdoing. In a society that cares about bringing
+dangerous people to justice, this risk should not be ignored.
+
+The conversation over encryption is in a stalemate. Governments and law enforcement agencies frequently cite the need to
+access encrypted data to perform their duties. Human rights groups and technical leaders counter that a weakened
+encryption environment would fatally compromise privacy and security as we know it. As the debate continues, sides have
+become entrenched, and both sides have engaged in disingenuous attacks against their perceived opponents.
+
+It is time that the technical community moves the debate forward. Increased regulation of the tech industry is
+inevitable. Despite strong encryption's benefits, regulatory interest in the subject has not subdued. The form that
+regulation will take in the field of encryption depends on the good faith efforts made to equitably balance all the
+benefits and risks involved in deploying a crypto system. If the technical community acts, we can not only be prepared
+for regulation, but lead and shape it.
+
+Most importantly, in the pursuit of data privacy, regulatory action is part of the threat model.
 
 \section{Premises}
+\label{sec-premises}
 
-\begin{itemize}
-    \item The failure to convince legislative bodies and law enforcement agencies demands that the technical community continue the discussion
-    \item The ability to access digital data is important and will be increasingly important for investigations
-    \item Various forms of encryption are foundational all elements of online security
-    \item Mass surveillance is a grave danger that representative governments are not immune from
-    \item International and human rights considerations significantly constrain workable solutions
-    \item Transparency to data access is critical for public trust
-    % \item In pluralistic societies, government is obligated to respect and balance opposing viewpoints
-\end{itemize}
+This paper accepts and builds on the following premises, some of which were introduced in \mysec{sec-motivation}.
+
+% TODO: flesh out, probably add some references
+
+\paragraph*{The Discussion Must Go On} The failure of the technical community to convince legislative bodies and law
+enforcement agencies to stop pursuing \ac{EA} demands that the technical community continues the discussion.
+
+\paragraph*{Investigators Need Data} The ability to access digital data is important and will be increasingly important
+for investigations.
+
+\paragraph*{Cryptography is Foundational} Various forms of cryptography are foundational all elements of online
+security.
+
+\paragraph*{Mass Surveillance is a Danger} Mass surveillance is a grave danger from which representative governments are
+not immune.
+
+\paragraph*{\ac{EA} is an International Problem} The internet is largely borderless, and international and human rights
+considerations significantly constrain workable \ac{EA} solutions.
+
+\paragraph*{Transparency is Necessary} Transparency to data access is critical for public trust.
+
+% \begin{itemize}
+%     \item The failure to convince legislative bodies and law enforcement agencies demands that the technical community continue the discussion
+%     \item The ability to access digital data is important and will be increasingly important for investigations
+%     \item Various forms of encryption are foundational all elements of online security
+%     \item Mass surveillance is a grave danger that representative governments are not immune from
+%     \item International and human rights considerations significantly constrain workable solutions
+%     \item Transparency to data access is critical for public trust
+%     % \item In pluralistic societies, government is obligated to respect and balance opposing viewpoints
+% \end{itemize}
 
 \section{Contribution}
+\label{sec-contribution}
 
 The paper serves to clarify the arguments composing debate and the nature of the technical problem. After reproducing a
 brief U.S.-focused history of encryption regulation, technology, and conflict, it introduces argument maps and threat
 models using data flow diagrams. In the following chapters it analyzes exceptional access arguments in detail and
-creates a multi-level threat model, broken down by the significantly different challenges posed by data at rest and data
-in motion. The paper concludes with a set of policies and principles to apply to the problem in light of valid arguments
+creates a multi-level threat model, broken down by the significantly different challenges posed by \ac{DAR} and
+\ac{DIM}. The paper concludes with a set of policies and principles to apply to the problem in light of valid arguments
 and threats.
-
-% \begin{itemize}
-%     \item Argument maps formalizing the debate
-%     \item A broad threat model describing the environment
-%     \item A structure for organizing future progress
-% \end{itemize}
