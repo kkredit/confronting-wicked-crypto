@@ -21,3 +21,7 @@ alias show="$SCRIPTS_DIR/show-source.sh"
 alias gen="$SCRIPTS_DIR/bib-gen.sh"
 alias cite="$SCRIPTS_DIR/count-citations.sh"
 alias todo="(cd $BASE_DIR && grep -n TODO *.tex)"
+
+alias pdf="xdg-open build/Thesis.pdf"
+alias gvsu="xdg-open build/Thesis-GVSU.pdf"
+alias start="(codium .) && (xdg-open build/Thesis.pdf) && make live"
