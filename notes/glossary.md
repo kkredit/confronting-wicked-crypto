@@ -15,7 +15,9 @@
 | CFAA    | Computer Fraud and Abuse Act                      |
 | CP      | child pornography                                 |
 | CSAM    | child sexual abuse material                       |
+| CSAV    | computer supported argument visualization         |
 | DE      | device encryption                                 |
+| DFD     | data flow diagram                                 |
 | DIM     | data in motion                                    |
 | DAR     | data at rest                                      |
 | E2E     | end to end                                        |
@@ -27,6 +29,7 @@
 | FISA    | Foreign Intelligence Surveillance Act             |
 | FISAAA  | FISA Amendments Act                               |
 | FISC    | Foreign Intelligence Surveillance Court           |
+| IBIS    | issue-based information system                    |
 | ITAR    | International Traffic in Arms Regulations         |
 | KEK     | key encrypting key                                |
 | LE      | law enforcement                                   |

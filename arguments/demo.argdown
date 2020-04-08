@@ -1,0 +1,22 @@
+===
+title: >
+  A demonstrative example of argument maps with Argdown.
+subTitle: Some Pros and Cons Reconstructed in Detail
+author: Kevin Kredit
+date: 2020/04/08
+color:
+    colorScheme: colorbrewer-category9
+    tagColors:
+        pro: 0
+        con: 1
+        value: 2
+model:
+    removeTagsFromText: true
+===
+
+
+[Statement 1]: I am a statement.
+ - <Argument 1>: I am an attacking argument. #con
+ + <Argument 2>: I am an supporting argument. #pro
+    <_ <Argument 3>: I am an undercut argument. #con
+    + [Statement 2]: I am a supporting statement based on  inherent values. #value

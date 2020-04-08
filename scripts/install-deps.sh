@@ -15,3 +15,4 @@ sudo apt-get install -y \
     libcanberra-gtk-module \
     libcanberra-gtk3-module
 
+snap install drawio

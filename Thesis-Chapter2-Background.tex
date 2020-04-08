@@ -349,17 +349,61 @@ Recent proposals out of \ac{the-cw2} that have various levels of support.
 \section{Argument Maps}
 \label{sec-arg-maps-intro}
 
-{\color{red} Planning to write about this much.} \lipsum[40]
+In order to advance the \ac{EA} debate, it helps to organize the all the arguments used in a cohesive manner. One way to
+organize arguments is to create argument maps. Argument maps are graphical representations of the logical structures and
+relationships between statements, premises, and conclusions. Argument maps are an outgrowth of the same research by
+Horst Rittel that originated the idea of \acp{wicked-prob}. In 1970 his research group developed \acp{IBIS} to break
+down \acp{wicked-prob} and document the reasoned approach that goes into solving them \cite{kunz_issues_1970}. Interest
+in \ac{IBIS} has waxed and waned. Some software tools have been developed, including the now-defunct gIBIS
+\cite{conklin_gibis_1988} and Compendium \cite{dutoit_hypermedia_2006} tools designed to produce graphical
+representations. Argdown is a recent tool that generates argument maps from structures specified in a Markdown-based
+language \cite{voigt_argdown_2018}.
 
-\lipsum[40]
+This paper uses Argdown to analyze the arguments used in the \ac{EA} debate. \myfig{fig-args-demo} shows the basic
+structure of arguments. Statements are positions on issues. Some statements are based on values that cannot be addressed
+through argument. Statements and arguments may support or attack one another, and arguments support or undercut other
+arguments.
+
+\begin{figure}[ht]
+    \centering\CaptionFontSize
+    \includegraphics[width=\linewidth]{arguments/build/demo.pdf}
+    \caption[Argdown Demo]{A demonstrative example of argument maps with Argdown.}
+    \label{fig-args-demo}
+\end{figure}
+
+% IDEA:
+% Use the slightly more complete IBIS notation, which includes ISSUES and POSITIONS as well as ARGUMENTS.
+% (Argdown) basically just has arguments and positions. The additional types may make the total picture clearer.
+% Either use styling with #hashtags (https://argdown.org/syntax/#hashtags with
+%                                    https://argdown.org/guide/colorizing-maps.html#the-colorscheme-setting)
+% Or add a plugin (https://argdown.org/guide/extending-argdown.html)
 
 
 
 \section{Threat Models and Data Flow Diagrams}
 \label{sec-threat-model-intro}
 
-{\color{red} Planning to write about this much.} \lipsum[40]
+Threat modeling is an important step in analyzing the security at the systems level. Using models abstracts away fine
+details and focuses on the architecture, processes, and dataflows in a system. Models assist in the understanding of
+current systems and the prevention of problems in new systems, both of which are important when facing the prospect of
+designing an \ac{EA} mechanism built on top of a complex and aging technology stack.
 
-\lipsum[40]
+Threat modeling begins with the questions, ``What are you building?'' and ``What can go wrong?''
+\cite{shostack_threat_2014}. Answering the first question accurately is crucial, particularly for the field of
+cryptography, which hinges on precise definitions of security requirements \cite{varia_2018}. Answering the second
+question depends on the types of attackers to worry about, and determines the scope of threats to be considered. ``What
+are you building?'' hasn't been asked enough in the current phase of the \ac{EA} debate, and ``What can go wrong?''
+cannot be faithfully answered without knowing what is being built.
 
-\lipsum[40]
+\Acp{DFD} are one tool designed to address these questions. \Acp{DFD} feature processes, data flows, data stores, and
+external entities. \Acp{DFD} well suited for threat modeling because security vulnerabilities tend to follow data flow,
+not control flow \cite{shostack_threat_2014}. They are particularly well suited for \ac{EA}, as data privacy is the
+primary concern. \myfig{fig-dfd-demo} shows the basic elements of a \ac{DFD}. This paper creates \acp{DFD} in this style
+to analyze the threats already present and those that \ac{EA} would introduce.
+
+\begin{figure}[ht]
+    \centering\CaptionFontSize
+    \includegraphics[width=\linewidth]{dfds/build/DFD-demo.png}
+    \caption[\Acs{DFD} Demo]{A demonstrative example of a \acf{DFD}.}
+    \label{fig-dfd-demo}
+\end{figure}

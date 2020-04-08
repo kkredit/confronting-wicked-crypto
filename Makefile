@@ -4,8 +4,14 @@ TEMPLATE := gvsu-thesis-template
 TEMPLATE_IS_CLONED := $(TEMPLATE)/Fonts
 
 ARG_SRC_DIR := arguments
-IMAGE_SOURCES  := $(wildcard $(ARG_SRC_DIR)/*.argdown)
-IMAGES := $(patsubst $(ARG_SRC_DIR)/%.argdown,$(ARG_SRC_DIR)/build/%.pdf,$(IMAGE_SOURCES))
+ARG_IMAGE_SOURCES  := $(wildcard $(ARG_SRC_DIR)/*.argdown)
+ARG_IMAGES := $(patsubst $(ARG_SRC_DIR)/%.argdown,$(ARG_SRC_DIR)/build/%.pdf,$(ARG_IMAGE_SOURCES))
+
+DFD_SRC_DIR := dfds
+DFD_IMAGE_SOURCES  := $(wildcard $(ARG_SRC_DIR)/*.drawio)
+DFD_IMAGES := $(patsubst $(DFD_SRC_DIR)/%.drawio,$(DFD_SRC_DIR)/build/%.png,$(DFD_IMAGE_SOURCES))
+
+IMAGES := $(ARG_IMAGES) $(DFD_IMAGES)
 
 SOURCES := $(wildcard *.tex) $(wildcard *.bib) $(wildcard Forms/*.pdf) $(wildcard $(TEMPLATE)/*.tex) \
 	$(wildcard $(TEMPLATE)/*.cls) $(IMAGE_SOURCES)
@@ -38,6 +44,7 @@ build/build:
 
 $(IMAGES):
 	make -C $(ARG_SRC_DIR)
+	make -C $(DFD_SRC_DIR)
 
 $(DOCNAME).bib:
 	./scripts/bib-gen.sh
@@ -62,3 +69,4 @@ gvsu-live: | Prereqs
 clean:
 	rm -rf $(OUTDIR) $(DOCNAME).bib
 	make -C $(ARG_SRC_DIR) clean
+	make -C $(DFD_SRC_DIR) clean
