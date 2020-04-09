@@ -5,7 +5,7 @@ source ./scripts/sourceme.sh
 # set -x
 
 function print_number() {
-    echo $(grep "\\cite{$1}" *.tex | wc -l)
+    echo $(grep "{$1}" *.tex | wc -l)
 }
 
 function print_count() {

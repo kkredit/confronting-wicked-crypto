@@ -2,7 +2,7 @@
 
 - Summary:
   - A proposal for DE EA
-  - See response, tromer_2018
+  - See responses, tromer_2018 and green_2018
 - Purpose:
 - Premises:
 - Contributions:

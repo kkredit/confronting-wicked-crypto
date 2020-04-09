@@ -258,91 +258,114 @@ The following sections summarize the encryption regulatory environment and techn
 \section{Regulatory Environment}
 \label{sec-reg-environment}
 
+
 \subsection{U.S. Efforts to Regulate Encryption}
 
 The following laws and regulations have been applied to cases involving surveillance, cryptography, and access to
 encrypted information:
 
-\begin{itemize}
-    \item \acf{AWA} of 1789 \cite{congress_1789}
-    \item Bill of Rights: Amendments I, IV, and V \cite{madison_1791}
-    \item \acf{AECA} of 1976 established export controls over strong encryption techniques
-        introduced ITAR (International Traffic in Arms Regulations) \cite{morgan_hr13680_1976} \cite{kehl_right_2015}
-    \item \acf{FISA} of 1978 \cite{rodino_1978}
-        (FISA has been the subject of frequent FBI abuse: \cite{shamsi_2011} \cite{tucker_2020})
-        % (the FBI almost lost some provisions; follow up on https://apnews.com/110ff653e98478da66765897dde3d613,
-        %     https://www.washingtontimes.com/news/2020/mar/15/adam-schiff-fisa-reform-intervention-protects-fbi-/,
-        %     https://saraacarter.com/fisa-senate-passes-measure-extending-surveillance-powers-abuses-not-addressed/)
-    \item \acf{CFAA} of 1986 \cite{hughes_hr4718_1986} \cite{wolff_computer_2016}
-    \item \acf{ECPA} of 1986 \cite{kastenmeier_hr4952_1986}
-    \item \acf{CALEA} of 1994 \cite{edwards_hr4922_1994}
-    \item Uniting and Strengthening America by Providing Appropriate Tools Required to Intercept and Obstruct Terrorism
-        (USA PATRIOT ACT) Act of 2001 \cite{sensenbrenner_2001}
-    \item \acf{PAA} of 2007 \cite{mcconnell_s1927_2007}
-    \item \acf{FISAAA} of 2008 \cite{reyes_hr6304_2008}
-    \item Uniting and Strengthening America by Fulfilling Rights and Ensuring Effective Discipline Over Monitoring
-        (USA FREEDOM) Act of 2015 \cite{sensenbrenner_2015}
-    \item \dots
-\end{itemize}
+\newcommand{\lawstart}[0]{\begin{itemize}}
+\newcommand{\law}[3]{\item #1: \textbf{#2} \cite{#3}} % Year, name, citation
+\newcommand{\lawsend}{\end{itemize}}
+
+\lawstart
+    \law{1789}{\acf{AWA}}{congress_1789}
+    \law{1791}{Bill of Rights: Amendments I, IV, and V}{madison_1791}
+    \law{1976}{\acf{AECA}}{morgan_hr13680_1976}
+% Established export controls over strong encryption techniques introduced ITAR (International Traffic in Arms
+% Regulations) \cite{kehl_right_2015}
+    \law{1978}{\acf{FISA}}{rodino_1978}
+% (FISA has been the subject of frequent FBI abuse: \cite{shamsi_2011} \cite{tucker_2020})
+% (the FBI almost lost some provisions; follow up on https://apnews.com/110ff653e98478da66765897dde3d613,
+%     https://www.washingtontimes.com/news/2020/mar/15/adam-schiff-fisa-reform-intervention-protects-fbi-/,
+%     https://saraacarter.com/fisa-senate-passes-measure-extending-surveillance-powers-abuses-not-addressed/)
+    \law{1986}{\acf{CFAA}}{hughes_hr4718_1986}
+% \cite{wolff_computer_2016}
+    \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}
+    \law{1994}{\acf{CALEA}}{edwards_hr4922_1994}
+    \law{2001}{\acf{USAPATRIOT} Act}{sensenbrenner_2001}
+    \law{2007}{\acf{PAA}}{mcconnell_s1927_2007}
+    \law{2008}{\acf{FISAAA}}{reyes_hr6304_2008}
+    \law{2015}{\acf{USAFREEDOM} Act}{sensenbrenner_2015}
+\lawsend
 
 The following are proposed laws and regulations that did not go into effect or have yet to be voted on:
 
-\begin{itemize}
-    \item The \ac{clipperchip} \cite{press_1993} \cite{thompson_2015}
-    \item The SAFE Act \cite{goodlatte_hr3011_1996}
-    \item Encrypted Communications Privacy Act (mix of SE protection and EA guidelines?) \cite{leahy_s376_1997}
-    \item Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act
-        (like above?) \cite{ashcroft_s2067_1998}
-    \item Encryption for the National Interest Act and Tax Relief for Responsible Encryption Act (introduced by same rep
-        on same day) \cite{goss_hr2616_1999} \cite{goss_hr2617_1999}
-    \item Compliance with Court Orders Act of 2016 (discussion draft) \cite{burr_2016}
-    \item The Secure Data Act (federal SE protections) \cite{lofgren_hr5823_2018}
-    \item The ENCRYPT Act (state SE protections) \cite{lieu_hr4170_2019}
-    \item The EARN IT Act \cite{graham_s3398_2020}
-    \item \dots
-\end{itemize}
+\lawstart
+    \law{1993}{The \ac{clipperchip}}{press_1993}
+% \cite{thompson_2015}
+    \law{1996}{The SAFE Act}{goodlatte_hr3011_1996}
+    \law{1997}{Encrypted Communications Privacy Act}{leahy_s376_1997}
+% mix of SE protection and EA guidelines?
+    \law{1998}{Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act}{ashcroft_s2067_1998}
+% like above?
+    \law{1999}{Encryption for the National Interest Act}{goss_hr2616_1999}
+    \law{1999}{Tax Relief for Responsible Encryption Act}{goss_hr2617_1999}
+% ^^ these two introduced by same rep on same day
+    \law{2016}{Compliance with Court Orders Act (discussion draft)}{burr_2016}
+    \law{2018}{The Secure Data Act}{lofgren_hr5823_2018}
+% federal SE protections
+    \law{2019}{The ENCRYPT Act}{lieu_hr4170_2019}
+% state SE protections
+    \law{2020}{The EARN IT Act}{graham_s3398_2020}
+\lawsend
+
 
 \subsection{Regulations around the World}
 
 The following is a very brief account of the regulatory environment in various jurisdictions around the world:
 
-\begin{itemize}
-    \item Australia: in 2018 passed its Assistance and Access bill \cite{ag_2018} \cite{newman_2018}
-    \item UK: Investigatory Powers Act \cite{legislature_2016}
-    \item EU: GDPR \cite{parliament_2016}
-    \item China: \cite{donahue_comparative_2018}
-    \item Israel: \cite{donahue_comparative_2018}
-    \item Japan, Korea? -- can't find anything
-    \item \dots General, see \cite{budish_encryption_2018}
-\end{itemize}
+\newcommand{\countrystart}[0]{\begin{itemize}}
+\newcommand{\country}[1]{\item \textbf{#1:}} % Country
+\newcommand{\countryend}{\end{itemize}}
+
+\countrystart
+    \country{Australia} In 2018 passed its Assistance and Access bill \cite{ag_2018} \cite{newman_2018}
+    \country{UK} Investigatory Powers Act \cite{legislature_2016}
+    \country{EU} GDPR \cite{parliament_2016}
+    \country{China} See \cite{donahue_comparative_2018}
+    \country{Israel} See \cite{donahue_comparative_2018}
+    \country{Japan, Korea} can't find anything
+    \country{General} See \cite{budish_encryption_2018}
+\countryend
+
 
 
 \section{Technical Approaches}
 \label{sec-tech-approaches}
 
+
 \subsection{Historical Approaches}
 
 Historical approaches and proposals out of \ac{the-cw1} that saw various amounts of support.
 
-\begin{itemize}
-    \item Clipper chip/third-party key escrow \cite{blaze_protocol_1994}
-    \item Oblivious key escrow \cite{goos_oblivious_1996}
-    \item Partial key escrow (see \cite{denning_taxonomy_1996})
-\end{itemize}
+\newcommand{\propstart}[0]{\begin{itemize}}
+\newcommand{\prop}[2]{\item \textbf{#1} \cite{#2}} % Proposal name, citation
+\newcommand{\propend}{\end{itemize}}
+
+\propstart
+    \prop{Clipper chip/third-party key escrow}{press_1993}
+% toasted by \cite{blaze_protocol_1994}
+    \prop{Oblivious key escrow}{goos_oblivious_1996}
+    \prop{Partial key escrow}{denning_taxonomy_1996}
+\propend
+
 
 \subsection{Modern Proposals}
 
 Recent proposals out of \ac{the-cw2} that have various levels of support.
 
-\begin{itemize}
-    \item CLEAR \cite{ozzie_2018}
-    \item Device escrow with HW \cite{savage_lawful_2018}
-    \item Computational, blockchain approaches \cite{phan_key_2017}
-    \item Lawful hacking \cite{nguyen_lawful_2017} \cite{soesanto_2018} \cite{kerr_encryption_2017}
-    \item Forced password disclosure \cite{bittenbender_2019} \cite{kerr_encryption_2017}
-    \item Alternative paths to plaintext (access device while unlocked; find copies elsewhere)
-        \cite{kerr_encryption_2017}
-\end{itemize}
+\propstart
+    \prop{CLEAR}{ozzie_2018}
+    \prop{Device escrow with HW}{savage_lawful_2018}
+    \prop{Computational, blockchain approaches}{phan_key_2017}
+    \prop{Lawful hacking}{nguyen_lawful_2017}
+% see also \cite{soesanto_2018} \cite{kerr_encryption_2017}
+    \prop{Forced password disclosure}{kerr_encryption_2017}
+% see also \cite{bittenbender_2019}
+    \prop{Alternative paths to plaintext}{kerr_encryption_2017}
+% access device while unlocked; find copies elsewhere
+\propend
 
 
 
