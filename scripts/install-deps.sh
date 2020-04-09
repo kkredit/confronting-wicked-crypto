@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # For Bibtex scripts, must have Docker installed. Not covered here.
+# For Argdown CLI, must have NPM installed. Not covered here.
 # This is not necessarily fully-inclusive.
 
 sudo apt-get install -y \
@@ -16,3 +17,5 @@ sudo apt-get install -y \
     libcanberra-gtk3-module
 
 snap install drawio
+
+npm install -g @argdown/cli

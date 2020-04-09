@@ -14,7 +14,7 @@ DFD_IMAGES := $(patsubst $(DFD_SRC_DIR)/%.drawio,$(DFD_SRC_DIR)/build/%.png,$(DF
 IMAGES := $(ARG_IMAGES) $(DFD_IMAGES)
 
 SOURCES := $(wildcard *.tex) $(wildcard *.bib) $(wildcard Forms/*.pdf) $(wildcard $(TEMPLATE)/*.tex) \
-	$(wildcard $(TEMPLATE)/*.cls) $(IMAGE_SOURCES)
+	$(wildcard $(TEMPLATE)/*.cls) $(ARG_IMAGE_SOURCES) $(DFD_IMAGE_SOURCES)
 LATEX_OPTS := -xelatex -bibtex -outdir=$(OUTDIR) -halt-on-error -file-line-error
 LIVE_OPTS := -pvc -view=none
 LATEX_PATHS := '.:./$(TEMPLATE):'
