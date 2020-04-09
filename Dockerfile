@@ -7,23 +7,27 @@
 # Image settings
 FROM ubuntu:18.04
 
+ARG USER_UID=1000
 ARG USER_GID=1000
-ARG USER_NAME=thesisbuilder
+ARG USER_NAME=builder
+ARG MNT_PNT=/host
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Basic setup
 RUN \
+    # User setup
+    groupadd -g $USER_GID $USER_NAME && \
+    useradd --create-home -s /bin/bash -u $USER_UID -g $USER_GID $USER_NAME && \
     # Updates
-    apt-get update                      && \
-    apt-get upgrade -y                  && \
-    # Group creation
-    groupadd -g $USER_GID $USER_NAME    && \
+    apt-get update && \
+    apt-get upgrade -y && \
     # Basic tools
     apt-get install -y \
         make \
         curl \
-        wget
+        wget \
+        git
 
 # Install LaTeX tools
 RUN apt-get install -y \
@@ -36,7 +40,7 @@ RUN apt-get install -y \
 
 # Install Argdown tools
 # TODO: install node
-RUN apt-get install -y \
+RUN apt-get install -y --no-install-recommends \
         inkscape \
         libcanberra-gtk-module \
         libcanberra-gtk3-module
@@ -54,3 +58,7 @@ RUN URL=$(curl -sL https://github.com/jgraph/drawio-desktop/releases/latest | \
                     grep "\.deb" | head -1  | cut -d\" -f2) && \
     wget -q $URL && \
     (dpkg -i ./*.deb || apt-get -fy install)
+
+# Setup the working directory
+RUN mkdir -p $MNT_PNT
+WORKDIR $MNT_PNT

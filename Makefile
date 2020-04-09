@@ -23,11 +23,12 @@ ENVIRON := TEXINPUTS=$(LATEX_PATHS) TEXFORMATS=$(LATEX_PATHS)
 GVSU_JOB := Thesis-GVSU
 PRETTY_JOB := Thesis
 
+DOCKER_BUILD_ARGS := --build-arg USER_UID=`id -u` --build-arg USER_GID=`id -g` --build-arg USER_NAME=`whoami`
 DOCKER_TAG := thesis-build-env
-# DOCKER_RUN_FLAGS := --privileged --volume /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro --rm -it
-# DOCKER_RUN_FLAGS := --privileged --volume /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro --rm -it --user=`id -u`:`id -g`
-DOCKER_RUN_FLAGS := --privileged -v `pwd`:/host --user=`id -u`:`id -g` --hostname builder --rm -it
-DOCKER_RUN_CMD := 
+# DBUS_FLAGS := -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro
+DISP_FLAGS := -e DISPLAY=$(DISPLAY) -v /tmp/.X11-unix:/tmp/.X11-unix
+DOCKER_RUN_FLAGS := --privileged $(DISP_FLAGS) -v `pwd`:/host --user=`id -u`:`id -g` --hostname builder --rm -it
+DOCKER_RUN_CMD := bash -c "make live"
 
 .PHONY: all pretty gvsu live gvsu-live docker clean clean-all prereqs
 # TODO: build from a container. I don't trust myself to keep this environment working!
@@ -72,8 +73,8 @@ live: | prereqs
 gvsu-live: | prereqs
 	$(ENVIRON) latexmk -jobname=$(GVSU_JOB) $(LATEX_OPTS) $(LIVE_OPTS) $(DOCNAME)
 
-docker: | prereqs
-	docker build -t $(DOCKER_TAG) --build-arg USER_GID=`id -g` --build-arg USER_NAME=`whoami` .
+docker:
+	docker build $(DOCKER_BUILD_ARGS) -t $(DOCKER_TAG) .
 	# docker run --rm -it $(DOCKER_TAG)
 	docker run $(DOCKER_RUN_FLAGS) $(DOCKER_TAG) $(DOCKER_RUN_CMD)
 
