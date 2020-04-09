@@ -23,7 +23,13 @@ ENVIRON := TEXINPUTS=$(LATEX_PATHS) TEXFORMATS=$(LATEX_PATHS)
 GVSU_JOB := Thesis-GVSU
 PRETTY_JOB := Thesis
 
-.PHONY: all pretty gvsu live gvsu-live clean clean-all prereqs
+DOCKER_TAG := thesis-build-env
+# DOCKER_RUN_FLAGS := --privileged --volume /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro --rm -it
+# DOCKER_RUN_FLAGS := --privileged --volume /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro --rm -it --user=`id -u`:`id -g`
+DOCKER_RUN_FLAGS := --privileged -v `pwd`:/host --user=`id -u`:`id -g` --hostname builder --rm -it
+DOCKER_RUN_CMD := 
+
+.PHONY: all pretty gvsu live gvsu-live docker clean clean-all prereqs
 # TODO: build from a container. I don't trust myself to keep this environment working!
 
 pretty: $(OUTDIR)/$(PRETTY_JOB).pdf
@@ -65,6 +71,11 @@ live: | prereqs
 
 gvsu-live: | prereqs
 	$(ENVIRON) latexmk -jobname=$(GVSU_JOB) $(LATEX_OPTS) $(LIVE_OPTS) $(DOCNAME)
+
+docker: | prereqs
+	docker build -t $(DOCKER_TAG) --build-arg USER_GID=`id -g` --build-arg USER_NAME=`whoami` .
+	# docker run --rm -it $(DOCKER_TAG)
+	docker run $(DOCKER_RUN_FLAGS) $(DOCKER_TAG) $(DOCKER_RUN_CMD)
 
 clean:
 	rm -rf $(OUTDIR) $(DOCNAME).bib
