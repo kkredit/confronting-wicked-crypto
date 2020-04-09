@@ -264,11 +264,11 @@ The following sections summarize the encryption regulatory environment and techn
 The following laws and regulations have been applied to cases involving surveillance, cryptography, and access to
 encrypted information:
 
-\newcommand{\lawstart}[0]{\begin{itemize}}
+\newcommand{\lawsstart}[0]{\begin{itemize}}
 \newcommand{\law}[3]{\item #1: \textbf{#2} \cite{#3}} % Year, name, citation
 \newcommand{\lawsend}{\end{itemize}}
 
-\lawstart
+\lawsstart
     \law{1789}{\acf{AWA}}{congress_1789}
     \law{1791}{Bill of Rights: Amendments I, IV, and V}{madison_1791}
     \law{1976}{\acf{AECA}}{morgan_hr13680_1976}
@@ -291,7 +291,7 @@ encrypted information:
 
 The following are proposed laws and regulations that did not go into effect or have yet to be voted on:
 
-\lawstart
+\lawsstart
     \law{1993}{The \ac{clipperchip}}{press_1993}
 % \cite{thompson_2015}
     \law{1996}{The SAFE Act}{goodlatte_hr3011_1996}
@@ -315,11 +315,11 @@ The following are proposed laws and regulations that did not go into effect or h
 
 The following is a very brief account of the regulatory environment in various jurisdictions around the world:
 
-\newcommand{\countrystart}[0]{\begin{itemize}}
+\newcommand{\countriesstart}[0]{\begin{itemize}}
 \newcommand{\country}[1]{\item \textbf{#1:}} % Country
-\newcommand{\countryend}{\end{itemize}}
+\newcommand{\countriesend}{\end{itemize}}
 
-\countrystart
+\countriesstart
     \country{Australia} In 2018 passed its Assistance and Access bill \cite{ag_2018} \cite{newman_2018}
     \country{UK} Investigatory Powers Act \cite{legislature_2016}
     \country{EU} GDPR \cite{parliament_2016}
@@ -327,11 +327,11 @@ The following is a very brief account of the regulatory environment in various j
     \country{Israel} See \cite{donahue_comparative_2018}
     \country{Japan, Korea} can't find anything
     \country{General} See \cite{budish_encryption_2018}
-\countryend
+\countriesend
 
 
 
-\section{Technical Approaches}
+\section{Approaches to Exceptional Access}
 \label{sec-tech-approaches}
 
 
@@ -339,35 +339,42 @@ The following is a very brief account of the regulatory environment in various j
 
 Historical approaches and proposals out of \ac{the-cw1} that saw various amounts of support.
 
-\newcommand{\propstart}[0]{\begin{itemize}}
+\newcommand{\propsstart}[0]{\begin{itemize}}
 \newcommand{\prop}[2]{\item \textbf{#1} \cite{#2}} % Proposal name, citation
-\newcommand{\propend}{\end{itemize}}
+\newcommand{\propsend}{\end{itemize}}
 
-\propstart
+\propsstart
     \prop{Clipper chip/third-party key escrow}{press_1993}
 % toasted by \cite{blaze_protocol_1994}
     \prop{Oblivious key escrow}{goos_oblivious_1996}
     \prop{Partial key escrow}{denning_taxonomy_1996}
-\propend
+\propsend
 
 
 \subsection{Modern Proposals}
 
 Recent proposals out of \ac{the-cw2} that have various levels of support.
 
-\propstart
+\propsstart
     \prop{CLEAR}{ozzie_2018}
     \prop{Device escrow with HW}{savage_lawful_2018}
     \prop{Computational, blockchain approaches}{phan_key_2017}
+\propsend
+
+
+\subsection{Alternative Approaches}
+
+The following approaches do not use \ac{EA} at all, but are alternative technical or legal mechanisms that can be used
+towards the same goal.
+
+\propsstart
     \prop{Lawful hacking}{nguyen_lawful_2017}
 % see also \cite{soesanto_2018} \cite{kerr_encryption_2017}
     \prop{Forced password disclosure}{kerr_encryption_2017}
 % see also \cite{bittenbender_2019}
     \prop{Alternative paths to plaintext}{kerr_encryption_2017}
 % access device while unlocked; find copies elsewhere
-\propend
-
-
+\propsend
 
 \section{Argument Maps}
 \label{sec-arg-maps-intro}

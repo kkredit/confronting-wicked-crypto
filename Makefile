@@ -23,7 +23,7 @@ ENVIRON := TEXINPUTS=$(LATEX_PATHS) TEXFORMATS=$(LATEX_PATHS)
 GVSU_JOB := Thesis-GVSU
 PRETTY_JOB := Thesis
 
-.PHONY: all pretty gvsu live gvsu-live clean Prereqs
+.PHONY: all pretty gvsu live gvsu-live clean clean-all prereqs
 # TODO: build from a container. I don't trust myself to keep this environment working!
 
 pretty: $(OUTDIR)/$(PRETTY_JOB).pdf
@@ -52,21 +52,23 @@ $(DOCNAME).bib:
 $(DOCNAME)-Glossary.tex: notes/glossary.md
 	./scripts/update-acronyms.sh
 
-Prereqs: | $(TEMPLATE_IS_CLONED) Fonts build/build $(IMAGES) $(DOCNAME).bib
+prereqs: | $(TEMPLATE_IS_CLONED) Fonts build/build $(IMAGES) $(DOCNAME).bib
 
-$(OUTDIR)/$(GVSU_JOB).pdf: $(SOURCES) | Prereqs
+$(OUTDIR)/$(GVSU_JOB).pdf: $(SOURCES) | prereqs
 	$(ENVIRON) latexmk -jobname=$(GVSU_JOB) $(LATEX_OPTS) $(DOCNAME)
 
-$(OUTDIR)/$(PRETTY_JOB).pdf: $(SOURCES) | Prereqs
+$(OUTDIR)/$(PRETTY_JOB).pdf: $(SOURCES) | prereqs
 	$(ENVIRON) latexmk -jobname=$(PRETTY_JOB) $(LATEX_OPTS) $(DOCNAME)
 
-live: | Prereqs
+live: | prereqs
 	$(ENVIRON) latexmk -jobname=$(PRETTY_JOB) $(LATEX_OPTS) $(LIVE_OPTS) $(DOCNAME)
 
-gvsu-live: | Prereqs
+gvsu-live: | prereqs
 	$(ENVIRON) latexmk -jobname=$(GVSU_JOB) $(LATEX_OPTS) $(LIVE_OPTS) $(DOCNAME)
 
 clean:
 	rm -rf $(OUTDIR) $(DOCNAME).bib
+
+clean-all: clean
 	make -C $(ARG_SRC_DIR) clean
 	make -C $(DFD_SRC_DIR) clean
