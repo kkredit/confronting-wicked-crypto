@@ -25,13 +25,13 @@ PRETTY_JOB := Thesis
 
 DOCKER_BUILD_ARGS := --build-arg USER_UID=`id -u` --build-arg USER_GID=`id -g` --build-arg USER_NAME=`whoami`
 DOCKER_TAG := thesis-build-env
-# DBUS_FLAGS := -v /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro
 DISP_FLAGS := -e DISPLAY=$(DISPLAY) -v /tmp/.X11-unix:/tmp/.X11-unix
 DOCKER_RUN_FLAGS := --privileged $(DISP_FLAGS) -v `pwd`:/host --user=`id -u`:`id -g` --hostname builder --rm -it
-DOCKER_RUN_CMD := bash -c "make live"
+# FIXME: the following command alleviates a side-effect in the container where 'drawio' hangs upon fist execution
+HACK := drawio --export DFD-demo.drawio --format png --embed-dragram -o build/DFD-demo.png
+DOCKER_RUN_CMD := bash -c "( cd dfds; $(HACK) &); make live"
 
 .PHONY: all pretty gvsu live gvsu-live docker clean clean-all prereqs
-# TODO: build from a container. I don't trust myself to keep this environment working!
 
 pretty: $(OUTDIR)/$(PRETTY_JOB).pdf
 gvsu: $(OUTDIR)/$(GVSU_JOB).pdf

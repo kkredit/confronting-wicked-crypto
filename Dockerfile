@@ -14,6 +14,7 @@ ARG MNT_PNT=/host
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+
 # Basic setup
 RUN \
     # User setup
@@ -27,7 +28,9 @@ RUN \
         make \
         curl \
         wget \
-        git
+        git \
+        apt-utils
+
 
 # Install LaTeX tools
 RUN apt-get install -y \
@@ -38,22 +41,20 @@ RUN apt-get install -y \
         texlive-publishers \
         latexmk
 
+
 # Install Argdown tools
-# TODO: install node
 RUN apt-get install -y --no-install-recommends \
         inkscape \
         libcanberra-gtk-module \
-        libcanberra-gtk3-module
-# RUN npm install -g @argdown/cli
+        libcanberra-gtk3-module \
+        npm
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+    apt-get install -y --no-install-recommends \
+        nodejs && \
+    npm install -g @argdown/cli
+
 
 # Install Drawio tools
-
-# RUN apt-get install -y systemd dbus
-# RUN apt-get install -y \
-#         snapd
-# RUN service snapd start
-# RUN snap install drawio
-
 RUN URL=$(curl -sL https://github.com/jgraph/drawio-desktop/releases/latest | \
                     grep "\.deb" | head -1  | cut -d\" -f2) && \
     wget -q $URL && \
