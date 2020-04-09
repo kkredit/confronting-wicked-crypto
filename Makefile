@@ -29,7 +29,7 @@ DISP_FLAGS := -e DISPLAY=$(DISPLAY) -v /tmp/.X11-unix:/tmp/.X11-unix
 DOCKER_RUN_FLAGS := --privileged $(DISP_FLAGS) -v `pwd`:/host --user=`id -u`:`id -g` --hostname builder --rm -it
 # FIXME: the following command alleviates a side-effect in the container where 'drawio' hangs upon fist execution
 HACK := drawio --export DFD-demo.drawio --format png --embed-dragram -o build/DFD-demo.png
-DOCKER_RUN_CMD := bash -c "( cd dfds; $(HACK) &); make live"
+DOCKER_RUN_CMD := bash -c "(cd dfds; $(HACK) &); make live"
 
 .PHONY: all pretty gvsu live gvsu-live docker clean clean-all prereqs
 
@@ -43,11 +43,6 @@ $(TEMPLATE_IS_CLONED):
 
 Fonts: | $(TEMPLATE_IS_CLONED)
 	if [ ! -L Fonts ]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
-
-# FIXME: Kludge to fix broken VSCode LatexWorkshop
-build/build:
-	mkdir -p build
-	ln -s . build/build
 
 $(IMAGES):
 	make -C $(ARG_SRC_DIR)
