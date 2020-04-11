@@ -264,50 +264,69 @@ The following sections summarize the encryption regulatory environment and techn
 The following laws and regulations have been applied to cases involving surveillance, cryptography, and access to
 encrypted information:
 
-\newcommand{\lawsstart}[0]{\begin{itemize}}
-\newcommand{\law}[3]{\item #1: \textbf{#2} \cite{#3}} % Year, name, citation
+\newcommand{\lawsstart}{\begin{itemize}}
+\newcommand{\law}[4]{ % Year, name, citation, description
+    \item #1: \textbf{#2} \cite{#3} \newline
+    \parbox{\linewidth}{#4} \newline
+}
 \newcommand{\lawsend}{\end{itemize}}
 
 \lawsstart
-    \law{1789}{\acf{AWA}}{congress_1789}
-    \law{1791}{Bill of Rights: Amendments I, IV, and V}{madison_1791}
-    \law{1976}{\acf{AECA}}{morgan_hr13680_1976}
-% Established export controls over strong encryption techniques introduced ITAR (International Traffic in Arms
-% Regulations) \cite{kehl_right_2015}
-    \law{1978}{\acf{FISA}}{rodino_1978}
+    \law{1789}{\acf{AWA}}{congress_1789}{}
+
+    \law{1791}{Bill of Rights: Amendments I, IV, and V}{madison_1791}{}
+
+    \law{1976}{\acf{AECA}}{morgan_hr13680_1976}{
+
+Established export controls over strong encryption techniques introduced ITAR (International Traffic in Arms
+Regulations) \cite{kehl_right_2015}
+
+    }
+
+    \law{1978}{\acf{FISA}}{rodino_1978}{}
+
 % (FISA has been the subject of frequent FBI abuse: \cite{shamsi_2011} \cite{tucker_2020})
 % (the FBI almost lost some provisions; follow up on https://apnews.com/110ff653e98478da66765897dde3d613,
 %     https://www.washingtontimes.com/news/2020/mar/15/adam-schiff-fisa-reform-intervention-protects-fbi-/,
 %     https://saraacarter.com/fisa-senate-passes-measure-extending-surveillance-powers-abuses-not-addressed/)
-    \law{1986}{\acf{CFAA}}{hughes_hr4718_1986}
+
+    \law{1986}{\acf{CFAA}}{hughes_hr4718_1986}{}
+
 % \cite{wolff_computer_2016}
-    \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}
-    \law{1994}{\acf{CALEA}}{edwards_hr4922_1994}
-    \law{2001}{\acf{USAPATRIOT} Act}{sensenbrenner_2001}
-    \law{2007}{\acf{PAA}}{mcconnell_s1927_2007}
-    \law{2008}{\acf{FISAAA}}{reyes_hr6304_2008}
-    \law{2015}{\acf{USAFREEDOM} Act}{sensenbrenner_2015}
+
+    \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}{}
+
+    \law{1994}{\acf{CALEA}}{edwards_hr4922_1994}{}
+
+    \law{2001}{\acf{USAPATRIOT} Act}{sensenbrenner_2001}{}
+
+    \law{2007}{\acf{PAA}}{mcconnell_s1927_2007}{}
+
+    \law{2008}{\acf{FISAAA}}{reyes_hr6304_2008}{}
+
+    \law{2015}{\acf{USAFREEDOM} Act}{sensenbrenner_2015}{}
+
 \lawsend
 
 The following are proposed laws and regulations that did not go into effect or have yet to be voted on:
 
 \lawsstart
-    \law{1993}{The \ac{clipperchip}}{press_1993}
+    \law{1993}{The \ac{clipperchip}}{press_1993}{}
 % \cite{thompson_2015}
-    \law{1996}{The SAFE Act}{goodlatte_hr3011_1996}
-    \law{1997}{Encrypted Communications Privacy Act}{leahy_s376_1997}
+    \law{1996}{The SAFE Act}{goodlatte_hr3011_1996}{}
+    \law{1997}{Encrypted Communications Privacy Act}{leahy_s376_1997}{}
 % mix of SE protection and EA guidelines?
-    \law{1998}{Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act}{ashcroft_s2067_1998}
+    \law{1998}{Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act}{ashcroft_s2067_1998}{}
 % like above?
-    \law{1999}{Encryption for the National Interest Act}{goss_hr2616_1999}
-    \law{1999}{Tax Relief for Responsible Encryption Act}{goss_hr2617_1999}
+    \law{1999}{Encryption for the National Interest Act}{goss_hr2616_1999}{}
+    \law{1999}{Tax Relief for Responsible Encryption Act}{goss_hr2617_1999}{}
 % ^^ these two introduced by same rep on same day
-    \law{2016}{Compliance with Court Orders Act (discussion draft)}{burr_2016}
-    \law{2018}{The Secure Data Act}{lofgren_hr5823_2018}
+    \law{2016}{Compliance with Court Orders Act (discussion draft)}{burr_2016}{}
+    \law{2018}{The Secure Data Act}{lofgren_hr5823_2018}{}
 % federal SE protections
-    \law{2019}{The ENCRYPT Act}{lieu_hr4170_2019}
+    \law{2019}{The ENCRYPT Act}{lieu_hr4170_2019}{}
 % state SE protections
-    \law{2020}{The EARN IT Act}{graham_s3398_2020}
+    \law{2020}{The EARN IT Act}{graham_s3398_2020}{}
 \lawsend
 
 
@@ -315,7 +334,7 @@ The following are proposed laws and regulations that did not go into effect or h
 
 The following is a very brief account of the regulatory environment in various jurisdictions around the world:
 
-\newcommand{\countriesstart}[0]{\begin{itemize}}
+\newcommand{\countriesstart}{\begin{itemize}}
 \newcommand{\country}[1]{\item \textbf{#1:}} % Country
 \newcommand{\countriesend}{\end{itemize}}
 
@@ -333,6 +352,17 @@ The following is a very brief account of the regulatory environment in various j
 
 \section{Approaches to Exceptional Access}
 \label{sec-tech-approaches}
+
+% There are several types of approaches:
+% - Allow strong encryption (anyone with the users' private keys can see it)
+% - Disallow encryption (anyone can see it)
+% - Make encryption sufficiently weak, e.g. limit key length (anyone with enough CPU can see it)
+% - Require use of backdoored algorithms, security via obscurity (anyone with the secret knowledge can see it)
+% - Allow any encryption, just be able to provide keys (anyone with the extra keys can see it)
+%   - Store extra in gov't DBs, in corporate DBs, in third-party DBs, on blockchain, in secure HW on device
+%   - Split the key and store it multiple places
+% - Use some alternative path
+%   - Coerced passwords, finding unencrypted copies, seizing devices while unlocked, lawful hacking
 
 
 \subsection{Historical Approaches}
