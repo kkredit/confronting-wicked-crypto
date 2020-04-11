@@ -60,6 +60,7 @@ RUN URL=$(curl -sL https://github.com/jgraph/drawio-desktop/releases/latest | \
     wget -q $URL && \
     (dpkg -i ./*.deb || apt-get -fy install)
 
+
 # Setup the working directory
 RUN mkdir -p $MNT_PNT
 WORKDIR $MNT_PNT
