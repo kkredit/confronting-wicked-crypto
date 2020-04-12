@@ -37,7 +37,9 @@ prepared for regulation, but lead and shape it.
 
 Most importantly, in the pursuit of data privacy, regulatory action is part of the threat model. If the technical
 community fails to act but regulators move forward, everyone may become subject to technically misguided laws that do
-great harm. Bad \ac{EA} policy is just as much a threat as poor passwords.
+great harm. Bad \ac{EA} policy is just as much a threat as poor passwords. Due to this threat, as long as lawmakers
+continue pursuing \ac{EA} regulation, it is the responsibility of the technical community to engage in discussion and
+respond to the arguments being presented.
 
 For all these reasons, it is time that the technical community moves the debate forward.
 
@@ -45,8 +47,8 @@ For all these reasons, it is time that the technical community moves the debate 
 \section{Premises}
 \label{sec-premises}
 
-This paper accepts and builds on the following premises, some of which were introduced in \mysec{sec-motivation}. These
-premises are not principles for potential \ac{EA} designs, but the starting place for discussing the \ac{EA} debate.
+This paper accepts and builds on the following premises. These premises are not principles for potential \ac{EA}
+designs, but the starting place for discussing the \ac{EA} debate.
 
 \newcommand{\principlesstart}{\begin{enumerate}}
 \newcommand{\principle}[1]{\item \textbf{#1.}}
@@ -54,33 +56,24 @@ premises are not principles for potential \ac{EA} designs, but the starting plac
 
 \principlesstart
 
-% Simplify to four:
-% 1. Crypto and digital security are crucial to the wellbeing of our society. (I don't think this is a stretch.)
-% 2. In certain contexts, privacy is not an absolute right. Investigators should have access to some classes of digital
-%       data.
-% 3. Several factors complicate any potential solutions: mass surveillance, potential for abuse, international political
-%       and economic considerations, need for transparency for all of the above.
-% 4. Perfection is not the standard.
+\principle{Cybersecurity is critical} With current levels of reliance on computer information systems, cybersecurity is
+critical to the wellbeing of society. Two important elements of cybersecurity are cryptography and system architecture.
+Policy which supports security does not undercut cryptographic integrity or require high-risk architectures.
 
-\principle{The discussion must go on} As long as regulators continue pursuing \ac{EA} regulation, it is the
-responsibility of the technical community to engage and respect the valid arguments being presented.
+\principle{Absolute privacy is not an absolute right} Certain rights supersede the legitimate claims of government, but
+absolute privacy is not one of them. In some contexts, absolute privacy is proper, and in almost all contexts,
+reasonable privacy should be presumed. However, privacy is not an absolute right, and investigators should have access
+to some classes of data. Access to these classes of data is important today and will be increasingly important in the
+future.
 
-\principle{Cryptography is foundational} Strong cryptography in its various forms is foundational to digital security.
+\principle{\Ac{EA} is an inherently complex problem} The factors factors that make \ac{EA} a \ac{wicked-prob} mean that
+proposed solutions must be analyzed at many levels. Some these factors are \ac{EA}'s relation to mass surveillance,
+potential for abuse, international reception, economic impact, and need for transparency.
 
-\principle{Investigators need data} The ability to access digital data for investigation and prosecution is important
-today and will be increasingly important in the future.
-
-\principle{Mass surveillance is a danger} Mass surveillance, which \ac{EA} makes easier, is a grave danger from which
-representative governments are not immune.
-
-\principle{Transparency is necessary} Transparency of the law enforcement and intelligence communities' data access
-capability and usage is critical for public trust.
-
-\principle{\Ac{EA} is an international problem} The internet is largely borderless, and international and human rights
-considerations significantly constrain workable \ac{EA} solutions.
-
-\principle{Perfection is not the goal} To loosely quote the ``insecurity axioms,'' insecurity cannot be destroyed, only
-moved around \cite{nrc_schneider_1999}. \Ac{EA}, like all security, is a matter of finding the right balance of risk.
+\principle{Perfection is not the standard} Wicked policy problems do not have perfect solutions, or even verifiably
+optimal solutions, so we cannot use perfection as the standard. To quote the ``insecurity axioms,'' insecurity cannot be
+destroyed, only moved around \cite{nrc_schneider_1999}. \Ac{EA}, like all security problems, is a matter of finding the
+right balance of risk given the threats under consideration--which includes regulatory action.
 
 \principlesend
 
@@ -91,6 +84,6 @@ moved around \cite{nrc_schneider_1999}. \Ac{EA}, like all security, is a matter 
 The paper serves to clarify the arguments composing debate and the nature of the technical problem. After reproducing a
 brief U.S.-focused history of encryption regulation, technology, and conflict, it introduces argument maps and threat
 models using data flow diagrams. In the following chapters it analyzes exceptional access arguments in detail and
-creates a multi-level threat model, broken down by the significantly different challenges posed by \ac{DAR} and
-\ac{DIM}. The paper concludes with a set of policies and principles to apply to the problem in light of valid arguments
+creates a multi-level threat model, broken down by the significantly different challenges posed by \acl{DAR} and
+\acl{DIM}. The paper concludes with a set of policies and principles to apply to the problem in light of valid arguments
 and threats.
