@@ -78,9 +78,9 @@ infrastructure loses availability, government communications lose authenticity a
 whole loses integrity, inconceivably large damage would occur.
 
 % FIXME: Kristen doesn't like the wording; also remove word "electronic"?
-Electronic encryption's dual role as enabler of strong privacy and cornerstone of computer security may be the central
-conflict in the EA debate. Those who focus on its role in privacy object to its absolute power. Those who focus on its
-role in security rely on its absolute power.
+Encryption's dual role as enabler of strong privacy and cornerstone of computer security may be the central conflict in
+the EA debate. Those who focus on its role in privacy object to its absolute power. Those who focus on its role in
+security rely on its absolute power.
 
 
 
@@ -258,6 +258,10 @@ The following sections summarize the encryption regulatory environment and techn
 \section{Regulatory Environment}
 \label{sec-reg-environment}
 
+The following sections list laws which directly or indirectly affect use encryption. \Ac{EA} is an international
+problem, as digital technology has little respect for borders. This paper is U.S.-focused, but briefly touches on the
+regulatory environment of other countries.
+
 
 \subsection{U.S. Efforts to Regulate Encryption}
 
@@ -272,20 +276,38 @@ encrypted information:
 \newcommand{\lawsend}{\end{itemize}}
 
 \lawsstart
-    \law{1789}{\acf{AWA}}{congress_1789}{}
+    \law{1789}{\acf{AWA}}{congress_1789}{
 
-    \law{1791}{Bill of Rights: Amendments I, IV, and V}{madison_1791}{}
+A short law designed to grant federal courts the right to ``issue all writs necessary or appropriate in aid of their
+respective jurisdictions and agreeable to the usages and principles of law,'' creating a legal framework for providing
+data to law enforcement. The \acs{AWA} was famously cited in the Apple vs. FBI case, though its applicability to \ac{EA}
+in general is unsettled \cite{matyas_incommensurability_2018}.
+
+}
+
+    \law{1791}{Bill of Rights: Amendments I, IV, and V}{madison_1791}{
+
+The most frequently cited constitutional amendments in the \ac{EA} debate. I: freedom of speech; IV: security against
+unreasonable searches and seizures and requirements for warrants; V: right against self-incrimination.
+
+}
 
     \law{1976}{\acf{AECA}}{morgan_hr13680_1976}{
 
-Established export controls over strong encryption techniques introduced ITAR (International Traffic in Arms
-Regulations) \cite{kehl_right_2015}
+Expanded arms export controls and created the \ac{ITAR} regulations framework. Encryption products were classified as
+arms and subjected to export controls \cite{kehl_right_2015}.
 
-    }
+}
 
-    \law{1978}{\acf{FISA}}{rodino_1978}{}
+    \law{1978}{\acf{FISA}}{rodino_1978}{
 
-% (FISA has been the subject of frequent FBI abuse: \cite{shamsi_2011} \cite{tucker_2020})
+Allows the executive branch ``to authorize electronic surveillance for foreign intelligence purposes without a court
+order, in some circumstances.'' \acs{FISA} applications take place in secret, and may be conducted against U.S. citizens
+if foreign intelligence is the ``primary purpose'' \cite{shamsi_2011}. \acs{FISA} has been the subject of frequent FBI
+abuse \cite{shamsi_2011} \cite{tucker_2020}.
+
+}
+
 % (the FBI almost lost some provisions; follow up on https://apnews.com/110ff653e98478da66765897dde3d613,
 %     https://www.washingtontimes.com/news/2020/mar/15/adam-schiff-fisa-reform-intervention-protects-fbi-/,
 %     https://saraacarter.com/fisa-senate-passes-measure-extending-surveillance-powers-abuses-not-addressed/)
@@ -354,6 +376,7 @@ The following is a very brief account of the regulatory environment in various j
 \label{sec-tech-approaches}
 
 % There are several types of approaches:
+% TODO: after defense, create table of these and reference it in \prop lists below
 % - Allow strong encryption (anyone with the users' private keys can see it)
 % - Disallow encryption (anyone can see it)
 % - Make encryption sufficiently weak, e.g. limit key length (anyone with enough CPU can see it)

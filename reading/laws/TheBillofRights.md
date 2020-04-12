@@ -17,7 +17,7 @@ Government for a redress of grievances.
 >Amendment IV  
 The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and
 seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation,
-and particularly describing the place to be searched, and the persons or things to be seized
+and particularly describing the place to be searched, and the persons or things to be seized.
 
 >Amendment V  
 No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a
