@@ -1,8 +1,8 @@
 \chapter{Background}
 \label{chap-background}
 
-The problem of strong encryption and exceptional access exists in a technical, historical, and regulatory context. This
-chapter introduces cryptography, summarizes the history of encryption and the crypto wars, lists relevant encryption
+The problem of strong encryption and \acl{EA} exists in a technical, historical, and regulatory context. This chapter
+introduces cryptography, summarizes the history of encryption and the ``crypto wars,'' lists relevant encryption
 regulations, and lists prominent technical \ac{EA} proposals. It then introduces argument maps as a logical modeling
 tool, and introduces threat modeling with data flow diagrams.
 
@@ -15,8 +15,8 @@ tool, and introduces threat modeling with data flow diagrams.
 performed by using some \ac{cipher} to translate between \ac{plaintext} and \ac{ciphertext}. The cipher is the tool or
 algorithm that performs the translation, plaintext is the original data, and ciphertext is the encoded data. The
 processes for translating from plaintext to ciphertext and back are \ac{encryption} and \ac{decryption}. A well-designed
-cipher ensures that only those with the correct secret information, the \ac{key}, can perform encryption or decryption
-on the text.
+cipher ensures that only those parties with the correct secret information, the \ac{key}, can perform encryption or
+decryption on the text.
 
 % There are two classes of cryptographic ciphers--stream and block
 
@@ -118,7 +118,8 @@ strong encryption.
 
 All these realities--government discomfort with absolute privacy, rapidly increasing availability of strong encryption,
 and a blossoming computer industry foundationally reliant on cryptography--came to a head in what has become known as
-\ac{the-cw1}.
+the first ``crypto war.''
+% \ac{the-cw1}.
 
 In 1976, the same year Diffie and Hellmann published their research in public key cryptography, the U.S. Congress passed
 the \ac{AECA} and declared that strong cryptography is subject to export controls \cite{kehl_right_2015}. In 1991, the
@@ -251,7 +252,7 @@ largely see the EARN IT Act as an attempt to indirectly yet effectively outlaw \
 % NOTE: keep up to date, including the section above mentioning the pandemic
 % IDEA: create timeline! https://tex.stackexchange.com/questions/196794/how-can-you-create-a-vertical-timeline
 
-The following sections summarize the encryption regulatory environment and technical approaches to exceptional access.
+The following sections summarize the encryption regulatory environment and technical approaches to \ac{EA}.
 
 
 
@@ -432,7 +433,7 @@ towards the same goal.
 \section{Argument Maps}
 \label{sec-arg-maps-intro}
 
-In order to advance the \ac{EA} debate, it helps to organize the all the arguments used in a cohesive manner. One way to
+In order to advance the \ac{EA} debate, it helps to organize all the arguments used in a cohesive manner. One way to
 organize arguments is to create argument maps. Argument maps are graphical representations of the logical structures and
 relationships between statements, premises, and conclusions. Argument maps are an outgrowth of the same research by
 Horst Rittel that originated the idea of \acp{wicked-prob}. In 1970 his research group developed \acp{IBIS} to break
