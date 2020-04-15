@@ -7,7 +7,7 @@ cd $READING_DIR
 
 if (( 2 <= $# )) && [[ "-a" == "$1" ]]; then
     # Show all
-    for FILE in $(eval "grep -riIsl \"${@:2}\""); do
+    for FILE in $(eval "grep -riIsc \"${@:2}\" | grep -v :0 | sort -t: -n -k2 -r"); do
         readlink -f $FILE
     done
     exit 0
