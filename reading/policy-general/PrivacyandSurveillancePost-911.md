@@ -10,6 +10,7 @@
     - ECPA was specific about where the data lives, but that changes with technology trends, so it became quickly
         outdated and overly permissive
   - Data obtained in violation of ECPA is still permissable in court?? See quote #1 below
+    - Couldn't find anything to back this up, and they don't cite, so don't reference this
   - The PATRIOT Act diminished protections against domestic surveillance initially built into FISA
   - "NSLs are authorized by four separate statutes, each of which was expanded by section 505 of the USA PATRIOT Act."
   - The FISA Amendments Act was to replaced GWB's warrentless wiretapping, but "expands the government’s authority to

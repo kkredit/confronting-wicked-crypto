@@ -173,19 +173,19 @@ compel information from digital service providers while precluding any public di
 weakened limitations would be repeatedly violated \cite{shamsi_2011} \cite{tucker_2020}.
 
 If the weakness of data protection laws and absence of encryption protection laws left the door open for a second crypto
-war, and increased government surveillance set events in motion toward conflict, it was the 2013 Snowden revelations
-that constituted the crossing of the threshold. Though policies such as the U.S. \ac{NSA}'s warrantless wiretapping
-caused a stir, it was the mass data collection under the agency's \ac{PRISM} and related programs that caused the real
-public outcry \cite{landau_making_2013}. With the public interest focused on digital privacy, encryption promised a
-technical solution. Under pressure from both the human rights field and from ordinary users demanding improved digital
-privacy, U.S. tech companies responded by introducing default device encryption for \acl{DAR} and \acl{E2E} encryption
-for \acl{DIM} \cite{treguer_us_2018}.
+war, and increased government surveillance set events in motion toward conflict, it was the 2013 \ac{snowden}
+revelations that constituted the crossing of the threshold. Though policies such as the U.S. \ac{NSA}'s warrantless
+wiretapping caused a stir, it was the mass data collection under the agency's \ac{PRISM} and related programs that
+caused the real public outcry \cite{landau_making_2013}. With the public interest focused on digital privacy, encryption
+promised a technical solution. Under pressure from both the human rights field and from ordinary users demanding
+improved digital privacy, U.S. tech companies responded by introducing default device encryption for \acl{DAR} and
+\acl{E2E} encryption for \acl{DIM} \cite{treguer_us_2018}.
 
 The emergence of strong encryption caused \ac{the-cw1}; its proliferation is causing the second.
 
-The U.S. corporate response to Snowden should not be overly construed as a morally motivated defense of civil rights, as
-their behavior is a matter of several practical factors \cite{treguer_us_2018}, not least of which is the pursuit of
-basic digital security. Recall encryption and cryptography's critical role in security as described in
+The U.S. corporate response to \ac{snowden} should not be overly construed as a morally motivated defense of civil
+rights, as their behavior is a matter of several practical factors \cite{treguer_us_2018}, not least of which is the
+pursuit of basic digital security. Recall encryption and cryptography's critical role in security as described in
 \mysec{sec-crypto-basics}, and that encryption's dual role as enabler of strong privacy and cornerstone of computer
 security is a central conflict in the \ac{EA} debate. When questioned by lawmakers, technical leaders and executives
 have repeatedly appealed to the fact that strong cryptography is a necessity for security \cite{schulze_clipper_2017}.
@@ -337,37 +337,57 @@ activities.
 
     \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}{
 
-% Amends Wiretap Act, Stored Communications Act, Pen Register Act. Deep history, but picking up here.
+Amended the Wiretap Act, Stored Communications Act, and Pen Register Act. Provided explicit protections for private
+electronic communications data, and updated definitions to contemporary technology. It granted law enforcement explicit
+access to certain data as well; some terminology has aged poorly with technological evolution, making the access
+increasingly permissive \cite{shamsi_2011}.
 
 }
 
     \law{1994}{\acf{CALEA}}{edwards_hr4922_1994}{
 
+Mandated that telecommunications carriers enable the government to ``intercept all of the subscriber's wire and
+electronic communications'' in a manner that ``protects the privacy and security'' of communications not authorized to
+be intercepted. The law does not authorize law enforcement to compel use of any specific technologies, which meant that
+the \ac{clipperchip} proposal issued a year earlier could not be made mandatory through \acs{CALEA}. \acs{CALEA}
+specifically excludes ``information services'' from its interception requirement which has included internet platforms,
+though that exclusion is currently under attack \cite{pfefferkorn_2019}.
 
+}
+
+    \law{2001}{\ac{USAPATRIOTAct}}{sensenbrenner_2001}{
+
+Written in the aftermath of September 11, the \ac{USAPATRIOTAct} broadly expanded U.S. government surveillance powers
+in 25 sections of ``Title II: Enhanced Surveillance Procedures.'' The act notably expands \acs{FISA} order scope
+(Section 206), duration (207), and use on U.S. citizens (218). Section 215 enables court orders requiring business
+records, but the \ac{snowden} leaks revealed that the government had been secretly using a non-standard definition of
+``business records'' in order ``to justify requests for domestic telephone metadata delivered in bulk, not
+individualized requests'' \cite{landau_making_2013}.
 
 }
 
-    \law{2001}{\acf{USAPATRIOT} Act}{sensenbrenner_2001}{
-
-
-
-}
-
-    \law{2007}{\acf{PAA}}{mcconnell_s1927_2007}{
-
-
-
-}
+%     \law{2007}{\acf{PAA}}{mcconnell_s1927_2007}{
+%
+% Retroactively approved of GWB's warrentless wiretapping policy, a loose intepretation of FISA
+% \cite{landau_making_2013}
+%
+% }
 
     \law{2008}{\acf{FISAAA}}{reyes_hr6304_2008}{
 
-
+Like the \ac{USAPATRIOTAct} before it, \acs{FISAAA} expanded \ac{FISA} powers once again. It additionally provided
+``telephone companies retroactive immunity for participating in the warrantless surveillance'' on any international
+communication, a policy established in 2001 under another loose, secret interpretation of \ac{FISA}, ``as well as
+creating prospective immunity for FISAAA activities'' \cite{landau_making_2013}.
 
 }
 
-    \law{2015}{\acf{USAFREEDOM} Act}{sensenbrenner_2015}{
+    \law{2015}{\ac{USAFREEDOMAct}}{sensenbrenner_2015}{
 
-
+The \ac{USAFREEDOMAct}, introduced by the same U.S. House representative as the \ac{USAPATRIOTAct}, passed the senate
+almost two years to the day after \ac{snowden}'s leaks began. It contains many reforms to \ac{FISA} and the use of
+\acp{NSL}. Most notably, it ends the interpretation of section 215 of the \ac{USAPATRIOTAct} that enabled mass
+collection of telephone metadata.
 
 }
 
@@ -432,6 +452,21 @@ The following are proposed laws and regulations that did not go into effect or h
     \law{2019}{The ENCRYPT Act}{lieu_hr4170_2019}{
 
 % state SE protections
+
+}
+
+\law{2019}{Technology in Criminal Justice Act}{demings_hr5227_2019}{
+
+% state SE protections
+
+% pfefferkorn_2019
+% And in fact, there’s already proposed legislation based on CSIS’s recommendations: the Technology in Criminal Justice
+% Act of 2019, introduced in the House last month by a bipartisan group of co-sponsors led by Rep. Val Demings of Florida.
+% The bill seeks to close the resource, training, and information-sharing gap for digital evidence, and to improve the
+% frayed relationship between law enforcement and technology companies. Notably absent from the bill is any language that
+% would roll back the CALEA compromise or mandate encryption backdoors. To be clear, I’m not advocating for or against
+% Rep. Demings’ bill. I just want to point out that it offers an alternative to whatever backdoor nightmare the Senate
+% Judiciary Committee is surely drafting up right now.
 
 }
 
