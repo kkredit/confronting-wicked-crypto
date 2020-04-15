@@ -22,9 +22,10 @@ decryption on the text.
 
 There are two major cryptographic protocol families--symmetric and asymmetric. In traditional \ac{sym-crypto},
 encryption and decryption are performed with the same key, and both parties must have this key in order to communicate
-securely. In \ac{asym-crypto}, encryption and decryption are performed with separate, paired keys, called the public key
-and the private key. The innovation of \ac{public-key-crypto} is that the public key is not secret, and using this
-technique, two parties can communicate securely without requiring an a previously agreed upon shared secret.
+securely. In \ac{asym-crypto}, also called \ac{public-key-crypto}, encryption and decryption are performed with two
+paired keys, called the public key and the private key. The innovation of \ac{public-key-crypto} is that the public key
+is not secret, and using this technique, two parties can communicate securely without requiring an a previously agreed
+upon shared secret.
 
 One can also define two major cryptographic applications--securing \acf{DIM} and \acf{DAR}. Each application is a
 different problem that results in different solutions. \Ac{DIM} typically uses long-lived \ac{asym-crypto} keys to
@@ -260,7 +261,7 @@ The following sections summarize the encryption regulatory environment and techn
 \label{sec-reg-environment}
 
 The following sections list laws which directly or indirectly affect use encryption. \Ac{EA} is an international
-problem, as digital technology has little respect for borders. This paper is U.S.-focused, but briefly touches on the
+problem, as digital technology has little respect for borders. This thesis is U.S.-focused, but briefly touches on the
 regulatory environment of other countries.
 
 
@@ -277,6 +278,7 @@ encrypted information:
 \newcommand{\lawsend}{\end{itemize}}
 
 \lawsstart
+
     \law{1789}{\acf{AWA}}{congress_1789}{
 
 A short law designed to grant federal courts the right to ``issue all writs necessary or appropriate in aid of their
@@ -293,6 +295,12 @@ unreasonable searches and seizures and requirements for warrants; V: right again
 
 }
 
+% IDEA: go into
+%  Wiretap Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_119.html)
+%  Stored Communications Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_121.html)
+%  Pen Register Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_II_20_206.html)
+% etc?
+
     \law{1976}{\acf{AECA}}{morgan_hr13680_1976}{
 
 Expanded arms export controls and created the \ac{ITAR} regulations framework. Encryption products were classified as
@@ -307,49 +315,132 @@ order, in some circumstances.'' \acs{FISA} applications take place in secret, an
 if foreign intelligence is the ``primary purpose'' \cite{shamsi_2011}. \acs{FISA} has been the subject of frequent FBI
 abuse \cite{shamsi_2011} \cite{tucker_2020}.
 
-}
-
 % (the FBI almost lost some provisions; follow up on https://apnews.com/110ff653e98478da66765897dde3d613,
 %     https://www.washingtontimes.com/news/2020/mar/15/adam-schiff-fisa-reform-intervention-protects-fbi-/,
 %     https://saraacarter.com/fisa-senate-passes-measure-extending-surveillance-powers-abuses-not-addressed/)
 
-    \law{1986}{\acf{CFAA}}{hughes_hr4718_1986}{}
+}
 
-% \cite{wolff_computer_2016}
+    \law{1986}{\acf{CFAA}}{hughes_hr4718_1986}{
 
-    \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}{}
+% FIXME: is this actually related enough to keep?
 
-    \law{1994}{\acf{CALEA}}{edwards_hr4922_1994}{}
+Criminalized ``knowingly access[ing] a computer without authorization or exceeding authorized access'' and thereby
+violating the confidentiality, integrity, or availability of the system. While presumably intended to target hacking,
+the \acs{CFAA} has been used to prosecute a host of crimes, and suffers from dated language;
+% --what does it mean to ``access'' a ``computer'' loading a simple webpage may involve dozens of devices--
+whether violating the terms of service constitutes ``exceeding authorized access'' remains an open question
+\cite{wolff_computer_2016}. Importantly for \ac{EA}, the law includes carve-outs for law enforcement and intelligence
+activities.
 
-    \law{2001}{\acf{USAPATRIOT} Act}{sensenbrenner_2001}{}
+}
 
-    \law{2007}{\acf{PAA}}{mcconnell_s1927_2007}{}
+    \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}{
 
-    \law{2008}{\acf{FISAAA}}{reyes_hr6304_2008}{}
+% Amends Wiretap Act, Stored Communications Act, Pen Register Act. Deep history, but picking up here.
 
-    \law{2015}{\acf{USAFREEDOM} Act}{sensenbrenner_2015}{}
+}
+
+    \law{1994}{\acf{CALEA}}{edwards_hr4922_1994}{
+
+
+
+}
+
+    \law{2001}{\acf{USAPATRIOT} Act}{sensenbrenner_2001}{
+
+
+
+}
+
+    \law{2007}{\acf{PAA}}{mcconnell_s1927_2007}{
+
+
+
+}
+
+    \law{2008}{\acf{FISAAA}}{reyes_hr6304_2008}{
+
+
+
+}
+
+    \law{2015}{\acf{USAFREEDOM} Act}{sensenbrenner_2015}{
+
+
+
+}
 
 \lawsend
 
 The following are proposed laws and regulations that did not go into effect or have yet to be voted on:
 
 \lawsstart
-    \law{1993}{The \ac{clipperchip}}{press_1993}{}
+
+    \law{1993}{The \ac{clipperchip}}{press_1993}{
+
+
+
+}
 % \cite{thompson_2015}
-    \law{1996}{The SAFE Act}{goodlatte_hr3011_1996}{}
-    \law{1997}{Encrypted Communications Privacy Act}{leahy_s376_1997}{}
+
+    \law{1996}{The SAFE Act}{goodlatte_hr3011_1996}{
+
+
+
+}
+
+    \law{1997}{Encrypted Communications Privacy Act}{leahy_s376_1997}{
+
 % mix of SE protection and EA guidelines?
-    \law{1998}{Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act}{ashcroft_s2067_1998}{}
+
+}
+
+    \law{1998}{Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act}
+        {ashcroft_s2067_1998}{
+
+
 % like above?
-    \law{1999}{Encryption for the National Interest Act}{goss_hr2616_1999}{}
-    \law{1999}{Tax Relief for Responsible Encryption Act}{goss_hr2617_1999}{}
+
+}
+
+    \law{1999}{Encryption for the National Interest Act}{goss_hr2616_1999}{
+
+
+
+}
+
+    \law{1999}{Tax Relief for Responsible Encryption Act}{goss_hr2617_1999}{
+
+
 % ^^ these two introduced by same rep on same day
-    \law{2016}{Compliance with Court Orders Act (discussion draft)}{burr_2016}{}
-    \law{2018}{The Secure Data Act}{lofgren_hr5823_2018}{}
+
+}
+
+    \law{2016}{Compliance with Court Orders Act (discussion draft)}{burr_2016}{
+
+
+
+}
+
+    \law{2018}{The Secure Data Act}{lofgren_hr5823_2018}{
+
 % federal SE protections
-    \law{2019}{The ENCRYPT Act}{lieu_hr4170_2019}{}
+
+}
+
+    \law{2019}{The ENCRYPT Act}{lieu_hr4170_2019}{
+
 % state SE protections
-    \law{2020}{The EARN IT Act}{graham_s3398_2020}{}
+
+}
+
+    \law{2020}{The EARN IT Act}{graham_s3398_2020}{
+
+
+
+}
+
 \lawsend
 
 
@@ -437,16 +528,17 @@ In order to advance the \ac{EA} debate, it helps to organize all the arguments u
 organize arguments is to create argument maps. Argument maps are graphical representations of the logical structures and
 relationships between statements, premises, and conclusions. Argument maps are an outgrowth of the same research by
 Horst Rittel that originated the idea of \acp{wicked-prob}. In 1970 his research group developed \acp{IBIS} to break
-down \acp{wicked-prob} and document the reasoned approach that goes into solving them \cite{kunz_issues_1970}. Interest
+down \acp{wicked-prob} and document the reasoned approaches that go into solving them \cite{kunz_issues_1970}. Interest
 in \ac{IBIS} has waxed and waned. Some software tools have been developed, including the now-defunct gIBIS
 \cite{conklin_gibis_1988} and Compendium \cite{dutoit_hypermedia_2006} tools designed to produce graphical
 representations. Argdown is a recent tool that generates argument maps from structures specified in a Markdown-based
 language \cite{voigt_argdown_2018}.
 
-This paper uses Argdown to analyze the arguments used in the \ac{EA} debate. \myfig{fig-args-demo} shows the basic
-structure of arguments. Statements are positions on issues. Some statements are based on values that cannot be addressed
-through argument. Statements and arguments may support or attack one another, and arguments support or undercut other
-arguments.
+% TODO: reference forward chapter
+Argdown is used in this thesis to analyze the arguments used in the \ac{EA} debate. \myfig{fig-args-demo} shows the
+basic structure of arguments. Statements are positions on issues. Some statements are based on values that cannot be
+addressed through argument. Statements and arguments may support or attack one another, and arguments support or
+undercut other arguments.
 
 \begin{figure}[ht]
     \centering\CaptionFontSize
@@ -482,8 +574,9 @@ cannot be faithfully answered without knowing what is being built.
 \Acp{DFD} are one tool designed to address these questions. \Acp{DFD} feature processes, data flows, data stores, and
 external entities. \Acp{DFD} well suited for threat modeling because security vulnerabilities tend to follow data flow,
 not control flow \cite{shostack_threat_2014}. They are particularly well suited for \ac{EA}, as data privacy is the
-primary concern. \myfig{fig-dfd-demo} shows the basic elements of a \ac{DFD}. This paper creates \acp{DFD} in this style
-to analyze the threats already present and those that \ac{EA} would introduce.
+primary concern. \myfig{fig-dfd-demo} shows the basic elements of a \ac{DFD}. In this thesis I create \acp{DFD} in this
+style to analyze the threats already present and those that \ac{EA} would introduce.
+% TODO: reference forward chapter
 
 \begin{figure}[ht]
     \centering\CaptionFontSize
