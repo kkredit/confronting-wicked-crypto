@@ -516,21 +516,52 @@ would revoke online platforms' liability protection for user-submitted content i
 
 \subsection{Regulations around the World}
 
-The following is a very brief account of the regulatory environment in various jurisdictions around the world:
+This thesis is U.S.-focused, but \ac{EA} technologies and policies have international impacts. The following is a very
+brief account of the regulatory environment in various jurisdictions around the world based primarily on a 2016 analysis
+by the Library of Congress \cite{acosta_government_2016}.
 
 \newcommand{\countriesstart}{\begin{itemize}}
-\newcommand{\country}[1]{\item \textbf{#1:}} % Country
+\newcommand{\country}[3]{ % Name, citation, description
+    \item \textbf{#1} \cite{#2} \nopagebreak
+
+    \vspace{0.5\baselineskip} \parbox{\linewidth}{#3} \vspace{0.5\baselineskip}
+}
 \newcommand{\countriesend}{\end{itemize}}
 
 \countriesstart
-    \country{Australia} In 2018 passed its Assistance and Access bill \cite{ag_2018} \cite{newman_2018}
-    \country{UK} Investigatory Powers Act \cite{legislature_2016}
-    \country{EU} GDPR \cite{parliament_2016}
-    \country{China} See \cite{donahue_comparative_2018}
-    \country{Israel} See \cite{donahue_comparative_2018}
-    \country{Japan, Korea} can't find anything
-    \country{General} See \cite{budish_encryption_2018}
+
+    \country{Five-Eyes Countries}{acosta_government_2016}{
+% UK, Australia, Canada
+% UK Investigatory Powers Act \cite{legislature_2016}
+% Australia In 2018 passed its Assistance and Access bill \cite{ag_2018}
+
+
+}
+
+    \country{European Countries}{acosta_government_2016}{
+% France, Belgium, Germany, Sweden, EU
+% EU GDPR \cite{parliament_2016}
+
+
+}
+
+    \country{Asian Countries}{acosta_government_2016}{
+% China, Japan, Taiwan
+% China Counterterrorism Law \cite{donahue_comparative_2018}
+
+
+}
+
+    \country{Other Countries}{acosta_government_2016}{
+% Brazil, Israel, South Africa
+% Israel cybersecurity forensics and parnerships \cite{donahue_comparative_2018}
+
+
+}
+
 \countriesend
+
+% For more, read donahue_comparative_2018 (Israel and China) and budish_encryption_2018 (framework for analysis
 
 
 

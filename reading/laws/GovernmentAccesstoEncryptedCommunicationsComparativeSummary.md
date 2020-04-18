@@ -10,19 +10,21 @@
 - Notes:
   - Full reports for each country at: https://www.loc.gov/law/help/encrypted-communications/index.php
   - Covers:
-    - France
-    - Belgium
-    - UK
-    - Australia
+    - Five Eyes
+      - UK
+      - Australia
+      - Canada
+    - Europe
+      - France
+      - Belgium
+      - Germany
+      - Sweden
+      - EU in general
     - Japan
     - South Africa
-    - Canada
     - Taiwan
     - Brazil
     - Israel
-    - Germany
-    - Sweden
-    - EU in general
 
 ```bib
 @misc{acosta_government_2016,

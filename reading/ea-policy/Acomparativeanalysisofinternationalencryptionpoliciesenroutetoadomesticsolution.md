@@ -2,6 +2,7 @@
 
 read next
 - Summary:
+  - Israel relies on technical partnership and expertise, China relies on law and regulation
 - Purpose:
 - Premises:
 - Contributions:
