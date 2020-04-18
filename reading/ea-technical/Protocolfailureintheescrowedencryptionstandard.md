@@ -13,6 +13,7 @@
     - One (more powerful) allows a single rogue party to subvert the mechanism even with a compliant party
   - The attacks are _not_ broad information disclosure, they are examples of ways to subvert the Clipper Chip mechanism
 - Notes:
+  - Available at: https://www.mattblaze.org/papers/eesproto.pdf
 
 ```bib
 @inproceedings{blaze_protocol_1994,
