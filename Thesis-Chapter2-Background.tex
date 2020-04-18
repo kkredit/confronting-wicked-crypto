@@ -264,6 +264,11 @@ The following sections list laws which directly or indirectly affect use encrypt
 problem, as digital technology has little respect for borders. This thesis is U.S.-focused, but briefly touches on the
 regulatory environment of other countries.
 
+% IDEA: Create an appendix to go into greater detail?
+% Could go into these, as well as the commented-out ones below
+%  Wiretap Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_119.html)
+%  Stored Communications Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_121.html)
+%  Pen Register Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_II_20_206.html)
 
 \subsection{U.S. Efforts to Regulate Encryption}
 
@@ -272,8 +277,9 @@ encrypted information:
 
 \newcommand{\lawsstart}{\begin{itemize}}
 \newcommand{\law}[4]{ % Year, name, citation, description
-    \item #1: \textbf{#2} \cite{#3} \newline
-    \parbox{\linewidth}{#4} \newline
+    \item #1: \textbf{#2} \cite{#3}
+
+    \vspace{0.5\baselineskip} \parbox{\linewidth}{#4} \vspace{0.5\baselineskip}
 }
 \newcommand{\lawsend}{\end{itemize}}
 
@@ -295,12 +301,6 @@ unreasonable searches and seizures and requirements for warrants; V: right again
 
 }
 
-% IDEA: go into
-%  Wiretap Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_119.html)
-%  Stored Communications Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_121.html)
-%  Pen Register Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_II_20_206.html)
-% etc?
-
     \law{1976}{\acf{AECA}}{morgan_hr13680_1976}{
 
 Expanded arms export controls and created the \ac{ITAR} regulations framework. Encryption products were classified as
@@ -321,19 +321,15 @@ abuse \cite{shamsi_2011} \cite{tucker_2020}.
 
 }
 
-    \law{1986}{\acf{CFAA}}{hughes_hr4718_1986}{
-
-% FIXME: is this actually related enough to keep?
-
-Criminalized ``knowingly access[ing] a computer without authorization or exceeding authorized access'' and thereby
-violating the confidentiality, integrity, or availability of the system. While presumably intended to target hacking,
-the \acs{CFAA} has been used to prosecute a host of crimes, and suffers from dated language;
-% --what does it mean to ``access'' a ``computer'' loading a simple webpage may involve dozens of devices--
-whether violating the terms of service constitutes ``exceeding authorized access'' remains an open question
-\cite{wolff_computer_2016}. Importantly for \ac{EA}, the law includes carve-outs for law enforcement and intelligence
-activities.
-
-}
+%     \law{1986}{\acf{CFAA}}{hughes_hr4718_1986}{
+% Criminalized ``knowingly access[ing] a computer without authorization or exceeding authorized access'' and thereby
+% violating the confidentiality, integrity, or availability of the system. While presumably intended to target hacking,
+% the \acs{CFAA} has been used to prosecute a host of crimes, and suffers from dated language;
+% % --what does it mean to ``access'' a ``computer'' loading a simple webpage may involve dozens of devices--
+% whether violating the terms of service constitutes ``exceeding authorized access'' remains an open question
+% \cite{wolff_computer_2016}. Importantly for \ac{EA}, the law includes carve-outs for law enforcement and intelligence
+% activities.
+% }
 
     \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}{
 
@@ -367,10 +363,8 @@ individualized requests'' \cite{landau_making_2013}.
 }
 
 %     \law{2007}{\acf{PAA}}{mcconnell_s1927_2007}{
-%
-% Retroactively approved of GWB's warrentless wiretapping policy, a loose intepretation of FISA
-% \cite{landau_making_2013}
-%
+% Retroactively approved of GWB's warrantless wiretapping policy, a loose interpretation of FISA
+% \cite{landau_making_2013}.
 % }
 
     \law{2008}{\acf{FISAAA}}{reyes_hr6304_2008}{
@@ -409,7 +403,6 @@ discovered flaws that allowed users to subvert the \ac{clipperchip} mechanisms \
 died.
 
 }
-% \cite{thompson_2015}
 
     \law{1996}{The SAFE Act}{goodlatte_hr3011_1996}{
 
@@ -417,32 +410,21 @@ died.
 
 }
 
-    \law{1997}{Encrypted Communications Privacy Act}{leahy_s376_1997}{
+%     \law{1997}{Encrypted Communications Privacy Act}{leahy_s376_1997}{
+% % mix of SE protection and EA guidelines?
+% }
 
-% mix of SE protection and EA guidelines?
+%     \law{1998}{Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act}
+%         {ashcroft_s2067_1998}{
+% % like above?
+% }
 
-}
+%     \law{1999}{Encryption for the National Interest Act}{goss_hr2616_1999}{
+% }
 
-    \law{1998}{Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act}
-        {ashcroft_s2067_1998}{
-
-
-% like above?
-
-}
-
-    \law{1999}{Encryption for the National Interest Act}{goss_hr2616_1999}{
-
-
-
-}
-
-    \law{1999}{Tax Relief for Responsible Encryption Act}{goss_hr2617_1999}{
-
-
-% ^^ these two introduced by same rep on same day
-
-}
+%     \law{1999}{Tax Relief for Responsible Encryption Act}{goss_hr2617_1999}{
+% % ^^ these two introduced by same rep on same day
+% }
 
     \law{1999}{Cyberspace Electronic Security Act}{administration_CESA_1999}{
 
@@ -451,7 +433,7 @@ died.
 
 }
 
-    \law{1999}{Enhancement of Privacy and Public Safety in Cyberspace Act}{leahy_s3083_2000}{
+    \law{2000}{Enhancement of Privacy and Public Safety in Cyberspace Act}{leahy_s3083_2000}{
 
 
 % Bill _on behalf of_ the White House; watered down CESA, mostly CFAA updates
@@ -476,20 +458,16 @@ died.
 
 }
 
-\law{2019}{Technology in Criminal Justice Act}{demings_hr5227_2019}{
-
-% state SE protections
-
-% pfefferkorn_2019
-% And in fact, there’s already proposed legislation based on CSIS’s recommendations: the Technology in Criminal Justice
-% Act of 2019, introduced in the House last month by a bipartisan group of co-sponsors led by Rep. Val Demings of Florida.
-% The bill seeks to close the resource, training, and information-sharing gap for digital evidence, and to improve the
-% frayed relationship between law enforcement and technology companies. Notably absent from the bill is any language that
-% would roll back the CALEA compromise or mandate encryption backdoors. To be clear, I’m not advocating for or against
-% Rep. Demings’ bill. I just want to point out that it offers an alternative to whatever backdoor nightmare the Senate
-% Judiciary Committee is surely drafting up right now.
-
-}
+% \law{2019}{Technology in Criminal Justice Act}{demings_hr5227_2019}{
+% % pfefferkorn_2019
+% % And in fact, there’s already proposed legislation based on CSIS’s recommendations: the Technology in Criminal Justice
+% % Act of 2019, introduced in the House last month by a bipartisan group of co-sponsors led by Rep. Val Demings of Florida.
+% % The bill seeks to close the resource, training, and information-sharing gap for digital evidence, and to improve the
+% % frayed relationship between law enforcement and technology companies. Notably absent from the bill is any language that
+% % would roll back the CALEA compromise or mandate encryption backdoors. To be clear, I’m not advocating for or against
+% % Rep. Demings’ bill. I just want to point out that it offers an alternative to whatever backdoor nightmare the Senate
+% % Judiciary Committee is surely drafting up right now.
+% }
 
     \law{2020}{The EARN IT Act}{graham_s3398_2020}{
 
