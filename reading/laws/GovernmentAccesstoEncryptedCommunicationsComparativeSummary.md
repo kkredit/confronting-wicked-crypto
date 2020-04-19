@@ -8,7 +8,8 @@
 - Policy comments:
 - Technical comments:
 - Notes:
-  - Full reports for each country at: https://www.loc.gov/law/help/encrypted-communications/index.php
+  - Web index is at: https://www.loc.gov/law/help/encrypted-communications/index.php
+  - Comparative summary is at: https://www.loc.gov/law/help/encrypted-communications/comparative-summary.php
   - Covers:
     - Five Eyes
       - UK
@@ -29,14 +30,17 @@
 ```bib
 @misc{acosta_government_2016,
   type = {Web page},
-  title = {Government {Access} to {Encrypted} {Communications}: {Comparative} {Summary}},
+  title = {Government {Access} to {Encrypted} {Communications}},
   copyright = {Text is U.S. Government Work},
   shorttitle = {Government {Access} to {Encrypted} {Communications}},
-  url = {https://www.loc.gov/law/help/encrypted-communications/comparative-summary.php},
+  url = {https://www.loc.gov/law/help/encrypted-communications/gov-access.pdf},
   language = {eng},
   urldate = {2020-04-15},
-  author = {Acosta, Luis; Buchanan},
+  author = {Acosta, Luis and Buchanan, Kelly and Boring, Nicolas and Soares, Eduardo and Ahmad, Tariq and Papademetriou,
+Theresa and Gesley, Jenny and Levush, Ruth and Umeda, Sayuri and Goitom, Hanibal and Hofverberg, Elin and Zhang, Laney
+and Feikert-Ahalt, Clare},
   month = may,
-  year = {2016}
+  year = {2016},
+  publisher = {The {Law} {Library} of {Congress}}
 }
 ```

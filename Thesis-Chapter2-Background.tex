@@ -273,6 +273,10 @@ regulatory environment of other countries.
 
 \subsection{U.S. Efforts to Regulate Encryption}
 
+This section includes both successful and failed cryptography regulation attempts in the U.S.
+
+\subsubsection{Enacted U.S. Regulations}
+
 The following laws and regulations have been applied to cases involving surveillance, cryptography, and access to
 encrypted information:
 
@@ -387,6 +391,8 @@ collection of telephone metadata.
 }
 
 \lawsend
+
+\subsubsection{Failed U.S. Regulation Attempts}
 
 The following are proposed laws and regulations that did not go into effect or have yet to be voted on:
 
@@ -518,7 +524,7 @@ would revoke online platforms' liability protection for user-submitted content i
 
 This thesis is U.S.-focused, but \ac{EA} technologies and policies have international impacts. The following is a very
 brief account of the regulatory environment in various jurisdictions around the world based primarily on a 2016 analysis
-by the Library of Congress \cite{acosta_government_2016}.
+by the Law Library of Congress \cite{acosta_government_2016}.
 
 \newcommand{\countriesstart}{\begin{itemize}}
 \newcommand{\country}[3]{ % Name, citation, description
@@ -528,13 +534,47 @@ by the Library of Congress \cite{acosta_government_2016}.
 }
 \newcommand{\countriesend}{\end{itemize}}
 
+% What are the most relevant questions? Can the government--
+% - Compel access to--
+%   - all data?
+%   - data encrypted by a service provider? Who are covered service providers?
+% - Compel decryption of--
+%   - all data?
+%   - data encrypted by a service provider? Who are covered service providers?
+% - Perform mass collection?
+% - What legal limits are in place (e.g. warrants)?
+% - What oversight is in place (e.g. inspectors general, public transparency)?
+% - Does the government prescribe technical approaches?
+% - Is the government explicitly allowed to engage in hacking?
+
 \countriesstart
 
-    \country{Five-Eyes Countries}{acosta_government_2016}{
-% UK, Australia, Canada
-% UK Investigatory Powers Act \cite{legislature_2016}
-% Australia In 2018 passed its Assistance and Access bill \cite{ag_2018}
+    \country{Five Eyes Countries}{acosta_government_2016}{
 
+In 1946 The U.S. formalized an intelligence sharing operation with the U.K. in the BRUSA (now UKUSA) Agreement; over the
+following 10 years, Australia, Canada, and New Zealand were made full partners to this agreement, which has become known
+as ``Five Eyes'' \cite{nsa_2020}. Due to the close relationship between the intelligence and law enforcement agencies of
+these countries, the member's encryption policies are relevant to one another.
+
+% IDEA: put this in an appendix too? Or its own chapter? Too much detail for the background section.
+%
+% Looking at it now, even what I have seems like too much. Maybe move it all to an appendix.
+%
+% For more, read donahue_comparative_2018 (Israel and China) and budish_encryption_2018 (framework for analysis)
+%
+% Since the enactment of the Regulation of Investigatory Powers Act 2000, the U.K. government had the ability to serve
+% written notices requiring mandated decryption. Law enforcement and intelligence agencies also have explicit permission
+% to perform ``computer network exploitation,'' and approach this thesis refers to as ``\ac{lawful-hacking}.'' 2016's
+% Investigatory Powers Act expanded these capabilities and, among other additions, in section 253 created ``technical
+% capability notices'' that the Secretary of State can issue to telecommunications operators mandating \ac{EA}
+% \cite{legislature_2016}.
+
+The U.K. government has the explicit ability to force decryption, perform \ac{lawful-hacking}, and mandate \ac{EA}
+though ``technical capability notices'' introduced in 2016's Investigatory Powers Act \cite{legislature_2016}. Australia
+has weaker powers through a variety of laws, and in 2018 passed the Assistance and Access Act which created very similar
+``technical capability notices'' \cite{ag_2018}. Canadian law requires cooperation between telecommunications providers
+and law enforcement but does not directly address encryption. Canada has traditionally supported strong encryption, but
+the pressure of \ac{the-cw2} is causing strain \cite{parsons_2019}.
 
 }
 
@@ -542,26 +582,40 @@ by the Library of Congress \cite{acosta_government_2016}.
 % France, Belgium, Germany, Sweden, EU
 % EU GDPR \cite{parliament_2016}
 
+% TODO: it is very important to know who these requirements apply to. Traditional telecoms, obviously. Facebook and
+% Google? Signal and WhatsApp?
+
+France, Belgium, Germany, and Sweden require cooperation between telecommunications providers and law enforcement; for
+France, Belgium, and Germany, that includes decrypting network traffic when possible. For Belgium, that decryption
+capability is mandatory as of 2011. France, Germany, and Sweden each have some level of \ac{lawful-hacking} capability.
+There is no E.U. legislation that requires key disclosure or decryption of network traffic.
 
 }
 
     \country{Asian Countries}{acosta_government_2016}{
-% China, Japan, Taiwan
-% China Counterterrorism Law \cite{donahue_comparative_2018}
 
+Japanese authorities require cooperation and can request access to decrypted data, but subjects are not punished for
+declining such requests. Taiwanese regulation does not specifically address encryption, but does mandate that
+telecommunications providers provide interfaces ``with functions that can cooperate with interception.'' Chinese
+authorities have great access to plaintext data by virtue of the political structure of the state, but its 2015
+counter-terrorism law explicitly compels access to plaintext data upon request \cite{donahue_comparative_2018}.
+
+% TODO: but you can still get iPhones in China, right... ? Again, scope?
 
 }
 
     \country{Other Countries}{acosta_government_2016}{
-% Brazil, Israel, South Africa
-% Israel cybersecurity forensics and parnerships \cite{donahue_comparative_2018}
 
+Brazil, South Africa, and Israel require cooperation between telecommunications providers and law enforcement. Brazil
+law does not specifically address encryption, though it does require ``the technological resources necessary to suspend
+telecommunications confidentiality in accordance with the law.'' South Africa mandates decryption when possible. Israeli
+authorities can issue warrants for access to data or use warrantless orders similar to U.S. \ac{FISA} mechanisms. Israel
+also has well developed \ac{lawful-hacking} capabilities and a centralized forensics laboratory
+\cite{donahue_comparative_2018}.
 
 }
 
 \countriesend
-
-% For more, read donahue_comparative_2018 (Israel and China) and budish_encryption_2018 (framework for analysis
 
 
 
@@ -569,7 +623,8 @@ by the Library of Congress \cite{acosta_government_2016}.
 \label{sec-tech-approaches}
 
 % There are several types of approaches:
-% TODO: after defense, create table of these and reference it in \prop lists below
+% TODO: after defense, create table of these and reference it in \prop lists below. This is better than sorting by
+% historical origin.
 % - Allow strong encryption (anyone with the users' private keys can see it)
 % - Disallow encryption (anyone can see it)
 % - Make encryption sufficiently weak, e.g. limit key length (anyone with enough CPU can see it)
@@ -580,20 +635,29 @@ by the Library of Congress \cite{acosta_government_2016}.
 % - Use some alternative path
 %   - Coerced passwords, finding unencrypted copies, seizing devices while unlocked, lawful hacking
 
+There are several technical approaches to \ac{EA}. This section breaks down these approaches according to those
+originating from \ac{the-cw1}, \ac{the-cw2}, and those that side-step the issue by using non-technical means to acquire
+plaintext.
+
 
 \subsection{Historical Approaches}
 
 Historical approaches and proposals out of \ac{the-cw1} that saw various amounts of support.
 
 \newcommand{\propsstart}[0]{\begin{itemize}}
-\newcommand{\prop}[2]{\item \textbf{#1} \cite{#2}} % Proposal name, citation
+% \newcommand{\prop}[2]{\item \textbf{#1} \cite{#2}} % Proposal name, citation
+\newcommand{\prop}[3]{ % Name, citation, description
+    \item \textbf{#1} \cite{#2} \nopagebreak
+
+    \vspace{0.5\baselineskip} \parbox{\linewidth}{#3} \vspace{0.5\baselineskip}
+}
 \newcommand{\propsend}{\end{itemize}}
 
 \propsstart
-    \prop{Clipper chip/third-party key escrow}{press_1993}
+    \prop{Clipper chip/third-party key escrow}{press_1993}{}
 % toasted by \cite{blaze_protocol_1994}
-    \prop{Oblivious key escrow}{goos_oblivious_1996}
-    \prop{Partial key escrow}{denning_taxonomy_1996}
+    \prop{Oblivious key escrow}{goos_oblivious_1996}{}
+    \prop{Partial key escrow}{denning_taxonomy_1996}{}
 \propsend
 
 
@@ -602,9 +666,9 @@ Historical approaches and proposals out of \ac{the-cw1} that saw various amounts
 Recent proposals out of \ac{the-cw2} that have various levels of support.
 
 \propsstart
-    \prop{CLEAR}{ozzie_2018}
-    \prop{Device escrow with HW}{savage_lawful_2018}
-    \prop{Computational, blockchain approaches}{phan_key_2017}
+    \prop{CLEAR}{ozzie_2018}{}
+    \prop{Device escrow with HW}{savage_lawful_2018}{}
+    \prop{Computational, blockchain approaches}{phan_key_2017}{}
 \propsend
 
 
@@ -614,11 +678,11 @@ The following approaches do not use \ac{EA} at all, but are alternative technica
 towards the same goal.
 
 \propsstart
-    \prop{Lawful hacking}{nguyen_lawful_2017}
+    \prop{\Ac{lawful-hacking}}{nguyen_lawful_2017}{}
 % see also \cite{soesanto_2018} \cite{kerr_encryption_2017}
-    \prop{Forced password disclosure}{kerr_encryption_2017}
+    \prop{Forced password disclosure}{kerr_encryption_2017}{}
 % see also \cite{bittenbender_2019}
-    \prop{Alternative paths to plaintext}{kerr_encryption_2017}
+    \prop{Alternative paths to plaintext}{kerr_encryption_2017}{}
 % access device while unlocked; find copies elsewhere
 \propsend
 
