@@ -1,6 +1,8 @@
 # Security Versus Security:Balancing Encryption
 
 - Summary:
+  - Undergrad thesis; probably don't cite
+  - Somewhat similar scope as mine, though less technical
 - Purpose:
 - Premises:
 - Contributions:

@@ -1,6 +1,7 @@
 # A Discussion of Surveillance Backdoors: Effectiveness
 
 - Summary:
+  - Helpfully summarizes threat actors and which ones might be caught by EA
 - Purpose:
 - Premises:
 - Contributions:

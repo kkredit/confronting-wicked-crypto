@@ -1,7 +1,7 @@
 # A taxonomy for key escrow encryption systems
 
-read next
 - Summary:
+  - Breaks down ~25 commercial and public key escrow proposals and implementations according to several factors
 - Purpose:
 - Premises:
 - Contributions:

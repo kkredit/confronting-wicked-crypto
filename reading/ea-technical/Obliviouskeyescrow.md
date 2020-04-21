@@ -9,6 +9,7 @@
 - Policy comments:
 - Technical comments:
 - Notes:
+  - Available: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.43.8791&rep=rep1&type=pdf
 
 ```bib
 @incollection{goos_oblivious_1996,

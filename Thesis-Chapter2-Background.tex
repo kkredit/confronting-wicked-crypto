@@ -623,8 +623,8 @@ also has well developed \ac{lawful-hacking} capabilities and a centralized foren
 \label{sec-tech-approaches}
 
 % There are several types of approaches:
-% TODO: after defense, create table of these and reference it in \prop lists below. This is better than sorting by
-% historical origin.
+% TODO: my selections here are also rather sparse. Create another appendix? (I love work). Possibly create table of
+% properties below, similar to denning_taxonomy_1996
 % - Allow strong encryption (anyone with the users' private keys can see it)
 % - Disallow encryption (anyone can see it)
 % - Make encryption sufficiently weak, e.g. limit key length (anyone with enough CPU can see it)
@@ -632,43 +632,71 @@ also has well developed \ac{lawful-hacking} capabilities and a centralized foren
 % - Allow any encryption, just be able to provide keys (anyone with the extra keys can see it)
 %   - Store extra in gov't DBs, in corporate DBs, in third-party DBs, on blockchain, in secure HW on device
 %   - Split the key and store it multiple places
+%   - See denning_taxonomy_1996
 % - Use some alternative path
 %   - Coerced passwords, finding unencrypted copies, seizing devices while unlocked, lawful hacking
 
-There are several technical approaches to \ac{EA}. This section breaks down these approaches according to those
-originating from \ac{the-cw1}, \ac{the-cw2}, and those that side-step the issue by using non-technical means to acquire
-plaintext.
+% Lesson: the problem is _not_ cryptographically storing and splitting key recovery information. It's keeping those keys
+%   safe! If you can sit on recorded data and wait for the keys to get leaked, which they will...
 
+% Moving forward, what are the elements that are needed for a feasible EA system? (1) White-box-secure ways of producing
+% key recovery information. Do the protocols exist? EES failed. Needs to be rock solid. (2) Dispersed key recovery
+% information. (3) A robust, antifragile, inherently secure means of protecting those keys, and perhaps decaying them over
+% time (https://en.wikipedia.org/wiki/Data_degradation).
 
-\subsection{Historical Approaches}
-
-Historical approaches and proposals out of \ac{the-cw1} that saw various amounts of support.
+There are several technical approaches to \ac{EA}. This section breaks down these approaches according to their basic
+approach to \ac{key-escrow}, to cryptographic recovery without a key, or to side-stepping the issue by using
+non-technical means to acquire plaintext.
 
 \newcommand{\propsstart}[0]{\begin{itemize}}
-% \newcommand{\prop}[2]{\item \textbf{#1} \cite{#2}} % Proposal name, citation
-\newcommand{\prop}[3]{ % Name, citation, description
-    \item \textbf{#1} \cite{#2} \nopagebreak
+\newcommand{\prop}[2]{ % Name, description
+    \item \textbf{#1} \nopagebreak
 
-    \vspace{0.5\baselineskip} \parbox{\linewidth}{#3} \vspace{0.5\baselineskip}
+    \vspace{0.5\baselineskip} \parbox{\linewidth}{#2} \vspace{0.5\baselineskip}
 }
 \newcommand{\propsend}{\end{itemize}}
 
+
+\subsection{Types of Key Escrow}
+
+The most obvious approach to \ac{EA} is to store additional copies of the encrypting keys, or information that can be
+used to derive additional copies. This approach is called \ac{key-escrow}. There are several classes of key escrow.
+
 \propsstart
-    \prop{Clipper chip/third-party key escrow}{press_1993}{}
-% toasted by \cite{blaze_protocol_1994}
-    \prop{Oblivious key escrow}{goos_oblivious_1996}{}
-    \prop{Partial key escrow}{denning_taxonomy_1996}{}
+    \prop{Trusted-party key escrow}{
+
+\cite{denning_taxonomy_1996}
+\ac{clipperchip} \cite{blaze_protocol_1994}
+% The technical approach used by the \ac{clipperchip} secret protocol hardware enabled split-key government escrow.
+
+}
+
+    \prop{Distributed key escrow}{
+
+\cite{goos_oblivious_1996}
+\cite{phan_key_2017}
+
+}
+
+    \prop{Device key escrow}{
+
+\cite{savage_lawful_2018}
+\cite{ozzie_2018}
+
+}
 \propsend
 
 
-\subsection{Modern Proposals}
+\subsection{Non-Escrow Cryptographic Recovery}
 
-Recent proposals out of \ac{the-cw2} that have various levels of support.
+Though key recovery is the most discussed \ac{EA} approach, alternative technical means have been proposed.
 
 \propsstart
-    \prop{CLEAR}{ozzie_2018}{}
-    \prop{Device escrow with HW}{savage_lawful_2018}{}
-    \prop{Computational, blockchain approaches}{phan_key_2017}{}
+    \prop{Translucent Cryptography}{
+
+\cite{bellare_translucent_1996}
+
+}
 \propsend
 
 
@@ -678,12 +706,27 @@ The following approaches do not use \ac{EA} at all, but are alternative technica
 towards the same goal.
 
 \propsstart
-    \prop{\Ac{lawful-hacking}}{nguyen_lawful_2017}{}
-% see also \cite{soesanto_2018} \cite{kerr_encryption_2017}
-    \prop{Forced password disclosure}{kerr_encryption_2017}{}
-% see also \cite{bittenbender_2019}
-    \prop{Alternative paths to plaintext}{kerr_encryption_2017}{}
+    \prop{\Ac{lawful-hacking}}{
+
+\cite{nguyen_lawful_2017}
+\cite{soesanto_2018}
+\cite{kerr_encryption_2017}
+
+}
+
+    \prop{Forced password disclosure}{
+
+\cite{bittenbender_2019}
+\cite{kerr_encryption_2017}
+
+}
+
+    \prop{Alternative paths to plaintext}{
+
 % access device while unlocked; find copies elsewhere
+\cite{kerr_encryption_2017}
+
+}
 \propsend
 
 \section{Argument Maps}
