@@ -624,7 +624,7 @@ also has well developed \ac{lawful-hacking} capabilities and a centralized foren
 
 % There are several types of approaches:
 % TODO: my selections here are also rather sparse. Create another appendix? (I love work). Possibly create table of
-% properties below, similar to denning_taxonomy_1996
+% properties below, similar to denning_taxonomy_1996. savage_lawful_2018 has some good citations to mine.
 % - Allow strong encryption (anyone with the users' private keys can see it)
 % - Disallow encryption (anyone can see it)
 % - Make encryption sufficiently weak, e.g. limit key length (anyone with enough CPU can see it)
@@ -659,29 +659,40 @@ non-technical means to acquire plaintext.
 
 \subsection{Types of Key Escrow}
 
+% TODO: need an aside on shamir m/n secret sharing? Probably in order to understand split key approaches at all
+
 The most obvious approach to \ac{EA} is to store additional copies of the encrypting keys, or information that can be
 used to derive additional copies. This approach is called \ac{key-escrow}. There are several classes of key escrow.
 
 \propsstart
     \prop{Trusted-party key escrow}{
 
-\cite{denning_taxonomy_1996}
-\ac{clipperchip} \cite{blaze_protocol_1994}
-% The technical approach used by the \ac{clipperchip} secret protocol hardware enabled split-key government escrow.
+Any scheme that relies on the fidelity and security of information held by an entity besides the data owner (in the case
+of \ac{DAR}) or sender or receiver (in the case of \ac{DIM}) is a ``trusted-party'' key escrow approach. Though there is
+a wide variety of implementation options within this category \cite{denning_taxonomy_1996}--secret or open protocol,
+hardware-enabled or software-only, single key or split key, government or third-party escrow--the foundation of the
+effectiveness of these approaches lies in the security of the trusted party. The \ac{clipperchip} is one example, being
+a secret protocol hardware-enabled split key government escrow system \cite{denning_taxonomy_1996}.
 
 }
 
     \prop{Distributed key escrow}{
 
-\cite{goos_oblivious_1996}
-\cite{phan_key_2017}
+Some schemes compensate for the risk of concentrated sensitive information by massively distributing the secret
+information. In this arrangement, trust is laid in the distrubuted system, not in any single party. Such systems offer
+high data availability while making it difficult for access requests to be secret or to subvert access policies. This
+approach was introduced in \ac{the-cw1} \cite{goos_oblivious_1996} and has come into its own through the application of
+blockchain \cite{phan_key_2017}. These approaches are not as developed as trusted-party \ac{key-escrow}.
 
 }
 
     \prop{Device key escrow}{
 
-\cite{savage_lawful_2018}
-\cite{ozzie_2018}
+A third type of \ac{key-escrow} is device-based. In device-based \ac{key-escrow}, special key information is held not by
+trusted parties or distributed systems, but on the device itself in specialized hardware. Advances in secure hardware
+``enclaves'' since \ac{the-cw1} have enabled secure local key storage. Approaches relying on hardware primarily target
+\ac{DAR}, and include time elements and split keys with trusted parties as well \cite{savage_lawful_2018}
+\cite{ozzie_2018}.
 
 }
 \propsend
@@ -692,9 +703,14 @@ used to derive additional copies. This approach is called \ac{key-escrow}. There
 Though key recovery is the most discussed \ac{EA} approach, alternative technical means have been proposed.
 
 \propsstart
-    \prop{Translucent Cryptography}{
+    \prop{Translucent cryptography}{
 
-\cite{bellare_translucent_1996}
+Research in \ac{the-cw1} included the introduction of ``translucent'' cryptography, in which an observer could surveil
+some but not all communications using statistical cryptographic methods \cite{bellare_translucent_1996}. Under this
+scheme, no keys are escrowed, but law enforcement could recover a predetermined fraction--say, 40\%--of plaintext data.
+That fraction would be designed to balance privacy, digital security, and public security. This research, though
+decidedly more experimental than key escrow proposals, was explicitly pursued to demonstrate that alternatives to key
+escrow do exist \cite{bellare_translucent_1996}.
 
 }
 \propsend
@@ -708,23 +724,34 @@ towards the same goal.
 \propsstart
     \prop{\Ac{lawful-hacking}}{
 
-\cite{nguyen_lawful_2017}
-\cite{soesanto_2018}
-\cite{kerr_encryption_2017}
+As introduced in \mysec{sec-reg-environment}, one workaround to direct \ac{EA} is \ac{lawful-hacking}. Instead of having
+access to plaintext data via an alternative means of decryption, law enforcement is allowed to perform otherwise-illegal
+hacking activity in order to find the key, compromise a device, or intercept plaintext versions of the data
+\cite{kerr_encryption_2017}. While some see this as a viable middle ground \cite{nguyen_lawful_2017}, encouraging law
+enforcement to exploit vulnerabilities creates mis-aligned incentives. If law enforcement opposes strong security in
+general, it could foster the exploit market while costing ordinary users money and security \cite{soesanto_2018}.
 
 }
 
     \prop{Forced password disclosure}{
 
-\cite{bittenbender_2019}
-\cite{kerr_encryption_2017}
+In some cases, a suspect in custody may have the ability to access the desired encrypted information via key, \ac{PIN},
+or password. In these cases, authorities sometimes compel the suspect to disclose the password. In the U.S., this
+approach draws debates about the fifth amendment right against self-incrimination \cite{bittenbender_2019}. Of course,
+this approach cannot address \ac{DIM} or situations in which the knowledgeable party is not in custody.
+
+% these look good: sacharoff_unlocking_2018, fredona_fifth_2016
+% this probably has something to say: kerr_encryption_2017
 
 }
 
     \prop{Alternative paths to plaintext}{
 
-% access device while unlocked; find copies elsewhere
-\cite{kerr_encryption_2017}
+Simpler methods can be used than computer hacking or legal coercion: encrypted data may exist in plaintext elsewhere, or
+authorities may seize equipment while it is unlocked \cite{kerr_encryption_2017}. This approach relies on skills law
+enforcement is traditionally good at--investigation and sting operations--and is used successfully. In 2017, an
+international law enforcement operation used this technique to take down a large illicit online drug market
+\cite{greenberg_2018}. This approach also does not address \ac{DIM}, and requires well-executed operations.
 
 }
 \propsend

@@ -2,6 +2,7 @@
 
 - Summary:
   - Method for self-escrow of DE keys requiring prolonged physical seizure
+  - Available: https://cseweb.ucsd.edu/~savage/papers/lawful.pdf
 - Purpose:
 - Premises:
   - Limited to DE/DAR
