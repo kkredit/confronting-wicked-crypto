@@ -31,7 +31,7 @@ DOCKER_RUN_FLAGS := --privileged $(DISP_FLAGS) -v `pwd`:/host --user=`id -u`:`id
 HACK := drawio --export DFD-demo.drawio --format png --embed-dragram -o build/DFD-demo.png
 DOCKER_RUN_CMD := bash -c "(cd dfds; $(HACK) &); make live"
 
-.PHONY: all pretty gvsu live gvsu-live docker clean clean-all prereqs
+.PHONY: all pretty gvsu live gvsu-live docker rtf clean clean-all prereqs
 
 pretty: $(OUTDIR)/$(PRETTY_JOB).pdf
 gvsu: $(OUTDIR)/$(GVSU_JOB).pdf
@@ -67,6 +67,10 @@ live: | prereqs
 
 gvsu-live: | prereqs
 	$(ENVIRON) latexmk -jobname=$(GVSU_JOB) $(LATEX_OPTS) $(LIVE_OPTS) $(DOCNAME)
+
+rtf: | pretty
+	latex2rtf $(DOCNAME).tex
+	pandoc $(DOCNAME).tex -o $(DOCNAME).docx
 
 docker:
 	docker build $(DOCKER_BUILD_ARGS) -t $(DOCKER_TAG) .
