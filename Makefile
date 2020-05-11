@@ -54,7 +54,7 @@ $(DOCNAME).bib:
 $(DOCNAME)-Glossary.tex: notes/glossary.md
 	./scripts/update-acronyms.sh
 
-prereqs: | $(TEMPLATE_IS_CLONED) Fonts build/build $(IMAGES) $(DOCNAME).bib
+prereqs: | $(TEMPLATE_IS_CLONED) Fonts $(IMAGES) $(DOCNAME).bib
 
 $(OUTDIR)/$(GVSU_JOB).pdf: $(SOURCES) | prereqs
 	$(ENVIRON) latexmk -jobname=$(GVSU_JOB) $(LATEX_OPTS) $(DOCNAME)
