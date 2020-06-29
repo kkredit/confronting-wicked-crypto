@@ -8,7 +8,7 @@ ARG_IMAGE_SOURCES  := $(wildcard $(ARG_SRC_DIR)/*.argdown)
 ARG_IMAGES := $(patsubst $(ARG_SRC_DIR)/%.argdown,$(ARG_SRC_DIR)/build/%.pdf,$(ARG_IMAGE_SOURCES))
 
 DFD_SRC_DIR := dfds
-DFD_IMAGE_SOURCES  := $(wildcard $(ARG_SRC_DIR)/*.drawio)
+DFD_IMAGE_SOURCES  := $(wildcard $(DFD_SRC_DIR)/*.drawio)
 DFD_IMAGES := $(patsubst $(DFD_SRC_DIR)/%.drawio,$(DFD_SRC_DIR)/build/%.png,$(DFD_IMAGE_SOURCES))
 
 IMAGES := $(ARG_IMAGES) $(DFD_IMAGES)
@@ -31,7 +31,7 @@ DOCKER_RUN_FLAGS := --privileged $(DISP_FLAGS) -v `pwd`:/host --user=`id -u`:`id
 HACK := drawio --export DFD-demo.drawio --format png --embed-dragram -o build/DFD-demo.png
 DOCKER_RUN_CMD := bash -c "(cd dfds; $(HACK) &); make live"
 
-.PHONY: all pretty gvsu live gvsu-live docker rtf clean clean-all prereqs
+.PHONY: all pretty gvsu images live gvsu-live docker rtf clean clean-all prereqs
 
 pretty: $(OUTDIR)/$(PRETTY_JOB).pdf
 gvsu: $(OUTDIR)/$(GVSU_JOB).pdf
@@ -44,9 +44,12 @@ $(TEMPLATE_IS_CLONED):
 Fonts: | $(TEMPLATE_IS_CLONED)
 	if [ ! -L Fonts ]; then ln -s $(TEMPLATE)/Fonts Fonts; fi
 
+images:
+	$(MAKE) $(IMAGES)
+
 $(IMAGES):
-	make -C $(ARG_SRC_DIR)
-	make -C $(DFD_SRC_DIR)
+	$(MAKE) -C $(ARG_SRC_DIR)
+	$(MAKE) -C $(DFD_SRC_DIR)
 
 $(DOCNAME).bib:
 	./scripts/bib-gen.sh
@@ -81,5 +84,5 @@ clean:
 	rm -rf $(OUTDIR) $(DOCNAME).bib
 
 clean-all: clean
-	make -C $(ARG_SRC_DIR) clean
-	make -C $(DFD_SRC_DIR) clean
+	$(MAKE) -C $(ARG_SRC_DIR) clean
+	$(MAKE) -C $(DFD_SRC_DIR) clean
