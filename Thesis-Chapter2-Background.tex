@@ -12,7 +12,7 @@ tool, and introduces threat modeling with data flow diagrams.
 \label{sec-crypto-basics}
 
 \Ac{cryptography} is the study of techniques for communicating secretly in the presence of third parties. This is
-performed by using some \ac{cipher} to translate between \ac{plaintext} and \ac{ciphertext}. The cipher is the tool or
+performed by using a \ac{cipher} to translate between \ac{plaintext} and \ac{ciphertext}. A cipher is a tool or
 algorithm that performs the translation, plaintext is the original data, and ciphertext is the encoded data. The
 processes for translating from plaintext to ciphertext and back are \ac{encryption} and \ac{decryption}. A well-designed
 cipher ensures that only those parties with the correct secret information, the \ac{key}, can perform encryption or
@@ -20,25 +20,26 @@ decryption on the text.
 
 % There are two classes of cryptographic ciphers--stream and block
 
-There are two major cryptographic protocol families--symmetric and asymmetric. In traditional \ac{sym-crypto},
-encryption and decryption are performed with the same key, and both parties must have this key in order to communicate
-securely. In \ac{asym-crypto}, also called \ac{public-key-crypto}, encryption and decryption are performed with two
-paired keys, called the public key and the private key. The innovation of \ac{public-key-crypto} is that the public key
-is not secret, and using this technique, two parties can communicate securely without requiring an a previously agreed
-upon shared secret.
+There are two major cryptographic protocol families, symmetric and asymmetric. In \ac{sym-crypto}, which was discovered
+long ago, encryption and decryption are performed with the same key, and both parties must have this key in order to
+communicate securely. In \ac{asym-crypto}, which was discovered recently and is also called \ac{public-key-crypto},
+encryption and decryption are performed with two paired keys, called the public key and the private key. The innovation
+of \ac{public-key-crypto} is that the public key is not secret, and using this technique, two parties can communicate
+securely without requiring a previously agreed upon shared secret.
 
 One can also define two major cryptographic applications--securing \acf{DIM} and \acf{DAR}. Each application is a
 different problem that results in different solutions. \Ac{DIM} typically uses long-lived \ac{asym-crypto} keys to
-perform authentication and establish short-lived \ac{sym-crypto} sessions keys; the sessions keys perform the actual
-encryption of the data in transit. Important properties of \ac{DIM} encryption protocols are \ac{forward-secrecy}, which
-ensures that a leaked private key or session key does not compromise any other private key or session key, and
-\ac{replay-protection}, which ensures that messages cannot be replayed by an attacker without detection
-\cite{bellovin_thinking_2016}. \Ac{E2EE} for instant messaging services is an example of encryption for \ac{DIM}.
+perform authentication and establish short-lived \ac{sym-crypto} session keys; the session keys perform the actual
+encryption of the data in transit. Two important properties of \ac{DIM} encryption protocols are \ac{forward-secrecy}
+and \ac{replay-protection}. \Ac{forward-secrecy} ensures that a leaked private key or session key does not compromise
+any other private key or session key; \ac{replay-protection} ensures that messages cannot be replayed by an
+attacker without detection \cite{bellovin_thinking_2016}. \Ac{E2EE} for instant messaging services is an example of
+encryption for \ac{DIM}.
 
 \Ac{DAR} by nature must use long-lived keys for encryption. Instead of being negotiated and randomly generated at
-encryption-time, as \ac{DIM} session keys are, these keys are either derived from a password stored in human memory or
-are stored somewhere in computer memory, which often takes place with the assistance of dedicated hardware.
-\Ac{disk-encryption} for laptops and mobile devices is an example of encryption for \ac{DAR}.
+encryption-time, as \ac{DIM} session keys are, these keys are either derived from a user-entered password or are stored
+somewhere in computer memory, which often takes place with the assistance of dedicated hardware. \Ac{disk-encryption}
+for laptops and mobile devices is an example of encryption for \ac{DAR}.
 
 Data secrecy is not cryptography's only purpose, however.
 
@@ -46,6 +47,7 @@ Cryptography is the technical foundation for many forms of computer and network 
 often defined in terms of several properties: authentication, integrity, non-repudiation, confidentiality, availability,
 and authorization \cite{shostack_threat_2014}. Security properties are systems properties, but systems properties emerge
 from the composition of their parts, and innumerable primitives and technologies rely on cryptography.
+% FIXME: reading note: paragraph makes sense, but need to read it multiple times for it to sink in. Improve.
 
 % Spoofing                  Authentication
 % Tampering                 Integrity
@@ -57,9 +59,12 @@ from the composition of their parts, and innumerable primitives and technologies
 Cryptographic primitives include symmetric key encryption, symmetric key encryption, one-way hash functions, and digital
 signatures. A few technologies that directly rely on these primitives include \ac{TLS}, \ac{PKI}, \ac{SSO} (e.g.
 Kerberos), \acp{VPN}, secure password storage, disk encryption tools, and secure- and trusted-boot processes. A few
-systems that directly rely on these technologies include the financial system, local and global; industrial control
+systems that directly rely on these technologies include the local and global financial systems; industrial control
 systems and critical infrastructure; health information systems; private, government, and military communications; and
 the integrity of the internet as a whole.
+% FIXME: Jumping rather quickly from primitives to huge systems. Perhaps scale it more smoothly. Connect little
+% primitives to higher technologies, higher technologies to underpinnings of network computer systems, and network
+% computer systems as critical to these industries.
 
 % Let us break security down into three scales: primitives, technologies, and systems. A primitive is a conceptual
 % building block that serves a single technical function. A technology is a set of implemented primitives glued together
@@ -88,12 +93,12 @@ security rely on its absolute power.
 \section{Encryption History}
 \label{sec-crypto-history}
 
-The section provides an overview of encryption from ancient to contemporary times.
+The section provides a brief overview of encryption from ancient to modern times.
 
 \subsection{Encryption In the Past}
 \label{sec-history-old}
 
-Computerized encryption is a new technology, but the field of cryptography is old, as demand for privacy is as old as
+Computerized encryption is a new technology, but the field of cryptography is old, since demand for privacy is as old as
 communication itself. The most well known ancient example of rudimentary encryption is the Caesar cipher, named after
 the character transposition technique Julius Caesar used to protect private correspondence
 \cite{luciano_cryptology_1987}. Significant developments include the first formal cryptographic study by Arab scholars
@@ -103,13 +108,15 @@ analysis of cryptography'' in 1949 \cite{shannon_communication_1949}, and Whitfi
 research on \ac{public-key-crypto} in 1976 \cite{diffie_new_1976}.
 
 The discovery of \ac{public-key-crypto} was an important advance. Combined with computer networking and personal
-computing advances in the 1980s, it for the first time put the power of strong encryption in the hands of ordinary
-people. However, the privacy provided by cryptography is a powerful tool, and privacy is a property governments strive
-to regulate. The use of encryption for for private purposes has a contentious history. In 1587, Mary Queen of Scots was
-convicted of treason based on evidence from decrypted letters, and in 1807, prosecutors trying Aaron Burr for treason
-tried to force testimony from his secretary on the contents of encrypted messages \cite{kerr_encryption_2017}.
-Government's natural stance towards privacy makes it inherently uncomfortable with the rapid increase in availability of
-strong encryption.
+computing advances in the 1980s, it for the first time put the power of strong encryption not just in the hands of
+governments and militaries, but of ordinary people. However, this power enables very strong privacy, and privacy is a
+property governments aim to regulate. The use of encryption for for private purposes has a contentious history. In 1587,
+Mary Queen of Scots was convicted of treason based on evidence from decrypted letters, and in 1807, prosecutors trying
+Aaron Burr for treason tried to force testimony from his secretary on the contents of encrypted messages
+\cite{kerr_encryption_2017}. Government's natural stance towards privacy makes it inherently uncomfortable with the
+rapid increase in availability of strong encryption.
+% FIXME: The point is made--these developments made gov'ts uncomfortable (just look at these examples!)--but the line of
+% thought is not clear enough to the reader.
 
 % Electronic encryption must be understood as a technological development embedded in the longer history of privacy and
 % human rights.
@@ -122,21 +129,23 @@ and a blossoming computer industry foundationally reliant on cryptography--came 
 the first ``crypto war.''
 
 In 1976, the same year Diffie and Hellmann published their research in public key cryptography, the U.S. Congress passed
-the \ac{AECA} and declared that strong cryptography is subject to export controls \cite{kehl_right_2015}. In 1991, the
-U.S. Senate introduced, but did not pass, a bill mandating access to plain text contents when authorized by law; in
-response, Philip Zimmermann released \ac{PGP}, a public key encryption tool to secure email, in order that strong
-cryptography be ``made available to the American public before it became illegal to use'' \cite{zimmermann_1996}. In
-1993, the Clinton administration introduced the \ac{clipperchip} \cite{press_1993} with the goal of ``providing the
-public with strong cryptographic tools without sacrificing the ability of law enforcement and intelligence agencies to
-access unencrypted versions of those communications'' \cite{thompson_2015}. Citing the foundational role of cryptography
-in security--and the potential of human rights abuses for compromised privacy--industry and prominent technical leaders
-reacted negatively to the initiative \cite{kehl_right_2015} \cite{zimmermann_1996}. When a prominent security researcher
-discovered flaws that allowed users to subvert the \ac{clipperchip} mechanisms \cite{blaze_protocol_1994}, the proposal
-died.
+the \ac{AECA} and declared that strong cryptography is subject to export controls \cite{kehl_right_2015}. The opening
+shots of \ac{the-cw1} came in 1991, when the U.S. Senate introduced, but did not pass, a bill mandating access to plain
+text contents when authorized by law. In response, Philip Zimmermann released \ac{PGP}, a public key encryption tool to
+secure email, in order that strong cryptography be ``made available to the American public before it became illegal to
+use'' \cite{zimmermann_1996}. In 1993, the Clinton administration introduced the \ac{clipperchip} \cite{press_1993} with
+the goal of ``providing the public with strong cryptographic tools without sacrificing the ability of law enforcement
+and intelligence agencies to access unencrypted versions of those communications'' \cite{thompson_2015}. Citing the
+foundational role of cryptography in security--and the potential of human rights abuses for compromised
+privacy--industry and prominent technical leaders reacted negatively to the initiative \cite{kehl_right_2015}
+\cite{zimmermann_1996}. When a prominent security researcher discovered flaws that allowed users to subvert the
+\ac{clipperchip} mechanisms \cite{blaze_protocol_1994}, the proposal died.
 
 Despite the failure of the \ac{clipperchip}, the debate over access to strong encryption continued, primarily focused on
-various key escrow proposals \cite{thompson_2015}. In 1996, two bills were introduced in the US Congress. In the Senate,
-it was S.1726, the \ac{PROCODEAct} of 1996, to abolish the export controls on encryption software
+various key escrow proposals \cite{thompson_2015}.
+% FIXME: export controls were a hot topic of the time, too. Can't just drop that thread.
+In 1996, two pro-encryption bills were introduced in the US Congress.
+In the Senate, it was S.1726, the \ac{PROCODEAct} of 1996, to abolish the export controls on encryption software
 \cite{burns_s1726_1996}. In the House, it was HR.3011, the \ac{SAFEAct} of 1996, to explicitly allow arbitrarily strong
 encryption for all legal activity \cite{goodlatte_hr3011_1996}. Indeed, the \ac{SAFEAct} went further, including
 ``provisions that would have barred the government from creating a mandatory key escrow system and would also have
@@ -144,7 +153,7 @@ removed export restrictions on most generally available software and hardware co
 \cite{kehl_right_2015}. Zimmermann, the author of PGP, who had by this time endured an investigation by the Customs
 Service for publishing his work, testified before the Senate in favor of the \ac{PROCODEAct} \cite{zimmermann_1996}. In
 November of that year, the Clinton administration released an executive order effectively removing export controls on
-strong encryption products, along the lines of the \ac{PROCODEAct} \cite{clinton_1996}.
+strong encryption products along the lines of the \ac{PROCODEAct}, which never came to pass \cite{clinton_1996}.
 
 From 1996 to 1999, the \ac{SAFEAct} was proposed several times, had hearings, and gained support \cite{kehl_right_2015}.
 By this time, there was ``an overwhelming amount of evidence against moving ahead with any key escrow schemes''
@@ -164,22 +173,24 @@ pencil of executive order.
 
 The second development was the events of and reaction to the morning of September 11, 2001. When the U.S. had already
 been expanding police surveillance activities to combat communism, crime, drugs, and terrorism, the scale and audacity
-of the September 11 attacks to some justified yet greater investigatory powers \cite{bloss_escalating_2007}. October of
+of the September 11 attacks seemed to justify yet greater investigatory powers \cite{bloss_escalating_2007}. October of
 2001 saw passage of the USA PATRIOT Act, which had several significant impacts: it weakened the limitation for using
 \ac{FISA} requests on U.S. citizens; it expanded the scope of what could be compelled via \ac{FISA} orders; it
+% FIXME: introduce FISA above, in the "had already been expanding" section. Then we have more of a narrative of
+% expanding power.
 authorized ``roving'' wiretaps; and it increased the power of \acp{NSL}, which can be used without judicial review to
 compel information from digital service providers while precluding any public disclosure of the event
 \cite{sensenbrenner_2001} \cite{shamsi_2011}. The government was performing more surveillance than ever, and even these
 weakened limitations would be repeatedly violated \cite{shamsi_2011} \cite{tucker_2020}.
 
-If the weakness of data protection laws and absence of encryption protection laws left the door open for a second crypto
-war, and increased government surveillance set events in motion toward conflict, it was the 2013 \ac{snowden}
+The weakness of data protection laws and absence of encryption protection laws left the door open for a second crypto
+war, and increased government surveillance set events in motion toward conflict, but it was the 2013 \ac{snowden}
 revelations that constituted the crossing of the threshold. Though policies such as the U.S. \ac{NSA}'s warrantless
 wiretapping caused a stir, it was the mass data collection under the agency's \ac{PRISM} and related programs that
 caused the real public outcry \cite{landau_making_2013}. With the public interest focused on digital privacy, encryption
-promised a technical solution. Under pressure from both the human rights field and from ordinary users demanding
-improved digital privacy, U.S. tech companies responded by introducing default device encryption for \acl{DAR} and
-\acl{E2E} encryption for \acl{DIM} \cite{treguer_us_2018}.
+promised a technical solution. Benefiting from advancements in underlying technologies and under pressure from both the
+human rights field and from ordinary users demanding improved privacy, U.S. tech companies responded by introducing
+default device encryption for \acl{DAR} and \acl{E2EE} for \acl{DIM} \cite{treguer_us_2018}.
 
 The emergence of strong encryption caused \ac{the-cw1}; its proliferation is causing the second.
 
@@ -197,11 +208,11 @@ Several events and arguments have come to characterize \ac{the-cw2}.
 
 \paragraph*{``Security vs. Security''} The relationship between security and privacy is sometimes viewed as
 antagonistic, an assumption implicit in in the ``nothing-to-hide'' argument, but discussions in recent years have shown
-that the debate is more about ``Security vs. Security'' than ``Security vs. Privacy''
-\cite{stalla_bourdillon_privacy_2014}. In this context, there are two types of security: public security, the pursuit of
-law enforcement, and cybersecurity, the pursuit of tech professionals. Both sides of the debate have by now acknowledged
-that privacy and public security are not always in conflict, and in fact \ac{EA}'s effects on public security vs.
-cybersecurity--which in return affects public security--may be more important \cite{schneier_2019}.
+% FIXME: expand on "nothing to hide"? that the debate is more about ``Security vs. Security'' than ``Security vs.
+Privacy'' \cite{stalla_bourdillon_privacy_2014}. In this context, there are two types of security: public security, the
+pursuit of law enforcement, and cybersecurity, the pursuit of the technical community. Both sides of the debate have by
+now acknowledged that privacy and public security are not always in conflict, and in fact \ac{EA}'s effects on public
+security vs. cybersecurity--which in return affects public security--may be more important \cite{schneier_2019}.
 
 \paragraph*{Apple vs. FBI} The 2015 San Bernardino terror attack in which the suspect was killed, leaving behind a
 locked iPhone, resulted in the first major battle of \ac{the-cw2}. The \ac{FBI} issued an order under the \acrlong{AWA}
@@ -210,10 +221,11 @@ objected on grounds that it was ``unreasonably burdensome'' and would undercut t
 \cite{schulze_clipper_2017}. The case occupied U.S. District courts, the media, and the political world's attention from
 February 16, 2016, when the warrant was issued, to March 28, when the \ac{FBI} announced they had gained access to the
 phone through alternate means \cite{novet_2016}. Even though the phone proved not to have any important data
-\cite{schulze_clipper_2017}, the high profile case featured two characteristic elements of the new crypto wars,
-terrorism and device encryption. Shortly after the case ended, a pair of Republican and Democratic senators jointly
-released a discussion draft of a bill that would have forced Apple to comply \cite{burr_2016}. The draft did not make it
-to the floor, and the unresolved nature of the court case left the legal debate wide open.
+\cite{schulze_clipper_2017}, the high profile case featured two characteristic elements of the new crypto
+wars--terrorism and device encryption. Shortly after the case ended, a pair of Republican and Democratic senators
+% FIXME: determine correct usage of -- vs ---
+jointly released a discussion draft of a bill that would have forced Apple to comply \cite{burr_2016}. The draft did not
+make it to the floor, and the unresolved nature of the court case left the legal debate unresolved.
 
 \paragraph*{\Ac{horsemen}} In the 1990s, an influential encryption advocate coined the phrase ``\ac{horsemen-full}'' to
 describe four reasons that governments and law enforcement agencies use to undercut public support for strong encryption
@@ -222,8 +234,8 @@ sometimes kidnappers are substituted for money launderers \cite{schneier_scaring
 \ac{the-cw1} emphasized drug trafficking whereas \ac{the-cw2} is emphasizing terrorism and child pornography
 \cite{schulze_clipper_2017}. The focus on terrorism is likely a result of culture that emerged from the September 11
 terror attacks as well as the San Bernardino terror attack that launched the Apple vs. \ac{FBI} case; the focus on child
-pornography is likely a result of the growth of the ``dark web'' and a severe, in-depth 2019 investigation by the
-\textit{New York Times} \cite{keller_internet_2019}.
+pornography is likely a result of the growth of the ``dark web'' and a revelatory 2019 investigation by the \textit{New
+York Times} \cite{keller_internet_2019}.
 
 \paragraph*{\ac{DIM} vs. \ac{DAR}} As noted in \mysec{sec-crypto-basics}, securing \acl{DIM} and \acl{DAR} are two
 different problems that result in different solutions. Therefore, both technical and policy proposals often split their
@@ -241,11 +253,11 @@ community to engage productively with policy makers \cite{granick_2018}.
 
 That brings us to where the debate stands today. A December 2019 U.S. Senate Judiciary Committee featured the top two
 U.S. parties both expressing anger over whether data should be ``beyond the reach of the law'' and expressed threats
-like ``get your act together, or we will gladly get your act together for you'' \cite{geller_2019}. In March 2020, the
-Republican atop the Senate Judiciary Committee introduced S.3398, the \ac{EARNITAct} of 2020, which seeks to establish a
-16-chair committee with the power to revoke online platforms' liability protection for user-submitted content if the
-committee determines the platform is not doing enough to fight \ac{CSAM}, a legal synonym for child pornography
-\cite{graham_s3398_2020}. As illustrated by an in-depth article by the \textit{New York Times}
+such as ``get your act together, or we will gladly get your act together for you'' \cite{geller_2019}. In March 2020,
+the Republican atop the Senate Judiciary Committee introduced S.3398, the \ac{EARNITAct} of 2020, which seeks to
+establish a 16-chair committee with the power to revoke online platforms' liability protection for user-submitted
+content if the committee determines the platform is not doing enough to fight \ac{CSAM}, a legal synonym for child
+pornography \cite{graham_s3398_2020}. As illustrated by the previously mentioned \textit{New York Times} feature
 \cite{keller_internet_2019} that likely triggered the December 2019 hearing, the problem is enormous; however, critics
 largely see the \ac{EARNITAct} as an attempt to indirectly yet effectively outlaw \ac{E2EE} \cite{newman_2020}
 \cite{pfefferkorn_2020}.
@@ -254,6 +266,7 @@ largely see the \ac{EARNITAct} as an attempt to indirectly yet effectively outla
 % IDEA: create timeline! https://tex.stackexchange.com/questions/196794/how-can-you-create-a-vertical-timeline
 
 The following sections summarize the encryption regulatory environment and technical approaches to \ac{EA}.
+% FIXME: remove this sentence?
 
 
 
