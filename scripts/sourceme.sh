@@ -20,7 +20,7 @@ alias new="$SCRIPTS_DIR/new-source.sh"
 alias show="$SCRIPTS_DIR/show-source.sh"
 alias gen="$SCRIPTS_DIR/bib-gen.sh"
 alias cite="$SCRIPTS_DIR/count-citations.sh"
-alias todo="(cd $BASE_DIR && grep -n TODO *.tex)"
+alias todo="(cd $BASE_DIR && grep -nE '(TODO|FIXME)' *.tex)"
 
 alias pdf="xdg-open build/Thesis.pdf"
 alias gvsu="xdg-open build/Thesis-GVSU.pdf"

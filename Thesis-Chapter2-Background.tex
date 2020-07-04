@@ -224,6 +224,7 @@ phone through alternate means \cite{novet_2016}. Even though the phone proved no
 \cite{schulze_clipper_2017}, the high profile case featured two characteristic elements of the new crypto
 wars--terrorism and device encryption. Shortly after the case ended, a pair of Republican and Democratic senators
 % FIXME: determine correct usage of -- vs ---
+% (https://www.chicagomanualofstyle.org/qanda/data/faq/topics/HyphensEnDashesEmDashes/faq0002.html)
 jointly released a discussion draft of a bill that would have forced Apple to comply \cite{burr_2016}. The draft did not
 make it to the floor, and the unresolved nature of the court case left the legal debate unresolved.
 
@@ -273,9 +274,9 @@ The following sections summarize the encryption regulatory environment and techn
 \section{Regulatory Environment}
 \label{sec-reg-environment}
 
-The following sections list laws which directly or indirectly affect use encryption. \Ac{EA} is an international
-problem, as digital technology has little respect for borders. This thesis is U.S.-focused, but briefly touches on the
-regulatory environment of other countries.
+The following sections list laws which directly or indirectly affect use of encryption. Though this thesis is
+U.S.-focused, it is worth briefly touching on the regulatory environment of other countries. \Ac{EA} is an international
+problem, as digital technology has little respect for political borders.
 
 % IDEA: Create an appendix to go into greater detail?
 % Could go into these, as well as the commented-out ones below
@@ -288,6 +289,7 @@ regulatory environment of other countries.
 This section includes both successful and failed cryptography regulation attempts in the U.S.
 
 \subsubsection{Enacted U.S. Regulations}
+% FIXME: distinguish statutes vs. regulations; rename "failed" section
 
 The following laws and regulations have been applied to cases involving surveillance, cryptography, and access to
 encrypted information:
@@ -313,7 +315,7 @@ in general is unsettled \cite{matyas_incommensurability_2018}.
 
     \law{1791}{Bill of Rights: Amendments I, IV, and V}{madison_1791}{
 
-The most frequently cited constitutional amendments in the \ac{EA} debate. I: freedom of speech; IV: security against
+The most frequently cited constitutional amendments in the \ac{EA} debate. I: freedom of speech; IV: protection from
 unreasonable searches and seizures and requirements for warrants; V: right against self-incrimination.
 
 }
@@ -355,6 +357,7 @@ abuse \cite{shamsi_2011} \cite{tucker_2020}.
     \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}{
 
 Amended the Wiretap Act, Stored Communications Act, and Pen Register Act. Provided explicit protections for private
+% FIXME: Briefly introduce these. Even just "Amended the switch-board-era"...
 electronic communications data, and updated definitions to contemporary technology. It granted law enforcement explicit
 access to certain data as well; some terminology has aged poorly with technological evolution, making the access
 increasingly permissive \cite{shamsi_2011}.
@@ -426,7 +429,7 @@ important cases and developments in the last few years.
 \subsubsection{Failed U.S. Regulation Attempts}
 \label{sec-us-reg-fails}
 
-The following are proposed laws and regulations that did not go into effect or have yet to be voted on:
+The following are proposed laws and regulations that did not go into effect or are still in process:
 
 % \cite{burns_s1726_1996} \cite{leahy_s376_1997} \cite{ashcroft_s2067_1998} \cite{goss_hr2616_1999}
 % \cite{goss_hr2617_1999} \cite{administration_CESA_1999} \cite{leahy_s3083_2000}
@@ -437,8 +440,8 @@ The following are proposed laws and regulations that did not go into effect or h
 
 As described in \mysec{sec-history-cw1}, the \ac{clipperchip} was a voluntary \ac{EA} initiative from the White House.
 The initiative targeted \ac{DIM} and established the Escrowed Encryption Standard, which includes an encrypted copy of
-the session key in the message \cite{blaze_protocol_1994}. The initiative received a mixed reception and prompted much
-debate \cite{kehl_right_2015}. When a security researcher discovered flaws that allowed users to subvert the
+the session key in the message \cite{blaze_protocol_1994}. The initiative prompted debate but received a largely hostile
+reception \cite{kehl_right_2015}. When a security researcher discovered flaws that allowed users to subvert the
 \ac{clipperchip} mechanisms, the proposal died \cite{blaze_protocol_1994}.
 
 }
@@ -448,8 +451,8 @@ debate \cite{kehl_right_2015}. When a security researcher discovered flaws that 
 The \ac{SAFEAct} would have broadly protected ``use any encryption regardless of the encryption algorithm selected,
 encryption key length chosen, or implementation technique or medium used,'' excepting ``the unlawful use of encryption
 in furtherance of a criminal act.'' It also would have lifted export controls. The bill grew support as it was
-reintroduced in consecutive congresses, but was abandoned when the Clinton administration adopted the act's policies in
-1999 \cite{kehl_right_2015}.
+reintroduced in consecutive congresses, but was abandoned when the Clinton administration adopted the act's
+pro-encryption policies in 1999 \cite{kehl_right_2015}.
 
 }
 
@@ -457,7 +460,7 @@ reintroduced in consecutive congresses, but was abandoned when the Clinton admin
 
 The Senate's \ac{PROCODEAct} was very similar to House's \ac{SAFEAct}, though it focused primarily on removing export
 controls, and used slightly weaker language protecting all forms of encryption. Like the \ac{SAFEAct}, it was abandoned
-when the Clinton administration adopted the act's policies in 1996 \cite{thompson_2015}.
+when the Clinton administration adopted the act's export control policies in 1996 \cite{thompson_2015}.
 
 }
 
@@ -485,8 +488,8 @@ important tool for information security, but is also used to ``hide unlawful act
 child pornographers, and other criminals'' (the \ac{horsemen}), and therefore ``[a]ppropriate means must be available to
 fulfill these law enforcement objectives.'' The bill would establish voluntary-participation third-party key escrow with
 ``recovery agents'' that would provide law enforcement with access to \ac{plaintext}. Access would be compelled through
-a variety of mechanisms, including warrantless mechanisms through \ac{FISA}. The legislation never got a legislative
-sponsor to be officially considered.
+a variety of mechanisms, including warrantless mechanisms through \ac{FISA}. The White House failed to attract a
+member of Congress to officially sponsor the bill.
 
 }
 
@@ -501,12 +504,15 @@ parts of the bill, and it died in committee \cite{senate_2000}.
 
     \law{2016}{Compliance with Court Orders Act (discussion draft)}{burr_2016}{
 
-Though this bill was not officially proposed, it represents one of the first legislative attempts of \ac{the-cw2} to
-regulate encryption. This draft was released shortly after the close of the Apple vs. FBI case, and would have compelled
+Though this bill was not officially proposed, it represents one of the first legislative attempts to regulate encryption
+in \ac{the-cw2}. This draft was released shortly after the close of the Apple vs. FBI case, and would have compelled
 Apple to unlock the phone. Though it would not mandate a technical mechanism, the bill would have mandated that
 manufacturers and service providers be able to provide \ac{EA}. This mandate notably goes beyond several regulatory
-proposal in \ac{the-cw1}. Previewing a common phrase in recent \ac{EA} arguments \cite{geller_2019}, the bill's authors
-both used the phrase ``above the law'' in promotion of the bill.
+proposals in \ac{the-cw1}.
+% TODO: how so?
+Previewing a common phrase in recent \ac{EA} arguments \cite{geller_2019}, the draft's
+authors both used the phrase ``above the law'' in promotion of the bill.
+% TODO: how does this differ from the new LEAD Act?
 
 }
 
@@ -541,14 +547,27 @@ law.
 
     \law{2020}{The \acf{EARNITAct}}{graham_s3398_2020}{
 
-Introduced by the chair of the Senate Judiciary Committee and one of the outspoken encryption critics during the 2019
-Senate hearing on encryption and \ac{EA}, the \ac{EARNITAct}, designed to address \ac{CSAM}, has received attention as a
-threat to encryption \cite{newman_2020} \cite{pfefferkorn_2020}. As described in \mysec{sec-history-current}, the bill
-would revoke online platforms' liability protection for user-submitted content if is does not doing enough to combat
-\ac{CSAM}. Critics fear that meeting the regulatory requirements would preclude \ac{E2EE}, and at least one popular
-\ac{E2EE} messaging platform has threatened to pull out of the U.S. market if the bill were to pass \cite{lund_2020}.
+Introduced by the chair of the Senate Judiciary Committee, one of the outspoken encryption critics during the 2019
+Senate hearing on encryption and \ac{EA}, the \ac{EARNITAct} is designed to address \ac{CSAM} and has received attention
+as a threat to encryption \cite{newman_2020} \cite{pfefferkorn_2020}. As described in \mysec{sec-history-current}, the
+bill would revoke online platforms' liability protection for user-submitted content if it is does not doing enough to
+combat \ac{CSAM}. Critics fear that meeting the regulatory requirements would preclude \ac{E2EE}, and at least one
+popular \ac{E2EE} messaging platform has threatened to pull out of the U.S. market if the bill were to pass
+\cite{lund_2020}.
 
 % TODO: as of 4/18/20, this bill is still active. Follow up.
+
+}
+
+    \law{2020}{The \acf{LEADAct}}{graham_2020}{
+
+Introduced by the same senator as the \ac{EARNITAct}, the \ac{LEADAct} is a direct attack on encryption. The
+\ac{LEADAct} specifically addresses \ac{DAR} and \ac{DIM} by forcing device, operating system, and application
+developers to implement the ability to decrypt all data stored or passing through the device or software system
+``concurrently with their transmission'' ``unless the independent actions of an unaffiliated entity make it technically
+impossible to do so.'' The act neither mandates nor recommends any technical approach to providing this capability.
+
+% TODO: how does this differ from the old "Compliance with Court Orders Act" draft?
 
 }
 
@@ -621,9 +640,9 @@ the pressure of \ac{the-cw2} is causing strain \cite{parsons_2019}.
 % Google? Signal and WhatsApp?
 
 France, Belgium, Germany, and Sweden require cooperation between telecommunications providers and law enforcement; for
-France, Belgium, and Germany, that includes decrypting network traffic when possible. For Belgium, that decryption
-capability is mandatory as of 2011. France, Germany, and Sweden each have some level of \ac{lawful-hacking} capability.
-There is no E.U. legislation that requires key disclosure or decryption of network traffic.
+France, Belgium, and Germany, that includes decrypting network traffic when possible. France, Germany, and Sweden each
+have some level of \ac{lawful-hacking} capability. There is no E.U. legislation that requires key disclosure or
+decryption of network traffic.
 
 }
 
@@ -681,9 +700,9 @@ also has well developed \ac{lawful-hacking} capabilities and a centralized foren
 % information. (3) A robust, antifragile, inherently secure means of protecting those keys, and perhaps decaying them over
 % time (https://en.wikipedia.org/wiki/Data_degradation).
 
-There are several technical approaches to \ac{EA}. This section breaks down these approaches according to their basic
-approach to \ac{key-escrow}, to cryptographic recovery without a key, or to side-stepping the issue by using
-non-technical means to acquire plaintext.
+There are several technical approaches to \ac{EA}. This section categorizes these approaches according to one of three
+basic approaches---\ac{key-escrow}, cryptographic recovery without a key, or non-cryptographic means of acquiring
+plaintext.
 
 \newcommand{\propsstart}[0]{\begin{itemize}}
 \newcommand{\prop}[2]{ % Name, description
@@ -698,8 +717,9 @@ non-technical means to acquire plaintext.
 
 % TODO: need an aside on shamir m/n secret sharing? Probably in order to understand split key approaches at all
 
-The most obvious approach to \ac{EA} is to store additional copies of the encrypting keys, or information that can be
-used to derive additional copies. This approach is called \ac{key-escrow}. There are several classes of key escrow.
+The most obvious approach to \ac{EA} is to store additional copies of the encrypting keys. A variation is to store
+information that can be used to derive additional copies. This approach is called \ac{key-escrow}. There are several
+classes of key escrow.
 
 \propsstart
     \prop{Trusted-party key escrow}{
@@ -716,10 +736,11 @@ a secret protocol hardware-enabled split key government escrow system \cite{denn
     \prop{Distributed key escrow}{
 
 Some schemes compensate for the risk of concentrated sensitive information by massively distributing the secret
-information. In this arrangement, trust is laid in the distrubuted system, not in any single party. Such systems offer
-high data availability while making it difficult for access requests to be secret or to subvert access policies. This
-approach was introduced in \ac{the-cw1} \cite{goos_oblivious_1996} and has come into its own through the application of
-blockchain \cite{phan_key_2017}. These approaches are not as developed as trusted-party \ac{key-escrow}.
+information. In this arrangement, trust is put in the distrubuted system, not in any single party. Such systems offer
+high data availability while making it difficult for attempts to acquire keys to be secret or to subvert access
+policies. This approach was introduced in \ac{the-cw1} \cite{goos_oblivious_1996} and has come into its own through the
+application of blockchain \cite{phan_key_2017}. These approaches are not as thoroughly explored as trusted-party
+\ac{key-escrow}.
 
 }
 
@@ -728,7 +749,7 @@ blockchain \cite{phan_key_2017}. These approaches are not as developed as truste
 A third type of \ac{key-escrow} is device-based. In device-based \ac{key-escrow}, special key information is held not by
 trusted parties or distributed systems, but on the device itself in specialized hardware. Advances in secure hardware
 ``enclaves'' since \ac{the-cw1} have enabled secure local key storage. Approaches relying on hardware primarily target
-\ac{DAR}, and include time elements and split keys with trusted parties as well \cite{savage_lawful_2018}
+\ac{DAR}, and may include time elements and split keys with trusted parties as well \cite{savage_lawful_2018}
 \cite{ozzie_2018}.
 
 }
@@ -761,21 +782,22 @@ towards the same goal.
 \propsstart
     \prop{\Ac{lawful-hacking}}{
 
-As introduced in \mysec{sec-reg-environment}, one workaround to direct \ac{EA} is \ac{lawful-hacking}. Instead of having
-access to plaintext data via an alternative means of decryption, law enforcement is allowed to perform otherwise-illegal
-hacking activity in order to find the key, compromise a device, or intercept plaintext versions of the data
-\cite{kerr_encryption_2017}. While some see this as a viable middle ground \cite{nguyen_lawful_2017}, encouraging law
-enforcement to exploit vulnerabilities creates mis-aligned incentives. If law enforcement opposes strong security in
-general, it could foster the exploit market while costing ordinary users money and security \cite{soesanto_2018}.
+As introduced in \mysec{sec-reg-environment}, one workaround to direct \ac{EA} is \ac{lawful-hacking}. Under
+\ac{lawful-hacking}, instead of having access to plaintext data via an alternative means of decryption, law enforcement
+is allowed to perform otherwise-illegal hacking activity in order to find the key, compromise a device, or intercept
+plaintext versions of the data \cite{kerr_encryption_2017}. While some see this as a viable middle ground
+\cite{nguyen_lawful_2017}, encouraging law enforcement to exploit vulnerabilities creates mis-aligned incentives. If law
+enforcement opposes strong security in general, it could foster the exploit market while costing ordinary users money
+and security \cite{soesanto_2018}.
 
 }
 
     \prop{Forced password disclosure}{
 
-In some cases, a suspect in custody may have the ability to access the desired encrypted information via key, \ac{PIN},
-or password. In these cases, authorities sometimes compel the suspect to disclose the password. In the U.S., this
-approach draws debates about the fifth amendment right against self-incrimination \cite{bittenbender_2019}. Of course,
-this approach cannot address \ac{DIM} or situations in which the knowledgeable party is not in custody.
+In some cases, a suspect in custody may have the ability to access the desired encrypted information via a key,
+\ac{PIN}, or password. In these cases, authorities sometimes compel the suspect to disclose the password. In the U.S.,
+this approach draws debates about the fifth amendment right against self-incrimination \cite{bittenbender_2019}. Of
+course, this approach cannot address \ac{DIM} or situations in which the knowledgeable party is not in custody.
 
 % these look good: sacharoff_unlocking_2018, fredona_fifth_2016
 % this probably has something to say: kerr_encryption_2017
@@ -796,15 +818,15 @@ international law enforcement operation used this technique to take down a large
 \section{Argument Maps}
 \label{sec-arg-maps-intro}
 
-In order to advance the \ac{EA} debate, it helps to organize all the arguments used in a cohesive manner. One way to
-organize arguments is to create argument maps. Argument maps are graphical representations of the logical structures and
-relationships between statements, premises, and conclusions. Argument maps are an outgrowth of the same research by
-Horst Rittel that originated the idea of \acp{wicked-prob}. In 1970 his research group developed \acp{IBIS} to break
-down \acp{wicked-prob} and document the reasoned approaches that go into solving them \cite{kunz_issues_1970}. Interest
-in \ac{IBIS} has waxed and waned. Some software tools have been developed, including the now-defunct gIBIS
-\cite{conklin_gibis_1988} and Compendium \cite{dutoit_hypermedia_2006} tools designed to produce graphical
-representations. Argdown is a recent tool that generates argument maps from structures specified in a Markdown-based
-language \cite{voigt_argdown_2018}.
+The arguments used in the \ac{EA} debate are diverse and complex; in order to advance the \ac{EA} discussion, it would
+help to organize all the arguments used in a cohesive manner. One way to organize arguments is to create argument maps.
+Argument maps are graphical representations of the logical structures and relationships between statements, premises,
+and conclusions. Argument maps are an outgrowth of the same research by Horst Rittel that originated the idea of
+\acp{wicked-prob}. In 1970 his research group developed \acp{IBIS} to break down \acp{wicked-prob} and document the
+reasoned approaches that go into solving them \cite{kunz_issues_1970}. Interest in \ac{IBIS} has waxed and waned. Some
+software tools have been developed, including the now-defunct gIBIS \cite{conklin_gibis_1988} and Compendium
+\cite{dutoit_hypermedia_2006} tools designed to produce graphical representations. Argdown is a recent tool that
+generates argument maps from structures specified in a Markdown-based language \cite{voigt_argdown_2018}.
 
 % TODO: reference forward chapter
 Argdown is used in this thesis to analyze the arguments used in the \ac{EA} debate. \myfig{fig-args-demo} shows the
@@ -844,10 +866,10 @@ are you building?'' hasn't been asked enough in the current phase of the \ac{EA}
 cannot be faithfully answered without knowing what is being built.
 
 \Acp{DFD} are one tool designed to address these questions. \Acp{DFD} feature processes, data flows, data stores, and
-external entities. \Acp{DFD} well suited for threat modeling because security vulnerabilities tend to follow data flow,
-not control flow \cite{shostack_threat_2014}. They are particularly well suited for \ac{EA}, as data privacy is the
-primary concern. \myfig{fig-dfd-demo} shows the basic elements of a \ac{DFD}. In this thesis I create \acp{DFD} in this
-style to analyze the threats already present and those that \ac{EA} would introduce.
+external entities. \Acp{DFD} are well suited for threat modeling because security vulnerabilities tend to follow data
+flow, not control flow \cite{shostack_threat_2014}. They are particularly well suited for \ac{EA}, as data privacy is
+the primary concern. \myfig{fig-dfd-demo} shows the basic elements of a \ac{DFD}. In this thesis I create \acp{DFD} in
+this style to analyze the threats already present and those that \ac{EA} would introduce.
 % TODO: reference forward chapter
 
 \begin{figure}[ht]
