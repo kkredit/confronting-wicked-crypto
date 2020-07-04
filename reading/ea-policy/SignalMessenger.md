@@ -16,7 +16,7 @@
   month = {apr},
   title = {230, or not 230? {That} is the {EARN} {IT} question},
   shorttitle = {EARN {IT}},
-  url = {https://signal.org/},
+  url = {https://signal.org/blog/earn-it/},
   abstract = {Say "hello" to a different messaging experience. An unexpected focus on privacy, combined with all of the
 features you expect.},
   language = {en},
