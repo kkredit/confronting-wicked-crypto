@@ -5,7 +5,6 @@
 - Premises:
 - Contributions:
 - Policy comments:
-  - 
 - Technical comments:
 - Notes:
   - This was written before Gorsuch and Kavanaugh were nominated to the Court
@@ -15,12 +14,12 @@
     - The 4thAm is practiced thousands of times every day by police, and has been heard in more than 300 supreme court
         cases since 1953
 
->Criminal law can be thought of as being torn between two different sets of goals, what he labeled due process and crime
-control.... When followed faithfully, the demands of due process slow down the criminal process, creating an obstacle
-course of sorts for police and prosecutors, who must take steps to ensure that the individual’s rights are not denied.
-This creates tension with the goal of crime control.... If due process is focused on, then crime control is frustrated.
-If, on the other hand, crime control is given primacy and police are given extensive discretion and tools to
-energetically fight crime, then individual rights are diminished.
+    >Criminal law can be thought of as being torn between two different sets of goals, what he labeled due process and crime
+    control.... When followed faithfully, the demands of due process slow down the criminal process, creating an obstacle
+    course of sorts for police and prosecutors, who must take steps to ensure that the individual’s rights are not denied.
+    This creates tension with the goal of crime control.... If due process is focused on, then crime control is frustrated.
+    If, on the other hand, crime control is given primacy and police are given extensive discretion and tools to
+    energetically fight crime, then individual rights are diminished.
 
     - The "tough on crime" policies beginning with Nixon shifted the focus to crime control, both in regulations and in
         justices appointed to the Court.
@@ -42,8 +41,8 @@ energetically fight crime, then individual rights are diminished.
       2. "Many of the prodefendant decisions that the Court issues can best be understood as minor corrections within
           the dominant paradigm of crime control."
 
->We can think of the Court providing a check and balance on its own crime control regime, and in the process enhancing
-the legitimacy of the underlying regime by creating the appearance of judicial neutrality.
+      >We can think of the Court providing a check and balance on its own crime control regime, and in the process enhancing
+      the legitimacy of the underlying regime by creating the appearance of judicial neutrality.
 
       3. "One must pay attention to the small-group dynamics of the Court to understand its decisional output" (court
           composition)
@@ -53,14 +52,14 @@ the legitimacy of the underlying regime by creating the appearance of judicial n
       1. "Cases in which digital privacy rights are at stake are handled by the Court differently than other types of
           Fourth Amendment cases."
 
->We argue that cases involving privacy and information technology generate public attention in such a way that the Court
-is attuned to the fact that its decision will have wide ramifications, and the justices are increasingly cognizant of
-the unique nature of the privacy interests raised by these facts.
+      >We argue that cases involving privacy and information technology generate public attention in such a way that the Court
+      is attuned to the fact that its decision will have wide ramifications, and the justices are increasingly cognizant of
+      the unique nature of the privacy interests raised by these facts.
 
->These cases were quite salient, much more so than the run-of-the-mill search and seizure case. Both cases resulted in
-major newspaper editorials, before and after the Court’s decisions.18 Fourth Amendment issues intersecting privacy and
-technology might very well represent issues where the Court is forced to revisit the broader privacy concerns that have
-been largely ignored in the past 30 years.
+      >These cases were quite salient, much more so than the run-of-the-mill search and seizure case. Both cases resulted in
+      major newspaper editorials, before and after the Court’s decisions.18 Fourth Amendment issues intersecting privacy and
+      technology might very well represent issues where the Court is forced to revisit the broader privacy concerns that have
+      been largely ignored in the past 30 years.
 
 - Outline of the rest of the book:
 
@@ -88,6 +87,66 @@ control. We will argue that while the jurisprudence of crime control explains ho
 does not have to dictate its future. Technology cases are creating a tension on the Court that could potentially result
 in a reevaluation of the meaning of Fourth Amendment privacy and new protections for the digital privacy rights of
 Americans.
+
+- Outline continued
+  - Chapter 5
+    - The jurisprudence of crime control was still the default during the first several years of the Roberts court
+    - Beginning in roughly 2012 and 2013 (first term after Snowden leaks...), cases began shifting from ~75% in favor of
+        the state to ~50% in favor of the state
+    - Two landmark cases involved privacy and digital technology, and sided with the plaintiff with 9/9 justices
+      - _United States v. Jones_ (2012) "held that police needed a warrant prior to installing a GPS tracking device to
+          conduct surveillance of a vehicle"
+      - _Riley v. California_ (2014) held that "police needed a warrant to search the content of a smartphone seized
+          incident to arrest"
+    - Scalia around this time changed his voting trend as well:
+
+    >How do we explain the shift of Justice Scalia? His decision in United States v. Jones is instructive. Scalia chose not
+    to use the Katz reasonable expectation of privacy standard, and instead based his argument on the older and largely
+    discredited trespass doctrine. Scalia had long been a proponent of originalism as a method of constitutional
+    interpretation. For an originalist, the intentions of those who authored the text are paramount, especially when the
+    text is unclear or admits of multiple interpretations. Many of Scalia’s Fourth Amendment opinions make reference to the
+    views of the Framers of the Constitution and the historical context of the Fourth Amendment when it was first ratified.
+    Yet, before his opinion in Jones, originalism only seemed to play a minor role in most of his search and seizure
+    opinions. His opinions were normally driven by extensive reference to the precedents that the Court had developed in the
+    prior 40 years. He might not have liked the Katz precedent, but he still used it. In Jones, however, he chose to
+    resurrect the trespass doctrine, ignoring that it had been explicitly overruled by the Court in Katz. The dramatic
+    change in approach in Jones may have very well marked a turning point in his approach to the Fourth Amendment.
+
+    - On technology:
+
+    >In the past several years, the Court has been forced to consider a pair of decisions involving the application of
+    information technology to law enforcement’s efforts to fight crime. These cases resonate deeply with the American
+    public, and have injected questions about the approach the Court has taken in Fourth Amendment cases since the 1980s.
+    The decisions in United States v. Jones and Riley v. California illustrate not only how the Court is changing, but more
+    importantly, raise questions for the future.
+
+    - "_United States v. Jones_ and Warrantless GPS Surveillance"
+      - Good history of surveillance and law enforcement. Maybe I will have to flip through chapters 2 and 3.
+
+      >Compared with most criminal justice cases, the GPS case was highly salient. Even though the use of GPS was to combat
+      crime and fight the war on drugs, something about the issue resonated with people.
+
+      - This section has excellent content for an arg-map on what constitutes a search
+      - HOWEVER: this is all hand-wringing over when a warrant is required. This does not touch the question of what to
+          do when a warrant is provided. Even most EA proponents say "with use of a warrant."
+
+    - "_Riley v. California_: A Sweeping Endorsement of Digital Privacy"
+      - Instead of relying on previous precedents in deciding this case of phone search incident to arrest, Chief
+          Justice Roberts "wrote an opinion that can only be described as a sweeping endorsement of digital privacy"
+      - "Roberts went so far as to suggest, 'A cell phone search would typically expose to the government far more than
+          the most exhaustive search of a house.'"
+      - The Justices are stressing that they're not completely unaware of the evolving technical landscape:
+
+      >The justices were very leery of the way a pro– crime control decision would be viewed, and several justices went out of
+      their way to try to show their familiarity with smartphones and the use of “cloud” storage for personal information....
+      Roberts’ opinion sought to make his knowledge of contemporary technology clear, even going so far as to referencing the
+      Apple iPhone user manual.
+
+      - The endorsement of privacy did not broach the 3rd party doctrine:
+
+      >His opinion did not overrule the third party doctrine, however, as he distinguished a cell phone search from that of a
+      pen register, which merely collects a list of numbers called and received. Yet, the broad opinion in Riley leaves the
+      door open for Sotomayor’s criticism of the third party doctrine to be revisited.
 
 ```bib
 @book{gizzi_fourth_2016,
