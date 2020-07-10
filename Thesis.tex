@@ -92,6 +92,11 @@
     \newcommand{\mytab}[1]{Table~\ref{#1}}
 \fi
 
+\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+\def\tt#1{\mbox{\texttt{#1}}}
+\def\bb#1{\mbox{\textbf{#1}}}
+\def\ii#1{\mbox{\textit{#1}}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                TEMPLATE SETUP
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -113,7 +118,7 @@ data in motion and data at rest.
 
 }
 
-% \booltrue{HasListOfTables}
+\booltrue{HasListOfTables}
 \booltrue{HasListOfFigures}
 \booltrue{PrintGlossary}
 % \booltrue{HasCurriculumVitae}

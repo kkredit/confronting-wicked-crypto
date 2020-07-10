@@ -43,11 +43,18 @@ for laptops and mobile devices is an example of encryption for \ac{DAR}.
 
 Data secrecy is not cryptography's only purpose, however.
 
-Cryptography is the technical foundation for many forms of computer and network security, at every scale. Security is
-often defined in terms of several properties: authentication, integrity, non-repudiation, confidentiality, availability,
-and authorization \cite{shostack_threat_2014}. Security properties are systems properties, but systems properties emerge
-from the composition of their parts, and innumerable primitives and technologies rely on cryptography.
-% FIXME: reading note: paragraph makes sense, but need to read it multiple times for it to sink in. Improve.
+Cryptography is the technical foundation for many forms of computer and network security. Security is defined in terms
+of several properties: authentication, integrity, non-repudiation, confidentiality, availability, and authorization
+\cite{shostack_threat_2014}. These system-level properties emerge from both the composition of the system's components
+(architecture) and the security of the components themselves; likewise, the security of each component emerges from the
+architecture of its subcomponents and the security of the subcompenents themselves. At the bottom of this analysis, the
+security of primitive components commonly relies on cryptography.
+
+\mytab{table:security-and-crypto} connects each security property to its cryptographic basis. While lacking direct
+cryptographic foundations, availability indirectly relies on each other property, and authorization schemes are
+typically rooted in authentication.
+
+% TODO: clarify relationship between encryption and cryptography?
 
 % Spoofing                  Authentication
 % Tampering                 Integrity
@@ -55,39 +62,46 @@ from the composition of their parts, and innumerable primitives and technologies
 % Information Disclosure    Confidentiality
 % Denial of Service         Availability
 % Elevation of Privilege    Authorization
+\begin{table}[h]
+    \caption[Security Properties and Cryptography]{The Cryptographic Basis of Security Properties}
+    \label{table:security-and-crypto}
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \thead{Property} & \thead{Cryptographic Basis} \\ \hline
+        Authentication  & Digital certificates \\ \hline
+        Integrity       & Cryptographic hashes \\ \hline
+        Non-repudiation & Digital signatures \\ \hline
+        Confidentiality & Encryption \\ \hline
+        Availability    & \small{\ii{based on architecture}} \\ \hline
+        Authorization   & \small{\ii{rooted in authentication}} \\ \hline
+    \end{tabular}
+\end{table}
 
-Cryptographic primitives include symmetric key encryption, symmetric key encryption, one-way hash functions, and digital
-signatures. A few technologies that directly rely on these primitives include \ac{TLS}, \ac{PKI}, \ac{SSO} (e.g.
-Kerberos), \acp{VPN}, secure password storage, disk encryption tools, and secure- and trusted-boot processes. A few
-systems that directly rely on these technologies include the local and global financial systems; industrial control
-systems and critical infrastructure; health information systems; private, government, and military communications; and
-the integrity of the internet as a whole.
-% FIXME: Jumping rather quickly from primitives to huge systems. Perhaps scale it more smoothly. Connect little
-% primitives to higher technologies, higher technologies to underpinnings of network computer systems, and network
-% computer systems as critical to these industries.
+% Cryptographic primitives include symmetric key encryption, symmetric key encryption, one-way hash functions, and digital
+% signatures. A few technologies that directly rely on these primitives include \ac{TLS}, \ac{PKI}, \ac{SSO} (e.g.
+% Kerberos), \acp{VPN}, secure password storage, disk encryption tools, and secure- and trusted-boot processes. A few
+% systems that directly rely on these technologies include the local and global financial systems; industrial control
+% systems and critical infrastructure; health information systems; private, government, and military communications; and
+% the integrity of the internet as a whole.
+% % If I bring this back---this is jumping rather quickly from primitives to huge systems. Scale it more smoothly.
+% % Connect little primitives to higher technologies, higher technologies to underpinnings of network computer systems,
+% % and network computer systems as critical to these industries.
 
-% Let us break security down into three scales: primitives, technologies, and systems. A primitive is a conceptual
-% building block that serves a single technical function. A technology is a set of implemented primitives glued together
-% to provide useful features. A system is a collection of technologies that collectively serve the ultimate outcome.
-% The security properties critical at the systems level depend
+Violations of cryptographic integrity in primitive components, introduced by design or by accident, could have
+catastrophic effects. Compromised digital certificates, hashes, or encryption would enable spoofing, tampering, and
+information disclosure done both for their own sake and as tools in general attacks. The importance of taking these
+tools away is clear when such attacks include interference with elections \cite{mueller_2018}, multi-billion dollar
+disruptions of business \cite{greenberg_2018_notpetya}, and hospital network ransoms that disrupt care of patients
+\cite{goodin_ransomware_2019}.
 
-% Primitives: one-way hashes enable integrity checks, block ciphers enable efficient confidential data storage, and
-% digital signature enable non-repudiation
+% NOTE: tried to find examples of high profile bugs or hacks that relied on crypto failures, but most are still
+% architectural (exposed databases, default credentials (Mirai botnet)), human (BEC), or insecure code (buffer
+% overflows--key to EternalBlue (wannacry and notpetya) and MS08-067 (Conficker)).
 
-% Technologies: Transport Layer Security (TLS) enables confidentiality and integrity over the internet, Kerberos enables
-% convenient authentication, and virtual private networks (VPNs) enable confidential and authenticated remote network
-% connections
-
-If the cryptographic primitives that compose these systems were to be compromised, the systems they comprise could
-collapse. If the financial system loses integrity, health information systems lose confidentiality, critical
-infrastructure loses availability, government communications lose authenticity and non-repudiation, or the internet as a
-whole loses integrity, inconceivably large damage would occur.
-
-% FIXME: Kristen doesn't like the wording
-Encryption's dual role as enabler of strong privacy and cornerstone of computer security may be the central conflict in
-the EA debate. Those who focus on its role in privacy object to its absolute power. Those who focus on its role in
-security rely on its absolute power.
-
+Encryption's dual role as enabler of privacy and cornerstone of security is at the heart of the EA debate. Cryptography
+has an absolute, mathematical power---a power that is objectionable in the realm of privacy, but necessary in the realm
+of security.
 
 
 \section{Encryption History}
@@ -105,18 +119,15 @@ the character transposition technique Julius Caesar used to protect private corr
 in the eighth century, advancements made out of necessity in the twentieth century's world wars, and the application of
 computers to cryptographic problems \cite{kahn_codebreakers_1996}. Claude Shannon's formalized the modern ``mathematical
 analysis of cryptography'' in 1949 \cite{shannon_communication_1949}, and Whitfield Diffie and Martin Hellman published
-research on \ac{public-key-crypto} in 1976 \cite{diffie_new_1976}.
+research on \ac{public-key-crypto} in 1976 \cite{diffie_new_1976}. The discovery of \ac{public-key-crypto} was an
+important advance. Combined with computer networking and personal computing advances in the 1980s, it for the first time
+put the power of strong encryption not just in the hands of governments and militaries, but of ordinary people.
 
-The discovery of \ac{public-key-crypto} was an important advance. Combined with computer networking and personal
-computing advances in the 1980s, it for the first time put the power of strong encryption not just in the hands of
-governments and militaries, but of ordinary people. However, this power enables very strong privacy, and privacy is a
-property governments aim to regulate. The use of encryption for for private purposes has a contentious history. In 1587,
-Mary Queen of Scots was convicted of treason based on evidence from decrypted letters, and in 1807, prosecutors trying
-Aaron Burr for treason tried to force testimony from his secretary on the contents of encrypted messages
-\cite{kerr_encryption_2017}. Government's natural stance towards privacy makes it inherently uncomfortable with the
-rapid increase in availability of strong encryption.
-% FIXME: The point is made---these developments made gov'ts uncomfortable (just look at these examples!)---but the line
-% of thought is not clear enough to the reader.
+However, this power enables very strong privacy, and privacy is a property governments aim to regulate. The use of
+encryption for for private purposes has a contentious history. In 1587, Mary Queen of Scots was convicted of treason
+based on evidence from decrypted letters, and in 1807, prosecutors trying Aaron Burr for treason tried to force
+testimony from his secretary on the contents of encrypted messages \cite{kerr_encryption_2017}. Government's natural
+stance towards privacy makes it inherently uncomfortable with the rapid increase in availability of strong encryption.
 
 % Electronic encryption must be understood as a technological development embedded in the longer history of privacy and
 % human rights.
@@ -141,15 +152,13 @@ privacy---industry and prominent technical leaders reacted negatively to the ini
 \cite{zimmermann_1996}. When a prominent security researcher discovered flaws that allowed users to subvert the
 \ac{clipperchip} mechanisms \cite{blaze_protocol_1994}, the proposal died.
 
-Despite the failure of the \ac{clipperchip}, the debate over access to strong encryption continued, primarily focused on
-various key escrow proposals \cite{thompson_2015}.
-% FIXME: export controls were a hot topic of the time, too. Can't just drop that thread.
-In 1996, two pro-encryption bills were introduced in the US Congress.
-In the Senate, it was S.1726, the \ac{PROCODEAct} of 1996, to abolish the export controls on encryption software
-\cite{burns_s1726_1996}. In the House, it was HR.3011, the \ac{SAFEAct} of 1996, to explicitly allow arbitrarily strong
-encryption for all legal activity \cite{goodlatte_hr3011_1996}. Indeed, the \ac{SAFEAct} went further, including
-``provisions that would have barred the government from creating a mandatory key escrow system and would also have
-removed export restrictions on most generally available software and hardware containing encryption''
+Despite the failure of the \ac{clipperchip}, the debate over export controls and access to strong encryption continued,
+primarily focused on various key escrow proposals \cite{thompson_2015}. In 1996, two pro-encryption bills were
+introduced in the US Congress. In the Senate, it was S.1726, the \ac{PROCODEAct} of 1996, to abolish the export controls
+on encryption software \cite{burns_s1726_1996}. In the House, it was HR.3011, the \ac{SAFEAct} of 1996, to explicitly
+allow arbitrarily strong encryption for all legal activity \cite{goodlatte_hr3011_1996}. Indeed, the \ac{SAFEAct} went
+further, including ``provisions that would have barred the government from creating a mandatory key escrow system and
+would also have removed export restrictions on most generally available software and hardware containing encryption''
 \cite{kehl_right_2015}. Zimmermann, the author of PGP, who had by this time endured an investigation by the Customs
 Service for publishing his work, testified before the Senate in favor of the \ac{PROCODEAct} \cite{zimmermann_1996}. In
 November of that year, the Clinton administration released an executive order effectively removing export controls on
@@ -171,17 +180,20 @@ pencil of executive order.
 
 % TODO: add reference to future, comprehensive Appendix of all proposed encryption laws
 
-The second development was the events of and reaction to the morning of September 11, 2001. When the U.S. had already
-been expanding police surveillance activities to combat communism, crime, drugs, and terrorism, the scale and audacity
-of the September 11 attacks seemed to justify yet greater investigatory powers \cite{bloss_escalating_2007}. October of
-2001 saw passage of the USA PATRIOT Act, which had several significant impacts: it weakened the limitation for using
-\ac{FISA} requests on U.S. citizens; it expanded the scope of what could be compelled via \ac{FISA} orders; it
-% FIXME: introduce FISA above, in the "had already been expanding" section. Then we have more of a narrative of
-% expanding power.
-authorized ``roving'' wiretaps; and it increased the power of \acp{NSL}, which can be used without judicial review to
-compel information from digital service providers while precluding any public disclosure of the event
-\cite{sensenbrenner_2001} \cite{shamsi_2011}. The government was performing more surveillance than ever, and even these
-weakened limitations would be repeatedly violated \cite{shamsi_2011} \cite{tucker_2020}.
+The second development was the events of and reaction to the morning of September 11, 2001. These events occurred in the
+context of decades of all three branches of government expanding law enforcement powers. Presidents promoted the idea of
+being ``tough on crime'' and launched a war on drugs; legislators passed bills such as 1978's \ac{FISA}, which provided
+broad surveillance powers over foreign nationals, and in some cases U.S. citizens \cite{rodino_1978}; and the judiciary
+practiced a ``jurisprudence of crime control'' that gave police broad leeway \cite{gizzi_fourth_2016}.
+
+In this context of expanded surveillance, the scale and audacity of the September 11 attacks seemed to justify yet
+greater investigatory powers \cite{bloss_escalating_2007}. October of 2001 saw passage of the USA PATRIOT Act, which had
+several significant impacts: it weakened the limitation for using \ac{FISA} requests on U.S. citizens; it expanded the
+scope of what could be compelled via \ac{FISA} orders; it authorized ``roving'' wiretaps; and it increased the power of
+\acp{NSL}, which can be used without judicial review to compel information from digital service providers while
+precluding any public disclosure of the event \cite{sensenbrenner_2001} \cite{shamsi_2011}. The government was
+performing more surveillance than ever, and even these weakened limitations would be repeatedly violated
+\cite{shamsi_2011} \cite{tucker_2020}.
 
 The weakness of data protection laws and absence of encryption protection laws left the door open for a second crypto
 war, and increased government surveillance set events in motion toward conflict, but it was the 2013 \ac{snowden}
@@ -208,10 +220,10 @@ Several events and arguments have come to characterize \ac{the-cw2}.
 
 \paragraph*{``Security vs. Security''} The relationship between security and privacy is sometimes viewed as
 antagonistic, an assumption implicit in in the ``nothing-to-hide'' argument, but discussions in recent years have shown
-% FIXME: expand on "nothing to hide"? that the debate is more about ``Security vs. Security'' than ``Security vs.
-Privacy'' \cite{stalla_bourdillon_privacy_2014}. In this context, there are two types of security: public security, the
-pursuit of law enforcement, and cybersecurity, the pursuit of the technical community. Both sides of the debate have by
-now acknowledged that privacy and public security are not always in conflict, and in fact \ac{EA}'s effects on public
+that the debate is more about ``Security vs. Security'' than ``Security vs. Privacy''
+\cite{stalla_bourdillon_privacy_2014}. In this context, there are two types of security: public security, the pursuit of
+law enforcement, and cybersecurity, the pursuit of the technical community. Both sides of the debate have by now
+acknowledged that privacy and public security are not always in conflict, and in fact \ac{EA}'s effects on public
 security vs. cybersecurity---which in return affects public security---may be more important \cite{schneier_2019}.
 
 \paragraph*{Apple vs. FBI} The 2015 San Bernardino terror attack in which the suspect was killed, leaving behind a
@@ -264,10 +276,6 @@ largely see the \ac{EARNITAct} as an attempt to indirectly yet effectively outla
 
 % NOTE: keep up to date, including the section above mentioning the pandemic
 % IDEA: create timeline! https://tex.stackexchange.com/questions/196794/how-can-you-create-a-vertical-timeline
-
-The following sections summarize the encryption regulatory environment and technical approaches to \ac{EA}.
-% FIXME: remove this sentence?
-
 
 
 \section{Regulatory Environment}
