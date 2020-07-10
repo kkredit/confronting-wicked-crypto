@@ -15,7 +15,7 @@
   month = {jul},
   title = {U.{S}. v. {Viktor} {Borisovich} {Netyksho}, et al},
   author = {Mueller, Robert Swan},
-  url = {https://www.justice.gov/file/1080281/download}
+  url = {https://www.justice.gov/file/1080281/download},
   keywords = {Validated texts, 2018 works, PD-USGov, Mueller investigation}
 }
 ```
