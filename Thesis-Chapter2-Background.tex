@@ -54,7 +54,7 @@ security of primitive components commonly relies on cryptography.
 cryptographic foundations, availability indirectly relies on each other property, and authorization schemes are
 typically rooted in authentication.
 
-% TODO: clarify relationship between encryption and cryptography?
+% TODO: clarify relationship between encryption and cryptography. Use appropriately throughout.
 
 % Spoofing                  Authentication
 % Tampering                 Integrity
@@ -177,8 +177,6 @@ administration changed its encryption policy, the U.S. House dropped the \ac{SAF
 \ac{PROCODEAct} and other encryption-related bills went unpassed as well, as elaborated in \mysec{sec-us-reg-fails}.
 This legislative failure meant that rather than being written in the pen of law, encryption policy was written in the
 pencil of executive order.
-
-% TODO: add reference to future, comprehensive Appendix of all proposed encryption laws
 
 The second development was the events of and reaction to the morning of September 11, 2001. These events occurred in the
 context of decades of all three branches of government expanding law enforcement powers. Presidents promoted the idea of
@@ -460,7 +458,7 @@ The \ac{SAFEAct} would have broadly protected ``use any encryption regardless of
 encryption key length chosen, or implementation technique or medium used,'' excepting ``the unlawful use of encryption
 in furtherance of a criminal act.'' It also would have lifted export controls. The bill grew support as it was
 reintroduced in consecutive congresses, but was abandoned when the Clinton administration adopted the act's
-pro-encryption policies in 1999 \cite{kehl_right_2015}.
+pro-encryption policies in 1999 \cite{:kehl_right_2015}.
 
 }
 
@@ -493,7 +491,7 @@ when the Clinton administration adopted the act's export control policies in 199
 \Ac{CESA} was a legislative proposal by Clinton administration introduced on same day as encryption policy changes that
 led to the abandonment of the \ac{SAFEAct}. Section 102 lays out the government position precisely---encryption is an
 important tool for information security, but is also used to ``hide unlawful activity by terrorists, drug traffickers,
-child pornographers, and other criminals'' (the \ac{horsemen}), and therefore ``[a]ppropriate means must be available to
+child pornographers, and other criminals'' (the \ac{horsemen}), and therefore ``appropriate means must be available to
 fulfill these law enforcement objectives.'' The bill would establish voluntary-participation third-party key escrow with
 ``recovery agents'' that would provide law enforcement with access to \ac{plaintext}. Access would be compelled through
 a variety of mechanisms, including warrantless mechanisms through \ac{FISA}. The White House failed to attract a
@@ -516,11 +514,9 @@ Though this bill was not officially proposed, it represents one of the first leg
 in \ac{the-cw2}. This draft was released shortly after the close of the Apple vs. FBI case, and would have compelled
 Apple to unlock the phone. Though it would not mandate a technical mechanism, the bill would have mandated that
 manufacturers and service providers be able to provide \ac{EA}. This mandate notably goes beyond several regulatory
-proposals in \ac{the-cw1}.
-% TODO: how so?
-Previewing a common phrase in recent \ac{EA} arguments \cite{geller_2019}, the draft's
-authors both used the phrase ``above the law'' in promotion of the bill.
-% TODO: how does this differ from the new LEAD Act?
+proposals in \ac{the-cw1} by forcing platform and application developers to comply. Previewing a common phrase in recent
+\ac{EA} arguments \cite{geller_2019}, the draft's authors both used the phrase ``above the law'' in promotion of the
+bill.
 
 }
 
@@ -538,20 +534,9 @@ This bill is designed to ``preempt State data security vulnerability mandates an
 state-level version of the Secure Data Act. This bill goes further to explicitly disallow \ac{EA} requirements in state
 law.
 
-% TODO: as of 4/18/20, this bill is still active. Follow up.
+% TODO: as of 7/10/20, this bill is still active. Follow up.
 
 }
-
-% \law{2019}{Technology in Criminal Justice Act}{demings_hr5227_2019}{
-% % pfefferkorn_2019
-% % And in fact, there’s already proposed legislation based on CSIS’s recommendations: the Technology in Criminal Justice
-% % Act of 2019, introduced in the House last month by a bipartisan group of co-sponsors led by Rep. Val Demings of Florida.
-% % The bill seeks to close the resource, training, and information-sharing gap for digital evidence, and to improve the
-% % frayed relationship between law enforcement and technology companies. Notably absent from the bill is any language that
-% % would roll back the CALEA compromise or mandate encryption backdoors. To be clear, I’m not advocating for or against
-% % Rep. Demings’ bill. I just want to point out that it offers an alternative to whatever backdoor nightmare the Senate
-% % Judiciary Committee is surely drafting up right now.
-% }
 
     \law{2020}{The \acf{EARNITAct}}{graham_s3398_2020}{
 
@@ -563,7 +548,7 @@ combat \ac{CSAM}. Critics fear that meeting the regulatory requirements would pr
 popular \ac{E2EE} messaging platform has threatened to pull out of the U.S. market if the bill were to pass
 \cite{lund_2020}.
 
-% TODO: as of 4/18/20, this bill is still active. Follow up.
+% TODO: Update based on new amendment.
 
 }
 
@@ -620,8 +605,6 @@ these countries, the member's encryption policies are relevant to one another.
 
 % IDEA: put this in an appendix too? Or its own chapter? Too much detail for the background section.
 %
-% Looking at it now, even what I have seems like too much. Maybe move it all to an appendix.
-%
 % For more, read donahue_comparative_2018 (Israel and China) and budish_encryption_2018 (framework for analysis)
 %
 % Since the enactment of the Regulation of Investigatory Powers Act 2000, the U.K. government had the ability to serve
@@ -641,11 +624,10 @@ the pressure of \ac{the-cw2} is causing strain \cite{parsons_2019}.
 }
 
     \country{European Countries}{acosta_government_2016}{
-% France, Belgium, Germany, Sweden, EU
-% EU GDPR \cite{parliament_2016}
 
 % TODO: it is very important to know who these requirements apply to. Traditional telecoms, obviously. Facebook and
-% Google? Signal and WhatsApp?
+% Google? Signal and WhatsApp? Telecoms, not platforms or apps. This is the big differentiator. This can be expanded
+% upon when I talk a bit about pen registers, etc.
 
 France, Belgium, Germany, and Sweden require cooperation between telecommunications providers and law enforcement; for
 France, Belgium, and Germany, that includes decrypting network traffic when possible. France, Germany, and Sweden each
@@ -661,10 +643,6 @@ declining such requests. Taiwanese regulation does not specifically address encr
 telecommunications providers provide interfaces ``with functions that can cooperate with interception.'' Chinese
 authorities have great access to plaintext data by virtue of the political structure of the state, but its 2015
 counter-terrorism law explicitly compels access to plaintext data upon request \cite{donahue_comparative_2018}.
-
-% TODO: China, see also blanchard_2017
-
-% TODO: but you can still get iPhones in China, right... ? Again, scope?
 
 }
 
@@ -687,7 +665,7 @@ also has well developed \ac{lawful-hacking} capabilities and a centralized foren
 \label{sec-tech-approaches}
 
 % There are several types of approaches:
-% TODO: my selections here are also rather sparse. Create another appendix? (I love work). Possibly create table of
+% IDEA: my selections here are also rather sparse. Create another appendix? (I love work). Possibly create table of
 % properties below, similar to denning_taxonomy_1996. savage_lawful_2018 has some good citations to mine.
 % - Allow strong encryption (anyone with the users' private keys can see it)
 % - Disallow encryption (anyone can see it)
@@ -722,8 +700,6 @@ plaintext.
 
 
 \subsection{Types of Key Escrow}
-
-% TODO: need an aside on shamir m/n secret sharing? Probably in order to understand split key approaches at all
 
 The most obvious approach to \ac{EA} is to store additional copies of the encrypting keys. A variation is to store
 information that can be used to derive additional copies. This approach is called \ac{key-escrow}. There are several
@@ -836,11 +812,10 @@ software tools have been developed, including the now-defunct gIBIS \cite{conkli
 \cite{dutoit_hypermedia_2006} tools designed to produce graphical representations. Argdown is a recent tool that
 generates argument maps from structures specified in a Markdown-based language \cite{voigt_argdown_2018}.
 
-% TODO: reference forward chapter
-Argdown is used in this thesis to analyze the arguments used in the \ac{EA} debate. \myfig{fig-args-demo} shows the
-basic structure of arguments. Statements are positions on issues. Some statements are based on values that cannot be
-addressed through argument. Statements and arguments may support or attack one another, and arguments support or
-undercut other arguments.
+Argdown is used in \mychap{chap-arguments} to analyze the arguments used in the \ac{EA} debate. \myfig{fig-args-demo}
+shows the basic structure of arguments. Statements are positions on issues. Some statements are based on values that
+cannot be addressed through argument. Statements and arguments may support or attack one another, and arguments support
+or undercut other arguments.
 
 \begin{figure}[ht]
     \centering\CaptionFontSize
@@ -876,9 +851,8 @@ cannot be faithfully answered without knowing what is being built.
 \Acp{DFD} are one tool designed to address these questions. \Acp{DFD} feature processes, data flows, data stores, and
 external entities. \Acp{DFD} are well suited for threat modeling because security vulnerabilities tend to follow data
 flow, not control flow \cite{shostack_threat_2014}. They are particularly well suited for \ac{EA}, as data privacy is
-the primary concern. \myfig{fig-dfd-demo} shows the basic elements of a \ac{DFD}. In this thesis I create \acp{DFD} in
-this style to analyze the threats already present and those that \ac{EA} would introduce.
-% TODO: reference forward chapter
+the primary concern. \myfig{fig-dfd-demo} shows the basic elements of a \ac{DFD}. In \mychap{chap-threatmodel} I create
+\acp{DFD} in this style to analyze the threats already present and those that \ac{EA} would introduce.
 
 \begin{figure}[ht]
     \centering\CaptionFontSize
