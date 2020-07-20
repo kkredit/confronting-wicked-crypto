@@ -148,6 +148,33 @@ Americans.
       pen register, which merely collects a list of numbers called and received. Yet, the broad opinion in Riley leaves the
       door open for Sotomayor’s criticism of the third party doctrine to be revisited.
 
+  - Chapter 8
+    - Looking to the future, several factors could influence the direction this goes
+      - Makeup of the court
+        - Since this was written, Kennedy retired and Gorsuch and Kavanaugh have joined
+        - TODO: look at 4thAm cases since they've joined!
+      - Public feelings about privacy
+      - Public feelings about policing in general (especially given the protesting in 2020)
+
+    >The underlying motivations of law enforcement are not seen as relevant to Fourth Amendment issues, as long as there is
+    some objective measure of probable cause present for the most minor of offenses. A long train of cases has made it such
+    that the warrant exception has become the rule as opposed to the rare occurrence. This has fed into the vast expansion
+    of police power and the belief that combatting crime control is far more important than protecting individual rights.  
+    The criticism and backlash against police that have arisen in the past few years are different in many ways from what
+    happened in the 1960s. Then, the Court was blamed for coddling criminals, and it was the focal point of criticism over
+    both the rights of the accused and civil rights issues. Today, criticisms of excessive police use of force are focused
+    on the police, with few commentators making a link between the decisions of the Supreme Court and the behavior of the
+    police. While criticisms of mass incarceration and the racial disparity evident in the war on drugs have begun to raise
+    questions about the fairness of the criminal justice system, the Court has managed to stay on the periphery of them. As
+    a result, there has been no public push demanding change by the Supreme Court to its criminal procedure jurisprudence.
+    This does not mean that the Court is not aware of the broader political issues surrounding its actions, but the degree
+    to which the justices take them into account when deciding cases is uncertain.
+
+    - "coming cases: cell phone tracking and the third party doctrine"
+      - Quote: When a cell phone tracking case does come to the Court, there will be two main issues:
+        - (1) the validity of the third party doctrine; and
+        - (2) the strength of the right to privacy with regard to one’s location.
+
 ```bib
 @book{gizzi_fourth_2016,
   address = {Lawrence, Kansas},
