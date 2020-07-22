@@ -174,6 +174,23 @@ Americans.
       - Quote: When a cell phone tracking case does come to the Court, there will be two main issues:
         - (1) the validity of the third party doctrine; and
         - (2) the strength of the right to privacy with regard to one’s location.
+      - "Police Access to Commercially Gathered Data"
+        - They'll probably have easy access to it
+      - "Drone Usage"
+
+        >The Court’s plain view doctrine has long approved the use of manned overflights to gather evidence, without a warrant,
+        as long as the aircraft is in navigable airspace. If drones are treated like manned aircraft, then overflights by drones
+        in navigable airspace would not require a warrant. If the Court determines that drones themselves are a unique
+        technology, and not simply a way to extend the reach of ordinary vision, then their legality becomes more questionable.
+
+    - "Is the War on Drugs Winding Down?"
+      - It's facing bipartisan criticism, but there is enormous political and institutional momentum keeping it going
+    - "The Future of the Trespass Doctrine"
+      - With Scalia gone, the usage of the trespass doctrine is unclear
+      - The Court seems to be in favor of data privacy (from the _Riley_ case), but the legal reasoning is unclear too
+    - "Conclusion"
+      - More cases are coming, and though the jurisprudence of crime control is still around, the Roberts court will
+        certainly have more to say.
 
 ```bib
 @book{gizzi_fourth_2016,
