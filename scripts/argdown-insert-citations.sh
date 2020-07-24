@@ -26,7 +26,9 @@ function parse_infile_to_outfile {
   done
 }
 
-mkdir -p arguments/w_citations
-for ARG in $(cd arguments; ls *.argdown); do
-  parse_infile_to_outfile arguments/$ARG arguments/w_citations/$ARG
+mkdir -p arguments/build/w_citations
+
+FILES=${@:-$(cd arguments; ls *.argdown)}
+for ARG_FILE in $FILES; do
+  parse_infile_to_outfile arguments/$ARG_FILE arguments/build/w_citations/$ARG_FILE
 done
