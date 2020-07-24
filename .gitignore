@@ -1,3 +1,5 @@
 /Fonts
 build/
 Thesis.bib
+**/*.log
+/arguments/w_citations

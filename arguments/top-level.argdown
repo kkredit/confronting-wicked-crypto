@@ -29,11 +29,10 @@ Central claims
 // "EA is a net benefit to society" -- admits that public security isn't all
 //      that's at stake
 
-[Exceptional Access]: Cryptosystems with exceptional access represent a net
-benefit to society
+[Exceptional Access]: Cryptosystems with exceptional access represent a net benefit to society
     - [Absolute Right to Privacy]: Individuals have an absolute right to privacy #con
     - <Argument from Power>: EA gives inappropriate power to the state #con
-    - <Argument from Competency>: Current EA proposals are unacceptably dangerous #con
+    - <Argument from Competency>: Current EA proposals are unacceptably dangerous {cite: abelson_2015} #con
     - <Appeal to Authority>: Prominent security experts say EA is a bad idea #con
         _ [Fallacy]: "Appeal to authority" is a fallacy
     + <Encryption Stymies Investigations>: EA would allow more crimes to be prosecuted #pro
