@@ -22,9 +22,14 @@ alias gen="$SCRIPTS_DIR/bib-gen.sh"
 alias cite="$SCRIPTS_DIR/count-citations.sh"
 alias todo="(cd $BASE_DIR && grep -nE '(TODO|FIXME)' *.tex)"
 alias fixme="(cd $BASE_DIR && grep -nE 'FIXME' *.tex)"
-alias notes="(cd $BASE_DIR/reading && fzf --layout=reverse --info=inline --border --preview-window=left:120:wrap \
-    --preview='$SCRIPTS_DIR/show-source.sh {} && printf \"====================\n\n\" && bat --plain --color=always {}')"
-
 alias pdf="xdg-open build/Thesis.pdf"
 alias gvsu="xdg-open build/Thesis-GVSU.pdf"
 alias start="(codium .) && (xdg-open build/Thesis.pdf) && make live"
+
+function notes {
+    pushd $BASE_DIR/reading >/dev/null
+    local FZF_PRV_SET="--layout=reverse --info=inline --border --preview-window=left:120:wrap"
+    local FZF_PRV_CMD="$SCRIPTS_DIR/show-source.sh {} && printf '====================\n\n' && bat --plain --color=always {}"
+    codium $(fzf $FZF_PRV_SET --preview="$FZF_PRV_CMD")
+    popd >/dev/null
+}
