@@ -191,6 +191,7 @@ Americans.
     - "Conclusion"
       - More cases are coming, and though the jurisprudence of crime control is still around, the Roberts court will
         certainly have more to say.
+        - See franklin_2018 -- _Carpenter_ provided greater privacy over metadata and data shared with 3rd parties
 
 ```bib
 @book{gizzi_fourth_2016,

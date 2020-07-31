@@ -8,6 +8,10 @@
 - Technical comments:
 - Notes:
 
+Attributed by rozenshtein_wicked_2018 to this paper (p42):
+>“widespread encryption is having a serious and growing negative impact on the ability of law enforcement to collect
+relevant plaintext [i.e., unencrypted data].”
+
 ```bib
 @book{committee_on_law_enforcement_and_intelligence_access_to_plaintext_information_decrypting_2018,
   address = {Washington, D.C.},
