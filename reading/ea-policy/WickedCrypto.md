@@ -33,9 +33,65 @@
   - Lessons, given EA is a wicked problem:
     - "Beware easy answers"
       - "EA Mandates"
+        - Nods to the 'nerd harder' meme
+        - Acknowledgement that though this might not be impossible, "any solution will require a massive amount of
+            research and development to which the government has so far not publicly contributed."
       - "“Going Dark” vs. “A Golden Age of Surveillance”"
+        - We know the argument, and he has a citation.
+        - A counter-arg from govt: jurors have higher expectations given the data that is theoretically available, and
+            are less willing to convict without it all. But local LE doesn't have the funds.
+        - He also argues that this is an orthogonal issue; it's about values, not practical solutions and real problems
+          - Both sides use a "baseline" argument, which has two flaws
+            - How do you choose a baseline? There is no "correct" baseline, and you choose it to suit your argument
+            - Even if there was a "correct" baseline, this is a wicked issue--there is no rule that says it is _still_
+                the most desireable solution
+              - It may be _legally_ normative, but the _policy_ goal is free to change
+          - Defenses involving "balance of the status quo" also have flaws
+            - If "balance" simply means the current status quo, it's circular
+            - If "balance" means stability, or that the actual current affairs are a "local maximum", well, okay, but
+                given the dynamism of the situation, that argument is constantly open to challenge
+              - The dynamism comes both from tech and from social values
+          - Incrementalism can be a guide
+            - "Cheneyism" or "Snowdenism"--hardline positions that emphasize one value to the utmost--ignore other
+                values to their detriment, and leave chaos by their exclusion.
+            - Not that a hierarchy of values isn't appropriate--holistic risk management, though difficult, is the only
+                choice
     - "Focus on Imperfect Solutions: The Case of Lawful Hacking"
+      - Several good citations on lawful hacking
+      - It has a growing number of proponents
+      - It has several forms (govt buys access; govt develops in-house capabilities)
+        - Advantages
+          - Takes advantage of preexisting vulnerabilities; doesn't make devices weaker
+        - Disadvantages
+          - Would only work some of the time (like EA, but even more so)
+            - Vulnerabilities may not be present in the device or system
+            - Vulnerabilities may be expensive to acquire or use
+            - High value vulnerabilities may not be used, since they might get "burned" by their very use or in court
+            - Local LEAs would likely not have the capabilities or funds
+          - Would disincentivize bug reporting, decreasing device and system security
+          - Further frays the relationship between tech and govt by making it explicitly adversarial
+      - So where is LH a good fit? Where tech wouldn't cooperate anyway--the dark web, devices and services produced
+          outside the jurisdiction of such a mandate, against custom systems built by criminals, etc
     - "Invest in Knowledge Production"
+      - We need answers to the following--
+        - factual questions:
+          - To what extent does encryption stymie government investigations?
+          - What level of access does the government want technology companies to provide, and across what platforms and systems?
+          - Most importantly, to what extent would providing such access degrade information security?
+        - values questions:
+          - Should we make it easier for the government to engage in surveillance?
+          - Assuming that government access will necessarily degrade information security by some amount, how much is too much?
+      - The factual questions need answering first, and Congress can do specific things to try to get answers
+        - Require reporting on cases involving encryption--did it interfere, what did the LEA do, etc
+        - "fund research into whether secure exceptional-access systems are possible"
+    - "Improve Relationships Between the Government and the Technology Community"
+      - Cooperation is necessary when tackling wicked problems
+      - Good section on the tribalism and value-minimizing that's taking place
+      - The tribalism can be turned into an inclusive "community of interest" if we recognize one another's goals
+      - The courts aren't a great place for the initial resolution of the issue (as in the Apple v FBI case) for several
+          reasons, one of which is the explicit adversarial nature. It is good for settling legal questions, but not for
+          settling public values questions.
+      - He mentions the "Secure Data Act of 2018" as an example of a means to move forward, though it has flaws
 - Technical comments:
 - Notes:
   - Contains a nice little (very high level) intro to crypto and EA
