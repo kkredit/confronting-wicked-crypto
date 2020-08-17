@@ -9,6 +9,7 @@ color:
     tagColors:
         pro: 0
         con: 1
+        value: 2
 model:
     removeTagsFromText: true
 ===
@@ -51,7 +52,7 @@ Arguments of the debate
 crimes. #pro
 
 (1) Encryption hides evidence of wrongdoing.
-(2) Law enforcement requires probably cause to obtain warrants and pursue investigations.
+(2) Law enforcement requires probable cause to obtain warrants and pursue investigations.
 (3) Prosecutors require sufficient evidence to make convictions.
 ----
 (4) Encryption hampers investigations and prosecutions.
@@ -68,4 +69,19 @@ investigate and prevent statecraft and terrorism. #pro
     -> [Exceptional Access]
 
 <Argument from Social Desirability>: Exceptional access is not socially desirable. #con
+
+(1) [Absolute Right to Privacy]
+(2) @<EA Would Disadvantage the Wrong People>
+(3) EA inappropriately shifts power away from citizens and toward the government.
+----
+(4) Exceptional access is not socially desirable.
     -> [Exceptional Access]
+
+[Absolute Right to Privacy]: Individuals in a free society have an absolute right to privacy. #value #con
+
+<Right to Privacy is not Absolute>: An individual's right to privacy is contextual. One's words and actions are subject
+to investigation depending on their context and likelihood that they constitute a violation of law. #pro
+    -> [Absolute Right to Privacy]
+
+<EA Would Harm the Wrong People>: Words
+    +> <Argument from Social Desirability>
