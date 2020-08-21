@@ -140,7 +140,7 @@ if citation_missing_field "year"; then
     echo "Could not find year. Paste year in the format YYYY"
     read -r -p "Year: " YEAR
     echo
-    [[ "" == "$YEAR" ]] && printerr 1 "Cannot have empty year"
+    [[ "" == "$YEAR" ]] && exitprint 1 "Cannot have empty year"
     CITE_YEAR="\tyear = {$YEAR},"
     insert_bibtex_field "$CITE_YEAR"
     NEW_CITATION_NAME=true
@@ -157,7 +157,7 @@ if citation_missing_field "author"; then
         ISFIRST=false
         read -r -p "Author last name: " LNAME
         if [[ "" == "$LNAME" ]] && [[ "" == "$FNAME" ]]; then
-            printerr 1 "Cannot have empty author name"
+            exitprint 1 "Cannot have empty author name"
         elif [[ "" == "$LNAME" ]]; then
             AUTHORS+="$FNAME"
         elif [[ "" == "$FNAME" ]]; then
