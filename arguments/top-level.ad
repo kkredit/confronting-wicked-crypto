@@ -1,0 +1,66 @@
+===
+title: >
+  Exceptional Access
+subTitle: Arguments For and Against
+author: Kevin Kredit
+date: February 4, 2020
+color:
+    colorScheme: colorbrewer-category9
+    tagColors:
+        pro: 0
+        con: 1
+model:
+    removeTagsFromText: true
+===
+
+/**
+ * The high-level arguments for and against exceptional access
+**/
+
+
+/*
+Central claims
+*/
+
+// "EA is good" -- far too broad, dismissed prima facie
+// "We should build EA systems" -- also dismissed prima facie
+// "EA is a net benefit to public security" -- admits our common interest, public
+//      security
+// "EA is a net benefit to society" -- admits that public security isn't all
+//      that's at stake
+
+[Exceptional Access]: Cryptosystems with exceptional access represent a net benefit to society
+    - [Absolute Right to Privacy]: Individuals have an absolute right to privacy #con
+    - <Argument from Power>: EA gives inappropriate power to the state #con
+    - <Argument from Competency>: Current EA proposals are unacceptably dangerous #cite_abelson_2015 #con
+    - <Appeal to Authority>: Prominent security experts say EA is a bad idea #con
+        _ [Fallacy]: "Appeal to authority" is a fallacy
+    + <Encryption Stymies Investigations>: EA would allow more crimes to be prosecuted #pro
+    + <Legislators are a Threat>: The government makes the rules, and it is prudent to be prepared #pro
+
+
+/*
+Arguments of the debate
+*/
+
+<!-- <Argument from Ideology>:
+Exceptional access to private data is fundamentally wrong.
+#con
+
+(1) [Arg from ]: Exceptional access to private data is fundamentally
+wrong. {isInMap: false}
+(2) [Absolute Right to Privacy]
+(2) Bad results when natural rights are infringed
+----
+(3) EA is harms society by going against natural rights
+    -> [Exceptional Access]
+
+<Argument from Power>:
+Exceptional access to encrypted data gives inappropriate power to the state.
+#con
+
+(1) EA shifts power from individuals to the state
+(2) The state already has enough, or too much, power over the individual
+----
+(3) EA represents a danger to society
+    -> [Exceptional Access] -->

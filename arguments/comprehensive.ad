@@ -1,0 +1,91 @@
+===
+title: >
+  Exceptional Access
+subTitle: Arguments For and Against
+author: Kevin Kredit
+date: August 2, 2020
+color:
+    colorScheme: colorbrewer-category9
+    tagColors:
+        pro: 0
+        con: 1
+        fact: 5
+        value: 2
+        judgement: 8
+model:
+    removeTagsFromText: true
+===
+
+/**
+ * Comprehensive arguments for and against exceptional access
+**/
+
+
+/*
+Central claims
+*/
+
+[Exceptional Access]: Broad deployment of cryptosystems with exceptional access would benefit to society #judgement
+    <!-- - [Absolute Right to Privacy]: Individuals have an absolute right to privacy #con
+    - <Argument from Power>: EA gives inappropriate power to the state #con
+    - <Argument from Competency>: Current EA proposals are unacceptably dangerous #cite_abelson_2015 #con
+    - <Appeal to Authority>: Prominent security experts say EA is a bad idea #con
+        _ [Fallacy]: "Appeal to authority" is a fallacy
+    + <Encryption Stymies Investigations>: EA would allow more crimes to be prosecuted #pro
+    + <Legislators are a Threat>: The government makes the rules, and it is prudent to be prepared #pro -->
+
+
+/*
+Arguments of the debate
+*/
+
+<Argument from Other Uses>: Exceptional access has positive auxiliary use cases. #pro
+
+(1) EA can be used for malware scanning.
+(2) EA can be used for password recovery.
+(3) EA can be used for administrator access.
+----
+(4) EA has positive auxiliary use cases.
+----
+(5) EA's positive auxiliary use cases make it a beneficial technology.
+    +> [Exceptional Access]
+
+<Argument from Law Enforcement Need>: Law enforcement needs exceptional access tools to effectively investigate and try
+crimes. #pro
+
+(1) Encryption hides evidence of wrongdoing.
+(2) Law enforcement requires probable cause to obtain warrants and pursue investigations.
+(3) Prosecutors require sufficient evidence to make convictions.
+----
+(4) Encryption hampers investigations and prosecutions.
+(5) EA remediates encryption's ability to hide wrongdoing.
+----
+(6) LEAs and justice departments would be more effective with EA capabilities.
+    +> [Exceptional Access]
+
+<Argument from Foreign Intelligence Need>: Intelligence agencies need exceptional access tools to effectively
+investigate and prevent statecraft and terrorism. #pro
+    +> [Exceptional Access]
+
+<Argument from Information Security>: Acceptably secure exceptional access is not technically feasible. #con
+    -> [Exceptional Access]
+
+<Argument from Social Desirability>: Exceptional access is not socially desirable. #con
+
+(1) [Absolute Right to Privacy]
+(2) @<EA Would Disadvantage the Wrong People>
+(3) EA inappropriately shifts power away from citizens and toward the government.
+----
+(4) Exceptional access is not socially desirable.
+    -> [Exceptional Access]
+
+[Absolute Right to Privacy]: Individuals in a free society have an absolute right to privacy. #value #con
+
+<Right to Privacy is not Absolute>: An individual's right to privacy is contextual. One's words and actions are subject
+to investigation depending on their context and likelihood that they constitute a violation of law. #pro
+    -> [Absolute Right to Privacy]
+
+<EA Would Harm the Wrong People>: Words
+    +> <Argument from Social Desirability>
+
+<Argument from Competency>: asdf

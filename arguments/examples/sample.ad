@@ -1,6 +1,11 @@
-===
-title: >
-  A first example (with arguments from 'The Debaters Handbook')
+<!--
+Author: Gregor Betz
+Source: https://github.com/christianvoigt/argdown/blob/master/examples/state-censorship.argdown
+License: MIT
+ -->
+
+ ===
+title: Censorship from the State
 subTitle: Some Pros and Cons Reconstructed in Detail
 author: Gregor Betz
 date: 24/10/2018
