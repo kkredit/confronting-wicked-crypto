@@ -1,6 +1,7 @@
 # Master List of Logical Fallacies
 
 - Summary:
+  - Broad, informal overview of logical fallacies (c.f. unc_2020)
 - Purpose:
 - Premises:
 - Contributions:
