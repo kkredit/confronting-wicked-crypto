@@ -2,6 +2,7 @@
 
 - Summary:
   - Press release coming from Graham and other Republican senators on encryption bill. Highly relevant!
+  - House version? wagner_hr7891_2020
 - Purpose:
 - Premises:
 - Contributions:
