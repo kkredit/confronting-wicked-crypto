@@ -6,10 +6,10 @@ SRCDIR   := .
 BINDIR   := build
 CITDIR   := build/w_citations
 
-SOURCES  := $(wildcard $(SRCDIR)/*.argdown)
-IMAGES := $(patsubst $(SRCDIR)/%.argdown,$(BINDIR)/%.pdf,$(SOURCES))
-IMAGE_SVGS := $(patsubst $(SRCDIR)/%.argdown,$(BINDIR)/%.svg,$(SOURCES))
-IMAGE_W_CITS := $(patsubst $(SRCDIR)/%.argdown,$(CITDIR)/%.argdown,$(SOURCES))
+SOURCES  := $(wildcard $(SRCDIR)/*.ad)
+IMAGES := $(patsubst $(SRCDIR)/%.ad,$(BINDIR)/%.pdf,$(SOURCES))
+IMAGE_SVGS := $(patsubst $(SRCDIR)/%.ad,$(BINDIR)/%.svg,$(SOURCES))
+IMAGE_W_CITS := $(patsubst $(SRCDIR)/%.ad,$(CITDIR)/%.ad,$(SOURCES))
 
 .PHONY: all clean dirs
 
@@ -24,12 +24,12 @@ $(BINDIR):
 $(CITDIR):
 	mkdir -p $(CITDIR)
 
-# $(IMAGE_W_CITS): $(CITDIR)/%.argdown : $(SRCDIR)/%.argdown | $(CITDIR)
-$(CITDIR)/%.argdown : $(SRCDIR)/%.argdown | $(CITDIR)
+# $(IMAGE_W_CITS): $(CITDIR)/%.ad : $(SRCDIR)/%.ad | $(CITDIR)
+$(CITDIR)/%.ad : $(SRCDIR)/%.ad | $(CITDIR)
 	../scripts/argdown-insert-citations.sh $<
 
 # $(IMAGE_SVGS):
-$(BINDIR)/%.svg : $(CITDIR)/%.argdown | $(BINDIR)
+$(BINDIR)/%.svg : $(CITDIR)/%.ad | $(BINDIR)
 	argdown run --config argdown.config.js onesvg $<
 
 # $(IMAGES):

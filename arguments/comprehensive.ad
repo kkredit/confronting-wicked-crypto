@@ -1,45 +1,93 @@
 ===
 title: >
-  Exceptional Access
-subTitle: Arguments For and Against
+  Security, Safety, Privacy, and Trust
+subTitle: Arguments Regarding Encryption and Exceptional Access
 author: Kevin Kredit
 date: August 2, 2020
 color:
     colorScheme: colorbrewer-category9
     tagColors:
-        pro: 0
-        con: 1
+        pro-ea: 0
+        anti-ea: 1
         fact: 5
         value: 2
         judgement: 8
 model:
     removeTagsFromText: true
+group:
+    groupDepth: 3
+dot:
+    graphVizSettings:
+      rankdir: BT
+      ranksep: 1
 ===
 
 /**
- * Comprehensive arguments for and against exceptional access
-**/
+ * Comprehensive set of arguments in the problem space of security, safety, privacy, and trust, in which EA is a
+ * proposed measure.
+ *
+ * Possible ways to group statements:
+ *  - central issues -- the root problems
+ *  - desireable outcomes?
+ *  - measures? (and sub-measures, like types of EA)
+ */
 
+# Central Issues
 
-/*
-Central claims
-*/
+[Information Security]: Information security is critical for modern digital infrastructure.
 
-[Exceptional Access]: Broad deployment of cryptosystems with exceptional access would benefit to society #judgement
-    <!-- - [Absolute Right to Privacy]: Individuals have an absolute right to privacy #con
-    - <Argument from Power>: EA gives inappropriate power to the state #con
-    - <Argument from Competency>: Current EA proposals are unacceptably dangerous #cite_abelson_2015 #con
-    - <Appeal to Authority>: Prominent security experts say EA is a bad idea #con
-        _ [Fallacy]: "Appeal to authority" is a fallacy
-    + <Encryption Stymies Investigations>: EA would allow more crimes to be prosecuted #pro
-    + <Legislators are a Threat>: The government makes the rules, and it is prudent to be prepared #pro -->
+[Public Safety]: The ability to investigate, interrupt, and litigate wrongdoing is central to law enforcement's mandate.
 
+[Data Privacy]: Individuals in a free society have the right to a reasonable expectation of privacy.
 
-/*
-Arguments of the debate
-*/
+[Institutional Trust]: Governments and corporations have an obligation to honor their citizens' and customers' trust.
 
-<Argument from Other Uses>: Exceptional access has positive auxiliary use cases. #pro
+# Response Measures: Various Alternatives
+
+[Unregulated use of Encryption]: Let technological progress proceed as it will.
+    <+ [Information Security]
+
+## Exceptional Access
+
+[Exceptional Access]: Broad deployment of cryptosystems with exceptional access would benefit to society. #judgement
+{isInGroup: true}
+
+### Data at Rest
+
+[EA DAR type1]
+
+### Data in Motion
+
+[EA DIM type1]
+
+[EA DIM type2]
+
+# Arguments for Measures {isGroup: false}
+
+<Argument from Law Enforcement Need>: Law enforcement needs exceptional access tools to effectively investigate and try
+crimes. #pro-ea
+
+(1) Encryption hides evidence of wrongdoing.
+(2) Law enforcement requires probable cause to obtain warrants and pursue investigations.
+(3) Prosecutors require sufficient evidence to make convictions.
+----
+(4) Encryption hampers investigations and prosecutions.
+(5) [Public Safety]
+(6) EA remediates encryption's ability to hide wrongdoing.
+----
+(7) LEAs and justice departments would be more effective with EA capabilities.
+    +> [Exceptional Access]
+
+<Argument from Foreign Intelligence Need>: Intelligence agencies need exceptional access tools to effectively
+investigate and prevent statecraft and terrorism. #pro-ea
+    +> [Exceptional Access]
+    <+ [Public Safety]
+
+<Argument from Information Security>: Acceptably secure exceptional access is not technically feasible. #anti-ea
+    -> [Exceptional Access]
+    <+ [Information Security]
+
+<Argument from Other Uses>: Exceptional access has positive auxiliary use cases. #pro-ea
 
 (1) EA can be used for malware scanning.
 (2) EA can be used for password recovery.
@@ -50,42 +98,32 @@ Arguments of the debate
 (5) EA's positive auxiliary use cases make it a beneficial technology.
     +> [Exceptional Access]
 
-<Argument from Law Enforcement Need>: Law enforcement needs exceptional access tools to effectively investigate and try
-crimes. #pro
-
-(1) Encryption hides evidence of wrongdoing.
-(2) Law enforcement requires probable cause to obtain warrants and pursue investigations.
-(3) Prosecutors require sufficient evidence to make convictions.
-----
-(4) Encryption hampers investigations and prosecutions.
-(5) EA remediates encryption's ability to hide wrongdoing.
-----
-(6) LEAs and justice departments would be more effective with EA capabilities.
-    +> [Exceptional Access]
-
-<Argument from Foreign Intelligence Need>: Intelligence agencies need exceptional access tools to effectively
-investigate and prevent statecraft and terrorism. #pro
-    +> [Exceptional Access]
-
-<Argument from Information Security>: Acceptably secure exceptional access is not technically feasible. #con
-    -> [Exceptional Access]
-
-<Argument from Social Desirability>: Exceptional access is not socially desirable. #con
-
-(1) [Absolute Right to Privacy]
-(2) @<EA Would Disadvantage the Wrong People>
-(3) EA inappropriately shifts power away from citizens and toward the government.
-----
-(4) Exceptional access is not socially desirable.
-    -> [Exceptional Access]
-
-[Absolute Right to Privacy]: Individuals in a free society have an absolute right to privacy. #value #con
+[Absolute Right to Privacy]: Individuals in a free society have an absolute right to privacy. #value #anti-ea
 
 <Right to Privacy is not Absolute>: An individual's right to privacy is contextual. One's words and actions are subject
-to investigation depending on their context and likelihood that they constitute a violation of law. #pro
+to investigation depending on their context and likelihood that they constitute a violation of law. #pro-ea
     -> [Absolute Right to Privacy]
 
-<EA Would Harm the Wrong People>: Words
-    +> <Argument from Social Desirability>
+<Argument from Social Desirability>: Exceptional access is not socially desirable. #anti-ea
 
-<Argument from Competency>: asdf
+(1) [Absolute Right to Privacy]
+(2) [Institutional Trust]
+(3) [Data Privacy]
+(4) EA inappropriately shifts power away from citizens and toward the government.
+----
+(5) Exceptional access is not socially desirable.
+    -> [Exceptional Access]
+
+# Arguments for Types of EA {isGroup: false}
+
+<EA DAR type1 is Secure>: This is a good approach.
+    <+ [Information Security]
+    +> [EA DAR type1]
+
+<EA DIM type1 creates poor trust relationships>: This is a bad approach.
+    <+ [Institutional Trust]
+    -> [EA DIM type1]
+
+<EA DIM type2 doesn't help local LE>: This is a bad approach.
+    <+ [Public Safety]
+    -> [EA DIM type2]
