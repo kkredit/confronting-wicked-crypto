@@ -9,6 +9,7 @@ color:
     tagColors:
         pro-ea: 0
         anti-ea: 1
+        neutral-ea: 3
         fact: 5
         value: 2
         judgement: 8
@@ -16,6 +17,11 @@ model:
     removeTagsFromText: true
 group:
     groupDepth: 3
+<!-- selection:
+    selectedTags:
+        - ea-proposal
+        - neutral-ea
+    selectElementsWithoutTag: true -->
 dot:
     graphVizSettings:
       rankdir: BT
@@ -44,23 +50,23 @@ dot:
 
 # Response Measures: Various Alternatives
 
-[Unregulated use of Encryption]: Let technological progress proceed as it will.
+[Unregulated use of Encryption]: Let technological progress proceed as it will. #anti-ea
     <+ [Information Security]
 
 ## Exceptional Access
 
-[Exceptional Access]: Broad deployment of cryptosystems with exceptional access would benefit to society. #judgement
-{isInGroup: true}
+[Exceptional Access]: Broad deployment of cryptosystems with exceptional access would benefit to society. #ea-itself
+#judgement
 
 ### Data at Rest
 
-[EA DAR type1]
+[EA DAR type1] #ea-proposal #dar
 
 ### Data in Motion
 
-[EA DIM type1]
+[EA DIM type1] #ea-proposal #dim
 
-[EA DIM type2]
+[EA DIM type2] #ea-proposal #dim
 
 # Arguments for Measures {isGroup: false}
 
@@ -116,14 +122,14 @@ to investigation depending on their context and likelihood that they constitute 
 
 # Arguments for Types of EA {isGroup: false}
 
-<EA DAR type1 is Secure>: This is a good approach.
+<EA DAR type1 is Secure>: This is a good approach. #neutral-ea
     <+ [Information Security]
     +> [EA DAR type1]
 
-<EA DIM type1 creates poor trust relationships>: This is a bad approach.
+<EA DIM type1 creates poor trust relationships>: This is a bad approach. #neutral-ea
     <+ [Institutional Trust]
     -> [EA DIM type1]
 
-<EA DIM type2 doesn't help local LE>: This is a bad approach.
+<EA DIM type2 doesn't help local LE>: This is a bad approach. #neutral-ea
     <+ [Public Safety]
     -> [EA DIM type2]

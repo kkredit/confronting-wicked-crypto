@@ -2,21 +2,25 @@
 # Argdown Makefile
 # ------------------------------------------------
 
-SRCDIR   := .
-BINDIR   := build
-CITDIR   := build/w_citations
+SHELL := bash
 
-SOURCES  := $(wildcard $(SRCDIR)/*.ad)
-IMAGES := $(patsubst $(SRCDIR)/%.ad,$(BINDIR)/%.pdf,$(SOURCES))
-IMAGE_SVGS := $(patsubst $(SRCDIR)/%.ad,$(BINDIR)/%.svg,$(SOURCES))
-IMAGE_W_CITS := $(patsubst $(SRCDIR)/%.ad,$(CITDIR)/%.ad,$(SOURCES))
+SRCDIR := .
+BINDIR := build
+CITDIR := build/w_citations
 
-.PHONY: all clean dirs
+VARIATIONS := whole ea_proposals pro anti
 
-all: $(IMAGES)
+SOURCES := comprehensive.ad
+DOCS_W_CITS := $(CITDIR)/comprehensive.ad
+BUILD_CONFIG := argdown.config.js
+BUILT_SENTINAL := $(BINDIR)/.built
+
+.PHONY: all clean
+
+all: $(BUILT_SENTINAL)
 
 clean:
-	rm -rf $(BINDIR)
+	rm -rf $(BINDIR) $(CITDIR)
 
 $(BINDIR):
 	mkdir -p $(BINDIR)
@@ -24,14 +28,13 @@ $(BINDIR):
 $(CITDIR):
 	mkdir -p $(CITDIR)
 
-# $(IMAGE_W_CITS): $(CITDIR)/%.ad : $(SRCDIR)/%.ad | $(CITDIR)
-$(CITDIR)/%.ad : $(SRCDIR)/%.ad | $(CITDIR)
+$(CITDIR)/%.ad: $(SRCDIR)/%.ad | $(CITDIR)
 	../scripts/argdown-insert-citations.sh $<
 
-# $(IMAGE_SVGS):
-$(BINDIR)/%.svg : $(CITDIR)/%.ad | $(BINDIR)
-	argdown run --config argdown.config.js onesvg $<
-
-# $(IMAGES):
-$(BINDIR)/%.pdf : $(BINDIR)/%.svg
-	inkscape -z -D --file=$< --export-pdf=$@
+$(BUILT_SENTINAL): $(DOCS_W_CITS) $(BUILD_CONFIG)
+	set -ex; \
+		for VAR in $(VARIATIONS); do \
+			argdown run --config argdown.config.js $$VAR; \
+			inkscape -z -D --file=$(BINDIR)/comprehensive.$$VAR.svg --export-pdf=$(BINDIR)/comprehensive.$$VAR.pdf; \
+		done
+	touch $(BUILT_SENTINAL)

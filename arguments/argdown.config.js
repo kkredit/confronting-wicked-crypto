@@ -2,7 +2,7 @@
 
 module.exports = {
   author: 'Kevin Kredit',
-  inputPath: './build/w_citations/*.argdown',
+  inputPath: './build/w_citations/comprehensive.ad',
   model: {
     mode: 'loose',
     removeTagsFromText: true
@@ -14,12 +14,37 @@ module.exports = {
     outputDir: './build'
   },
   processes: {
-    svgs: {
-      process: 'export-svg'
-    },
-    onesvg: {
+    file: {
       inputPath: process.argv[process.argv.length - 1],
       process: 'export-svg'
+    },
+    whole: {
+      process: 'export-svg',
+      outputSuffix: ".whole"
+    },
+    ea_proposals: {
+      process: 'export-svg',
+      outputSuffix: ".ea_proposals",
+      selection: {
+        selectedTags: ['ea-proposal', 'neutral-ea'],
+        selectElementsWithoutTag: true
+      }
+    },
+    pro: {
+      process: 'export-svg',
+      outputSuffix: ".pro",
+      selection: {
+        selectedTags: ['ea-itself', 'pro-ea'],
+        selectElementsWithoutTag: true,
+      }
+    },
+    anti: {
+      process: 'export-svg',
+      outputSuffix: ".anti",
+      selection: {
+        selectedTags: ['ea-itself', 'anti-ea'],
+        selectElementsWithoutTag: true,
+      }
     }
   }
 };
