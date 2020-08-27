@@ -1,6 +1,6 @@
 ===
 title: >
-  Security, Safety, Privacy, and Trust
+    Security, Safety, Privacy, and Trust
 subTitle: Arguments Regarding Encryption and Exceptional Access
 author: Kevin Kredit
 date: August 2, 2020
@@ -19,6 +19,15 @@ dot:
     graphVizSettings:
       rankdir: BT
       ranksep: 1
+    measureLineWidth: true
+    group:
+        lineWidth: 1000
+    argument:
+        lineWidth: 200
+        minWidth: 0
+    statement:
+        lineWidth: 200
+        minWidth: 0
 model:
     removeTagsFromText: true
 mode: strict
