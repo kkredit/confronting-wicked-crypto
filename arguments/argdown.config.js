@@ -4,11 +4,8 @@ module.exports = {
   author: 'Kevin Kredit',
   inputPath: './build/w_citations/comprehensive.ad',
   model: {
-    mode: 'loose',
+    mode: 'strict',
     removeTagsFromText: true
-  },
-  selection: {
-    excludeDisconnected: false
   },
   svg: {
     outputDir: './build'

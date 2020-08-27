@@ -9,7 +9,7 @@ function print_number_in_tex() {
 }
 
 function print_number_in_argdown() {
-    echo $(grep "(cite ${1/_/\\\\_})" arguments/*.ad | wc -l)
+    echo $(grep "(cite:${1/_/\\\\_})" arguments/*.ad | wc -l)
 }
 
 function print_colored_number() {
@@ -38,5 +38,5 @@ else
     print_count $1
     echo
     grep --color=auto -rn --include \*.tex "\\\\cite{$1}" .
-    grep --color=auto -rn --include \*.ad "(cite ${1/_/\\\\_})" .
+    grep --color=auto -rn --include \*.ad "(cite:${1/_/\\\\_})" .
 fi

@@ -112,23 +112,41 @@ selection:
 
 # Fallacies
 
-[Straw Man]: Setting up a weak version of the opposing argument in order to tear it down. (cite unc\_2020) #fallacy
+[Hasty Generalization]
 
-[Appeal to Authority]: Using name recognition of figures that agree with the conclusion as an argument in itself.
-#fallacy #cite_unc_2020
+[Missing the Point]
+
+[Post Hoc]
+
+[Slippery Slope]: Arguing that a single step in one direction will result in sliding all the way to the extreme
+(cite:unc\_2020). #fallacy
+
+[Weak Analogy]
+
+[Appeal to Authority]: Using name recognition of figures that agree with the conclusion as an argument in itself
+(cite:unc\_2020). #fallacy
 
 [Ad Populum (Bandwagon)]: Using the supposed majority support of some group for the conclusion as an argument in
-itself. #fallacy #cite_unc_2020
+itself (cite:unc\_2020). #fallacy
 
-[Slippery Slope]: Arguing that a single step in one direction will result in sliding all the way to the extreme.
-#fallacy #cite_unc_2020
-
-[Ad Hominem]: Stating that an argument is invalid because the arguer has poor character. #fallacy #cite_unc_2020
+[Ad Hominem]: Stating that an argument is invalid because the arguer has poor character (cite:unc\_2020). #fallacy
 
 [Tu Quoque (Hypocrisy)]: Stating that an argument is invalid because the arguer has hypocritically acted against their
-own argument. #fallacy #cite_unc_2020
+own argument (cite:unc\_2020). #fallacy
 
-[False Dichotomy]: Presenting a situation as if there are only two choices. #cite_unc #fallacy
+[Appeal to Pity]
+
+[Appeal to Ignorance]
+
+[Straw Man]: Setting up a weak version of the opposing argument in order to tear it down (cite:unc\_2020). #fallacy
+
+[Red Herring]
+
+[False Dichotomy]: Presenting a situation as if there are only two choices (cite:unc\_2020). #fallacy
+
+[Begging the Question]
+
+[Equivocation]
 
 # Fallacious Arguments {isGroup: false}
 
@@ -140,6 +158,29 @@ own argument. #fallacy #cite_unc_2020
 (3) [Information Security]
 ----
 (4) [EA is bad]
+
+<We should not implement EA because security experts are against it>: #fallacious #anti-ea
+
+(1) Security experts are against EA.
+(2) [Information Security]
+----
+    <_ [Appeal to Authority]
+(3) [EA is bad]
+
+<We should not implement EA because a majority of the public is against it>: #fallacious #anti-ea
+
+(1) A majority of the public is against "back doors" (cite:hanna\_2019).
+----
+    <_ [Ad Populum (Bandwagon)]
+(2) [EA is bad]
+
+<Government calls for EA on the basis of CSAM are disingenuous> #fallacious #anti-ea
+    <_ [Tu Quoque (Hypocrisy)]
+    -> [Exceptional Access]
+
+<Perfect EA is impossible, so we shouldn't implement it> #fallacious #anti-ea
+    <_ [False Dichotomy]
+    -> [Exceptional Access]
 
 # Arguments for Measures {isGroup: false}
 
