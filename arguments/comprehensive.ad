@@ -11,21 +11,52 @@ color:
         anti-ea: 1
         neutral-ea: 3
         fact: 5
+        fallacy: 5
+        fallacious: 6
         value: 2
         judgement: 8
-model:
-    removeTagsFromText: true
-group:
-    groupDepth: 3
-<!-- selection:
-    selectedTags:
-        - ea-proposal
-        - neutral-ea
-    selectElementsWithoutTag: true -->
 dot:
     graphVizSettings:
       rankdir: BT
       ranksep: 1
+model:
+    removeTagsFromText: true
+mode: strict
+group:
+    groupDepth: 3
+
+## Preview configs start
+
+## Types of EA
+#selection:
+#    selectedSections:
+#        - Central Issues
+#        - Response Measures: Various Alternatives
+#        - Arguments for Measures
+#        - Arguments for Types of EA
+#    selectedTags:
+#        - ea-proposal
+#        - neutral-ea
+#    selectElementsWithoutTag: true
+
+## Fallacies config
+#group:
+#    sections: {"Exceptional Access": {isClosed: true}}
+selection:
+    selectedSections:
+        - Central Issues
+        - Response Measures
+        - Exceptional Access
+        - Fallacies
+        - Fallacious Arguments
+    selectedTags:
+        - core
+        - ea-itself
+        - fallacy
+        - fallacious
+    selectElementsWithoutTag: true
+
+## Preview configs end
 ===
 
 /**
@@ -40,23 +71,25 @@ dot:
 
 # Central Issues
 
-[Information Security]: Information security is critical for modern digital infrastructure.
+[Information Security]: Information security is critical for modern digital infrastructure. #core
 
-[Public Safety]: The ability to investigate, interrupt, and litigate wrongdoing is central to law enforcement's mandate.
+[Public Safety]: The ability to investigate, interrupt, and litigate wrongdoing is central to law enforcement's mandate. #core
 
-[Data Privacy]: Individuals in a free society have the right to a reasonable expectation of privacy.
+[Data Privacy]: Individuals in a free society have the right to a reasonable expectation of privacy. #core
 
-[Institutional Trust]: Governments and corporations have an obligation to honor their citizens' and customers' trust.
+[Institutional Trust]: Governments and corporations have an obligation to honor their citizens' and customers' trust. #core
 
-# Response Measures: Various Alternatives
+# Response Measures
 
 [Unregulated use of Encryption]: Let technological progress proceed as it will. #anti-ea
     <+ [Information Security]
 
 ## Exceptional Access
 
-[Exceptional Access]: Broad deployment of cryptosystems with exceptional access would benefit to society. #ea-itself
-#judgement
+[Exceptional Access]: Broad deployment of cryptosystems with exceptional access would benefit to society. #ea-itself #judgement
+
+[EA is bad]: Opposite of @[Exceptional Access] #ea-itself #judgement {isInMap: false}
+    >< [Exceptional Access]
 
 ### Data at Rest
 
@@ -67,6 +100,37 @@ dot:
 [EA DIM type1] #ea-proposal #dim
 
 [EA DIM type2] #ea-proposal #dim
+
+# Fallacies
+
+[Straw Man]: Setting up a weak version of the opposing argument in order to tear it down. (cite unc\_2020) #fallacy
+
+[Appeal to Authority]: Using name recognition of figures that agree with the conclusion as an argument in itself.
+#fallacy #cite_unc_2020
+
+[Ad Populum (Bandwagon)]: Using the supposed majority support of some group for the conclusion as an argument in
+itself. #fallacy #cite_unc_2020
+
+[Slippery Slope]: Arguing that a single step in one direction will result in sliding all the way to the extreme.
+#fallacy #cite_unc_2020
+
+[Ad Hominem]: Stating that an argument is invalid because the arguer has poor character. #fallacy #cite_unc_2020
+
+[Tu Quoque (Hypocrisy)]: Stating that an argument is invalid because the arguer has hypocritically acted against their
+own argument. #fallacy #cite_unc_2020
+
+[False Dichotomy]: Presenting a situation as if there are only two choices. #cite_unc #fallacy
+
+# Fallacious Arguments {isGroup: false}
+
+<EA is bad because backdoors are insecure>: #fallacious #anti-ea
+
+(1) EA means having government backdoors.
+    <_ [Straw Man]
+(2) Backdoors are very insecure.
+(3) [Information Security]
+----
+(4) [EA is bad]
 
 # Arguments for Measures {isGroup: false}
 
@@ -81,8 +145,7 @@ crimes. #pro-ea
 (5) [Public Safety]
 (6) EA remediates encryption's ability to hide wrongdoing.
 ----
-(7) LEAs and justice departments would be more effective with EA capabilities.
-    +> [Exceptional Access]
+(7) [Exceptional Access]
 
 <Argument from Foreign Intelligence Need>: Intelligence agencies need exceptional access tools to effectively
 investigate and prevent statecraft and terrorism. #pro-ea
@@ -101,8 +164,7 @@ investigate and prevent statecraft and terrorism. #pro-ea
 ----
 (4) EA has positive auxiliary use cases.
 ----
-(5) EA's positive auxiliary use cases make it a beneficial technology.
-    +> [Exceptional Access]
+(5) [Exceptional Access]
 
 [Absolute Right to Privacy]: Individuals in a free society have an absolute right to privacy. #value #anti-ea
 
@@ -117,8 +179,7 @@ to investigation depending on their context and likelihood that they constitute 
 (3) [Data Privacy]
 (4) EA inappropriately shifts power away from citizens and toward the government.
 ----
-(5) Exceptional access is not socially desirable.
-    -> [Exceptional Access]
+(5) [EA is bad]
 
 # Arguments for Types of EA {isGroup: false}
 

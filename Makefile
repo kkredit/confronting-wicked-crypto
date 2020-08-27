@@ -4,8 +4,8 @@ TEMPLATE := gvsu-thesis-template
 TEMPLATE_IS_CLONED := $(TEMPLATE)/Fonts
 
 ARG_SRC_DIR := arguments
-ARG_IMAGE_SOURCES  := $(wildcard $(ARG_SRC_DIR)/*.argdown)
-ARG_IMAGES := $(patsubst $(ARG_SRC_DIR)/%.argdown,$(ARG_SRC_DIR)/build/%.pdf,$(ARG_IMAGE_SOURCES))
+ARG_IMAGE_SOURCES  := $(wildcard $(ARG_SRC_DIR)/*.ad)
+ARG_IMAGES := $(patsubst $(ARG_SRC_DIR)/%.ad,$(ARG_SRC_DIR)/build/%.pdf,$(ARG_IMAGE_SOURCES))
 
 DFD_SRC_DIR := dfds
 DFD_IMAGE_SOURCES  := $(wildcard $(DFD_SRC_DIR)/*.drawio)
@@ -77,8 +77,8 @@ rtf: | pretty
 
 docker:
 	docker build $(DOCKER_BUILD_ARGS) -t $(DOCKER_TAG) .
-	# docker run --rm -it $(DOCKER_TAG)
-	docker run $(DOCKER_RUN_FLAGS) $(DOCKER_TAG) $(DOCKER_RUN_CMD)
+	docker run $(DOCKER_RUN_FLAGS) $(DOCKER_TAG)
+	# docker run $(DOCKER_RUN_FLAGS) $(DOCKER_TAG) $(DOCKER_RUN_CMD)
 
 clean:
 	rm -rf $(OUTDIR) $(DOCNAME).bib

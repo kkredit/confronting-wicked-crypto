@@ -48,7 +48,7 @@ RUN apt-get install -y --no-install-recommends \
         libcanberra-gtk-module \
         libcanberra-gtk3-module \
         npm
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
     apt-get install -y --no-install-recommends \
         nodejs && \
     npm install -g @argdown/cli

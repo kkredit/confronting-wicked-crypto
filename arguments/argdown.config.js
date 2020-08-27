@@ -45,6 +45,17 @@ module.exports = {
         selectedTags: ['ea-itself', 'anti-ea'],
         selectElementsWithoutTag: true,
       }
+    },
+    fallacies: {
+      process: 'export-svg',
+      outputSuffix: ".fallacies",
+      selection: {
+        selectedSections: [
+          'Central Issues', 'Response Measures', 'Exceptional Access', 'Fallacies', 'Fallacious Arguments'
+        ],
+        selectedTags: ['core', 'ea-itself', 'fallacy', 'fallacious'],
+        selectElementsWithoutTag: true
+      }
     }
   }
 };

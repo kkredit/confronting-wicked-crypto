@@ -5,16 +5,16 @@ responds to them in a short and informal manner.
 
 ## Unsorted Complete List of Objections
 
-1.  Lawful access is a slippery slope
-2.  Access tools are powerful in the wrong hands
-3.  Encryption is the basis for all trust on the internet
-4.  Criminals, being criminals, will flout the law and use encryption anyway
-5.  Usage scope will creep; it will be abused and used for unintended purposes
-6.  Industry doesn't want this for ideological reasons
-7.  Industry doesn't want this for competitiveness reasons
-8.  US legislature is incompetent with tech (see CFAA, telecoms regulation) so cannot be trusted
-    with encryption regulation
-9.  [Outdated bad proposal] is hopelessly inadequate
+1. Lawful access is a slippery slope
+2. Access tools are powerful in the wrong hands
+3. Encryption is the basis for all trust on the internet
+4. Criminals, being criminals, will flout the law and use encryption anyway
+5. Usage scope will creep; it will be abused and used for unintended purposes
+6. Industry doesn't want this for ideological reasons
+7. Industry doesn't want this for competitiveness reasons
+8. US legislature is incompetent with tech (see CFAA, telecoms regulation) so cannot be trusted
+   with encryption regulation
+9. [Outdated bad proposal] is hopelessly inadequate
 10. Government should not have absolute access to data
 11. When a control is easily circumventable, the only ones hurt are the ignorant
 12. There is no overlap between crimes severe enough to warrant access and suspects using poor
@@ -32,25 +32,25 @@ responds to them in a short and informal manner.
 
 Without responding to each argument in turn, most objections fall into one of four categories:
 
-* Ideology
-  * Absolute right to privacy (10, 13)
-  * Outlawing technological progress is backwards (15)
-* Power
-  * Scope will creep (1, 5)
-  * Government already has enough, or too much, power (6, 10, 13)
-  * Tools could end up in the wrong hands (2)
-  * The wrong people will be hurt (4, 11, 14)
-* Implementation
-  * Encryption is too foundational for integrity and confidentiality to compromise (3)
-  * US legislature is incompetent with tech policy (8)
-  * Current proposals are inadequately secure (9)
-  * Current proposals will hurt US international competitiveness (7)
-  * Current proposals will not address the problems we're hoping to fix (4, 12)
-* Fallacy
-  * Strawman attacks (9)
-  * Appeal to authority (16)
-  * Bandwagoning (17)
-  * Nirvana fallacy (demanding perfection)
+- Ideology
+  - Absolute right to privacy (10, 13)
+  - Outlawing technological progress is backwards (15)
+- Power
+  - Scope will creep (1, 5)
+  - Government already has enough, or too much, power (6, 10, 13)
+  - Tools could end up in the wrong hands (2)
+  - The wrong people will be hurt (4, 11, 14)
+- Implementation
+  - Encryption is too foundational for integrity and confidentiality to compromise (3)
+  - US legislature is incompetent with tech policy (8)
+  - Current proposals are inadequately secure (9)
+  - Current proposals will hurt US international competitiveness (7)
+  - Current proposals will not address the problems we're hoping to fix (4, 12)
+- Fallacy
+  - Straw man attacks (9)
+  - Appeal to authority (16)
+  - Bandwagon (17)
+  - Nirvana fallacy (demanding perfection)
 
 Objections based on concerns over the balance of power created by an extraordinary access mechanism
 are extremely important. Objections based on implementation issues are also important. Objections
