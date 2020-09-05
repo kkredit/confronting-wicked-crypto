@@ -12,6 +12,7 @@ VARIATIONS := whole ea_proposals pro anti fallacies
 
 SOURCES := $(wildcard $(SRCDIR)/*.ad)
 DOCS_W_CITS := $(patsubst $(SRCDIR)/%.ad,$(CITDIR)/%.ad.success,$(SOURCES))
+LATEX_CIT_FILE := ../build/Thesis.aux
 BUILD_CONFIG := argdown.config.js
 BUILT_SENTINAL := $(BINDIR)/.built
 
@@ -28,14 +29,14 @@ $(BINDIR):
 $(CITDIR):
 	mkdir -p $(CITDIR)
 
-$(CITDIR)/%.ad.success: $(SRCDIR)/%.ad | $(CITDIR)
+$(CITDIR)/%.ad.success: $(SRCDIR)/%.ad $(LATEX_CIT_FILE) | $(CITDIR)
 	set -e; \
 		TARGET=$$(echo $@ | sed 's/.success//'); \
 		rm -f $$TARGET; \
 		$(MAKE) $$TARGET
 	touch $@
 
-$(CITDIR)/%.ad: $(SRCDIR)/%.ad | $(CITDIR)
+$(CITDIR)/%.ad: $(SRCDIR)/%.ad $(LATEX_CIT_FILE) | $(CITDIR)
 	../scripts/argdown-preprocess.sh $<
 
 image:
