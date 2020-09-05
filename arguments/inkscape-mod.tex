@@ -1,0 +1,5 @@
+  \ifx\svgmaxwidth\undefined%
+  \else%
+    \setlength{\unitlength}{\ifdim\unitlength>\svgmaxwidth \svgmaxwidth\else\unitlength\fi}%
+  \fi%
+  \global\let\svgmaxwidth\undefined%

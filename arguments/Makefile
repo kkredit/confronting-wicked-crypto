@@ -10,12 +10,12 @@ CITDIR := build/w_citations
 
 VARIATIONS := whole ea_proposals pro anti fallacies
 
-SOURCES := comprehensive.ad demo.ad
-DOCS_W_CITS := $(CITDIR)/comprehensive.ad.success $(CITDIR)/demo.ad.success
+SOURCES := $(wildcard $(SRCDIR)/*.ad)
+DOCS_W_CITS := $(patsubst $(SRCDIR)/%.ad,$(CITDIR)/%.ad.success,$(SOURCES))
 BUILD_CONFIG := argdown.config.js
 BUILT_SENTINAL := $(BINDIR)/.built
 
-.PHONY: all clean
+.PHONY: all clean image
 
 all: $(BUILT_SENTINAL)
 
@@ -38,12 +38,20 @@ $(CITDIR)/%.ad.success: $(SRCDIR)/%.ad | $(CITDIR)
 $(CITDIR)/%.ad: $(SRCDIR)/%.ad | $(CITDIR)
 	../scripts/argdown-preprocess.sh $<
 
+image:
+	# Requires ARGDOWN_ARGS and FILE
+	argdown run --config argdown.config.js $(ARGDOWN_ARGS)
+	inkscape -z -D --file=$(BINDIR)/$(FILE).svg --export-pdf=$(BINDIR)/$(FILE).pdf
+	inkscape -z -D --file=$(BINDIR)/$(FILE).svg --export-latex --export-ps=$(BINDIR)/$(FILE).ps
+	head -n 49 $(BINDIR)/$(FILE).ps_tex > $(BINDIR)/$(FILE).tex
+	cat inkscape-mod.tex >> $(BINDIR)/$(FILE).tex
+	tail -n +50 $(BINDIR)/$(FILE).ps_tex >> $(BINDIR)/$(FILE).tex
+	rm $(BINDIR)/$(FILE).ps_tex
+
 $(BUILT_SENTINAL): $(DOCS_W_CITS) $(BUILD_CONFIG)
+	$(MAKE) image ARGDOWN_ARGS="file $(CITDIR)/demo.ad" FILE=demo
 	set -ex; \
 		for VAR in $(VARIATIONS); do \
-			argdown run --config argdown.config.js $$VAR; \
-			inkscape -z -D --file=$(BINDIR)/comprehensive.$$VAR.svg --export-pdf=$(BINDIR)/comprehensive.$$VAR.pdf; \
-		done; \
-		argdown run --config argdown.config.js file $(CITDIR)/demo.ad; \
-		inkscape -z -D --file=$(BINDIR)/demo.svg --export-pdf=$(BINDIR)/demo.pdf;
+			$(MAKE) image ARGDOWN_ARGS=$$VAR FILE=comprehensive.$$VAR; \
+		done
 	touch $(BUILT_SENTINAL)

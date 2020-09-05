@@ -27,6 +27,8 @@
 
 % Packages
 \usepackage{pdftexcmds}
+\usepackage[export]{adjustbox}
+\usepackage{grffile}
 
 % Setup bools (\ifBoolName ... \fi)
 \newbool{GVSU}
@@ -67,6 +69,7 @@
     bookmarksnumbered
 }
 \pagestyle{plain}
+\graphicspath{{arguments/build/}}
 
 % GVSU formatting mods
 \ifGVSU

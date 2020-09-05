@@ -16,7 +16,7 @@ function check_for_duplicate_refname() {
 
 function sanitize_language_field() {
   if [[ "$REF" =~ "language" ]]; then
-    for PATTERN in "n" "ng" "nglish" "n_GB" "n_US" "n\\\\_GB" "n\\\\_US" "n-GB" "n-US"; do
+    for PATTERN in "n" "ng" "nglish" "n_GB" "n_US" "n\\\\_GB" "n\\\\_US" "n-GB" "n-US" "n-us"; do
       REF=${REF/\{[Ee]$PATTERN\}/\{english\}}
     done
   fi
