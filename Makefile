@@ -31,11 +31,19 @@ DOCKER_RUN_FLAGS := --privileged $(DISP_FLAGS) -v `pwd`:/host --user=`id -u`:`id
 HACK := drawio --export DFD-demo.drawio --format png --embed-dragram -o build/DFD-demo.png
 DOCKER_RUN_CMD := bash -c "(cd dfds; $(HACK) &); make live"
 
-.PHONY: all pretty gvsu images live gvsu-live docker rtf clean clean-all prereqs
+.PHONY: all check pretty gvsu images live gvsu-live docker rtf clean clean-all prereqs
 
 pretty: $(OUTDIR)/$(PRETTY_JOB).pdf
 gvsu: $(OUTDIR)/$(GVSU_JOB).pdf
 all: gvsu pretty
+
+check:
+	# Ensure that all the references in the arguments maps resolved. It would be nice to automatically rebuild if this
+	# check fails, but that is more work than it is probably worth.
+	if (( 0 != $$(grep -rniI E_AGAIN arguments/build/ | wc -l) )); then \
+		printf "\e[1;31m$$(grep -rniIl E_AGAIN arguments/build/)\e[0m\n"; \
+		exit 1; \
+	fi
 
 $(TEMPLATE_IS_CLONED):
 	git submodule init
