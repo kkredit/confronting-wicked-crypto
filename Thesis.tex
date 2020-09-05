@@ -40,6 +40,7 @@
 \newbool{PrintGlossary} % Whether to include the glossary in the document
 \newbool{HasCurriculumVitae}
 \newbool{UseAccentInRefs}
+\newbool{UseLatexImageSource}
 
 % Document properties
 \def\DocumentTitle{Principled Extraordinary Access}
@@ -95,6 +96,18 @@
     \newcommand{\mysec}[1]{Section~\ref{#1}}
     \newcommand{\myfig}[1]{Figure~\ref{#1}}
     \newcommand{\mytab}[1]{Table~\ref{#1}}
+\fi
+
+% \booltrue{UseLatexImageSource} % Uncomment to use Inkscape LaTeX image formatting
+\ifUseLatexImageSource
+    \newcommand{\myincludeargument}[1]{
+        \def\svgmaxwidth{\linewidth}
+        \input{arguments/build/#1.tex}
+    }
+\else
+    \newcommand{\myincludeargument}[1]{
+        \includegraphics[max width=\linewidth]{arguments/build/#1.pdf}
+    }
 \fi
 
 \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
