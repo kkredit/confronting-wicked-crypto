@@ -15,10 +15,6 @@ color:
         fallacious: 6
         value: 2
         judgement: 8
-dot:
-    graphVizSettings:
-      rankdir: BT
-      ranksep: 1
     measureLineWidth: true
     group:
         lineWidth: 1000
@@ -51,6 +47,9 @@ group:
 ## Fallacies config
 #group:
 #    sections: {"Exceptional Access": {isClosed: true}}
+dot:
+    graphVizSettings:
+        rankdir: LR
 selection:
     selectedSections:
         - Central Issues
@@ -118,23 +117,23 @@ selection:
 
 [Post Hoc]
 
-[Slippery Slope]: Arguing that a single step in one direction will result in sliding all the way to the extreme
-(cite:unc\_2020). #fallacy
+[Slippery Slope]: Arguing that a single step in one direction will inevitably result in sliding all the way to the
+extreme (cite:unc\_2020). #fallacy
 
 [Weak Analogy]
 
 [Appeal to Authority]: Using name recognition of figures that agree with the conclusion as an argument in itself
 (cite:unc\_2020). #fallacy
 
-[Ad Populum (Bandwagon)]: Using the supposed majority support of some group for the conclusion as an argument in
-itself (cite:unc\_2020). #fallacy
+[Ad Populum (Bandwagon)]: Using the supposed majority support for the conclusion by some group as an argument in itself
+(cite:unc\_2020). #fallacy
 
 [Ad Hominem]: Stating that an argument is invalid because the arguer has poor character (cite:unc\_2020). #fallacy
 
 [Tu Quoque (Hypocrisy)]: Stating that an argument is invalid because the arguer has hypocritically acted against their
 own argument (cite:unc\_2020). #fallacy
 
-[Appeal to Pity]
+[Appeal to Pity]: Attempting to convince the audience by making them feel sorry for someone (cite:unc\_2020). #fallacy
 
 [Appeal to Ignorance]
 
@@ -181,6 +180,10 @@ own argument (cite:unc\_2020). #fallacy
 <Perfect EA is impossible, so we shouldn't implement it> #fallacious #anti-ea
     <_ [False Dichotomy]
     -> [Exceptional Access]
+
+<We need EA now because victims of CSAM are suffering> #fallacious #pro-ea
+    <_ [Appeal to Pity]
+    +> [Exceptional Access]
 
 # Arguments for Measures {isGroup: false}
 

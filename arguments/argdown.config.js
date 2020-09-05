@@ -44,6 +44,11 @@ module.exports = {
       }
     },
     fallacies: {
+      dot: {
+        graphVizSettings: {
+          rankdir: 'LR'
+        }
+      },
       process: 'export-svg',
       outputSuffix: ".fallacies",
       selection: {
