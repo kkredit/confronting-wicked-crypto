@@ -19,6 +19,7 @@ export -f exitprint
 
 alias new="$SCRIPTS_DIR/new-source.sh"
 alias show="$SCRIPTS_DIR/show-source.sh"
+alias term="$SCRIPTS_DIR/term.sh"
 alias gen="$SCRIPTS_DIR/bib-gen.sh"
 alias cite="$SCRIPTS_DIR/count-citations.sh"
 alias todo="(cd $BASE_DIR && grep -nE '(TODO|FIXME)' *.tex)"
