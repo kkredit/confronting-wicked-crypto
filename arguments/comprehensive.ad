@@ -32,37 +32,37 @@ group:
 
 ## Preview configs start
 
-## Types of EA
-#selection:
-#    selectedSections:
-#        - Central Issues
-#        - Response Measures: Various Alternatives
-#        - Arguments for Measures
-#        - Arguments for Types of EA
-#    selectedTags:
-#        - ea-proposal
-#        - neutral-ea
-#    selectElementsWithoutTag: true
-
-## Fallacies config
-#group:
-#    sections: {"Exceptional Access": {isClosed: true}}
-dot:
-    graphVizSettings:
-        rankdir: LR
+# Types of EA
 selection:
     selectedSections:
         - Central Issues
-        - Response Measures
-        - Exceptional Access
-        - Fallacies
-        - Fallacious Arguments
+        - "Response Measures: Various Alternatives"
+        - Arguments for Measures
+        - Arguments for Types of EA
     selectedTags:
-        - core
-        - ea-itself
-        - fallacy
-        - fallacious
+        - ea-proposal
+        - neutral-ea
     selectElementsWithoutTag: true
+
+## Fallacies config
+##group:
+##    sections: {"Exceptional Access": {isClosed: true}}
+#dot:
+#    graphVizSettings:
+#        rankdir: LR
+#selection:
+#    selectedSections:
+#        - Central Issues
+#        - Response Measures
+#        - Exceptional Access
+#        - Fallacies
+#        - Fallacious Arguments
+#    selectedTags:
+#        - core
+#        - ea-itself
+#        - fallacy
+#        - fallacious
+#    selectElementsWithoutTag: true
 
 ## Preview configs end
 ===
@@ -172,6 +172,11 @@ own argument (cite:unc\_2020). #fallacy
 ----
     <_ [Ad Populum (Bandwagon)]
 (2) [EA is bad]
+
+<The technical community cannot give any ground on EA because LEAs will never be satisfied>:
+#fallacious #anti-ea
+    <_ [Slippery Slope]
+    -> [Exceptional Access]
 
 <Government calls for EA on the basis of CSAM are disingenuous> #fallacious #anti-ea
     <_ [Tu Quoque (Hypocrisy)]
