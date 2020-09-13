@@ -3,6 +3,8 @@
 ## By oral defense date (Nov. 23 or 24)
 
 - Produce rough draft
+  - Update chapter 2--background
+    - Legal content RE courts and jurisprudence
   - Write chapter 3--arguments
     - Outline flow and arguments
     - Make argmaps

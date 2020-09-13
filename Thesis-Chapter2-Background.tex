@@ -41,20 +41,19 @@ encryption-time, as \ac{DIM} session keys are, these keys are either derived fro
 somewhere in computer memory, which often takes place with the assistance of dedicated hardware. \Ac{disk-encryption}
 for laptops and mobile devices is an example of encryption for \ac{DAR}.
 
-Data secrecy is not cryptography's only purpose, however.
+Data secrecy is not cryptography's only use, however. Precisely speaking, data secrecy is the purpose of encryption.
+Encryption is cryptography's ``killer app,'' but it is only a part of cryptography's usefulness to security.
 
 Cryptography is the technical foundation for many forms of computer and network security. Security is defined in terms
 of several properties: authentication, integrity, non-repudiation, confidentiality, availability, and authorization
 \cite{shostack_threat_2014}. These system-level properties emerge from both the composition of the system's components
 (architecture) and the security of the components themselves; likewise, the security of each component emerges from the
-architecture of its subcomponents and the security of the subcompenents themselves. At the bottom of this analysis, the
-security of primitive components commonly relies on cryptography.
+architecture of its subcomponents and the security of the subcompenents themselves. At the end of this chain of
+analysis, the security of primitive components commonly relies on cryptography.
 
 \mytab{table:security-and-crypto} connects each security property to its cryptographic basis. While lacking direct
 cryptographic foundations, availability indirectly relies on each other property, and authorization schemes are
 typically rooted in authentication.
-
-% TODO: clarify relationship between encryption and cryptography. Use appropriately throughout.
 
 % Spoofing                  Authentication
 % Tampering                 Integrity
@@ -280,8 +279,8 @@ largely see the \ac{EARNITAct} as an attempt to indirectly yet effectively outla
 \label{sec-reg-environment}
 
 The following sections list laws which directly or indirectly affect use of encryption. Though this thesis is
-U.S.--focused, it is worth briefly touching on the regulatory environment of other countries. \Ac{EA} is an international
-problem, as digital technology has little respect for political borders.
+U.S.--focused, it is worth briefly touching on the regulatory environment of other countries. \Ac{EA} is an
+international problem, as digital technology has little respect for political borders.
 
 % IDEA: Create an appendix to go into greater detail?
 % Could go into these, as well as the commented-out ones below
@@ -295,7 +294,6 @@ problem, as digital technology has little respect for political borders.
 This section includes both successful and failed cryptography regulation attempts in the U.S.
 
 \subsubsection{Enacted U.S. Regulations}
-% FIXME: distinguish statutes vs. regulations; rename "failed" section
 
 The following laws and regulations have been applied to cases involving surveillance, cryptography, and access to
 encrypted information:
@@ -363,7 +361,7 @@ abuse \cite{shamsi_2011} \cite{tucker_2020}.
     \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}{
 
 Amended the Wiretap Act, Stored Communications Act, and Pen Register Act. Provided explicit protections for private
-% FIXME: Briefly introduce these. Even just "Amended the switch-board-era"...
+% TODO: Briefly introduce these. Even just "Amended the switch-board-era"...
 electronic communications data, and updated definitions to contemporary technology. It granted law enforcement explicit
 access to certain data as well; some terminology has aged poorly with technological evolution, making the access
 increasingly permissive \cite{shamsi_2011}.
@@ -417,24 +415,7 @@ collection of telephone metadata.
 
 \lawsend
 
-\subsubsection{The Judicial Environment}
-\label{sec-us-judicial}
-
-The above history and section on U.S. law encompasses the executive and legislative branches' influence on surveillance
-and cryptography. A complete picture requires understanding the judiciary branch's influence via court rulings. The
-judiciary branch exercises power through a framework based on AAAA and BBBB. In this section we analyze several
-important cases and developments in the last few years.
-
-% TODO: Framework for understanding judicial influence. See bergerson_judicial_1998 and gizzi_fourth_2016. Update the
-%   "AAAA and BBBB" in the intro.
-
-% TODO: Review historically important cases on the 1st, 4th, and 5th amendments, e.g. Katz v. United States, 1969.
-
-% TODO: Review recent cases. See orenstein_2016, bittenbender_2019, vaas_2019.
-% NOTE: _Carpenter_ was a recent important Supreme Court case limiting the scope of the third-party doctrine!
-% See franklin_2018 and rozenshtein_2018
-
-\subsubsection{Failed U.S. Regulation Attempts}
+\subsubsection{Unsuccessful U.S. Regulation Attempts}
 \label{sec-us-reg-fails}
 
 The following are proposed laws and regulations that did not go into effect or are still in process:
@@ -568,12 +549,64 @@ impossible to do so.'' The act neither mandates nor recommends any technical app
 
 \lawsend
 
+\subsubsection{The Judicial Environment}
+\label{sec-us-judicial}
+
+The above history and section on U.S. law encompasses the executive and legislative branches' influence on surveillance
+and cryptography. A complete picture requires understanding the judiciary branch's influence via court rulings. The
+judiciary branch exercises power through a framework based on AAAA and BBBB. In this section I describe this framework,
+review how it has influenced cryptography policy, and analyze where cryptographic jurisprudence may go from here.
+
+% TODO: Framework for understanding judicial influence. See bergerson_judicial_1998. Update the "AAAA and BBBB" in the
+% intro and the todo in the conclusion.
+
+Judicial influence on encryption policy is primarily mediated through Fourth Amendment jurisprudence, particularly
+regarding the interpretation of a person's ``effects,'' what is ``reasonable,'' and what is a ``search.'' The Supreme
+Court's interpretation and implementation of the Amendment's crime control-- and civil liberty--balancing principles has
+changed over time. An in-depth analysis of the Court's jurisprudence from the 1960's Warren Court, through the
+influential 1980s Rehnquist Court, to the mid-2010s Roberts Court found a deep proclivity towards crime control that is
+slowly thawing \cite{gizzi_fourth_2016}. This thawing, caused by evolution of technology, of the court, and of the
+justices themselves, has been favorable for data privacy. Recent cases have increasingly sided with defendants, have
+caused justices to strain to show that they understand technology, and have increased the categories of protected
+digital data \cite{gizzi_fourth_2016}. 2018's potentially landmark \ii{Carpenter v. United States} may be the most
+impactful yet; though it only resulted in a narrow decision against unwarranted cell phone location data tracking, it
+does undermine the pre-digital third-party doctrine, which holds that Fourth Amendment protection is forfeit when the
+data is willingly given to a third-party \cite{franklin_2018}.
+
+As this relates to \ac{EA}, Fourth Amendment interpretation practically determines the threshold at which authorities
+require a warrant, not what demands they can or cannot make once they have one. The second most salient legal issue is
+the Fifth Amendment right against self-incrimination, which comes up in cases of compelled password disclosure. This
+question has not yet reached the Supreme Court, and state courts have ruled compelled disclosure both constitutional
+\cite{sobel_2019} \cite{lee_nj_2020} and unconstitutional \cite{lee_its_2020} \cite{vaas_2019}.
+
+% Paragraph interpreting this change as principles vs rules in a wicked problem
+
+That judicial influence on privacy and technology is changing is to be expected. To explain the fluctuating state of
+legal interpretation as it relates to \ac{EA}, Matyas et al. make the helpful distinction between legal rules and
+principles \cite{matyas_incommensurability_2018}:
+
+\begin{displayquote}
+The tension between technical and legal views of sensitive issues such as encryption and surveillance is illuminated by
+applying the jurisprudential lens. \dots~Liberal legal systems, manifesting what is generally understood as ``the rule
+of law,'' are actually composed of both rules and principles. Legal ``rules'' can be understood as logical propositions
+that are expected to yield answers about what is and is not permitted using formal reasoning capabilities. By contrast,
+legal ``principles'' articulate values and policies that must be reflected in a legal system but do not necessarily
+dictate an unambiguous outcome in any given case.
+\end{displayquote}
+
+Rules are the low-level implementation of principles. When the underlying facts of the situation change, as they do by
+definition for wicked problems, the rules become out of sync with the principles that bade them. Recent flux in judicial
+rulings surrounding surveillance and technology are evidence that the courts are in the process of updating
+interpretations of rules in light of the new facts; which principles they ultimately choose to favor remains to be seen,
+but rulings like \ii{Carpenter} show a willingness to protect privacy.
+% TODO: Connect back to system of judicial influence--this willingness uses that framework to support encryption.
 
 \subsection{Regulations around the World}
 
 This thesis is U.S.--focused, but \ac{EA} technologies and policies have international impacts. The following is a very
-brief account of the regulatory environment in various jurisdictions around the world based primarily on a 2016 analysis
-by the Law Library of Congress \cite{acosta_government_2016}.
+brief account of the regulatory environment in various geographical jurisdictions around the world based primarily on a
+2016 analysis by the Law Library of Congress \cite{acosta_government_2016}. Globally, a 2017 study found that more than
+half the world's internet users lived in a country where some form of plaintext recovery is mandated \cite{lewis_2017}.
 
 \newcommand{\countriesstart}{\begin{itemize}}
 \newcommand{\country}[3]{ % Name, citation, description
@@ -631,10 +664,11 @@ the pressure of \ac{the-cw2} is causing strain \cite{parsons_2019}.
 % Google? Signal and WhatsApp? Telecoms, not platforms or apps. This is the big differentiator. This can be expanded
 % upon when I talk a bit about pen registers, etc.
 
-France, Belgium, Germany, and Sweden require cooperation between telecommunications providers and law enforcement; for
-France, Belgium, and Germany, that includes decrypting network traffic when possible. France, Germany, and Sweden each
-have some level of \ac{lawful-hacking} capability. There is no E.U. legislation that requires key disclosure or
-decryption of network traffic.
+Among European countriues, France and Russia join the U.K. in having access mandates \cite{lewis_2017}. France, Belgium,
+Germany, and Sweden require cooperation between telecommunications providers and law enforcement; for France, Belgium,
+and Germany, that includes decrypting network traffic when possible. France, Germany, and Sweden each have some level of
+\ac{lawful-hacking} capability. There is no E.U. legislation that requires key disclosure or decryption of network
+traffic.
 
 }
 
@@ -643,8 +677,8 @@ decryption of network traffic.
 Japanese authorities require cooperation and can request access to decrypted data, but subjects are not punished for
 declining such requests. Taiwanese regulation does not specifically address encryption, but does mandate that
 telecommunications providers provide interfaces ``with functions that can cooperate with interception.'' Chinese
-authorities have great access to plaintext data by virtue of the political structure of the state, but its 2015
-counter-terrorism law explicitly compels access to plaintext data upon request \cite{donahue_comparative_2018}.
+authorities have great access to plaintext data by virtue of the political structure of the state, but also through
+explicit requirements in recent anti-terrorism and cybersecurity laws \cite{lewis_2017}.
 
 }
 
@@ -758,8 +792,15 @@ escrow do exist \cite{bellare_translucent_1996}.
 
 }
 
-% TODO: add wright_crypto_2018 (I _think_ it goes here)
+    \prop{Cryptographic ``crumple zones''}{
 
+A recent proposal adopts the idea of crumple zones from automotive engineering---``in an emergency situation the
+construction should break a little bit in order to protect the integrity of the system as a whole and the safety of its
+human users'' \cite{wright_crypto_2018}. Similar to the translucent approach, no keys are escrowed and only passive
+surveillance is possible. Strong cryptography is a precondition for this scheme, in which keys are generated in a manner
+that makes them inherently recoverable only after a large up front and marginal cost.
+
+}
 \propsend
 
 
@@ -781,12 +822,13 @@ and security \cite{soesanto_2018}.
 
 }
 
-    \prop{Forced password disclosure}{
+    \prop{Compelled password disclosure}{
 
 In some cases, a suspect in custody may have the ability to access the desired encrypted information via a key,
 \ac{PIN}, or password. In these cases, authorities sometimes compel the suspect to disclose the password. In the U.S.,
-this approach draws debates about the fifth amendment right against self-incrimination \cite{bittenbender_2019}. Of
-course, this approach cannot address \ac{DIM} or situations in which the knowledgeable party is not in custody.
+this approach draws debates about the fifth amendment right against self-incrimination \cite{bittenbender_2019}
+\cite{sobel_2019}. Of course, this approach cannot address \ac{DIM} or situations in which the knowledgeable party is
+not in custody.
 
 % these look good: sacharoff_unlocking_2018, fredona_fifth_2016
 % this probably has something to say: kerr_encryption_2017

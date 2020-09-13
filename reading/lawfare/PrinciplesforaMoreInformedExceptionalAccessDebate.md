@@ -3,8 +3,9 @@
 - Summary:
   - Provide some talking points to enable deeper conversation around EA
   - A little optimistic about how helpful this will be
-    - "I know what the problem is, lack of detail. Solved."
+    - "I know what the problem is, lack of detail. Solved." (not a quote; the gist)
   - Authors are UK GCHQ intelligence and security technical directors
+  - Responded to in franklin_open_2019
 - Purpose:
 - Premises:
   - Focused on "mass-scale, commodity, end-to-end encrypted services, which today pose one of the

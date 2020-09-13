@@ -32,17 +32,17 @@ group:
 
 ## Preview configs start
 
-# Types of EA
-selection:
-    selectedSections:
-        - Central Issues
-        - "Response Measures: Various Alternatives"
-        - Arguments for Measures
-        - Arguments for Types of EA
-    selectedTags:
-        - ea-proposal
-        - neutral-ea
-    selectElementsWithoutTag: true
+## Types of EA
+#selection:
+#    selectedSections:
+#        - Central Issues
+#        - "Response Measures: Various Alternatives"
+#        - Arguments for Measures
+#        - Arguments for Types of EA
+#    selectedTags:
+#        - ea-proposal
+#        - neutral-ea
+#    selectElementsWithoutTag: true
 
 ## Fallacies config
 ##group:

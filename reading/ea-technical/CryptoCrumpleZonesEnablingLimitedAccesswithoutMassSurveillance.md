@@ -14,6 +14,12 @@
         several technical tools available. And if a lawful hacking technique could get the whole shebang for $5k, would
         they pay $1k per message? And local LE is right where it already was, with no options.
 
+>Tension. In this work, we examine the tension between two essential components of modern societies: the human right to
+privacy and the rule of law to provide safety. With regards to encryption, we posit the following:
+>1. There exist a few messages whose disclosure would aid public safety and law enforcement.
+>2. The vast majority of messages are either irrelevant to public safety or offer insufficient value to outweigh the
+individual and public good from privacy.
+
 ```bib
 @inproceedings{wright_crypto_2018,
   address = {London},

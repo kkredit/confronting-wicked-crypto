@@ -30,7 +30,7 @@
       - The Warren court made several rights-protecting decisions in the 1960s (right to a lawyer, Miranda rights)
       - The civil rights movement, anti-war protests, and a general crime wave boosted "tough on crime" sentiments that
           helped propel Nixon into office
-      - Nixon appointed 4 justices in his first time! All in line with "a jurisprudence of crime control"
+      - Nixon appointed 4 justices in his first term! All in line with "a jurisprudence of crime control"
       - Cases in 1983-84 constituted a "jurisprudential regime change" RE the 4thAm
     - "Understanding the Roberts Court and the 4thAm" - a four part argument
       1. "The Roberts Court’s Fourth Amendment case law has been fundamentally shaped by the jurisprudence of crime
@@ -72,7 +72,7 @@ jurisprudence, and resulted in a regime shift that established a jurisprudence o
 4. Chapter 4 focuses on how the Rehnquist Court refined the crime control philosophy, paying particular attention to how
 Court decisions served to enable the politics of crime control, as it matured in the 1980s and 1990s into an all-out war
 on drugs.
-Part 2 offers an in-depth examination of the evolution of the Fourth Amendment on the Roberts Court.
+>Part 2 offers an in-depth examination of the evolution of the Fourth Amendment on the Roberts Court.
 5. Chapter 5 provides a broad overview of the Roberts Court, and illustrates how the Fourth Amendment is in flux. We
 return to the technology cases in greater detail, and explore the changing role of Justice Scalia.
 6. Chapter 6 considers how the jurisprudence of crime control is alive and well on the Roberts Court. We consider the
