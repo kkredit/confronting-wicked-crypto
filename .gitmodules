@@ -1,3 +1,6 @@
 [submodule "gvsu-thesis-template"]
 	path = gvsu-thesis-template
 	url = https://github.com/kkredit/thesis-template
+[submodule "dfds/drawio-threatmodeling"]
+	path = dfds/drawio-threatmodeling
+	url = https://github.com/kkredit/drawio-threatmodeling
