@@ -16,7 +16,7 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 $(BUILD_DIR)/%.png: $(DIAGRAM_DIR)/%.drawio | $(BUILD_DIR)
-	drawio --export $< --format png --embed-dragram -o $@
+	drawio --export $< --format png --scale 2.0 --embed-dragram -o $@
 
 clean:
 	rm -f $(DIAGRAMS)
