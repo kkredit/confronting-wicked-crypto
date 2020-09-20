@@ -37,6 +37,7 @@
     - Federalism, since federal rules were imposed on an area supposed to be under state control
     - Separation of powers, since courts created a management and implementation bureaucracy
     - Rule of law (to put it strongly), since courts reneged on precedent despite no change in circumstances or facts
+      - Violation of "stare decesis"
   - Mystery: what drove this change in prison reform jurisprudence? There was no landmark SCOTUS case. This seemingly
       spontaneously emerged from a huge bloc of federal courts and judges.
   - How and why did judges violate the above "sacred" principles? They are out of date (!)
