@@ -4,7 +4,7 @@
 
 - [i] Produce article for ISTAS 2020
   - [x] Create conference template
-  - [ ] Write extended "abstract" (<=1 page)--BLOCKED: response from conf organizer
+  - [ ] Write extended "abstract" (<=1 page)--TODO: decide what to submit!
 - [i] Produce rough draft
   - [i] Update chapter 2--background
     - [x] Legal content RE courts and jurisprudence
@@ -38,7 +38,7 @@
   - [ ] Create slides (expect 40 minutes)
   - [ ] Practice
   - [ ] Practice
-  - [ ] Practice?
+  - [ ] Practice
 
 ## By final submission (Dec. 19)
 

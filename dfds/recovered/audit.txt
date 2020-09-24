@@ -1,0 +1,21 @@
+
+Scalpel version 1.60 audit file
+Started at Wed Sep 23 19:44:37 2020
+Command line:
+scalpel /dev/mapper/ubuntu--vg-root -o recovered/ 
+
+Output directory: /home/kevinkredit/gradschool/principled-ea/dfds/recovered
+Configuration file: /etc/scalpel/scalpel.conf
+
+Opening target "(null)"
+
+The following files were carved:
+File		  Start			Chop		Length		Extracted From
+ERROR: The configuration file didn't specify any file types to carve.
+(If you're using the default configuration file, you'll have to
+uncomment some of the file types.)
+
+See /etc/scalpel/scalpel.conf.
+
+
+Completed at Wed Sep 23 19:44:37 2020

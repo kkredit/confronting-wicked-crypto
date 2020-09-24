@@ -39,6 +39,17 @@ believe that it could be implemented at scale. In theory, it just can’t work. 
 strong economic and business need for it to exist. Software update has exhibited critical vulnerabilities, and there are
 no vulnerabilities that are more rapidly addressed.
 
+- After diagramming it
+  - Some things appear inconsistent
+    - Slide 18, shouldn't the DPK be reencrypted before being sent out as a "signature"?
+    - Is the DAK E(VPK,DAK) or E(VPK,Vendor PIN)? I get different impressions from different places. An additional layer
+        of protection (not sending the DAK directly) seems wise.
+  - I think my model is a charitable representation
+- Possible questions to ask
+  - Is my representation fair?
+  - What sort of response have you gotten from this work?
+  - Has your opinion on this subject changed since this work?
+
 ```bib
 @misc{ozzie_2018,
   author = {Ozzie, Ray},
