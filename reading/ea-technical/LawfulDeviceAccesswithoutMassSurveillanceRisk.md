@@ -38,6 +38,11 @@
 - Technical comments:
 - Notes:
   - Many excellent cross-references
+  - On my model:
+    - Modest simplifications in the model. I remove the d_auth key because it seems redundant to me with d_seal-1. And
+        there are several alternatives suggested, but I just went with one.
+    - I also don't get into fuses or hashes.
+    - In some cases where things are asymmetrically encrypted, a signature would do
 
 RE ozzie_2018:
 >Most recently, in May of 2018, a Wired magazine article describedRay Ozzie’s CLEAR proposal, wherein a device’s

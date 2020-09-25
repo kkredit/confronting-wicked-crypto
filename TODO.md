@@ -26,7 +26,7 @@
       - [i] DAR proposals to cover
         - [x] General
         - [x] CLEAR
-        - [ ] savage_lawful_2018
+        - [x] savage_lawful_2018
         - [ ] ...
     - [ ] Map basic proposals onto DFDs
     - [ ] Analyze three scenarios with model
