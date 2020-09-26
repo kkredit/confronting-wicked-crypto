@@ -4,7 +4,8 @@
 
 - [i] Produce article for ISTAS 2020
   - [x] Create conference template
-  - [ ] Write extended "abstract" (<=1 page)--TODO: decide what to submit!
+  - [x] Write updated abstract
+  - [ ] Submit abstract
 - [i] Produce rough draft
   - [i] Update chapter 2--background
     - [x] Legal content RE courts and jurisprudence
@@ -50,13 +51,21 @@
 ## Status meeting agenda
 
 - Updates
-  - :
+  - Additional reading, outlining to arguments chapter
+  - New DFDs
 - Discuss
   - IEEE International Symposium on Technology and Society
     - By the Society on Social Implications of Technology
-    - [CFP](https://technologyandsociety.org/call-for-papers-ieee-international-symposium-on-technology-and-society-2020-istas-20/)
+    - [Website](https://attend.ieee.org/istas-2020/)
+    - [Call for Papers](https://attend.ieee.org/istas-2020/authors/)
     - 12-14 November 2020
+    - Submissions due Oct 14
     - Participation options
-      - Full papers (4-12 pages)
+      - ~Full papers (4-12 pages)~
       - Short papers (2-4 pages)
-      - Abstracts (1 page)
+      - Abstracts (250 words)
+- Action items
+  - Short paper on diagramming method of cryptography?
+  - 2.5 Argument maps: add explanation of what people are looking at. A key: green arrows are support, red means undercut,
+      yellow outline means X
+  - 2.6 DFDs: explain **my contribution**, the crypto graphical syntax. And explain actors.
