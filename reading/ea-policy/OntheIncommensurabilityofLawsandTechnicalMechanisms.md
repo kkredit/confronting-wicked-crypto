@@ -1,4 +1,4 @@
-# On the Incommensurability of Laws and Technical Mechanisms: Or
+# On the Incommensurability of Laws and Technical Mechanisms: Or, What Cryptography Can’t Do
 
 - Summary:
   - Part of the disconnect is rules vs principles; techies like rules, pols like principles
