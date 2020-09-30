@@ -554,32 +554,42 @@ impossible to do so.'' The act neither mandates nor recommends any technical app
 
 The above history and section on U.S. law encompasses the executive and legislative branches' influence on surveillance
 and cryptography. A complete picture requires understanding the judiciary branch's influence via court rulings. The
-judiciary branch exercises power through a framework based on AAAA and BBBB. In this section I describe this framework,
-review how it has influenced cryptography policy, and analyze where cryptographic jurisprudence may go from here.
+judiciary branch influences policy through interpretation of laws and creation of legal doctrine. In this section I
+describe this influence, review how it has affected cryptography policy, and analyze where cryptographic jurisprudence
+may go from here.
 
-% TODO: Framework for understanding judicial influence. See bergerson_judicial_1998. Update the "AAAA and BBBB" in the
-% intro and the todo in the conclusion.
+The primary judiciary function is to adjudicate the law through the determination of facts and interpretation of
+authoritative legal texts. However, whether it is condemned, denied, seen as a stark reality, or seen as a valid
+function, the judicial branch also establishes legal doctrine and actively enforces rulings in a manner that amounts to
+creation of public policy \cite{feeley_judicial_2000}. Due to the clear congressional authority over telecommunications
+and federal investigatory powers, the courts are most likely to exert influence in this area through interpretation of
+current law. This interpretation will both determine how present law is enforced and draw a constitutional fence around
+any actions the executive or legislative branches undertake.
 
-Judicial influence on encryption policy is primarily mediated through Fourth Amendment jurisprudence, particularly
-regarding the interpretation of a person's ``effects,'' what is ``reasonable,'' and what is a ``search.'' The Supreme
-Court's interpretation and implementation of the Amendment's crime control-- and civil liberty--balancing principles has
-changed over time. An in-depth analysis of the Court's jurisprudence from the 1960's Warren Court, through the
-influential 1980s Rehnquist Court, to the mid-2010s Roberts Court found a deep proclivity towards crime control that is
-slowly thawing \cite{gizzi_fourth_2016}. This thawing, caused by evolution of technology, of the court, and of the
-justices themselves, has been favorable for data privacy. Recent cases have increasingly sided with defendants, have
-caused justices to strain to show that they understand technology, and have increased the categories of protected
-digital data \cite{gizzi_fourth_2016}. 2018's potentially landmark \ii{Carpenter v. United States} may be the most
-impactful yet; though it only resulted in a narrow decision against unwarranted cell phone location data tracking, it
-does undermine the pre-digital third-party doctrine, which holds that Fourth Amendment protection is forfeit when the
-data is willingly given to a third-party \cite{franklin_2018}.
+Judicial influence on encryption policy is primarily mediated through the Fourth Amendment, particularly regarding the
+interpretation of a person's ``effects,'' what is ``reasonable,'' and what is a ``search.'' The Supreme Court's
+interpretation and implementation of the Amendment's crime control-- and civil liberty--balancing principles has changed
+over time. An in-depth analysis of the Court's jurisprudence from the 1960's Warren Court, through the influential 1980s
+Rehnquist Court, to the mid-2010s Roberts Court found a deep proclivity towards crime control that is slowly thawing
+\cite{gizzi_fourth_2016}. This thawing, caused by evolution of technology, of the court, and of the justices themselves,
+has been favorable for data privacy. Recent cases have increasingly sided with defendants, have caused justices to
+strain to show that they understand technology, and have increased the categories of protected digital data
+\cite{gizzi_fourth_2016}. 2018's potentially landmark \ii{Carpenter v. United States} may be the most impactful yet;
+though it only resulted in a narrow decision against unwarranted cell phone location data tracking, it does undermine
+the pre-digital third-party doctrine, which holds that Fourth Amendment protection is forfeit when the data is willingly
+given to a third-party \cite{franklin_2018}.
 
-As this relates to \ac{EA}, Fourth Amendment interpretation practically determines the threshold at which authorities
-require a warrant, not what demands they can or cannot make once they have one. The second most salient legal issue is
-the Fifth Amendment right against self-incrimination, which comes up in cases of compelled password disclosure. This
-question has not yet reached the Supreme Court, and state courts have ruled compelled disclosure both constitutional
-\cite{sobel_2019} \cite{lee_nj_2020} and unconstitutional \cite{lee_its_2020} \cite{vaas_2019}.
+As this relates to \ac{EA}, Fourth Amendment interpretation determines the threshold at which authorities require a
+warrant, not what demands they can or cannot make once they have one (e.g. demands for access to \ac{plaintext}). As
+mentioned above, the FBI argued in the San Bernardino case that the \ac{AWA} grants it authority to demand access,
+though it is strongly argued that \acs{CALEA} explicitly precludes this kind of demand \cite{gidari_2016}. Since the FBI
+dropped the case, the matter is not formally settled, though the consensus is that legislation such as the \ac{LEADAct}
+is required before courts would uphold that command.
 
-% Paragraph interpreting this change as principles vs rules in a wicked problem
+The second most salient legal issue is the Fifth Amendment right against self-incrimination, which comes up in cases of
+compelled password disclosure. This question has not yet reached the Supreme Court, and state courts have ruled
+compelled disclosure both constitutional \cite{sobel_2019} \cite{lee_nj_2020} and unconstitutional \cite{lee_its_2020}
+\cite{vaas_2019}.
 
 That judicial influence on privacy and technology is changing is to be expected. To explain the fluctuating state of
 legal interpretation as it relates to \ac{EA}, Matyas et al. make the helpful distinction between legal rules and
@@ -596,10 +606,16 @@ dictate an unambiguous outcome in any given case.
 
 Rules are the low-level implementation of principles. When the underlying facts of the situation change, as they do by
 definition for wicked problems, the rules become out of sync with the principles that bade them. Recent flux in judicial
-rulings surrounding surveillance and technology are evidence that the courts are in the process of updating
-interpretations of rules in light of the new facts; which principles they ultimately choose to favor remains to be seen,
-but rulings like \ii{Carpenter} show a willingness to protect privacy.
-% TODO: Connect back to system of judicial influence--this willingness uses that framework to support encryption.
+rulings surrounding surveillance and technology, particularly around the Fourth Amendment, are evidence that the courts
+are in the process of updating interpretations of rules in light of the new facts; which principles they ultimately
+choose to favor remains to be seen, but rulings like \ii{Carpenter} show a willingness to protect privacy.
+
+Looking ahead, there are three types of cases through which the judicial branch could have a strong effect on digital
+privacy policy. First, Fourth Amendment cases will establish classes of protected data and thresholds for warrants.
+Second, a Supreme Court Fifth Amendment case could settle under what circumstances, if any, a password could be
+compelled. Third, a surprise \ac{AWA} ruling could open the door to demands for access, though legislation like
+\ac{LEADAct} is more likely to have this effect.
+
 
 \subsection{Regulations around the World}
 

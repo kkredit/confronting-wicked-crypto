@@ -29,8 +29,12 @@
       d. Select the alternative that seems most promising
       e. Implement the selected alternative
     2. Incremental intuitive decision making, or "the science of muddling through" (Charles Lindblom)
+      - Puts the above sequence out of order; even, makes (e) the only conscious step, relying on on intuition for
+          everything else.
+      - "As Lindblom's sobriquet suggests, it often led to a considerable muddle." p 298
     3. The "hermeneutic circle" of mutual interpretation of the whole and the part by one another (loosely based on
         the humanities and aesthetic theory)
+      - Kind of like muddling through, but intrinsically self-reflective and iterative; more conscious
   - Various arguments and counterarguments regarding policymaking as a distinct function
   - Introduction of prison reform as a strong case for policy making
   - Now, just because it happens doesn't mean it's justified. Policy making in prison reform violates
@@ -53,6 +57,24 @@
       same developments."
   - Collectively and personally held ideas and conceptions measurably influence governmental actions, including judges'.
       Models that only recognize economics, power, institutional momentum, etc are incomplete.
+- Judicial reform of the prisons amounted to a wholesale rejection of federalism, they argue, a concept on the
+  practical decline for ages, though we still give it lip service.
+- **Why did this happen? What drove the judiciary to execute this reform, and how would it look in surveillance and privacy?**
+  - How? Judicial policy making is a necessary reality; perfect fidelity to precedent and pure interpretation is not
+      possible, and would preclude the very origination of legal doctrine.
+  - Why? Federal judges ultimately rejected federalism (see ch 5) and saw themselves as the only federal authority
+      with jurisdiction over the problem of southern plantation prisons.
+  - Why then? Federalism had long been on the decline, and the judiciary saw prisoners as "the last minority" whose
+      rights were being trampled. This was a late-stage continuation of the civil rights movement.
+  - How was it implemented? administrative, bureaucratic oversight.
+  - How would it look for surveillance and privacy? The judiciary is coming around to ideas that classes of digital data
+      are fundamentally different that non-digital data. They will likely want to create national standards as to what
+      classes of data are subject to different kinds of search. Unlike prison reform, this is an area that attracts
+      congressional attention, so the courts won't lead the way, but they will limit the kind of legislation that gets
+      proposed. If no legislation is proposed or passed (likely in our increasingly dysfunctional government), they may
+      be compelled to establish more of a policy making role. The nature of their rules is likely to be very results
+      oriented technically, though they could be detailed about warrant requirements, the legal process, and the scope
+      of data.
 - Technical comments:
 - Notes:
   - Definitions

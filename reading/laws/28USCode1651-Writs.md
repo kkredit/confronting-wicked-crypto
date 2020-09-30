@@ -10,6 +10,13 @@
 - Technical comments:
 - Notes:
 
+Full text:
+
+>(a) The Supreme Court and all courts established by Act of Congress may issue all writs necessary or appropriate in aid
+of their respective jurisdictions and agreeable to the usages and principles of law.  
+>(b) An alternative writ or rule nisi may be issued by a justice or judge of a court which has jurisdiction.
+
+
 ```bib
 @misc{congress_1789,
   author = {Congress, U.S.},
