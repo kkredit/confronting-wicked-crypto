@@ -55,7 +55,11 @@ Fonts: | $(TEMPLATE_IS_CLONED)
 images:
 	$(MAKE) $(IMAGES)
 
-$(IMAGES):
+$(OUTDIR)/$(DOCNAME).aux:
+	# This fails but is needed to bootstrap the image making process
+	$(ENVIRON) latexmk -jobname=$(PRETTY_JOB) $(LATEX_OPTS) $(DOCNAME) || true
+
+$(IMAGES): | $(OUTDIR)/$(DOCNAME).aux
 	$(MAKE) -C $(ARG_SRC_DIR)
 	$(MAKE) -C $(DFD_SRC_DIR)
 

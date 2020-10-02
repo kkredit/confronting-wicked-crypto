@@ -29,7 +29,7 @@ $(BINDIR):
 $(CITDIR):
 	mkdir -p $(CITDIR)
 
-$(CITDIR)/%.ad.success: $(SRCDIR)/%.ad $(LATEX_CIT_FILE) | $(CITDIR)
+$(DOCS_W_CITS): $(CITDIR)/%.ad.success : $(SRCDIR)/%.ad $(LATEX_CIT_FILE) | $(CITDIR)
 	set -e; \
 		TARGET=$$(echo $@ | sed 's/.success//'); \
 		rm -f $$TARGET; \
