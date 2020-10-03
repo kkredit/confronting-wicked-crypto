@@ -4,10 +4,8 @@
 
 - [ ] Attend ISTAS 2020 conference November 12-14
 - [i] Produce rough draft
-  - [i] Update chapter 2--background
-    - [x] Legal content RE courts and jurisprudence
-    - [x] Read JPMATMS
-    - [x] Write paragraph based on JPMATMS
+  - [ ] Update chapter 2--background
+    - [ ] Respond to Walsh's feedback
   - [i] Write chapter 3--arguments
     - [ ] Outline flow and arguments
     - [i] Make argmaps
@@ -15,7 +13,7 @@
   - [i] Write chapter 4--threat models
     - [ ] Outline approach
       - "All models are wrong, but some are useful" -- set tone for level of abstraction and approach
-    - [i] Create DIM and DAR DFDs (L1 and L2 at least)--BLOCKED: response from Kalafut on accuracy and usefulness
+    - [i] Create DIM and DAR DFDs (L1 and L2 at least)
       - [i] DIM proposals to cover
         - [x] General
         - [i] Signal

@@ -14,7 +14,7 @@
       forward secrecy
     - This elimination of forward secrecy is explicitly mentioned in abelson_2015 as an argument against "ghost"s
     - But isn't it the naive approach to turn all conversations into group conversations?
-      - Group conversations already use this weaker approach, so adding a ghost does have the fundamental impact
+      - Group conversations already use this weaker approach, so adding a ghost doesn't have the fundamental impact
       - The reason for shifting to group conversations is because it is inefficient. But if the max size is 3 parties,
           the inefficiency is bounded and not particularly large.
       - The video alluded to research that is removing this necessary loss of forward secrecy. If/when that happens,
