@@ -2,10 +2,7 @@
 
 ## By oral defense date (Nov. 23 or 24)
 
-- [i] Produce article for ISTAS 2020
-  - [x] Create conference template
-  - [x] Write updated abstract
-  - [i] Submit abstract
+- [ ] Attend ISTAS 2020 conference November 12-14
 - [i] Produce rough draft
   - [i] Update chapter 2--background
     - [x] Legal content RE courts and jurisprudence
@@ -63,11 +60,7 @@
       - Together, may illuminate some answers to questions
 - Discuss
   - IEEE International Symposium on Technology and Society
-    - By the Society on Social Implications of Technology
-    - [Website](https://attend.ieee.org/istas-2020/)
-    - [Call for Papers](https://attend.ieee.org/istas-2020/authors/)
-  - New abstract
-  - New title
+    - [x] Abstract submitted
 - Action items
   - Short paper on diagramming method of cryptography?
   - 2.5 Argument maps: add explanation of what people are looking at. A key: green arrows are support, red means undercut,
