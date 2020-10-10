@@ -1,12 +1,19 @@
 # Technologists vs. Policy Makers
 
 - Summary:
+  - Schneier pointing out the differences and arguing for cooperation between technologists and policymakers
 - Purpose:
 - Premises:
 - Contributions:
 - Policy comments:
 - Technical comments:
 - Notes:
+  - One of his big points:
+    - "Technologists don’t try to consider all of the use cases of a given technology."...
+    - "Policy doesn’t work that way; it’s specifically focused on use. It focuses on people and what they do. Policy
+        makers can’t create policy around a piece of technology without understanding how it is used—how all of it’s
+        used."
+    - This is my point!
 
 ```bib
 @article{schneier_technologists_2020,

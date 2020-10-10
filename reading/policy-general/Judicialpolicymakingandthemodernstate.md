@@ -35,6 +35,7 @@
     3. The "hermeneutic circle" of mutual interpretation of the whole and the part by one another (loosely based on
         the humanities and aesthetic theory)
       - Kind of like muddling through, but intrinsically self-reflective and iterative; more conscious
+    4. ME: OODA!: loosely based on military strategy
   - Various arguments and counterarguments regarding policymaking as a distinct function
   - Introduction of prison reform as a strong case for policy making
   - Now, just because it happens doesn't mean it's justified. Policy making in prison reform violates

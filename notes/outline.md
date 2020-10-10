@@ -1,32 +1,55 @@
 
 # Outline
 
-1. Introduction
-   1. What is the issue
-   2. Why is it important
+1. Motivation
 2. Background
-   1. Results of literature review; current state of the art
-   2. Technical state
-      1. Preview some current proposals
-   3. Legal and regulatory state
-   4. Preview the path forward
-      1. No regulatory force till we're technically ready
-      2. Pursue more research (congress: fund it!)
-3. Threat model
-   1. Define context, constraints, and givens
-   2. Develop DFD-like graphical model; high level
-   3. Enumerate STRIDE-per-element-like threats (how detailed to go?)
-4. Analysis or current proposals over threat model
-   1. Reproduce diagram with certain parts highlighted or removed to visually demonstrate the
-        proposal
-   2. Discuss each model's means of addressing threats
-   3. Infer each model's value system
-   4. Discuss strengths and weaknesses
-5. Proposal of "protocol suite" (?)
-   1. Define horizontal boundaries
-      1. Interfaces
-      2. Responsibility of each
-   2. Define vertical layers of abstraction
-      1. Responsibility of each
-6. Explore path forward
-7. Conclusion
+3. Wicked problems
+   1. Characteristics
+   2. Why encryption+EA is a wicked problem
+   3. Traditional policy making approaches
+<!-- % 1. Classical analytic method; each step has its own approaches, e.g. cost-benefit analysis (loosely based on
+%  natural sciences)
+%   (missing: Observe)
+%   a. Define the problem (Orient)
+%   b. Identify a goal (Orient)
+%   c. Generate a range of alternatives for achieving that goal (Orient)
+%   d. Select the alternative that seems most promising (Decide)
+%   e. Implement the selected alternative (Act)
+%   (missing: loop) -->
+   4. Failure of traditional methods
+   5. Proposal: thoughtful iteration
+      1. Benefits
+      2. Model: OODA loop
+         1. Observe: (remainder of this chapter + next)
+            1. survey legal environment (chap 2, bg)
+            2. analyze use of cryptosystems (chap 2)
+            3. listen to arguments (chap 3, args)
+            4. review (and do) security research (chap 3/chap 4, tm)
+         2. Orient: (chap 5, analysis)
+            1. analyze arguments
+            2. reflect on past experience
+            3. synthesize research
+         3. Decide:
+            1. (me: provide conclusion and recommendations)
+            2. Tech: choose what threats to consider and how to handle risk
+            3. Gov: create a legal or regulatory framework to handle this issue, fund research
+         4. Act:
+            1. (me: publish this research)
+            2. Tech: implement mitigations
+            3. Gov: pass and follow through on legislation, regulation, and funding
+   6. More observation: arguments and accompanying facts and statistics
+4. Threat modeling (observation and enhancement of state of the art)
+   1. Prominent proposals
+   2. DFDs
+      1. Device crypto
+      2. E2E crypto
+   3. Application of proposals to DFDs
+   4. Threats
+5. Analysis (Orientation)
+   1. Reasonability of arguments
+   2. Summary of state of the art
+   3. Desirable outcomes
+   4. Broad wholistic approaches we can take
+6. Conclusions
+   1. Choose best wholistic approach
+   2. Reiterate OODA strategy
