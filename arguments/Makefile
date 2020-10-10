@@ -29,14 +29,14 @@ $(BINDIR):
 $(CITDIR):
 	mkdir -p $(CITDIR)
 
-$(DOCS_W_CITS): $(CITDIR)/%.ad.success : $(SRCDIR)/%.ad $(LATEX_CIT_FILE) | $(CITDIR)
+$(DOCS_W_CITS): $(CITDIR)/%.ad.success : $(SRCDIR)/%.ad | $(LATEX_CIT_FILE) $(CITDIR)
 	set -e; \
 		TARGET=$$(echo $@ | sed 's/.success//'); \
 		rm -f $$TARGET; \
 		$(MAKE) $$TARGET
 	touch $@
 
-$(CITDIR)/%.ad: $(SRCDIR)/%.ad $(LATEX_CIT_FILE) | $(CITDIR)
+$(CITDIR)/%.ad: $(SRCDIR)/%.ad | $(LATEX_CIT_FILE) $(CITDIR)
 	../scripts/argdown-preprocess.sh $<
 
 image:
