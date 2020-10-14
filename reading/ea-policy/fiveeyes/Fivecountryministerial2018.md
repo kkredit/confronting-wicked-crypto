@@ -8,6 +8,12 @@
 - Policy comments:
 - Technical comments:
 - Notes:
+  - This one goes in detail on a "Statement of principles on access to evidence and encryption"
+  - Principles:
+    - Mutual responsibility
+    - Rule of law and due process are paramount
+    - Freedom of choice for lawful access solutions
+      - (don't prescribe a technical method)
 
 ```bib
 @misc{ministerial_2018,
