@@ -39,17 +39,18 @@
             3. Gov: pass and follow through on legislation, regulation, and funding
    6. More observation: arguments and accompanying facts and statistics
 4. Threat modeling (observation and enhancement of state of the art)
-   1. Prominent proposals
-   2. DFDs
+   1. Who are the threat actors (include govt, alex and becca)
+   2. Prominent proposals
+   3. DFDs
       1. Device crypto
       2. E2E crypto
-   3. Application of proposals to DFDs
-   4. Threats
+   4. Application of proposals to DFDs
+   5. Threats, risks
 5. Analysis (Orientation)
    1. Reasonability of arguments
    2. Summary of state of the art
    3. Desirable outcomes
-   4. Broad wholistic approaches we can take
+   4. Broad strategies we can take
 6. Conclusions
-   1. Choose best wholistic approach
-   2. Reiterate OODA strategy
+   1. Choose best strategy
+   2. Reiterate OODA approach
