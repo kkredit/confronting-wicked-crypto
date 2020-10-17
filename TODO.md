@@ -47,18 +47,12 @@
 ## Status meeting agenda
 
 - Updates
-  - Learned more about DIM crypto (signal)
-  - Finished legal section, sent to Prof. Walsh
-  - Dug into "Decrypting the Encryption Debate: A Framework for Decision Makers"
-    - Again, a very similar paper
-    - I will lean on it for listing alternatives and their framework questions
-    - What is my differentiation?
-      - Strategy based on viewing this as a wicked problem
-      - DFDs
-      - Together, may illuminate some answers to questions
-- Discuss
-  - IEEE International Symposium on Technology and Society
-    - [x] Abstract submitted
+  - Submitted abstract to IEEE Conference (International Symposium on Technology and Society)
+  - Submitted defense announcement
+  - Created Signal protocol DFDs
+  - Integrated feedback from Walsh
+  - Created OODA diagram
+  - Started presentation
 - Action items
   - Short paper on diagramming method of cryptography?
   - 2.5 Argument maps: add explanation of what people are looking at. A key: green arrows are support, red means undercut,

@@ -28,6 +28,7 @@ distinctions for the separate problems of EA for data in motion and data at rest
 
 ## Key Influences
 
+- [_Dilemmas in a General Theory of Planning_](https://archive.epa.gov/reg3esd1/data/web/pdf/rittel%2bwebber%2bdilemmas%2bgeneral_theory_of_planning.pdf)
 - [_Wicked Crypto_](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3256858)
 - [_On the Incommensurability of Laws and Technical Mechanisms: Or, What Cryptography Can’t Do_](matyas_incommensurability_2018)
 - [_Keys Under Doormats: Mandating Insecurity by Requiring Government Access to All Data and Communications_](https://academic.oup.com/cybersecurity/article-lookup/doi/10.1093/cybsec/tyv009)

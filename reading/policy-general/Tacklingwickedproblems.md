@@ -20,6 +20,15 @@
   - Outline
     1. Introduction
     2. **Characteristics of wicked problems**
+       - difficult to clearly define
+       - have many interdependencies and are often multi-causal
+       - Attempts to address wicked problems often lead to unforeseen consequences
+       - are often not stable
+       - usually have no clear solution
+       - are socially complex
+       - hardly ever sit conveniently within the responsibility of any one organization
+       - involve changing behavior
+       - are characterized by chronic policy failure
     3. **Possible strategies for tackling wicked problems**
        1. Authoritative - fast and efficient, but may disregard parts of the issue and achieve low buy-in
        2. Competitive - innovative and leads to choice, but can create deadlock and non-solutions
@@ -44,7 +53,7 @@
     6. The importance of working across organizational boundaries
     7. Reviewing the accountability framework
     8. Effectively engaging stakeholders and citizens
-    9. The importance of achieving sustained behavioral change
+    9.  The importance of achieving sustained behavioral change
     10. Skills for APS employees
     11. Conclusion
 
