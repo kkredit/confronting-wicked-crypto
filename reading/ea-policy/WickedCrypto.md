@@ -97,7 +97,7 @@
   - Contains a nice little (very high level) intro to crypto and EA
 
 >We are in a critical period for this issue: public opinion is split on whether companies should design their systems to
-permit law-enforcement access;11technology companies can no longer assume a hands-off, deregulatory environment; and the
+permit law-enforcement access; technology companies can no longer assume a hands-off, deregulatory environment; and the
 looming specter of foreign regulation from liberal and autocratic regimes alike gives the government and Silicon Valley
 an incentive to resolve the encryption issue one way or the other, thereby setting a global precedent. My hope is that
 this article will nudge the discussion away from oppositional, all-or-nothing analyses of short-term proposals and
@@ -123,18 +123,17 @@ secure exceptional-access systems (in addition to generally improving the state 
 
 >On the other hand, no solution will fully prevent criminals from using encryption that law enforcement cannot defeat,
 because there are hundreds of encrypted hardware and software services, both in the United States and abroad, that an
-individual seeking encrypted communications or storage could use.68 Even the most extreme government-access proposals
+individual seeking encrypted communications or storage could use. Even the most extreme government-access proposals
 would not be able to reach every encrypted product in the United States, not to mention foreign products. This does not
 mean that attempts to regulate encryption are fruitless. The vast majority of criminals are unsophisticated and will
-stick to the most popular consumer products (which could be more easily regulated).69 And the resources freed up by
-easier access to those criminals’ data could be used on the expensive, one-off techniques—such as lawful
-hacking70—necessary to access the encrypted data of more sophisticated criminals. But law enforcement will still
-frequently be stymied in its quest for data and so will continuously push for farther-reaching regulation of
-encryption.
+stick to the most popular consumer products (which could be more easily regulated). And the resources freed up by easier
+access to those criminals’ data could be used on the expensive, one-off techniques—such as lawful hacking—necessary to
+access the encrypted data of more sophisticated criminals. But law enforcement will still frequently be stymied in its
+quest for data and so will continuously push for farther-reaching regulation of encryption.
 
 >As the political scientist Charles E. Lindblom explained in a seminal article on public administration: “Policy is not
 made once and for all; it is made and re-made endlessly. Policy-making is a process of successive approximation to some
-desired objectives in which what is desired itself continues to change under reconsideration.”71 The problem of
+desired objectives in which what is desired itself continues to change under reconsideration.” The problem of
 law-enforcement access to encrypted data typifies this chronic aspect of the most difficult policy problems.
 
 ```bib
