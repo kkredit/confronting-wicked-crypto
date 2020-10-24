@@ -80,13 +80,13 @@ method.** [emphasis mine]
 
 >None the less, its imperfections, which have not been explored in this paper, are many. For example, the method is
 without a built-in safeguard for all relevant values, and it also may lead the decision-maker to overlook excellent
-policies for no other rea- son than that they are not suggested by the chain of successive policy steps leading up to
-the present.
+policies for no other reason than that they are not suggested by the chain of successive policy steps leading up to the
+present.
 
 ^^ Basically, like I said, it is inherently incapable of drastic change.
 
-> This raises again a question only briefly discussed above on the merits of like-minded- ness among government
-administrators. While much of organization theory argues the vir- tues of common values and agreed organizational
+> This raises again a question only briefly discussed above on the merits of like-mindedness among government
+administrators. While much of organization theory argues the virtues of common values and agreed organizational
 objectives, for complex problems in which the root method is inapplicable, agencies will want among their own personnel
 two types of diversification: administrators whose thinking is organized by reference to policy chains other than those
 familiar to most members of the organization and, even more commonly, administrators whose professional or personal
@@ -97,7 +97,7 @@ watchdogs for other parts.
 ^^ The need for diversity--of those with different "policy chains" and with different "views".
 
 ```bib
-@article{lindblom_science_1959,
+@article{lindblom_muddling_1959,
   title = {The {Science} of "{Muddling} {Through}"},
   volume = {19},
   issn = {00333352},

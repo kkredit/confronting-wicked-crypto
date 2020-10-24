@@ -15,9 +15,9 @@ In this section we analyze the nature of wicked problems and strategies for tack
 \subsection{Characteristics}
 \label{wicked-characteristics}
 
-Rittel's categorization of \acp{wicked-prob} grew out of frustration with their resistance to classical problem solving
-methods. Since the Enlightenment, society has applied the scientific method to problems of every kind; the sweeping
-application of scientific analysis has delivered reliable clean water, improved crop yields, shaped government
+Rittel's categorization of \acp{wicked-prob} grew out of frustration with the problems' resistance to classical problem
+solving methods. Since the Enlightenment, society has applied the scientific method to problems of every kind; the
+sweeping application of scientific analysis has delivered reliable clean water, improved crop yields, shaped government
 structures, and bestowed material wealth previously unimaginable. With our material problems largely solved in the
 twentieth century, believers in the power of reason thought this progress would march on in the realm of public
 planning. Policymaking would function by setting goals, identifying problems, evaluating alternatives, implementing
@@ -143,19 +143,19 @@ Embracing reality is the first step to dealing with it \cite{baker_2019}. We hav
 
 \section{Failure of Current Policymaking Approaches}
 
-This section describes the two common current policymaking approaches, the classical analytical method and ``muddling
-through.''
+This section describes two common policymaking approaches, the \ac{classical-method} and \ac{incrementalism}.
 
 \subsection{The Classical Analytical Method}
 
-The classical analytical method \cite{feeley_judicial_2000} (or ``the modern-classical model of planning''
-\cite{rittel_dilemmas_1973}, ``traditional policy analysis'' \cite{rozenshtein_wicked_2018}, or ``linear thinking''
-\cite{commission_tackling_2018}) has already been introduced. It is the reason-based method that functions by setting
-goals, identifying problems, evaluating alternatives, implementing solutions, and analyzing outcomes in order to correct
-errors. \myfig{fig-classical-method} illustrates the approach in the context of encryption and \ac{EA}. Per its name, it
-has a linear flow from problem to solution. The refinement step reflects the fact that this method tracks outcomes and
-tweaks solutions over time; however, refinement is always in-kind---it represents a reinforcement, as opposed to a
-reassessment, of the chosen solution.
+The \ac{classical-method} \cite{feeley_judicial_2000} (or ``the modern-classical model of planning''
+\cite{rittel_dilemmas_1973}, ``the rational-comprehensive method'' \cite{lindblom_science_1959}, ``traditional policy
+analysis'' \cite{rozenshtein_wicked_2018}, or ``linear thinking'' \cite{commission_tackling_2018}) has already been
+introduced. It is the reason-based method that functions by setting goals, identifying problems, evaluating
+alternatives, implementing solutions, and analyzing outcomes in order to correct errors. \myfig{fig-classical-method}
+illustrates the approach in the context of encryption and \ac{EA}. Per its name, it has a linear flow from problem to
+solution. The refinement step reflects the fact that this method tracks outcomes and tweaks solutions over time;
+however, refinement is always in-kind---it represents a reinforcement, as opposed to a reassessment, of the chosen
+solution.
 
 \begin{figure}[h]
   \centering\CaptionFontSize
@@ -164,28 +164,92 @@ reassessment, of the chosen solution.
   \label{fig-classical-method}
 \end{figure}
 
-The shortcomings of the classical analytical method were discussed in \mysec{wicked-characteristics}. It fails due to
+The shortcomings of the \ac{classical-method} were discussed in \mysec{wicked-characteristics}. It fails due to
 disagreement over goals, the dependence of the problem definition on the alternatives generated (violating the linear
 flow), the inability to evaluate alternatives, and the lack of a definitive stopping rule.
 
-\subsection{Muddling Through}
+\subsection{Incrementalism}
 
-``Muddling through'' represents an alternative policy making strategy.
+\Ac{incrementalism} is an intuitive and iterative approach posed as an alternative to the \ac{classical-method}.
+\Ac{incrementalism} as a policymaking strategy is often referred to as ``\ac{muddling-through}'' after political
+scientist Charles Lindblom's classic paper defining and defending the approach \cite{lindblom_muddling_1959}. Written
+before Rittel developed the idea of ``\acp{wicked-prob},'' Lindblom nonetheless identified many of the same shortcomings
+of the analytical method and sought to formalize the process policymakers were already often using.
 
-See \myfig{fig-muddling-through}.
+Lindblom's ``\ac{muddling-through}'' operates by taking successive steps chosen through comparative analysis. The
+alternatives selected for comparison are defined relative to the status quo and are close enough to one another to be
+able to be analyzed on the margin. This is done first out of practical necessity, due to our inability to rationally
+predict policy outcomes, and second out of political realism, as non-incremental changes are usually politically
+impossible to impose in a democratic system \cite{lindblom_muddling_1959}. \myfig{fig-muddling-through} illustrates this
+method.
+
+%Footnote: see Lindblom's bracing quote: ``Party behavior is in turn rooted in public attitudes, and political theorists
+%cannot conceive of democracy's surviving in the United States in the absence of fundamental agreement on potentially
+%disruptive issues, with consequent limitation of policy debates to relatively small differences in policy.''
 
 \begin{figure}[h]
   \centering\CaptionFontSize
   \includegraphics[width=0.55\linewidth]{dfds/build/OODA-muddling.png}
-  \caption[The ``Muddling Through'' Method]{The ``Muddling Through'' Method}
+  \caption[The Incrementalist Method]{The Incrementalist Method}
   \label{fig-muddling-through}
 \end{figure}
 
-% Mention hermeneutics and complex adaptive systems?
-% As feeley_judicial_2000 points out, muddling through is too focused on, or even consists entirely of, the
-% implementation step. Because of the long tail effects of any implementation in a wicked scenario, and especially in
-% the context of encryption, mere muddling through is too risky. Therefore I suggest iteration. Classical methods, but
-% applied in a cyclical manner.
+\Ac{incrementalism} has several advantages over the \ac{classical-method} for handling \acp{wicked-prob}. It is rooted
+in realism about the limits of rational analysis. It accepts that the problem will not be conclusively solved,
+emphasizing iteration (``Policy is not made once and for all; it is made and re-made endlessly. Policy-making is a
+process of successive approximation to some desired objectives in which what is desired itself continues to change under
+reconsideration.'' \cite{lindblom_muddling_1959}). Most importantly, it eschews the linear
+problem-definition--alternatives-analysis steps out of respect that this is, indeed, impossible. Lindblom argues at
+length that policy ends and means are interlinked, eventually concluding:
+
+\begin{displayquote}
+As to whether the attempt to clarify objectives in advance of policy selection is more or less rational than the close
+intertwining of marginal evaluation and empirical analysis, the principal difference established is that for complex
+[i.e., wicked] problems the first is impossible and irrelevant, and the second is both possible and relevant. The second
+is possible because the administrator need not try to analyze any values except the values by which alternative policies
+differ and need not be concerned with them except as they differ marginally. His need for information on values or
+objectives is drastically reduced as compared with the root [i.e., classical analytic] method; and his capacity for
+grasping, comprehending, and relating values to one another is not strained beyond the breaking point.
+\cite{lindblom_muddling_1959}
+\end{displayquote}
+
+Despite its strengths, \ac{incrementalism} has its weaknesses at addressing \acp{wicked-prob}. Its main weakness is its
+lack of high level strategic analysis. It is incapable of drastic change, which is sometimes necessary. By Lindblom's
+admission, it lacks a safeguard for consideration of all relevant values and may ``overlook excellent policies for no
+other reason than that they are not suggested by the chain of successive policy steps leading up to the present''
+\cite{lindblom_muddling_1959}. Analysis based only on one present ``status quo'' to the next can result in messy policy
+that none are particularly fond of ("As Lindblom's sobriquet suggests, it often led to a considerable muddle''
+\cite{feeley_judicial_2000}). Consider application of the \ac{CFAA} as an example of this kind of muddle
+\cite{wolff_computer_2016}.
+
+Unfortunately, one cannot simply expand the strategic view of the incrementalist method by allowing it to look further
+into the past than the present status quo. Simplifying analysis by limiting it to marginal differences to a given
+baseline is at the heart of \ac{incrementalism}. If one tries to be a ``strategic incrementalist'' by looking into the
+past, they still have to choose a baseline from which to perform analysis. This approach is susceptible to two
+weaknesses in baseline-based reasoning that Rozenshtein described in his analysis of \ac{EA} as a \ac{wicked-prob}
+\cite{rozenshtein_wicked_2018}. First, the choice of baseline is arbitrary, yet heavily colors analysis:
+
+\begin{displayquote}
+Both the government and its critics have operated from the status-quo baseline, though from opposite directions. For the
+government, the relevant baseline is recent history---specifically, right before companies like Apple and WhatsApp
+encrypted their products. From this baseline, the government's ability to surveil has diminished. For critics of
+government surveillance, the relevant baseline is the pre-digital age, before smartphones and social media vastly
+expanded the government's surveillance capabilities. From this baseline, the technological changes underlying the
+``going dark'' problem are mere blips on the otherwise rocketing growth of the surveillance state.
+\cite{rozenshtein_wicked_2018}
+\end{displayquote}
+
+Second, unlike legal baselines, policy baselines do not carry normative force. Constant changes in the underlying
+situation mean that even optimal policy in the past is not necessarily desirable in the present. Due to these
+weaknesses, applying incrementalist methods at the strategic level does not work.
+
+A final weakness in \ac{incrementalism} is its assumption of basic agreement and political stability. The method works
+by limiting analysis to marginal comparisons of broadly similar and familiar proposals. Proposals that differ widely
+from one another or the status quo are considered irrelevant because the debating parties both share the same general
+goals and lack the ability to unilaterally impose their will. Rather a symptom of present circumstances (see
+\mysec{sec-history-current}) than an inherent weakness in the incrementalist approach, both of these assumptions are
+incorrect.
+
 
 \subsection{Lessons}
 
