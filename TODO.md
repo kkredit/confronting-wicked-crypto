@@ -4,12 +4,10 @@
 
 - [ ] Attend ISTAS 2020 conference November 12-14
 - [i] Produce rough draft
-  - [ ] Update chapter 2--background
-    - [ ] Respond to Walsh's feedback
   - [i] Write chapter 3--arguments
-    - [ ] Outline flow and arguments
+    - [i] Outline flow and arguments
     - [i] Make argmaps
-    - [ ] Fill in
+    - [i] Fill in
   - [i] Write chapter 4--threat models
     - [ ] Outline approach
       - "All models are wrong, but some are useful" -- set tone for level of abstraction and approach
@@ -47,12 +45,8 @@
 ## Status meeting agenda
 
 - Updates
-  - Submitted abstract to IEEE Conference (International Symposium on Technology and Society)
-  - Submitted defense announcement
-  - Created Signal protocol DFDs
-  - Integrated feedback from Walsh
-  - Created OODA diagram
-  - Started presentation
+  - Updated OODA diagram
+  - Writing
 - Action items
   - Short paper on diagramming method of cryptography?
   - 2.5 Argument maps: add explanation of what people are looking at. A key: green arrows are support, red means undercut,
