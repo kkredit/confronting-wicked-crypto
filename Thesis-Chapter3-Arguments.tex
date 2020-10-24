@@ -180,8 +180,9 @@ Lindblom's ``\ac{muddling-through}'' operates by taking successive steps chosen 
 alternatives selected for comparison are defined relative to the status quo and are close enough to one another to be
 able to be analyzed on the margin. This is done first out of practical necessity, due to our inability to rationally
 predict policy outcomes, and second out of political realism, as non-incremental changes are usually politically
-impossible to impose in a democratic system \cite{lindblom_muddling_1959}. \myfig{fig-muddling-through} illustrates this
-method.
+impossible to impose in a democratic system \cite{lindblom_muddling_1959}. The formality of the process varies;
+policymakers may use this method consciously, with considerable comparative analysis, or unconsciously, led by
+intuition. \myfig{fig-muddling-through} illustrates this method.
 
 %Footnote: see Lindblom's bracing quote: ``Party behavior is in turn rooted in public attitudes, and political theorists
 %cannot conceive of democracy's surviving in the United States in the absence of fundamental agreement on potentially
@@ -218,9 +219,8 @@ lack of high level strategic analysis. It is incapable of drastic change, which 
 admission, it lacks a safeguard for consideration of all relevant values and may ``overlook excellent policies for no
 other reason than that they are not suggested by the chain of successive policy steps leading up to the present''
 \cite{lindblom_muddling_1959}. Analysis based only on one present ``status quo'' to the next can result in messy policy
-that none are particularly fond of ("As Lindblom's sobriquet suggests, it often led to a considerable muddle''
-\cite{feeley_judicial_2000}). Consider application of the \ac{CFAA} as an example of this kind of muddle
-\cite{wolff_computer_2016}.
+that none are particularly fond of---``As Lindblom's sobriquet suggests, it often [leads] to a considerable muddle''
+\cite{feeley_judicial_2000}. Consider application of the \ac{CFAA} as one such muddle \cite{wolff_computer_2016}.
 
 Unfortunately, one cannot simply expand the strategic view of the incrementalist method by allowing it to look further
 into the past than the present status quo. Simplifying analysis by limiting it to marginal differences to a given
@@ -253,11 +253,47 @@ incorrect.
 
 \subsection{Lessons}
 
-- Avoid pitfalls of
-  - Easy answers
-    - EA mandates, complexity denial
-  - Fallacies!
-  - Bad results with long technical tails
+The \ac{classical-method} and \ac{incrementalism} are not the only styles of policymaking. They represent perhaps two
+extremes on a spectrum of rational planning and intuitive muddling. Both have their strengths and weaknesses. One may
+intuit that a reasonable strategy is the selective use of both approaches according to the situation, and indeed this
+has also been formally suggested \cite{etzioni_scanning_1967}. However, even a combination of these methods does not
+precisely suit all classes of wicked problems. Is a problem tame? Use the \ac{classical-method}. Is it wicked, but
+strategically under control and relatively non-controversial? Use \ac{incrementalism}. Is it wicked, and lacking a
+strategic response or highly controversial? What then?
+
+There is no \ac{wicked-prob} handbook, but several sources offer advice.
+
+\newcommand{\wickedtipsstart}{\begin{itemize}}
+\newcommand{\wickedtip}[2]{ % Name, citation, description
+    \item \textbf{#1} \nopagebreak
+
+    \vspace{0.5\baselineskip} \parbox{\linewidth}{#2} \vspace{0.5\baselineskip}
+}
+\newcommand{\wickedtipsend}{\end{itemize}}
+
+\wickedtipsstart
+
+    \wickedtip{Reject Easy Answers}{
+    }
+
+    \wickedtip{Bring Everyone to the Table}{
+    }
+
+    \wickedtip{Embrace Flexible, Risk-Based Solutions}{
+    }
+
+    \wickedtip{Ensure Transparency}{
+    }
+
+\wickedtipsend
+
+Rittel's follow-up research offers another tool: argument mapping.
+
+% - Avoid pitfalls of
+%   - Easy answers
+%     - EA mandates, complexity denial
+%   - Fallacies!
+%   - Bad results with long technical tails
 
 % Note: a problem with muddling through wicked problems is that each attempted fix leads to long lasting unintended side
 % effects. This is especially true with matters of encryption, where the data could be stored for years till it can be
@@ -291,52 +327,52 @@ incorrect.
 
 
 commission_tackling_2018:
-- Strategies
-  - Authoritative
-  - Competitive
-  - Collaborative
-- Approaches
-  - Linear problem solving
-    - Ineffective! Several reasons, good breakdown. Dovetails with rozenshtein_wicked_2018.
-  - Holistic problem solving: adaptive, innovative, flexible, cross-organizational
-- Avoid
-  - Narrow solutions
+% - Strategies
+%   - Authoritative
+%   - Competitive
+%   - Collaborative
+% - Approaches
+%   - Linear problem solving
+%     - Ineffective! Several reasons, good breakdown. Dovetails with rozenshtein_wicked_2018.
+%   - Holistic problem solving: adaptive, innovative, flexible, cross-organizational
+% - Avoid
+%   - Narrow solutions
 
 rozenshtein_wicked_2018:
-- Approaches
-  - Muddling through (he cites Charles E. Lindblom, just like feeley_judicial_2000!)
-  - Risk management (--finally, something familiar to security experts!)
-    - So, a broader view of security, inclusive of both public safety and information security
-    - In this model, threat actors now include terrorists, CSAM distributors, organized crime
-      - Add a new character? Evil Alice and evil Bob (Alex and Becca?)? This automatically raises to question of how to
-          identify bad actors--AI (lee_detecting_2020)? PhotoDNA (microsoft_2020)? Government orders (warrants)? Could
-          be useful.
-    - I have already suggested adding government mandates to the traditional IS threat model
-  - Imperfect solutions, like lawful hacking
-  - Meanwhile, invest in knowledge production and improved relationships (like "cross-organizational" from
-      commission_tackling_2018)
-- Avoid
-  - Easy answers ("narrow solutions" from commission_tackling_2018)
-    - Such as EA mandates or "golden age of surveillance"-based denials
+% - Approaches
+  % - Muddling through (he cites Charles E. Lindblom, just like feeley_judicial_2000!)
+  % - Risk management (--finally, something familiar to security experts!)
+  %   - So, a broader view of security, inclusive of both public safety and information security
+  %   - In this model, threat actors now include terrorists, CSAM distributors, organized crime
+  %     - Add a new character? Evil Alice and evil Bob (Alex and Becca?)? This automatically raises to question of how to
+  %         identify bad actors--AI (lee_detecting_2020)? PhotoDNA (microsoft_2020)? Government orders (warrants)? Could
+  %         be useful.
+  %   - I have already suggested adding government mandates to the traditional IS threat model
+  % - Imperfect solutions, like lawful hacking
+  % - Meanwhile, invest in knowledge production and improved relationships (like "cross-organizational" from
+  %     commission_tackling_2018)
+% - Avoid
+%   - Easy answers ("narrow solutions" from commission_tackling_2018)
+%     - Such as EA mandates or "golden age of surveillance"-based denials
 
 matyas_incommensurability_2018:
 - Approaches to reducing incommensurability
   - Reduce gray area between rules and principles (i.e. keep laws up to date with technology)
-  - Use transparency and accountability (through technical means)
+  % - Use transparency and accountability (through technical means)
 
-feeley_judicial_2000:
-- Classical analytic method ("linear" in commission_tackling_2018)
-% 1. Classical analytic method; each step has its own approaches, e.g. cost-benefit analysis (loosely based on natural
-% sciences)
-%   (missing: Observe)
-%   a. Define the problem (Orient)
-%   b. Identify a goal (Orient)
-%   c. Generate a range of alternatives for achieving that goal (Orient)
-%   d. Select the alternative that seems most promising (Decide)
-%   e. Implement the selected alternative (Act)
-%   (missing: loop)
-- Incremental intuitive decision making ("Muddling through" in rozenshtein_wicked_2018)
-- The hermeneutic circle
+% feeley_judicial_2000:
+% - Classical analytic method ("linear" in commission_tackling_2018)
+% % 1. Classical analytic method; each step has its own approaches, e.g. cost-benefit analysis (loosely based on natural
+% % sciences)
+% %   (missing: Observe)
+% %   a. Define the problem (Orient)
+% %   b. Identify a goal (Orient)
+% %   c. Generate a range of alternatives for achieving that goal (Orient)
+% %   d. Select the alternative that seems most promising (Decide)
+% %   e. Implement the selected alternative (Act)
+% %   (missing: loop)
+% - Incremental intuitive decision making ("Muddling through" in rozenshtein_wicked_2018)
+% - The hermeneutic circle
 
 % How to tackle wicked problems in general? Take some tips from commission_tackling_2018, rozenshtein_wicked_2018,
 % feeley_judicial_2000, and matyas_incommensurability_2018:
