@@ -101,7 +101,7 @@ watchdogs for other parts.
   title = {The {Science} of "{Muddling} {Through}"},
   volume = {19},
   issn = {00333352},
-  url = {https://www.jstor.org/stable/973677?origin=crossref},
+  url = {https://www.jstor.org/stable/973677},
   doi = {10.2307/973677},
   number = {2},
   urldate = {2020-10-22},

@@ -14,7 +14,7 @@
   title = {Wicked {Problems} in {Design} {Thinking}},
   volume = {8},
   issn = {07479360},
-  url = {https://www.jstor.org/stable/1511637?origin=crossref},
+  url = {https://www.jstor.org/stable/1511637},
   doi = {10.2307/1511637},
   number = {2},
   urldate = {2020-10-17},

@@ -13,7 +13,7 @@
   title = {Still {Muddling}, {Not} {Yet} {Through}},
   volume = {39},
   issn = {00333352},
-  url = {https://www.jstor.org/stable/976178?origin=crossref},
+  url = {https://www.jstor.org/stable/976178},
   doi = {10.2307/976178},
   number = {6},
   urldate = {2020-10-22},

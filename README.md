@@ -30,9 +30,10 @@ distinctions for the separate problems of EA for data in motion and data at rest
 
 - [_Dilemmas in a General Theory of Planning_](https://archive.epa.gov/reg3esd1/data/web/pdf/rittel%2bwebber%2bdilemmas%2bgeneral_theory_of_planning.pdf)
 - [_Wicked Crypto_](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3256858)
-- [_On the Incommensurability of Laws and Technical Mechanisms: Or, What Cryptography Can’t Do_](matyas_incommensurability_2018)
+- [_On the Incommensurability of Laws and Technical Mechanisms: Or, What Cryptography Can’t Do_](http://link.springer.com/10.1007/978-3-030-03251-7_31)
 - [_Keys Under Doormats: Mandating Insecurity by Requiring Government Access to All Data and Communications_](https://academic.oup.com/cybersecurity/article-lookup/doi/10.1093/cybsec/tyv009)
 - ["Moving the Encryption Policy Conversation Forward"](https://carnegieendowment.org/2019/09/10/moving-encryption-policy-conversation-forward-pub-79573)
+- [_Lawful Device Access without Mass Surveillance Risk_](http://dl.acm.org/doi/10.1145/3243734.3243758)
 - ["A Roadmap for Exceptional Access Research"](https://www.lawfareblog.com/roadmap-exceptional-access-research)
 
 ## Repo Usage
