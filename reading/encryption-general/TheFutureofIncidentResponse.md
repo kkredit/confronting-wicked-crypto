@@ -8,6 +8,7 @@
 - Policy comments:
 - Technical comments:
 - Notes:
+  - Available: https://www.schneier.com/essays/archives/2014/09/the_future_of_incide.html
 
 >Way back in the 1990s, I used to say that “security is a process, not a product.” That was a strategic statement about
 the fallacy of thinking you could ever be done with security; you need to continually reassess your security posture in
