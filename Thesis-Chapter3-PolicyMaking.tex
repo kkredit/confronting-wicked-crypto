@@ -1,5 +1,5 @@
-\chapter{Wicked Problems and the EA Debate}
-\label{chap-arguments}
+\chapter{Strategy for Tackling Wicked Problems}
+\label{chap-policy}
 
 Before going into detail about the arguments used in the \ac{EA} debate, it is worth studying \acp{wicked-prob} in
 greater detail. What are they, and why is the case of encryption, privacy, and \ac{EA} in this category? What approaches
@@ -92,9 +92,10 @@ changes be, and how capable is technology to respond? Evaluating the validity of
 problem statement itself.
 
 Elements of the problem may be tame---one can independently confirm that reducing global carbon emissions by a certain
-amount will result in a certain difference in response with a certain confidence level. Combining the tame elements in a
-cohesive solution is the ``wicked'' part. Despite certain tame elements, one cannot verify the effectiveness of a plan
-ahead of time, port a solution from a different domain, or even definitively evaluate its performance after the fact.
+amount will result in a certain difference in response with a certain statistical confidence. Refining the problem
+statement and combining the tame elements in a cohesive solution is the ``wicked'' part. Despite certain tame elements,
+one cannot verify the effectiveness of a plan ahead of time, port a solution from a different domain, or even
+definitively evaluate its performance after the fact.
 
 \subsection{Encryption and EA as a Wicked Problem}
 
@@ -107,7 +108,7 @@ a \ac{wicked-prob}. It has each of the characteristics from Rittel's list above:
   \item Balancing each value in the face of constantly evolving technology is never ending.
   \item \ac{EA} or other proposals cannot definitively solve the problem.
   \item \ac{EA} or other proposals cannot be objectively tested.
-  \item Every policy implementation has irreversible impacts.
+  \item Every policy implementation has irreversible effects.
   \item There is an inexhaustable set of potential solutions to the problem.
   \item Solutions from other domains do not apply directly to this problem.
   \item The need for \ac{EA} or some alternative is a symptom of differing values, rapid technological change, and
@@ -118,14 +119,14 @@ a \ac{wicked-prob}. It has each of the characteristics from Rittel's list above:
   \item The decisions of regulators and technologists alike have real impacts in the world today.
 \end{enumerate}
 
-Cybersecurity law scholar Alan Rozenshtein argues this point at length \cite{rozenshtein_wicked_2018}. He breaks the
-root issues down into three categories. First, that there is disagreement on goals (or even basic premises). Sides can't
-agree whether things are ``going dark'' or we're in the ``golden age of surveillance'' or how much to value competing
-notions of security. Second, that information is ``uncertain and diffuse.'' There are insufficient statistics on
-encryption's effect on investigations, and though the consensus is that we are not presently capable of acceptably
-secure \ac{EA}, that is not certain to always be the case, especially as the area is under-researched. Third, that the
-problem cannot be definitively solved. Evolving values and technology mean that the subject is always up for
-renegotiation.
+Cybersecurity law scholar Alan Rozenshtein argues for treating \ac{encryption} and \ac{EA} as a \ac{wicked-prob} at
+length \cite{rozenshtein_wicked_2018}. He breaks the root issues down into three categories. First, that there is
+disagreement on goals (or even basic premises). Sides can't agree whether things are ``going dark'' or we're in the
+``golden age of surveillance'' or how much to value competing notions of security. Second, that information is
+``uncertain and diffuse.'' There are insufficient statistics on encryption's effect on investigations, and though the
+consensus is that we are not presently capable of acceptably secure \ac{EA}, that is not certain to always be the case,
+especially as the area is under-researched. Third, that the problem cannot be definitively solved. Evolving values and
+technology mean that the subject is always up for renegotiation.
 
 Rozenshtein reflects on the diagnosis optimistically:
 
@@ -148,13 +149,13 @@ This section describes two common policymaking approaches, the \ac{classical-met
 \subsection{The Classical Analytical Method}
 
 The \ac{classical-method} \cite{feeley_judicial_2000} (or ``the modern-classical model of planning''
-\cite{rittel_dilemmas_1973}, ``the rational-comprehensive method'' \cite{lindblom_science_1959}, ``traditional policy
+\cite{rittel_dilemmas_1973}, ``the rational-comprehensive method'' \cite{lindblom_muddling_1959}, ``traditional policy
 analysis'' \cite{rozenshtein_wicked_2018}, or ``linear thinking'' \cite{commission_tackling_2018}) has already been
 introduced. It is the reason-based method that functions by setting goals, identifying problems, evaluating
 alternatives, implementing solutions, and analyzing outcomes in order to correct errors. \myfig{fig-classical-method}
-illustrates the approach in the context of encryption and \ac{EA}. Per its name, it has a linear flow from problem to
-solution. The refinement step reflects the fact that this method tracks outcomes and tweaks solutions over time;
-however, refinement is always in-kind---it represents a reinforcement, as opposed to a reassessment, of the chosen
+illustrates the approach in the context of encryption and \ac{EA}. It has a purely linear flow from problem to solution
+except for the ``refinement'' step, in which the method analyzes outcomes and corrects errors. However, it is important
+to note that refinement is always in-kind---it represents a reinforcement, as opposed to a reassessment, of the chosen
 solution.
 
 \begin{figure}[h]
@@ -220,13 +221,13 @@ admission, it lacks a safeguard for consideration of all relevant values and may
 other reason than that they are not suggested by the chain of successive policy steps leading up to the present''
 \cite{lindblom_muddling_1959}. Analysis based only on one present ``status quo'' to the next can result in messy policy
 that none are particularly fond of---``As Lindblom's sobriquet suggests, it often [leads] to a considerable muddle''
-\cite{feeley_judicial_2000}. Consider application of the \ac{CFAA} as one such muddle \cite{wolff_computer_2016}.
+\cite{feeley_judicial_2000}. Consider application of the \acl{CFAA} as one such muddle \cite{wolff_computer_2016}.
 
 Unfortunately, one cannot simply expand the strategic view of the incrementalist method by allowing it to look further
 into the past than the present status quo. Simplifying analysis by limiting it to marginal differences to a given
 baseline is at the heart of \ac{incrementalism}. If one tries to be a ``strategic incrementalist'' by looking into the
 past, they still have to choose a baseline from which to perform analysis. This approach is susceptible to two
-weaknesses in baseline-based reasoning that Rozenshtein described in his analysis of \ac{EA} as a \ac{wicked-prob}
+weaknesses in baseline-based reasoning that Rozenshtein describes in his analysis of \ac{EA} as a \ac{wicked-prob}
 \cite{rozenshtein_wicked_2018}. First, the choice of baseline is arbitrary, yet heavily colors analysis:
 
 \begin{displayquote}
@@ -265,25 +266,28 @@ There is no \ac{wicked-prob} handbook, but several sources offer advice.
 
 \newcommand{\wickedtipsstart}{\begin{itemize}}
 \newcommand{\wickedtip}[2]{ % Name, citation, description
-    \item \textbf{#1} \nopagebreak
+  \item \textbf{#1} \nopagebreak
 
-    \vspace{0.5\baselineskip} \parbox{\linewidth}{#2} \vspace{0.5\baselineskip}
+  \vspace{0.5\baselineskip} \parbox{\linewidth}{#2} \vspace{0.5\baselineskip}
 }
 \newcommand{\wickedtipsend}{\end{itemize}}
 
 \wickedtipsstart
 
-    \wickedtip{Reject Easy Answers}{
-    }
+  \wickedtip{Reject Easy Answers}{
 
-    \wickedtip{Bring Everyone to the Table}{
-    }
+Easy answers, or any solutions that artificially tame the problem, must be rejected.
 
-    \wickedtip{Embrace Flexible, Risk-Based Solutions}{
-    }
+}
 
-    \wickedtip{Ensure Transparency}{
-    }
+  \wickedtip{Bring Everyone to the Table}{
+}
+
+  \wickedtip{Embrace Flexible, Risk-Based Solutions}{
+}
+
+  \wickedtip{Ensure Transparency}{
+}
 
 \wickedtipsend
 
@@ -310,23 +314,7 @@ Rittel's follow-up research offers another tool: argument mapping.
     \label{fig-ooda-loop}
 \end{figure}
 
-% Already covered defining the problem. Next will discuss goals and list alternatives. That will feed into threat
-% modeling
-
-\section{Mapping the EA Debate}
-
-\subsection{Desireable Outcomes}
-
-% See committee_decrypting_2018!
-% For a wholistic threat model, include both the threats of government (legislation) and of criminal abusers of your
-% system.
-
-\subsection{Proposed Alternatives}
-
-% See committee_decrypting_2018!
-
-
-commission_tackling_2018:
+% commission_tackling_2018:
 % - Strategies
 %   - Authoritative
 %   - Competitive
@@ -338,7 +326,7 @@ commission_tackling_2018:
 % - Avoid
 %   - Narrow solutions
 
-rozenshtein_wicked_2018:
+% rozenshtein_wicked_2018:
 % - Approaches
   % - Muddling through (he cites Charles E. Lindblom, just like feeley_judicial_2000!)
   % - Risk management (--finally, something familiar to security experts!)
@@ -355,9 +343,9 @@ rozenshtein_wicked_2018:
 %   - Easy answers ("narrow solutions" from commission_tackling_2018)
 %     - Such as EA mandates or "golden age of surveillance"-based denials
 
-matyas_incommensurability_2018:
-- Approaches to reducing incommensurability
-  - Reduce gray area between rules and principles (i.e. keep laws up to date with technology)
+% matyas_incommensurability_2018:
+% - Approaches to reducing incommensurability
+%   - Reduce gray area between rules and principles (i.e. keep laws up to date with technology)
   % - Use transparency and accountability (through technical means)
 
 % feeley_judicial_2000:
@@ -379,96 +367,3 @@ matyas_incommensurability_2018:
 % Correctly state the problem--identify the root causes. They aren't going away, there by definition is no clear long
 % term solution. Put the proposed solutions in context--none are perfect, none are permanent. For EA in particular,
 % consider balance of principles and rules.
-
-% Subject one: do we even want EA?
-%  --> no? exit here
-%  --> yes? carry on
-%  --> pragmatist? carry on
-% include fallacies argument map here
-% see rozenshtein_wicked_2018, benaloh_what_2018, soesanto_2018, ministerial_2018, fbi_2020, brantley_2018, lund_2020
-% ... group_2019, ruiz_there_2018, rozenshtein_2019
-
-% Subject two: what properties would good EA have?
-% easy for LEAs to use? hard? expensive? voluntary? unable to be used for mass surveillance? transparent (attempts are
-%   visible)? alignment of values with security (e.g. discourages bug hoarding)? adaptable (since solution won't be
-%   permanent, either technically or according to collective will as things change rozenshtein_wicked_2018)? suited to
-%   rules and principles (matyas_incommensurability_2018)?
-
-% Subject three: what options do we have?
-% map of properties onto proposals--leads into threat modeling, which will check the veracity of claims
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% In this chapter, develop the arguments employed in EA debates. Make use of argument maps to break down and visualize the
-% debate, as shown in \myfig{fig-args-top-level}.
-
-% \begin{figure}[h]
-%     \centering\CaptionFontSize
-%     \includegraphics[width=\linewidth]{arguments/build/top-level.pdf}
-%     \caption[Argument: Top Level]{Top level arguments for and against exceptional access.}
-%     \label{fig-args-top-level}
-% \end{figure}
-
-% The debate over exceptional access takes place on two fundamental levels:
-% \begin{enumerate}
-%     \item Whether cryptosystems with exceptional access represent a net benefit to society
-%     \item Whether and how to conduct exceptional access research
-% \end{enumerate}
-
-% \subsection{Arguments For}
-
-% Why EA is a benefit to society:
-% \begin{itemize}
-%     \item Absolute privacy is not a right
-%     \item Encryption gives too much power to the individual
-%     \item EA would allow more crimes to be prevented and prosecuted
-% \end{itemize}
-
-% Why to research EA:
-% \begin{itemize}
-%     \item EA done well would be more secure and privacy preserving than EA done poorly
-%     \item The threat of legislative action creates urgency
-% \end{itemize}
-
-% \subsection{Arguments Against}
-
-% Why EA is a danger to society:
-% \begin{itemize}
-%     \item Privacy is an absolute right
-%     \item Exceptional access gives too much power to the state
-%     \item Exceptional access is not possible in an acceptably secure manner
-% \end{itemize}
-
-% Why not to research EA:
-% \begin{itemize}
-%     \item With both security and privacy in a poor state, research should be focused on strengthening, not weakening,
-%             them
-%     \item The technical community should not entertain delusions about what is truly possible
-% \end{itemize}
-
-% \subsection{Fallacious Arguments}
-
-% Fallacy definitions come from the helpful University of North Carolina Writing Center \cite{unc_2020}. Also cited:
-% \cite{hanna_2019}.
-
-% Fallacies are as shown in \myfig{fig-args-fallacies}.
-
-% \begin{figure}[h]
-%     \centering\CaptionFontSize
-%     \myincludeargument{comprehensive.fallacies}
-%     \caption[Fallacious Arguments]{Fallacious arguments used in the exceptional access debate.}
-%     \label{fig-args-fallacies}
-% \end{figure}
