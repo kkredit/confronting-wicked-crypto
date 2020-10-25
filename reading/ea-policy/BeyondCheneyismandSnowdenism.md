@@ -2,7 +2,7 @@
 
 - Summary:
   - Contains nice coinages of ``Cheneyism and Snowdenism''
-  - Suggests strategies for dealing with wicked problems
+  - Suggests strategies for dealing with wicked problems, including risk management and maximin
 - Purpose:
 - Premises:
 - Contributions:
