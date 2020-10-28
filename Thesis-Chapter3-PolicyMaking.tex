@@ -310,7 +310,7 @@ a product of incessant judgment, subjected to critical argument'' \cite{rittel_d
 
 }
 
-\wickedtip{Embrace Flexible, Risk-Based Solutions}{
+  \wickedtip{Embrace Flexible, Risk-Based Solutions}{
 
 We know that proposals cannot be comprehensively evaluated before or even after implementation, and that each action (or
 decision not to act) has irreversible effects. \Ac{incrementalism} is the decision making model to follow here, as it is
@@ -349,8 +349,8 @@ model.
 The \ac{OODAloop} was a developed by Air Force Colonel John Boyd as a description of a successful strategy for
 countering opponents in real-time combat \cite{angerman_2004}. Boyd created it in the context of military strategy, but
 its ideas have penetrated many other sectors, including cybersecurity, where it serves as a model for structuring
-incident response \cite{schneier_future_2014}. There is an emphasis on speed and ``getting inside'' your opponent's
-loop. It is illustrated in \myfig{fig-ooda-loop}.
+incident response \cite{schneier_future_2014}. There is an emphasis on fast cycle times and ``getting inside'' your
+opponent's loop as a means of overcoming raw power with speed and agility. It is illustrated in \myfig{fig-ooda-loop}.
 
 \begin{figure}[h]
     \centering\CaptionFontSize
@@ -362,13 +362,15 @@ loop. It is illustrated in \myfig{fig-ooda-loop}.
 The \ac{OODAloop} serves as a good basis for contending with \acp{wicked-prob} because it has the correct fundamental
 structure. It maps very well to the \ac{classical-method} steps of problem definition (orientation), ideation and
 analysis (orientation), decision, and action, but it emphasizes the \ac{incrementalism}'s iteration and feedback.
-Additionally, while policymaking doesn't share the pace of real-time combat, in other ways the metaphor of facing an
-unpredictable opponent in a dynamic environment where every action counts holds up.
+Additionally, while policymaking doesn't share the pace of real-time combat, in other ways the metaphor holds up. One is
+facing an unpredictable opponent in a dynamic environment where every action counts. We cannot overpower
+\acp{wicked-prob} through force of reason, but perhaps we can through speed and agility.
 
-The one modification the \ac{OODAloop} needs is unification of the problem definition and analysis steps. This is
-Rittel's ``argumentative process in the course of which an image of the problem and of the solution emerges gradually''
-\cite{rittel_dilemmas_1973}. \myfig{fig-policy-ooda-loop} illustrates the \ac{OODAloop} modified to serve as a
-policymaking strategy.
+The one modification the \ac{OODAloop} needs is unification of the problem definition and analysis steps, as one depends
+on the other. This is Rittel's ``argumentative process in the course of which an image of the problem and of the
+solution emerges gradually'' \cite{rittel_dilemmas_1973}, illustrated in \myfig{fig-policy-ooda-loop} as a cycle of
+``collaborative debate'' between observation and orientation. The modified \ac{OODAloop} incorporates each of the
+lessons from \mysec{sec-policy-lessons}.
 
 \begin{figure}[h]
     \centering\CaptionFontSize
@@ -379,6 +381,43 @@ policymaking strategy.
 
 % Note on using argument maps to facilitate this argumentative process
 
+Recall from \mysec{sec-arg-maps-intro} that \acp{argmap} resulted from the same research that produced the concept of
+\acp{wicked-prob}. Though formal research on the technique is thin, \acp{argmap} have proven helpful in simplifying
+complex arguments around \acp{wicked-prob} \cite{renton_2007} and in facilitating debate by helpfully slowing down
+discussion, depersonalizing conflict, and lending structure and rhythm \cite{dutoit_hypermedia_2006}. This makes them
+well suited as a tool for conducting the collaborative debate that helps problem solvers with disparate views narrow in
+on a problem definition and concrete proposals on which they can agree.
+
 % Summarize chapter: wicked problems, why normal methods fail, how this strategy works
 
-% Preview it in action in the following chapters
+\section{Summary}
+
+Traditional policymaking typically follows either a rational approach rooted in the scientific method, aiming to be
+thorough and complete, or an intuitional approach rooted in evolutionary trial and error, humbly aiming only to take
+steps in the right direction. Both approaches have their strengths, but neither is suited to the complex and
+controversial nature of so-called ``\acp{wicked-prob}.'' The strategy proposed here relies on the goodwill participation
+of all parties, who engage in ongoing research and debate that rejects easy answers, encourages flexible risk-based
+solutions, and crystallizes discussion around specific proposals. \Acp{argmap} are one tool that may facilitate this
+process. The result from a single iteration is an imperfect step forward based on implementing a particular proposal.
+The result from many iterations is the breakdown of the problem into sub-problems---some tame and inevitably some still
+wicked. The tame sub-problems can be addressed with the \ac{classical-method}, and the wicked sub-problems, by now
+restrained under a sound and agreeable strategy, can be addressed with \ac{incrementalism}.
+
+It is important to note that the same \acp{wicked-prob} is never solved twice, since each one is by definition, unique.
+However, changes in technology, culture, and current affairs may render the current strategy insufficient and require
+the process to start again. \Acp{wicked-prob} are like history: they don't repeat themselves, but they rhyme. Due to
+changing circumstances, solutions past will not work in the future, but lessons learned from the past provide useful
+experience.
+
+In the context of \ac{encryption} and \ac{EA}, this means that the outcome of \ac{the-cw1} doesn't hold precedential
+power over the debate in the second. It means that re-raising questions about the role of technology is playing society
+is legitimate. To follow this proposed strategy would mean that hardline rhetoric doesn't help \cite{ruiz_there_2018}
+\cite{geller_2019}, though sincere appeals do \cite{abelson_2015} \cite{intl_2020} \cite{rozenshtein_2019}. Even more
+helpful are collaborative efforts involving government, technical, and civil liberties representatives
+\cite{committee_decrypting_2018} \cite{group_2019}. Specific proposals around which groups can center discussion,
+whether they specify a particular form of \ac{EA} or perhaps especially if they don't, are also a necessary component
+\cite{kerr_encryption_2017} \cite{wright_crypto_2018} \cite{phan_key_2017}.
+
+In the remainder of this thesis, I will apply this strategy through the use of \acp{argmap} to document elements of the
+debate in \mychap{chap-arguments} and through creation of a threat model against which I analyze one specific proposal
+in \mychap{chap-threatmodel}.
