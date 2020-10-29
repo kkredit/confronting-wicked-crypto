@@ -8,6 +8,7 @@ SRCDIR := .
 BINDIR := build
 CITDIR := build/w_citations
 
+WHOLE_FILES := demo key
 VARIATIONS := whole ea_proposals pro anti fallacies contrib
 
 SOURCES := $(wildcard $(SRCDIR)/*.ad)
@@ -49,11 +50,15 @@ image:
 	tail -n +50 $(BINDIR)/$(FILE).ps_tex >> $(BINDIR)/$(FILE).tex
 	rm $(BINDIR)/$(FILE).ps_tex
 
+$(WHOLE_FILES): $(DOCS_W_CITS) $(BUILD_CONFIG)
+	$(MAKE) image ARGDOWN_ARGS="file $(CITDIR)/$@.ad" FILE=$@
+
 $(VARIATIONS): $(DOCS_W_CITS) $(BUILD_CONFIG)
 	$(MAKE) image ARGDOWN_ARGS=$@ FILE=comprehensive.$@
 
 $(BUILT_SENTINAL): $(DOCS_W_CITS) $(BUILD_CONFIG)
-	$(MAKE) image ARGDOWN_ARGS="file $(CITDIR)/demo.ad" FILE=demo
+	set -ex; \
+		for FILE in $(WHOLE_FILES); do $(MAKE) $$FILE; done
 	set -ex; \
 		for VAR in $(VARIATIONS); do $(MAKE) $$VAR; done
 	touch $(BUILT_SENTINAL)

@@ -1,0 +1,51 @@
+===
+title: >
+  A 'key' demonstrating Argdown symbols.
+author: Kevin Kredit
+date: 2020/10/28
+color:
+    colorScheme: colorbrewer-category9
+    tagColors:
+        pro-ea: 0
+        anti-ea: 1
+        neutral-ea: 3
+        fact: 5
+        fallacy: 5
+        fallacious: 6
+        value: 2
+        action: 8
+dot:
+    measureLineWidth: true
+    group:
+        lineWidth: 125
+    argument:
+        lineWidth: 125
+        minWidth: 0
+    statement:
+        lineWidth: 125
+        minWidth: 0
+model:
+    removeTagsFromText: true
+mode: strict
+selection:
+    excludeDisconnected: false
+===
+
+# I am a Group of Proposals
+
+[Statement 1]: I am a proposal to implement EA. #action {inGroup: true}
+
+[Statement 2]: I am a contradictory proposal. #action {inGroup: true}
+  >< [Statement 1]
+
+# Arguments {isGroup: false}
+
+[Statement 1]
+  - <Argument 1>: I am an (anti-EA) attacking argument. #anti-ea
+  + <Argument 2>: I am a (pro-EA) supporting argument. #pro-ea
+    <_ [Statement 3]: I am an undercutting statement of fact. #fact
+    + [Statement 4]: I am a supporting statement of values. #value
+
+[Statement 2]
+  + <Argument 3>: I am a fallacious argument. #fallacious
+    <_ [Statement 5]: I am a description of a fallacy. #fallacy
