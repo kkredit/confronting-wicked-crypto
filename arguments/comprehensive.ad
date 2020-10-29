@@ -14,7 +14,7 @@ color:
         fallacy: 5
         fallacious: 6
         value: 2
-        judgement: 8
+        action: 8
     measureLineWidth: true
     group:
         lineWidth: 1000
@@ -27,10 +27,21 @@ color:
 model:
     removeTagsFromText: true
 mode: strict
-group:
-    groupDepth: 3
+#group:
+#    groupDepth: 3
 
 ## Preview configs start
+
+# Contributing Factors
+group:
+    groupDepth: 3
+    sections: {"Exceptional Access": {isClosed: true}}
+selection:
+    selectedSections:
+        - Central Issues
+        - Exceptional Access
+        - Response Measures
+        - Arguments for Measures
 
 ## Types of EA
 #selection:
@@ -89,25 +100,34 @@ group:
 
 # Response Measures
 
-[Unregulated use of Encryption]: Let technological progress proceed as it will. #anti-ea
+<!-- [Unregulated use of Encryption]: Let technological progress proceed as it will. #anti-ea
     <+ [Information Security]
+    >< [Exceptional Access] -->
+
+[Do Nothing]: Let technological progress and current events proceed as they will. #anti-ea #action
+
+## Legal Action
+
+[Forced Password Disclosure] #action
+
+[Lawful Hacking] #action
 
 ## Exceptional Access
 
-[Exceptional Access]: Broad deployment of cryptosystems with exceptional access would benefit to society. #ea-itself #judgement
+[Exceptional Access]: Broadly deploy cryptosystems with some form of exceptional access. #ea-itself #action
 
-[EA is bad]: Opposite of @[Exceptional Access] #ea-itself #judgement {isInMap: false}
+[EA is bad]: Opposite of @[Exceptional Access] #ea-itself {isInMap: false}
     >< [Exceptional Access]
 
 ### Data at Rest
 
-[EA DAR type1] #ea-proposal #dar
+[EA DAR type1] #ea-proposal #action #dar
 
 ### Data in Motion
 
-[EA DIM type1] #ea-proposal #dim
+[EA DIM type1] #ea-proposal #action #dim
 
-[EA DIM type2] #ea-proposal #dim
+[EA DIM type2] #ea-proposal #action #dim
 
 # Fallacies
 
@@ -173,8 +193,7 @@ own argument (cite:unc\_2020). #fallacy
     <_ [Ad Populum (Bandwagon)]
 (2) [EA is bad]
 
-<The technical community cannot give any ground on EA because LEAs will never be satisfied>:
-#fallacious #anti-ea
+<The technical community cannot give any ground on EA because LEAs will never be satisfied>: #fallacious #anti-ea
     <_ [Slippery Slope]
     -> [Exceptional Access]
 
@@ -208,10 +227,12 @@ crimes. #pro-ea
 <Argument from Foreign Intelligence Need>: Intelligence agencies need exceptional access tools to effectively
 investigate and prevent statecraft and terrorism. #pro-ea
     +> [Exceptional Access]
+    +> [Lawful Hacking]
     <+ [Public Safety]
 
 <Argument from Information Security>: Acceptably secure exceptional access is not technically feasible. #anti-ea
     -> [Exceptional Access]
+    -> [Lawful Hacking]
     <+ [Information Security]
 
 <Argument from Other Uses>: Exceptional access has positive auxiliary use cases. #pro-ea
