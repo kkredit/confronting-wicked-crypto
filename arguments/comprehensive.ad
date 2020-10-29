@@ -15,14 +15,15 @@ color:
         fallacious: 6
         value: 2
         action: 8
+dot:
     measureLineWidth: true
     group:
-        lineWidth: 1000
+        lineWidth: 125
     argument:
-        lineWidth: 200
+        lineWidth: 125
         minWidth: 0
     statement:
-        lineWidth: 200
+        lineWidth: 125
         minWidth: 0
 model:
     removeTagsFromText: true
