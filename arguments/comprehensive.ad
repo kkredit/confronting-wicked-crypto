@@ -36,7 +36,6 @@ mode: strict
 # Contributing Factors
 group:
     groupDepth: 3
-    sections: {"Exceptional Access": {isClosed: true}}
 selection:
     selectedSections:
         - Central Issues
@@ -220,6 +219,7 @@ crimes. #pro-ea
 (3) Prosecutors require sufficient evidence to make convictions.
 ----
 (4) Encryption hampers investigations and prosecutions.
+    <_ [Institutional Trust]
 (5) [Public Safety]
 (6) EA remediates encryption's ability to hide wrongdoing.
 ----
@@ -230,6 +230,7 @@ investigate and prevent statecraft and terrorism. #pro-ea
     +> [Exceptional Access]
     +> [Lawful Hacking]
     <+ [Public Safety]
+    <_ [Institutional Trust]
 
 <Argument from Information Security>: Acceptably secure exceptional access is not technically feasible. #anti-ea
     -> [Exceptional Access]
@@ -243,6 +244,7 @@ investigate and prevent statecraft and terrorism. #pro-ea
 (3) EA can be used for administrator access.
 ----
 (4) EA has positive auxiliary use cases.
+    <!-- <_ <Better Ways>: There are other, better ways of fulfilling these use cases. #neutral-ea -->
 ----
 (5) [Exceptional Access]
 

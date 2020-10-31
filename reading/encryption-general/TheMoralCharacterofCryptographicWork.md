@@ -10,6 +10,14 @@
 - Technical comments:
 - Notes:
 
+>But, despite all these arguments, I am skeptical about rationalist accounts of ethical affronts, be it mass
+surveillance or anything else. If we behave morally,it is not because of rational analyses, but an instinctual
+preference for liberty, empathy, or companionship. As Schneier points out, animals don’t like to be surveilled because
+it makes them feel like prey, while it makes the surveillor feel like—and act like—a predator. I think people know at an
+instinctual level that a life in which our thoughts, discourse, and interactions are subjected to constant algorithmic
+or human monitoring is no life at all. We are sprinting towards a world that we know, even without rational thought, is
+not a place where man belongs.
+
 ```bib
 @techreport{rogaway_moral_2015,
   month = {dec},

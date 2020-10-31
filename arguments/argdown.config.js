@@ -22,11 +22,6 @@ module.exports = {
     contrib: {
       process: "export-svg",
       outputSuffix: ".contrib",
-      dot: {
-        graphVizSettings: {
-          // rankdir: "LR"
-        },
-      },
       group: {
         groupDepth: 3,
       },
@@ -37,8 +32,6 @@ module.exports = {
           "Arguments for Measures",
           "Exceptional Access",
         ],
-        // selectedTags: ["core", "ea-itself"],
-        // selectElementsWithoutTag: true,
       },
     },
     ea_proposals: {

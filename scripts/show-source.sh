@@ -11,12 +11,12 @@ if (( 2 <= $# )) && [[ "-a" == "$1" ]]; then
         readlink -f $FILE
     done
     exit 0
-elif [[ 1 == $# && -f $ORIG_DIR/$1 ]]; then
+elif [[ 1 == $# && -f $ORIG_DIR/${1%%:[0-9]*} ]]; then
     # Show a file based on relative path
-    FILE=$ORIG_DIR/$1
-elif [[ 1 == $# && -f $1 ]]; then
+    FILE=$ORIG_DIR/${1%%:[0-9]*}
+elif [[ 1 == $# && -f ${1%%:[0-9]*} ]]; then
     # Show a file based on absolute path
-    FILE=$1
+    FILE=${1%%:[0-9]*}
 elif [[ 1 == $# ]] && $(grep -riIsq "@*{$1,"); then
     # Show a file based on bibtex ref
     FILE="$(grep -riIsl "@*{$1," . | head -1)"

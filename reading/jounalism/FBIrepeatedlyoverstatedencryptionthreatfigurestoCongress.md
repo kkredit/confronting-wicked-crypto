@@ -8,7 +8,7 @@
 - Contributions:
 - Policy comments:
   - FBI Directory Wray quoted the number at 7,800 devices
-  - The real number is less than 2,000
+  - The real number is less than 2,000 (one internal estimate: 1200)
 - Technical comments:
 - Notes:
 

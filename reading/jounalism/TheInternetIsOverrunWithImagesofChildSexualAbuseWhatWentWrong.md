@@ -1,6 +1,7 @@
 # The Internet Is Overrun With Images of Child Sexual Abuse. What Went Wrong?
 
 - Summary:
+  - Hard to read investigation on the extent of internet CSAM
 - Purpose:
 - Premises:
 - Contributions:

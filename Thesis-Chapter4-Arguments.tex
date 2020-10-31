@@ -1,17 +1,82 @@
 \chapter{EA Debate Argument Maps}
 \label{chap-arguments}
 
-% Already covered defining the problem. Next will discuss goals and list alternatives. That will feed into threat
-% modeling
+In this chapter we will analyze the \ac{encryption} debate using \acp{argmap}. The maps help one digest the debate, but
+there are two important shortcomings of the ones presented here. First, argument mapping is ideally just one tool in the
+collaborative process that progressively approaches the problem definition and solution. One can make an approximation
+from research, but it is not a replacement for debate arising from live discussion. Second, \acp{argmap} as portrayed in
+this thesis can be deceiving about the strength of an argument. Argument nodes show no indication of their strength or
+validity; one can formulate ten poor arguments against a single strong one, and a glance at the map will indicate that
+the case of the ten is stronger. With those qualifications in mind, let us begin by looking at the factors at the heart
+of the conflict.
 
 \section{Contributing Factors}
 
-\begin{sidewaysfigure}[h]
+As previously stated, it is \ac{encryption}'s dual role as enabler of radical privacy and cornerstone of security is at
+the heart of the EA debate. Of course, there is only a conflict if one sees radical privacy as a bad thing. The right to
+privacy is both a strongly held value and an enshrined legal principle, and many use privacy-based arguments to show
+\ac{EA} as socially undesirable. The \ac{snowden} revelations \cite{landau_making_2013} only unveiled the scale of
+privacy-eroding U.S. government surveillance enabled by technological changes, terrorism-motivated policies, and weak
+oversight \cite{shamsi_2011}. Violations of privacy are concerning for those most vulnerable and for society at large.
+For example, Saudi journalist Jamal Khashoggi's private communications were surveilled by the Saudi government before he
+became a victim of politically motivated murder \cite{liebermann_2019}. At a societal level, presence of surveillance
+alone changes behavior and chills free speech \cite{rogaway_moral_2015}, while government violations of the law degrade
+institutional trust.
+
+The government, and particularly \acl{LE}, argues that encryption is handcuffing their investigational capacity. The
+\ac{FBI} has branded strong encryption as ``warrant-proof'' and states that ``the government often cannot obtain the
+electronic evidence necessary to investigate and prosecute threats to public and national safety'' \cite{fbi_2020}. The
+pro-\ac{EA} argument is typically rooted in public safety: investigators need access to evidence to fulfill their
+commission to catch and convict lawbreakers, and encryption is making that too difficult. Five-eyes nations regularly
+put out joint statements expressing their frustration with encryption \cite{ministerial_2018} \cite{goodale_2017}, and
+were joined in 2020 by India and Japan in a statement emphasizing the growing danger of \ac{CSAM} \cite{intl_2020}.
+Child pornography is one the original \ac{horsemen} that some argue are used to scare people into supporting backdoors
+\cite{schneier_scaring_2019}, but it is also a problem growing to astonishing proportions. The \textit{New York Times}'s
+2019 investigation on the matter quoted one law enforcement officer as estimating that 400,000 New Jerseyans, more than
+4\% of the state's population, could be charged with violating child exploitation material laws
+\cite{keller_internet_2019}.
+
+Unfortunately, shocking assertions such as this have not been independently confirmed or backed up with hard data.
+Intelligence agencies have a long history or misrepresenting positions and overstepping bounds
+\cite{johnson_congressional_2004} \cite{shamsi_2011}, and this has led to lack of institutional trust undercutting their
+claims that they need \ac{EA}. Indeed, the \ac{FBI} has already been caught exaggerating by several times how many
+mobile devices they could not access due to \acl{DE} \cite{devlin_2018}. As Rozenshtein says on this subject, ``It is
+impossible to know the precise extent to which encryption frustrates law-enforcement investigations, both because
+law-enforcement agencies are only beginning to collect accurate statistics, and because one can never be sure of how an
+investigation would have proceeded in the absence of encryption'' \cite{rozenshtein_wicked_2018}, but it is still
+crucial to have an accurate depiction of the problem in order to come to justified and helpful solutions. This argument
+is analyzed further in the next section.
+
+Information security is a the remaining central issue in the debate. As described in \mysec{sec-crypto-basics},
+\ac{cryptography} in various forms plays a foundational technical role in nearly every aspect of security, and
+information confidentiality itself is one of the primary properties security practitioners fight to protect. Efforts in
+the past have sought to undermine the cryptographic foundations of encryption, though this is not a feature of proposals
+today, as that is universally seen as too risky. \mysec{sec-tech-approaches} introduced several alternative technical
+approaches to \ac{EA}, but experts still proclaim loud and clear that the current state of the art is far from capable
+of providing the type of access \acl{LE} in an acceptably secure manner \cite{abelson_2015} \cite{abelson_risks_1997}.
+Security was an afterthought in early computing and networking designs, and the field of cybersecurity is still more of
+an art the a science; hobbling systems with a mandate to provide \ac{EA} would inevitably diminish security to some
+degree \cite{abelson_2015}.
+
+Finally, one may argue that \ac{EA}, depending on its implementation, could have positive auxiliary use cases. It could
+enable malware scanning, administrator access in a business setting, or password recovery. Typically these use cases
+have other solutions, however, and to combine the requirements of these uses with those of any reasonable \ac{EA}
+proposal would likely fatally weaken it.
+
+See \myfig{fig-args-contrib} for the \ac{argmap} representing this section.
+
+\begin{sidewaysfigure}
   \centering\CaptionFontSize
   \includegraphics[width=\linewidth]{arguments/build/comprehensive.contrib.pdf}
   \caption[Contributing Factors to the EA Debate]{Contributing Factors to the EA Debate}
   \label{fig-args-contrib}
 \end{sidewaysfigure}
+
+\section{Going Dark vs. The Golden Age}
+
+% Actually fund initiatives to tackle these problems!
+% pfefferkorn_2019
+% keller_internet_2019
 
 \section{Eliminating Fallacious Arguments}
 
@@ -33,7 +98,7 @@
 % For a wholistic threat model, include both the threats of government (legislation) and of criminal abusers of your
 % system.
 
-\section{Proposed Alternatives}
+\section{Specific Proposals}
 
 % See committee_decrypting_2018!
 
