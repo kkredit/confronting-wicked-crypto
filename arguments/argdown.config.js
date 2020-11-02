@@ -34,10 +34,51 @@ module.exports = {
         ],
       },
     },
+    goingdark: {
+      process: "export-svg",
+      outputSuffix: ".goingdark",
+      group: {
+        groupDepth: 3,
+      },
+      selection: {
+        selectedSections: [
+          "Exceptional Access",
+          "Central Issues",
+          "Going Dark Conclusions",
+          "Going Dark Argument",
+          "Going Dark Non Core",
+        ],
+      },
+    },
+    goldenage: {
+      process: "export-svg",
+      outputSuffix: ".goldenage",
+      group: {
+        groupDepth: 3,
+      },
+      selection: {
+        selectedSections: [
+          "Exceptional Access",
+          "Central Issues",
+          "Going Dark Conclusions",
+          "Golden Age Argument",
+          "Golden Age Non Core",
+        ],
+      },
+      dot: {
+        argument: { lineWidth: 125 },
+        statement: { lineWidth: 125 },
+      },
+    },
     ea_proposals: {
       process: "export-svg",
       outputSuffix: ".ea_proposals",
       selection: {
+        selectedSections: [
+          "Exceptional Access",
+          "Response Measures",
+          "Arguments for Measures",
+        ],
         selectedTags: ["ea-proposal", "neutral-ea"],
         selectElementsWithoutTag: true,
       },

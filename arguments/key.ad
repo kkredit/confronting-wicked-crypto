@@ -8,7 +8,7 @@ color:
     tagColors:
         pro-ea: 0
         anti-ea: 1
-        neutral-ea: 3
+        neutral-ea: 7
         fact: 5
         fallacy: 5
         fallacious: 6
