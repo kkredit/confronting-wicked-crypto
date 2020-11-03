@@ -41,7 +41,7 @@ mode: strict
 #        - Central Issues
 #        - Exceptional Access
 #        - Response Measures
-#        - Arguments for Measures
+#        - Arguments for Exceptional Access
 
 ## Going Dark
 #group:
@@ -65,18 +65,6 @@ mode: strict
 #        - Golden Age Argument
 #        - Golden Age Non Core
 
-## Types of EA
-#selection:
-#    selectedSections:
-#        - Central Issues
-#        - "Response Measures: Various Alternatives"
-#        - Arguments for Measures
-#        - Arguments for Types of EA
-#    selectedTags:
-#        - ea-proposal
-#        - neutral
-#    selectElementsWithoutTag: true
-
 ## Fallacies config
 ##group:
 ##    sections: {"Exceptional Access": {isClosed: true}}
@@ -97,6 +85,21 @@ mode: strict
 #        - fallacious
 #    selectElementsWithoutTag: true
 
+# Types of EA
+group:
+    groupDepth: 3
+selection:
+    selectedSections:
+        - Response Measures
+        - Exceptional Access
+        - Legal Action
+        - Central Issues
+        - Arguments for Measures
+#    selectedTags:
+#        - ea-proposal
+#        - neutral
+#    selectElementsWithoutTag: true
+
 ## Preview configs end
 ===
 
@@ -114,11 +117,13 @@ mode: strict
 
 [Information Security]: Information security is critical for modern digital infrastructure. #core
 
-[Public Safety]: The ability to investigate, interrupt, and litigate wrongdoing is central to law enforcement's mandate. #core
+[Public Safety]: The ability to investigate, interrupt, and litigate wrongdoing is central to law enforcement's
+mandate. #core
 
 [Data Privacy]: Individuals in a free society have the right to a reasonable expectation of privacy. #core
 
-[Institutional Trust]: Governments and corporations have an obligation to honor their citizens' and customers' trust. #core
+[Institutional Trust]: Governments and corporations have an obligation to honor their citizens' and customers'
+trust. #core
 
 # Response Measures
 
@@ -130,9 +135,9 @@ mode: strict
 
 ## Legal Action
 
-[Forced Password Disclosure] #action
+[Forced Password Disclosure]: Establish legal authority to compel password disclosure. #action
 
-[Lawful Hacking] #action
+[Lawful Hacking]: Establish legal authority for law enforcement to offensively hack access to data. #action
 
 ## Exceptional Access
 
@@ -153,19 +158,19 @@ mode: strict
 
 # Going Dark Conclusions
 
-["Going Dark" Conclusion]: Law enforcement is "Going Dark" due to evidence-hiding encryption. EA is needed to
-restore the balance between privacy and safety. #pro-ea  {rank: 'conclusions'}
+["Going Dark" Conclusion]: Law enforcement is "Going Dark" due to evidence-hiding encryption. EA is needed to restore
+the balance between privacy and safety. #pro-ea  {rank: 'conclusions'}
     +> [Exceptional Access]
 
-["Golden Age" Conclusion]: Technology is enabling a "Golden Age of Surveillance" for which encryption is the
-    strongest defense. EA would compromise this goal. #anti-ea {rank: 'conclusions'}
+["Golden Age" Conclusion]: Technology is enabling a "Golden Age of Surveillance" for which encryption is the strongest
+defense. EA would compromise this goal. #anti-ea {rank: 'conclusions'}
     -> [Exceptional Access]
     >< ["Going Dark" Conclusion]
 
 # Going Dark Argument
 
 <"Going Dark" Argument>: Personal privacy and public safety inherently conflict--we need balance. Encryption has upset
-this balance, and gives bad actors too much cover.#pro-ea
+this balance, and gives bad actors too much cover. #pro-ea
 
 (1) [Privacy a Personal Good]: Privacy is personal good. It's about protecting your personal data. #neutral
     <+ [Data Privacy]
@@ -308,7 +313,7 @@ own argument. #fallacy
     +> [Exceptional Access]
     <_ [Appeal to Pity]
 
-# Arguments for Measures {isGroup: false}
+# Arguments for Exceptional Access {isGroup: false}
 
 <Argument from Law Enforcement Need>: Law enforcement needs exceptional access tools to effectively investigate and try
 crimes. #pro-ea
@@ -361,6 +366,12 @@ to investigation depending on their context and likelihood that they constitute 
 (4) EA inappropriately shifts power away from citizens and toward the government.
 ----
 (5) [EA is bad]
+
+# Arguments for Measures {isGroup: false}
+
+<Lawful Hacking Misaligns Incentives>
+    <+ [Information Security]
+    -> [Lawful Hacking]
 
 # Arguments for Types of EA {isGroup: false}
 

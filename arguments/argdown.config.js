@@ -29,7 +29,7 @@ module.exports = {
         selectedSections: [
           "Central Issues",
           "Response Measures",
-          "Arguments for Measures",
+          "Arguments for Exceptional Access",
           "Exceptional Access",
         ],
       },
@@ -70,35 +70,35 @@ module.exports = {
         statement: { lineWidth: 125 },
       },
     },
-    ea_proposals: {
-      process: "export-svg",
-      outputSuffix: ".ea_proposals",
-      selection: {
-        selectedSections: [
-          "Exceptional Access",
-          "Response Measures",
-          "Arguments for Measures",
-        ],
-        selectedTags: ["ea-proposal", "neutral-ea"],
-        selectElementsWithoutTag: true,
-      },
-    },
-    pro: {
-      process: "export-svg",
-      outputSuffix: ".pro",
-      selection: {
-        selectedTags: ["ea-itself", "pro-ea"],
-        selectElementsWithoutTag: true,
-      },
-    },
-    anti: {
-      process: "export-svg",
-      outputSuffix: ".anti",
-      selection: {
-        selectedTags: ["ea-itself", "anti-ea"],
-        selectElementsWithoutTag: true,
-      },
-    },
+    // ea_proposals: {
+    //   process: "export-svg",
+    //   outputSuffix: ".ea_proposals",
+    //   selection: {
+    //     selectedSections: [
+    //       "Exceptional Access",
+    //       "Response Measures",
+    //       "Arguments for Measures",
+    //     ],
+    //     selectedTags: ["ea-proposal", "neutral-ea"],
+    //     selectElementsWithoutTag: true,
+    //   },
+    // },
+    // pro: {
+    //   process: "export-svg",
+    //   outputSuffix: ".pro",
+    //   selection: {
+    //     selectedTags: ["ea-itself", "pro-ea"],
+    //     selectElementsWithoutTag: true,
+    //   },
+    // },
+    // anti: {
+    //   process: "export-svg",
+    //   outputSuffix: ".anti",
+    //   selection: {
+    //     selectedTags: ["ea-itself", "anti-ea"],
+    //     selectElementsWithoutTag: true,
+    //   },
+    // },
     fallacies: {
       dot: {
         graphVizSettings: {
@@ -117,6 +117,22 @@ module.exports = {
         ],
         selectedTags: ["core", "ea-itself", "fallacy", "fallacious"],
         selectElementsWithoutTag: true,
+      },
+    },
+    measures: {
+      process: "export-svg",
+      outputSuffix: ".measures",
+      group: {
+        groupDepth: 3,
+      },
+      selection: {
+        selectedSections: [
+          "Central Issues",
+          "Response Measures",
+          "Exceptional Access",
+          "Legal Action",
+          "Arguments for Measures",
+        ],
       },
     },
   },
