@@ -28,8 +28,6 @@ dot:
 model:
     removeTagsFromText: true
 mode: strict
-#group:
-#    groupDepth: 3
 
 ## Preview configs start
 
@@ -65,7 +63,7 @@ mode: strict
 #        - Golden Age Argument
 #        - Golden Age Non Core
 
-## Fallacies config
+## Fallacies
 ##group:
 ##    sections: {"Exceptional Access": {isClosed: true}}
 #dot:
@@ -85,20 +83,38 @@ mode: strict
 #        - fallacious
 #    selectElementsWithoutTag: true
 
-# Types of EA
-group:
-    groupDepth: 3
-selection:
-    selectedSections:
-        - Response Measures
-        - Exceptional Access
-        - Legal Action
-        - Central Issues
-        - Arguments for Measures
-#    selectedTags:
-#        - ea-proposal
-#        - neutral
-#    selectElementsWithoutTag: true
+## Response Measures
+#group:
+#    groupDepth: 3
+#selection:
+#    selectedSections:
+#        - Response Measures
+#        - Exceptional Access
+#        - Legal Action
+#        - Central Issues
+#        - Arguments for Measures
+
+## Types of EA
+#group:
+#    groupDepth: 3
+#selection:
+#    selectedSections:
+#        - Central Issues
+#        - Exceptional Access
+#        - DAR EA Classes
+#        - DIM EA Classes
+#        - Arguments for EA Types
+
+## EA Proposals
+#group:
+#    groupDepth: 3
+#selection:
+#    selectedSections:
+#        - Central Issues
+#        - Exceptional Access
+#        - DAR EA Proposals
+#        - DIM EA Proposals
+#        - Arguments for EA Proposals
 
 ## Preview configs end
 ===
@@ -146,15 +162,75 @@ trust. #core
 [EA is bad]: Opposite of @[Exceptional Access] #ea-itself {isInMap: false}
     >< [Exceptional Access]
 
-### Data at Rest
+### DAR EA Classes
 
 [EA DAR type1] #ea-proposal #action #dar
 
-### Data in Motion
+### DAR EA Proposals
+
+[EA DAR prop1] #ea-proposal #action #dar
+
+### DIM EA Classes
 
 [EA DIM type1] #ea-proposal #action #dim
 
-[EA DIM type2] #ea-proposal #action #dim
+### DIM EA Proposals
+
+[EA DIM prop1] #ea-proposal #action #dim
+
+# Arguments for Exceptional Access {isGroup: false}
+
+<Argument from Law Enforcement Need>: Law enforcement needs exceptional access tools to effectively investigate and try
+crimes. #pro-ea
+
+(1) Encryption hides evidence of wrongdoing.
+(2) Law enforcement requires probable cause to obtain warrants and pursue investigations.
+(3) Prosecutors require sufficient evidence to make convictions.
+----
+(4) Encryption hampers investigations and prosecutions.
+    <_ [Institutional Trust]
+(5) [Public Safety]
+(6) EA remediates encryption's ability to hide wrongdoing.
+----
+(7) [Exceptional Access]
+
+<Argument from Foreign Intelligence Need>: Intelligence agencies need exceptional access tools to effectively
+investigate and prevent statecraft and terrorism. #pro-ea
+    +> [Exceptional Access]
+    +> [Lawful Hacking]
+    <+ [Public Safety]
+    <_ [Institutional Trust]
+
+<Argument from Information Security>: Acceptably secure exceptional access is not technically feasible. #anti-ea
+    -> [Exceptional Access]
+    -> [Lawful Hacking]
+    <+ [Information Security]
+
+<Argument from Other Uses>: Exceptional access has positive auxiliary use cases. #pro-ea
+
+(1) EA can be used for malware scanning.
+(2) EA can be used for password recovery.
+(3) EA can be used for administrator access.
+----
+(4) EA has positive auxiliary use cases.
+    <!-- <_ <Better Ways>: There are other, better ways of fulfilling these use cases. #neutral -->
+----
+(5) [Exceptional Access]
+
+[Absolute Right to Privacy]: Individuals in a free society have an absolute right to privacy. #value #anti-ea
+
+<Right to Privacy is not Absolute>: An individual's right to privacy is contextual. One's words and actions are subject
+to investigation depending on their context and likelihood that they constitute a violation of law. #pro-ea
+    -> [Absolute Right to Privacy]
+
+<Argument from Social Desirability>: Exceptional access is not socially desirable. #anti-ea
+
+(1) [Absolute Right to Privacy]
+(2) [Institutional Trust]
+(3) [Data Privacy]
+(4) EA inappropriately shifts power away from citizens and toward the government.
+----
+(5) [EA is bad]
 
 # Going Dark Conclusions
 
@@ -313,76 +389,28 @@ own argument. #fallacy
     +> [Exceptional Access]
     <_ [Appeal to Pity]
 
-# Arguments for Exceptional Access {isGroup: false}
-
-<Argument from Law Enforcement Need>: Law enforcement needs exceptional access tools to effectively investigate and try
-crimes. #pro-ea
-
-(1) Encryption hides evidence of wrongdoing.
-(2) Law enforcement requires probable cause to obtain warrants and pursue investigations.
-(3) Prosecutors require sufficient evidence to make convictions.
-----
-(4) Encryption hampers investigations and prosecutions.
-    <_ [Institutional Trust]
-(5) [Public Safety]
-(6) EA remediates encryption's ability to hide wrongdoing.
-----
-(7) [Exceptional Access]
-
-<Argument from Foreign Intelligence Need>: Intelligence agencies need exceptional access tools to effectively
-investigate and prevent statecraft and terrorism. #pro-ea
-    +> [Exceptional Access]
-    +> [Lawful Hacking]
-    <+ [Public Safety]
-    <_ [Institutional Trust]
-
-<Argument from Information Security>: Acceptably secure exceptional access is not technically feasible. #anti-ea
-    -> [Exceptional Access]
-    -> [Lawful Hacking]
-    <+ [Information Security]
-
-<Argument from Other Uses>: Exceptional access has positive auxiliary use cases. #pro-ea
-
-(1) EA can be used for malware scanning.
-(2) EA can be used for password recovery.
-(3) EA can be used for administrator access.
-----
-(4) EA has positive auxiliary use cases.
-    <!-- <_ <Better Ways>: There are other, better ways of fulfilling these use cases. #neutral -->
-----
-(5) [Exceptional Access]
-
-[Absolute Right to Privacy]: Individuals in a free society have an absolute right to privacy. #value #anti-ea
-
-<Right to Privacy is not Absolute>: An individual's right to privacy is contextual. One's words and actions are subject
-to investigation depending on their context and likelihood that they constitute a violation of law. #pro-ea
-    -> [Absolute Right to Privacy]
-
-<Argument from Social Desirability>: Exceptional access is not socially desirable. #anti-ea
-
-(1) [Absolute Right to Privacy]
-(2) [Institutional Trust]
-(3) [Data Privacy]
-(4) EA inappropriately shifts power away from citizens and toward the government.
-----
-(5) [EA is bad]
-
 # Arguments for Measures {isGroup: false}
 
 <Lawful Hacking Misaligns Incentives>
     <+ [Information Security]
     -> [Lawful Hacking]
 
-# Arguments for Types of EA {isGroup: false}
+# Arguments for EA Types {isGroup: false}
 
-<EA DAR type1 is Secure>: This is a good approach. #neutral
+<EA DAR type1 is Secure>: DAR type1 is secure #neutral
     <+ [Information Security]
     +> [EA DAR type1]
 
-<EA DIM type1 creates poor trust relationships>: This is a bad approach. #neutral
+<EA DIM type1 creates poor trust relationships>: DIM type1 is untrustrowrthy #neutral
     <+ [Institutional Trust]
     -> [EA DIM type1]
 
-<EA DIM type2 doesn't help local LE>: This is a bad approach. #neutral
+# Arguments for EA Proposals {isGroup: false}
+
+<EA DIM prop1 doesn't help local LE>: DIM prop1 not even helpful #neutral
     <+ [Public Safety]
-    -> [EA DIM type2]
+    -> [EA DIM prop1]
+
+<EA DAR prop1 enables surveillance>: DAR enables the baddies #neutral
+    <+ [Data Privacy]
+    -> [EA DAR prop1]

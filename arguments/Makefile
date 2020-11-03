@@ -9,7 +9,7 @@ BINDIR := build
 CITDIR := build/w_citations
 
 WHOLE_FILES := demo key
-VARIATIONS := whole contrib goingdark goldenage fallacies measures
+VARIATIONS := whole contrib goingdark goldenage fallacies measures classes proposals
 
 SOURCES := $(wildcard $(SRCDIR)/*.ad)
 DOCS_W_CITS := $(patsubst $(SRCDIR)/%.ad,$(CITDIR)/%.ad.success,$(SOURCES))

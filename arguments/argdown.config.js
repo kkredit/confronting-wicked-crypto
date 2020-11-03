@@ -70,35 +70,6 @@ module.exports = {
         statement: { lineWidth: 125 },
       },
     },
-    // ea_proposals: {
-    //   process: "export-svg",
-    //   outputSuffix: ".ea_proposals",
-    //   selection: {
-    //     selectedSections: [
-    //       "Exceptional Access",
-    //       "Response Measures",
-    //       "Arguments for Measures",
-    //     ],
-    //     selectedTags: ["ea-proposal", "neutral-ea"],
-    //     selectElementsWithoutTag: true,
-    //   },
-    // },
-    // pro: {
-    //   process: "export-svg",
-    //   outputSuffix: ".pro",
-    //   selection: {
-    //     selectedTags: ["ea-itself", "pro-ea"],
-    //     selectElementsWithoutTag: true,
-    //   },
-    // },
-    // anti: {
-    //   process: "export-svg",
-    //   outputSuffix: ".anti",
-    //   selection: {
-    //     selectedTags: ["ea-itself", "anti-ea"],
-    //     selectElementsWithoutTag: true,
-    //   },
-    // },
     fallacies: {
       dot: {
         graphVizSettings: {
@@ -132,6 +103,38 @@ module.exports = {
           "Exceptional Access",
           "Legal Action",
           "Arguments for Measures",
+        ],
+      },
+    },
+    classes: {
+      process: "export-svg",
+      outputSuffix: ".classes",
+      group: {
+        groupDepth: 3,
+      },
+      selection: {
+        selectedSections: [
+          "Central Issues",
+          "Exceptional Access",
+          "DAR EA Classes",
+          "DIM EA Classes",
+          "Arguments for EA Types",
+        ],
+      },
+    },
+    proposals: {
+      process: "export-svg",
+      outputSuffix: ".proposals",
+      group: {
+        groupDepth: 3,
+      },
+      selection: {
+        selectedSections: [
+          "Central Issues",
+          "Exceptional Access",
+          "DAR EA Proposals",
+          "DIM EA Proposals",
+          "Arguments for EA Proposals",
         ],
       },
     },
