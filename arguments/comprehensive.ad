@@ -248,30 +248,30 @@ application violates liberal values. #neutral
 [Post Hoc]
 
 [Slippery Slope]: Arguing that a single step in one direction will inevitably result in sliding all the way to the
-extreme (cite:unc\_2020). #fallacy
+extreme. #fallacy
 
 [Weak Analogy]
 
-[Appeal to Authority]: Using name recognition of figures that agree with the conclusion as an argument in itself
-(cite:unc\_2020). #fallacy
+[Appeal to Authority]: Using name recognition of figures that agree with the conclusion as an argument in
+itself. #fallacy
 
-[Ad Populum (Bandwagon)]: Using the supposed majority support for the conclusion by some group as an argument in itself
-(cite:unc\_2020). #fallacy
+[Ad Populum (Bandwagon)]: Using the supposed majority support for the conclusion by some group as an argument in
+itself. #fallacy
 
-[Ad Hominem]: Stating that an argument is invalid because the arguer has poor character (cite:unc\_2020). #fallacy
+[Ad Hominem]: Stating that an argument is invalid because the arguer has poor character. #fallacy
 
 [Tu Quoque (Hypocrisy)]: Stating that an argument is invalid because the arguer has hypocritically acted against their
-own argument (cite:unc\_2020). #fallacy
+own argument. #fallacy
 
-[Appeal to Pity]: Attempting to convince the audience by making them feel sorry for someone (cite:unc\_2020). #fallacy
+[Appeal to Pity]: Attempting to convince the audience by making them feel sorry for someone. #fallacy
 
 [Appeal to Ignorance]
 
-[Straw Man]: Setting up a weak version of the opposing argument in order to tear it down (cite:unc\_2020). #fallacy
+[Straw Man]: Setting up a weak version of the opposing argument in order to tear it down. #fallacy
 
 [Red Herring]
 
-[False Dichotomy]: Presenting a situation as if there are only two choices (cite:unc\_2020). #fallacy
+[False Dichotomy]: Presenting a situation as if there are only two choices. #fallacy
 
 [Begging the Question]
 
@@ -280,44 +280,33 @@ own argument (cite:unc\_2020). #fallacy
 # Fallacious Arguments {isGroup: false}
 
 <EA is bad because backdoors are insecure>: #fallacious #anti-ea
-
-(1) EA means having government backdoors.
+    -> [Exceptional Access]
     <_ [Straw Man]
-(2) Backdoors are very insecure.
-(3) [Information Security]
-----
-(4) [EA is bad]
 
 <We should not implement EA because security experts are against it>: #fallacious #anti-ea
-
-(1) Security experts are against EA.
-(2) [Information Security]
-----
+    -> [Exceptional Access]
     <_ [Appeal to Authority]
-(3) [EA is bad]
 
 <We should not implement EA because a majority of the public is against it>: #fallacious #anti-ea
-
-(1) A majority of the public is against "back doors" (cite:hanna\_2019).
-----
+    -> [Exceptional Access]
     <_ [Ad Populum (Bandwagon)]
-(2) [EA is bad]
+<!-- Citation: hanna_2019 -->
 
 <The technical community cannot give any ground on EA because LEAs will never be satisfied>: #fallacious #anti-ea
-    <_ [Slippery Slope]
     -> [Exceptional Access]
+    <_ [Slippery Slope]
 
 <Government calls for EA on the basis of CSAM are disingenuous> #fallacious #anti-ea
-    <_ [Tu Quoque (Hypocrisy)]
     -> [Exceptional Access]
+    <_ [Tu Quoque (Hypocrisy)]
 
 <Perfect EA is impossible, so we shouldn't implement it> #fallacious #anti-ea
-    <_ [False Dichotomy]
     -> [Exceptional Access]
+    <_ [False Dichotomy]
 
 <We need EA now because victims of CSAM are suffering> #fallacious #pro-ea
-    <_ [Appeal to Pity]
     +> [Exceptional Access]
+    <_ [Appeal to Pity]
 
 # Arguments for Measures {isGroup: false}
 
