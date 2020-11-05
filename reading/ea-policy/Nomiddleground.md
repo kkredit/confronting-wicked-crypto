@@ -1,7 +1,7 @@
 # No middle ground: Moving on from the crypto wars
 
 - Summary:
-  - EU-focused state of affairs in privacy, security, and EA
+  - EU-focused state of affairs in privacy, security, and EA (large focus on lawful hacking)
 - Purpose:
 - Premises:
 - Contributions:

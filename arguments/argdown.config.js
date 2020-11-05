@@ -71,28 +71,29 @@ module.exports = {
       },
     },
     fallacies: {
+      process: "export-svg",
+      outputSuffix: ".fallacies",
       dot: {
         graphVizSettings: {
           rankdir: "LR",
         },
       },
-      process: "export-svg",
-      outputSuffix: ".fallacies",
       selection: {
         selectedSections: [
-          "Central Issues",
-          "Response Measures",
           "Exceptional Access",
           "Fallacies",
           "Fallacious Arguments",
         ],
-        selectedTags: ["core", "ea-itself", "fallacy", "fallacious"],
-        selectElementsWithoutTag: true,
       },
     },
     measures: {
       process: "export-svg",
       outputSuffix: ".measures",
+      dot: {
+        graphVizSettings: {
+          ranksep: 0.7,
+        },
+      },
       group: {
         groupDepth: 3,
       },
@@ -101,7 +102,8 @@ module.exports = {
           "Central Issues",
           "Response Measures",
           "Exceptional Access",
-          "Legal Action",
+          "Current Capabilities",
+          "Legal Measures",
           "Arguments for Measures",
         ],
       },

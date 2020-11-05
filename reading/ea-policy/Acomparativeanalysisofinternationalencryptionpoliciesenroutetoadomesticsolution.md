@@ -1,6 +1,5 @@
 # A comparative analysis of international encryption policies en route to a domestic solution
 
-read next
 - Summary:
   - Israel relies on technical partnership and expertise, China relies on law and regulation
 - Purpose:

@@ -64,24 +64,14 @@ mode: strict
 #        - Golden Age Non Core
 
 ## Fallacies
-##group:
-##    sections: {"Exceptional Access": {isClosed: true}}
 #dot:
 #    graphVizSettings:
 #        rankdir: LR
 #selection:
 #    selectedSections:
-#        - Central Issues
-#        - Response Measures
 #        - Exceptional Access
 #        - Fallacies
 #        - Fallacious Arguments
-#    selectedTags:
-#        - core
-#        - ea-itself
-#        - fallacy
-#        - fallacious
-#    selectElementsWithoutTag: true
 
 ## Response Measures
 #group:
@@ -90,7 +80,8 @@ mode: strict
 #    selectedSections:
 #        - Response Measures
 #        - Exceptional Access
-#        - Legal Action
+#        - Current Capabilities
+#        - Legal Measures
 #        - Central Issues
 #        - Arguments for Measures
 
@@ -147,20 +138,31 @@ trust. #core
     <+ [Information Security]
     >< [Exceptional Access] -->
 
-[Do Nothing]: Let technological progress and current events proceed as they will. #anti-ea #action
+## Current Capabilities
 
-## Legal Action
+[Do Nothing]: Conclude that the status quo is, indeed, okay. #action
+
+[Increase Investment]: Invest in traditional investigative techniques. #action
+<!-- From kerr_encryption_2017: find the key, guess the key, access plaintext while device in use, find another copy -->
+
+## Legal Measures
 
 [Forced Password Disclosure]: Establish legal authority to compel password disclosure. #action
+<!-- From kerr_encryption_2017: compel the key -->
 
 [Lawful Hacking]: Establish legal authority for law enforcement to offensively hack access to data. #action
+<!-- From kerr_encryption_2017: exploit a technical flaw (possibly through vendor) -->
 
 ## Exceptional Access
 
-[Exceptional Access]: Broadly deploy cryptosystems with some form of exceptional access. #ea-itself #action
+[Exceptional Access]: Broadly deploy cryptosystems with some form of exceptional access. #action
 
-[EA is bad]: Opposite of @[Exceptional Access] #ea-itself {isInMap: false}
+[EA is bad]: Opposite of @[Exceptional Access] {isInMap: false}
     >< [Exceptional Access]
+
+<!-- [Cryptographic EA]: Exceptional access achieved through altering cryptographic protocols. #action
+
+[System Design EA]: Exceptional access achieved through system implementation. #action -->
 
 ### DAR EA Classes
 <!-- See group_2019 -->
@@ -419,9 +421,73 @@ conclusion. #fallacy
 
 # Arguments for Measures {isGroup: false}
 
-<Lawful Hacking Misaligns Incentives>
+<!--
+# Response Measures
+## Current Capabilities
+    [Do Nothing]
+    [Increase Investment]
+## Legal Measures
+    [Forced Password Disclosure]
+    [Lawful Hacking]
+## Exceptional Access
+    [Cryptographic EA]
+    [System Design EA]
+-->
+
+<!-- Start with good properties
+    See: varia_2018, group_2019, committee_decrypting_2018 -->
+
+[Minimize Increased Security Risk]: Measures should not dramatically increase risk for either specific data or
+cybersecurity in general. #neutral {rank: "metrics"}
     <+ [Information Security]
+
+[Law Enforcement Utility]: Measures should actually be useful to law enforcement in terms of accuracy, speed, and
+cost. #neutral {rank: "metrics"}
+    <+ [Public Safety]
+    +> [Increase Investment]
+
+[Protection of Civil Liberties]: Measures must preclude mass surveillance and international abuse
+generally. #neutral {rank: "metrics"}
+    <+ [Data Privacy]
+    <+ [Institutional Trust]
+    -> [Forced Password Disclosure]
+
+[Transparency]: Measures should be reasonably auditable to the search target and the public. #neutral {rank: "metrics"}
+    <+ [Institutional Trust]
+
+[Economic Impacts]: Measures should consider competitiveness and cost burdens. #neutral {rank: "metrics"}
+    -> [Exceptional Access]
+    +> [Forced Password Disclosure]
+    +> [Do Nothing]
+
+<Relying Current Capabilities a Conservative Choice>: Introduces no new risks to security or liberty. #neutral
+    <+ [Minimize Increased Security Risk]
+    <+ [Protection of Civil Liberties]
+    +> [Do Nothing]
+    +> [Increase Investment]
+
+<Lawful Hacking Misaligns Incentives>: Would create an adversarial relationship between law enforcement and
+tech. #neutral
+    <+ [Minimize Increased Security Risk]
+    <+ [Transparency]
     -> [Lawful Hacking]
+
+<Usefulness for Common Crime>: Would local agencies be able to use it at scale? #neutral
+    <+ [Law Enforcement Utility]
+    -> [Lawful Hacking]
+    +> [Exceptional Access]
+
+<Usefulness for Organized Crime>: Would organized threat actors be able to evade the measure? #neutral
+    <+ [Law Enforcement Utility]
+    -> [Forced Password Disclosure]
+    -> [Exceptional Access]
+    +> [Lawful Hacking]
+
+<EA Very Difficult to do Securely>: Even accepting some risk, regardless of implementation EA is hard to do
+safely. #neutral
+    <+ [Minimize Increased Security Risk]
+    -> [Exceptional Access]
+
 
 # Arguments for EA Types {isGroup: false}
 

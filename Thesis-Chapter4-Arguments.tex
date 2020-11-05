@@ -81,7 +81,7 @@ well-represented by proponent former \ac{FBI} Director James Comey in a 2014 spe
 coin the phrase \cite{swire_encryption_2011}). The argument is represented in \myfig{fig-arg-going-dark}, also informed
 by critiques \cite{rogaway_moral_2015}.
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering\CaptionFontSize
   \includegraphics[width=\linewidth]{arguments/build/comprehensive.goingdark.pdf}
   \caption{A ``Going Dark'' Argument Map}
@@ -132,9 +132,9 @@ much more digital evidence than encryption has taken away. Paired with the dange
 a necessary defense, and any \ac{EA} implementation would compromise encryption's protection. The argument is mapped in
 \myfig{fig-arg-golden-age}.
 
-\begin{figure}[h]
+\begin{figure}[p!]
   \centering\CaptionFontSize
-  \includegraphics[width=\linewidth]{arguments/build/comprehensive.goldenage.pdf}
+  \includegraphics[width=0.9\linewidth]{arguments/build/comprehensive.goldenage.pdf}
   \caption{A ``Golden Age for Surveillance'' Argument Map}
   \label{fig-arg-golden-age}
 \end{figure}
@@ -173,7 +173,7 @@ Analyzing debates in the \ac{argmap} format invites one to seriously consider th
 that consideration includes identifying and eliminating fallacious arguments. In heated, partisan debates, fallacious
 arguments spread easily. \myfig{fig-arg-fallacies} shows those used in the encryption and \ac{EA} debate.
 
-\begin{figure}[h]
+\begin{figure}[t!]
   \centering\CaptionFontSize
   \includegraphics[width=\linewidth]{arguments/build/comprehensive.fallacies.pdf}
   \caption{Fallacious Arguments of the EA Debate}
@@ -230,12 +230,87 @@ progress utterly misses the point.
 
 \section{EA and Alternatives}
 
-\begin{figure}[h]
+Moving on from problem framing and meritless arguments, we next turn to actions that can be taken in response to the
+situation. \myfig{fig-arg-measures} breaks the actions down into the current capabilities, legal measures, and \ac{EA}.
+Current capabilities can be implemented today, and include maintaining the status quo and increasing investment in
+current programs. Legal measures require some change in legal or political direction, but do not require fundamentally
+new technical research. These include compelling passwords, which requires legal clarification, and sanctioning lawful
+hacking, which requires a strategic pivot and an oversight framework. (These non-\ac{EA} approaches were first
+introduced in \mysec{sec-alt-approaches}.) At this level, \ac{EA} is analyzed in general. Specific EA approaches are
+addressed in the next map.
+
+\begin{sidewaysfigure}
   \centering\CaptionFontSize
   \includegraphics[width=\linewidth]{arguments/build/comprehensive.measures.pdf}
   \caption{EA and its Alternatives}
   \label{fig-arg-measures}
-\end{figure}
+\end{sidewaysfigure}
+
+Each measure is considered with reference to five metrics. These metrics represent a generalization of metrics from
+several sources, including two separate diverse committees gathered to analyze the encryption debate
+\cite{committee_decrypting_2018} \cite{group_2019} \cite{varia_2018}. They also align closely to the four central issues
+of security, safety, privacy, and trust. The five metrics used to analyze response measures are minimization of
+increased security risk, utility to law enforcement, protection of civil liberties---particularly important as after the
+analysis of the ``Golden Age for Surveillance'' argument---and economic impact. Economic impact is not as much of a
+primary concern as the others, but it does help determine practical viability of a proposal.
+
+Beginning with current capabilities, the first choice is to do nothing. One may come to the conclusion that the current
+state of affairs actually does represent an acceptable balance of interests. If technology and government agree on this
+approach, then \ac{the-cw2} can end much like the first. However, legislative action is a risk to be mitigated in
+itself, and if the technical community ``decides'' on this approach and government continues to reject it, we could be
+forced in an undesirable direction.
+
+We could also decide to increase investment in current technologies and investigative techniques. As already shown,
+encryption is not the greatest barrier in law enforcement's use of digital evidence \cite{carter_2018}. Even when
+encryption is involved, traditional sleuthing can often achieve access. Security expert Bruce Schneier and cyberlaw
+expert Orin Kerr have compiled a list of ``encryption workarounds'' that do not rely on \ac{EA}, including finding the
+key, guessing the key, accessing plaintext while the device is in use, and finding another copy of the plaintext
+\cite{kerr_encryption_2017}. Though probabilistic and time consuming in comparison to \ac{EA}, none of these methods
+require new legal or technical capability. These methods are effective \cite{greenberg_2018}, and paired with investment
+in current digital evidence capabilities and anti-\ac{CSAM} (for example) task forces, they represent a safe response.
+
+Compelled password disclosure is a proposal to simply require defendants to hand over passwords and \acp{PIN} to their
+devices. The legality of this approach is working its way through the courts \cite{bittenbender_2019} \cite{sobel_2019},
+as it rubs against the Fifth Amendment right against self-incrimination. Even so, its strongest argument in favor is
+that it is cheap. Schneier and Kerr point out that this approach requires the password holder to be known and available
+to investigators, the prosecution has to overcome several legal hurdles even if the basic approach is ruled
+Constitutionally legal, and even then the defendant may choose to withhold the password and be held in contempt rather
+than be charged for crime evidenced by the plaintext \cite{kerr_encryption_2017}.
+
+\Ac{lawful-hacking} is the primary alternative argued for besides investment or \ac{EA}, though it is universally seen
+as a sub-optimal compromise \cite{bellovin_lawful_2013} \cite{hennessey_lawful_2016} \cite{rozenshtein_wicked_2018}
+\cite{kerr_encryption_2017} \cite{soesanto_2018}. Its advantages: it is effective against those for whom \ac{EA} would
+not necessarily work, and, well, it's a technical route that isn't \ac{EA} itself. \Ac{lawful-hacking} has the advantage
+over \ac{EA} at being effective against organized crime and terror groups because while they would inevitably use
+encryption tools to evade any \ac{EA} scheme, their operational security would fail at some point, letting law
+enforcement or intelligence agencies into their networks and devices. This approach is already in use to some extent
+\cite{cox_2020}, most famously to bring down cartel kingpin El Chapo \cite{feuer_chapo_2019}.
+
+The real change that this policy would take would be a sanctioning and formalization of this strategy. One downside is
+that it would be of little use to ill-resourced departments, nullifying its usefulness for more commonplace crimes. Its
+major downside is the altered relation is would create between law enforcement and tech companies. Instead of
+cooperation, they are suddenly thrust into competition, with law enforcement incentivized to hoard rather than disclose
+vulnerabilities it discovers. Prominent proposals suggest mandating prompt disclosure of discovered vulnerabilities
+\cite{bellovin_lawful_2013} \cite{hennessey_lawful_2016}. Theoretically, the supply of vulnerabilities is very large,
+and new ones could be found at a rate that maintains law enforcement access at constant levels while improving security
+as a positive side effect. The government would source these vulnerabilities from a combination of the public domain,
+the commercial exploit market, and a central ``Vulnerability Lab'' \cite{bellovin_lawful_2013}. However, as the \$2
+million price on the exploit market for an Apple iOS jailbreak bug shows, security really is improving
+\cite{goodin_zeroday_2019}. Law enforcement would still find itself without access, and would need to develop costly
+exploits in the lab. Mandatory vulnerability disclosure is key to a \ac{lawful-hacking} proposal; however, based on the
+\ac{FBI}'s historical abuses of power \cite{shamsi_2011} and Congress's distaste for funding even initiatives it has
+passed \cite{keller_internet_2019} or providing strong oversight \cite{johnson_congressional_2004}, one cannot imagine
+that the government would actually give up such expensive vulnerabilities so easily when they are the pillar of their
+access strategy.
+
+The final proposal is \ac{EA} itself. Its advantage, generally speaking, is that it would provide reliable access to law
+enforcement in a reliable manner. It could serve as a compliment to \ac{lawful-hacking}, blunting the incentive to hoard
+vulnerabilities because it would be unnecessary for \ac{EA} compliant systems, which would presumably include mainstream
+technology. In that situation, \ac{EA} would combat common crime and \ac{lawful-hacking} would combat organized crime
+and terror groups. While impact on civil liberties and mass surveillance depends on implementation, any proposal would
+be costly to introduce and threaten U.S. product competitiveness due to perceived insecurity. Indeed, risk to security
+is the largest weakness of \ac{EA}. Any proposal has to overcome significant challenges to provide acceptable levels of
+risk. The next map analyzes this more closely.
 
 
 \section{Zooming in on EA}
