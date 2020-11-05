@@ -24,9 +24,14 @@ alias gen="$SCRIPTS_DIR/bib-gen.sh"
 alias cite="$SCRIPTS_DIR/count-citations.sh"
 alias todo="(cd $BASE_DIR && grep -nE '(TODO|FIXME)' *.tex)"
 alias fixme="(cd $BASE_DIR && grep -nE 'FIXME' *.tex)"
-alias pdf="xdg-open build/Thesis.pdf"
-alias gvsu="xdg-open build/Thesis-GVSU.pdf"
+alias pdf="xdg-open $BASE_DIR/build/Thesis.pdf"
+alias gvsu="xdg-open $BASE_DIR/build/Thesis-GVSU.pdf"
 alias start="(codium .) && (xdg-open build/Thesis.pdf) && make live"
+
+function arg {
+    xdg-open $BASE_DIR/arguments/build/$1.pdf 2>/dev/null \
+        || xdg-open $BASE_DIR/arguments/build/comprehensive.$1.pdf 2>/dev/null
+}
 
 function notes {
     pushd $BASE_DIR/reading >/dev/null

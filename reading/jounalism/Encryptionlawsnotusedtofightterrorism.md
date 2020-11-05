@@ -28,10 +28,6 @@ Barf.
 security agencies in the dark. There is no excuse for this type of weakness,” Mr Morrison said in
 December 2018.
 
->“Labor are quite happy for terrorists and organised criminals to chat on WhatsApp, leaving our
-security agencies in the dark. There is no excuse for this type of weakness,” Mr Morrison said in
-December 2018.
-
 >The amendments introduce a number of “fixes” in line with the Parliamentary Joint Committee on
 Intelligence and Security’s report on the bill, including the introduction of judicial oversight.
 

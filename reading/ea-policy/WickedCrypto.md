@@ -36,7 +36,7 @@
         - Nods to the 'nerd harder' meme
         - Acknowledgement that though this might not be impossible, "any solution will require a massive amount of
             research and development to which the government has so far not publicly contributed."
-      - "“Going Dark” vs. “A Golden Age of Surveillance”"
+      - "“Going Dark” vs. “A Golden Age for Surveillance”"
         - We know the argument, and he has a citation.
         - A counter-arg from govt: jurors have higher expectations given the data that is theoretically available, and
             are less willing to convict without it all. But local LE doesn't have the funds.

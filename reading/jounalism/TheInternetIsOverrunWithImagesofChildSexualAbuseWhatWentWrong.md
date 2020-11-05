@@ -2,6 +2,7 @@
 
 - Summary:
   - Hard to read investigation on the extent of internet CSAM
+  - Facebook Messenger responsible for about 2/3 of CSAM reports
 - Purpose:
 - Premises:
 - Contributions:

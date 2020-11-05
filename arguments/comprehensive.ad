@@ -238,7 +238,7 @@ to investigation depending on their context and likelihood that they constitute 
 the balance between privacy and safety. #pro-ea  {rank: 'conclusions'}
     +> [Exceptional Access]
 
-["Golden Age" Conclusion]: Technology is enabling a "Golden Age of Surveillance" for which encryption is the strongest
+["Golden Age" Conclusion]: Technology is enabling a "Golden Age for Surveillance" for which encryption is the strongest
 defense. EA would compromise this goal. #anti-ea {rank: 'conclusions'}
     -> [Exceptional Access]
     >< ["Going Dark" Conclusion]
@@ -283,11 +283,11 @@ difficulty. #neutral
 
 (1) [Work is Underfunded]: Justice Department positions combating CSAM, for example, are underfunded by Congress and
     underrespected in the Department. #neutral
-(2) [Poor Communication]: Law enforcement cites poor communication and  I\.T\. capabilities most frequently as the cause
-    of dead ends. #neutral
-<!-- FIXME: citation! -->
+(2) [Poor Cooperation]: Law enforcement cites identifying and receiving data from service providers as the greatest
+    difficulty in accessing digital evidence. #neutral
+(3) [Uncertain what Plaintext Holds]: It is uncertain that decrypted data will hold useful evidence. #neutral
 ----
-(3) [Encryption Not the Root Problem] {isInMap: false}
+(4) [Encryption Not the Root Problem] {isInMap: false}
 
 # Golden Age Argument
 
@@ -320,18 +320,22 @@ application violates liberal values. #neutral
     surveillance. #neutral
     _> ["Golden Age" Conclusion]
 
+<Assumes Law Enforcement Has Access>: The data exists, but law enforcement already has trouble accessing it even
+via traditional means. #neutral
+    _> [Technology a Boon to Surveillance]
+
 # Fallacies
 
 [Hasty Generalization]
 
-[Missing the Point]
+[Missing the Point]: The premises of the argument support a conclusion, but not the conclusion drawn. #fallacy
 
 [Post Hoc]
 
 [Slippery Slope]: Arguing that a single step in one direction will inevitably result in sliding all the way to the
 extreme. #fallacy
 
-[Weak Analogy]
+[Weak Analogy]: Arguing by comparison to something that is unalike in relevant aspects. #fallacy
 
 [Appeal to Authority]: Using name recognition of figures that agree with the conclusion as an argument in
 itself. #fallacy
@@ -344,9 +348,10 @@ itself. #fallacy
 [Tu Quoque (Hypocrisy)]: Stating that an argument is invalid because the arguer has hypocritically acted against their
 own argument. #fallacy
 
-[Appeal to Pity]: Attempting to convince the audience by making them feel sorry for someone. #fallacy
+[Appeal to Emotion]: Attempting to convince the audience by making them feel pity, anger, or fear. #fallacy
 
-[Appeal to Ignorance]
+[Appeal to Ignorance]: Citing a lack of evidence as support of a positive claim about the truth of a
+conclusion. #fallacy
 
 [Straw Man]: Setting up a weak version of the opposing argument in order to tear it down. #fallacy
 
@@ -360,20 +365,20 @@ own argument. #fallacy
 
 # Fallacious Arguments {isGroup: false}
 
-<EA is bad because backdoors are insecure>: #fallacious #anti-ea
+<EA is a bad idea because backdoors are insecure> #fallacious #anti-ea
     -> [Exceptional Access]
     <_ [Straw Man]
 
-<We should not implement EA because security experts are against it>: #fallacious #anti-ea
+<!-- <We should not implement EA because security experts are against it> #fallacious #anti-ea
     -> [Exceptional Access]
-    <_ [Appeal to Authority]
+    <_ [Appeal to Authority] -->
 
-<We should not implement EA because a majority of the public is against it>: #fallacious #anti-ea
+<!-- <We should not implement EA because a majority of the public is against it> #fallacious #anti-ea
     -> [Exceptional Access]
-    <_ [Ad Populum (Bandwagon)]
+    <_ [Ad Populum (Bandwagon)] -->
 <!-- Citation: hanna_2019 -->
 
-<The technical community cannot give any ground on EA because LEAs will never be satisfied>: #fallacious #anti-ea
+<The technical community cannot give any ground on EA because the government will never be satisfied> #fallacious #anti-ea
     -> [Exceptional Access]
     <_ [Slippery Slope]
 
@@ -381,13 +386,33 @@ own argument. #fallacy
     -> [Exceptional Access]
     <_ [Tu Quoque (Hypocrisy)]
 
-<Perfect EA is impossible, so we shouldn't implement it> #fallacious #anti-ea
+<The only acceptable choices are no EA and perfect EA, but perfect EA is impossible> #fallacious #anti-ea
+    -> [Exceptional Access]
+    <_ [False Dichotomy]
+
+<We either have strong encryption or a mass surveillance dystopia> #fallacious #anti-ea
     -> [Exceptional Access]
     <_ [False Dichotomy]
 
 <We need EA now because victims of CSAM are suffering> #fallacious #pro-ea
     +> [Exceptional Access]
-    <_ [Appeal to Pity]
+    <_ [Appeal to Emotion]
+
+<Without EA we will be victims to terrorists, pedophiles, drug dealers, and kidnappers> #fallacious #pro-ea
+    +> [Exceptional Access]
+    <_ [Appeal to Emotion]
+
+<If we put a man on the moon, we can make secure EA> #fallacious #pro-ea
+    +> [Exceptional Access]
+    <_ [Weak Analogy]
+
+<Experts say EA is hard, so it just needs to be researched more> #fallacious #pro-ea
+    +> [Exceptional Access]
+    <_ [Missing the Point]
+
+<!-- <EA is not needed because we don't have evidence of cases where it would have helped> #fallacious #pro-ea
+    -> [Exceptional Access]
+    <_ [Appeal to Ignorance] -->
 
 # Arguments for Measures {isGroup: false}
 
