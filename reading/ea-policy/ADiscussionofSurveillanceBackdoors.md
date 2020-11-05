@@ -2,6 +2,7 @@
 
 - Summary:
   - Helpfully summarizes threat actors and which ones might be caught by EA
+  - Doesn't go very deep, not super well written
 - Purpose:
 - Premises:
 - Contributions:
