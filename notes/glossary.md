@@ -30,6 +30,7 @@
 | FISA    | Foreign Intelligence Surveillance Act             |
 | FISAAA  | FISA Amendments Act                               |
 | FISC    | Foreign Intelligence Surveillance Court           |
+| GCHQ    | (UK) Government Communications Headquarters       |
 | IBIS    | issue-based information system                    |
 | ITAR    | International Traffic in Arms Regulations         |
 | KEK     | key encrypting key                                |

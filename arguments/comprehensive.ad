@@ -168,37 +168,33 @@ trust. #core
 
 [System Design EA]: Exceptional access achieved through system implementation. #action -->
 
-[Trusted-party key escrow] #action
-
-[Distributed key escrow] #action
-
-### Cryptographic EA Classes
-
-[Weak Cryptography]: EA by use of breakable cryptographic ciphers. #action
+[Weak Cryptography]: Use breakable cryptographic ciphers. #action
     <- [Minimize Increased Security Risk]
 
-[Cryptographic Puzzles]: ADSF. #action
+[Trusted-party key escrow]: Store recovery keys in with a trusted party. #action
+
+[Distributed key escrow]: Split recovery keys among multiple parties. #action
 
 ### DAR EA Classes
-<!-- See group_2019 -->
-<!-- TODO: finish map :/ -->
 
-[Device key escrow] #action
+[Device key escrow]: Store recovery keys in secure hardware on the device itself. #action
+
+<!-- TODO: Vendor unlock? -->
 
 ### DIM EA Classes
 
-[Ghost User] #action
+[Ghost User]: Silently "conference call" the government in on encrypted conversations. #action
 <!-- See levy_robinson_2018 -->
 
-### DAR EA Proposals
-<!-- See denning_taxonomy_1996 -->
+[Cryptographic Puzzles]: Make plaintext recoverable after solving calibrated cryptographic puzzles. #action
+
+<!-- ### DAR EA Proposals
 
 [EA DAR prop1] #action
 
 ### DIM EA Proposals
-<!-- See denning_taxonomy_1996 -->
 
-[EA DIM prop1] #action
+[EA DIM prop1] #action -->
 
 # Arguments for Exceptional Access {isGroup: false}
 
@@ -510,6 +506,9 @@ safely. #neutral
 
 # Arguments for EA Types {isGroup: false}
 
+<!-- NOTE: Realization: to do each type justice, it really needs its own argmap. This format just leads to an
+indecipherable web. -->
+
 <!--
 # Desireable Properties
     [Minimize Increased Security Risk]:
@@ -517,17 +516,61 @@ safely. #neutral
     [Protection of Civil Liberties]
     [Transparency]
     [Economic Impacts]
+# EA Types
+    [Weak Cryptography]
+    [Trusted-party key escrow]
+    [Distributed key escrow]
+    [Device key escrow]
+    [Ghost User]
+    [Cryptographic Puzzles]
 -->
 
-<EA DAR type1 is Secure>: DAR type1 is secure #neutral
-    <+ [Information Security]
-    +> [EA DAR type1]
+<Any centralized access mechanism extremely risky>: Traditional security problems mean this mechanism would certainly be
+compromised. #anti-ea
+    <+ [Minimize Increased Security Risk]
+    -> [Trusted-party key escrow]
+    -> [Ghost User]
 
-<EA DIM type1 creates poor trust relationships>: DIM type1 is untrustrowrthy #neutral
-    <+ [Institutional Trust]
-    -> [EA DIM type1]
+<Reliance on difficult computation enables foreign intelligence, limits law enforcement>: Due to resource
+availability. #anti-ea
+    <+ [Law Enforcement Utility]
+    <+ [Protection of Civil Liberties]
+    -> [Weak Cryptography]
+    -> [Cryptographic Puzzles]
 
-# Arguments for EA Proposals {isGroup: false}
+<Complex designs difficult to scale and maintain>: Scale and complexity make for vulnerabilities and high costs. #neutral
+    <+ [Economic Impacts]
+    <+ [Minimize Increased Security Risk]
+    -> [Distributed key escrow]
+    -> [Device key escrow]
+    -> [Trusted-party key escrow]
+    -> [Ghost User]
+
+<Hardware-dependent designs hard or impossible to update>: Updatability is an important property for wicked problem
+proposals. #neutral
+    <+ [Minimize Increased Security Risk]
+    -> [Device key escrow]
+    -> [Cryptographic Puzzles]
+
+<Violating authorization just as dangerous as confidentiality>: Data that is strongly encrypted but sent to unknown
+recipients isn't actually secure. #anti-ea
+    <+ [Minimize Increased Security Risk]
+    <+ [Protection of Civil Liberties]
+    <+ [Transparency]
+    -> [Ghost User]
+
+<Distributed recovery material reduces risk>: No one party can gain access. #neutral
+    <+ [Minimize Increased Security Risk]
+    +> [Distributed key escrow]
+
+<Device escrow adds a physical possession requirement>: Reduces mass surveillance risk, and most implementations brick
+the device for transparency. #neutral
+    <+ [Minimize Increased Security Risk]
+    <+ [Protection of Civil Liberties]
+    <+ [Transparency]
+    +> [Device key escrow]
+
+<!-- # Arguments for EA Proposals {isGroup: false}
 
 <EA DIM prop1 doesn't help local LE>: DIM prop1 not even helpful #neutral
     <+ [Public Safety]
@@ -535,4 +578,4 @@ safely. #neutral
 
 <EA DAR prop1 enables surveillance>: DAR enables the baddies #neutral
     <+ [Data Privacy]
-    -> [EA DAR prop1]
+    -> [EA DAR prop1] -->

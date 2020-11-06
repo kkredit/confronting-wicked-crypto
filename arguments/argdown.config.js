@@ -112,6 +112,11 @@ module.exports = {
     classes: {
       process: "export-svg",
       outputSuffix: ".classes",
+      dot: {
+        graphVizSettings: {
+          ranksep: 0.7,
+        },
+      },
       group: {
         groupDepth: 3,
       },
@@ -124,23 +129,26 @@ module.exports = {
           "DIM EA Classes",
           "Arguments for EA Types",
         ],
-      },
-    },
-    proposals: {
-      process: "export-svg",
-      outputSuffix: ".proposals",
-      group: {
-        groupDepth: 3,
-      },
-      selection: {
-        selectedSections: [
-          "Central Issues",
+        excludeStatements: [
           "Exceptional Access",
-          "DAR EA Proposals",
-          "DIM EA Proposals",
-          "Arguments for EA Proposals",
         ],
       },
     },
+    // proposals: {
+    //   process: "export-svg",
+    //   outputSuffix: ".proposals",
+    //   group: {
+    //     groupDepth: 3,
+    //   },
+    //   selection: {
+    //     selectedSections: [
+    //       "Central Issues",
+    //       "Exceptional Access",
+    //       "DAR EA Proposals",
+    //       "DIM EA Proposals",
+    //       "Arguments for EA Proposals",
+    //     ],
+    //   },
+    // },
   },
 };

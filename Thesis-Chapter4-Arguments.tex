@@ -303,8 +303,6 @@ passed \cite{keller_internet_2019} or providing strong oversight \cite{johnson_c
 that the government would actually give up such expensive vulnerabilities so easily when they are the pillar of their
 access strategy.
 
-% FIXME: I missed vendor unlock!!
-
 The final proposal is \ac{EA} itself. Its advantage, generally speaking, is that it would provide reliable access to law
 enforcement in a reliable manner. It could serve as a compliment to \ac{lawful-hacking}, blunting the incentive to hoard
 vulnerabilities because it would be unnecessary for \ac{EA} compliant systems, which would presumably include mainstream
@@ -317,27 +315,126 @@ risk. The next map analyzes this more closely.
 
 \section{Zooming in on EA}
 
-\begin{figure}[h]
+\myfig{fig-arg-classes} lists several classes of \ac{EA} and arguments in their favor and disfavor. Classes applicable
+to both \ac{DIM} and \ac{DAR} include using weak cryptography, trusted-party key escrow, and distributed key escrow.
+Using cryptographic puzzles and adding a ghost user apply to the case of \ac{DIM}, and device key escrow applies to
+\ac{DAR}.
+
+\begin{sidewaysfigure}[p!]
   \centering\CaptionFontSize
   \includegraphics[width=\linewidth]{arguments/build/comprehensive.classes.pdf}
   \caption{Classes of EA}
   \label{fig-arg-classes}
-\end{figure}
+\end{sidewaysfigure}
 
-% What properties would good EA have?
-% easy for LEAs to use? hard? expensive? voluntary? unable to be used for mass surveillance? transparent (attempts are
-%   visible)? alignment of values with security (e.g. discourages bug hoarding)? adaptable (since solution won't be
-%   permanent, either technically or according to collective will as things change rozenshtein_wicked_2018)? suited to
-%   rules and principles (matyas_incommensurability_2018)?
+It should be noted that the \ac{argmap} format works best when displaying the debate surrounding a single conclusion or
+proposal. That leaves room for points and counterpoints to be elaborated in detail, as opposed to creating a tangled web
+of un-elaborated connections. For the sake of brevity, this thesis considers \ac{EA}'s alternatives and variations at a
+high level. For an excellent, thorough discussion of \ac{EA}'s alternatives and variations, see the National Academies
+of Sciences, Engineering, and Medicine's 2018 report titled \ii{Decrypting the Encryption Debate: A Framework for
+Decision Makers} \cite{committee_decrypting_2018}.
+
+The first \ac{EA} class is to simply use weak cryptographic ciphers or short encryption keys. This was the approach
+taken before \ac{the-cw1}, when strong cryptography was not highly available and subject to export controls. No party
+seriously supports this approach today, as it is irreconcilably contradictory to strong security on many levels.
+
+Trusted-party key escrow relies on the an entity or small group of entities to store a key or key recovery information.
+There are a wide variety of implementations \cite{denning_taxonomy_1996}, but by definition this class of \ac{EA}
+carries a crushing weakness: the centralization of extremely sensitive information. Proponents argue that software
+companies' protection of code-signing keys in hardware security modules is evidence that they can protect such sensitive
+data when needed \cite{ozzie_2018}, but opponents point out that such keys are accessed quite rarely used (especially
+when compared to the likely frequency of \ac{EA} requests) and yet they indeed still leak \cite{green_2018}. Once the
+escrowed keys are stolen, as they inevitably would be, every device or message encrypted with them would be at risk.
+This is an example of a case when the \ac{argmap} format doesn't do an argument justice---the argument against any
+centralized access mechanism is extremely powerful.
+
+Distributed key escrow differs from trusted-party in that it takes strong steps to remove centralized trust. This is
+achieved by using distributed systems to make key extraction difficult and inherently public \cite{phan_key_2017}
+\cite{servan_schreiber_jje_2020}. If the distributed protocols hold up, one advantage of distribution is that this
+approach is that it is more likely to fail by making data unrecoverable than by making unintended data vulnerable,
+though more research into this area is needed. The downside of these systems is their complexity, which could make it
+costly and hard to update.
+
+One class of \ac{DIM} \ac{EA} involves using strong cryptography, but including cryptographic puzzle pieces as message
+metadata. These pieces are designed to reveal the encryption key after the surveiller spends considerable computational
+power \cite{bellare_translucent_1996} \cite{wright_crypto_2018}. This approach precludes \ii{mass} surveillance, but it
+also enables \ii{arbitrary} surveillance by anyone with enough computing power. Use in common cases would be impractical
+due to high cost, but use in high profile cases would be less effective due to the likelihood of \ac{EA} workarounds
+employed by sophisticated adversaries. Additionally, the calibration of puzzle difficulty is dependent on the state of
+computing. Since opponents can record data and decrypt it later when computational capabilities have changed, the data
+becomes steadily less secure over time.
+
+Another \ac{DIM} proposal is to ``conference call'' authorities in as a ghost participant in the conversation. It was
+notably suggested by \ac{GCHQ} officials Ian Levy and Crispin Robinson \cite{levy_robinson_2018}. Their writeup begins
+with some core ideas of this thesis:
+
+\begin{displayquote}
+In any discussion of cyber security, details matter.
+
+Unfortunately, it's the details that are missing from the discussion around lawful access to commodity end-to-end
+encrypted services and devices (often called the ``going dark'' problem). Without details, the problem is debated as a
+purely academic abstraction concerning security, liberty, and the role of government.
+
+There is a better way that doesn’t involve, on one side, various governments, and on the other side lawyers,
+philosophers, and vendors' PR departments continuing to shout at each other. If we can get all parties to look at some
+actual detail, some practices and proposals---without asking anyone to compromise on things they fundamentally believe
+in---we might get somewhere.
+\cite{levy_robinson_2018}
+\end{displayquote}
+
+As goodwill participants in the conversation, trying to spur discussion around specific proposals ``without people being
+vilified for having a point of view or daring to work on this as a problem,'' they deserve credit and thanks.
+
+Unfortunately, the proposal they share is indeed problematic. The ghost user proposal prides itself on not compromising
+strong encryption. This is a good property, but compromising a messaging app's authorization protocol is as dangerous as
+compromising its encryption \cite{callas_1_2019}. Fundamentally, it suffers from the same weakness as trusted-party key
+escrow; the introduction of an authorization vulnerability in the messaging service provider's platform amounts to a
+highly risky centralization of access capability \cite{schneier_ghost_2019}. It has the same nature, if a different
+form, as rejected key escrow proposals.
+
+Finally, one \ac{DAR}-specific \ac{EA} class is device key escrow. In this scheme, key recovery material exists on the
+device itself. While not necessary to classify as device key escrow, most of these proposals include physical possession
+requirements and additionally ``brick'' the device or make it absolutely clear that \ac{EA} has been performed
+\cite{savage_lawful_2018} \cite{ozzie_2018}. Such features precludes mass surveillance and ensure transparency to the
+device user. This approach relies on secure hardware and a method of authorizing the recovery request to the device
+itself. The authentication step can be paired with other \ac{EA} strategies, such as engaging with trusted-parties or
+distributed systems. This is where the device escrow shows its weaknesses. Secure hardware enclaves, though improving,
+are not totally reliable, and authentication to the hardware device is susceptible to the same attacks as traditional
+escrow \ac{EA}.
+
+Device key escrow's greatest weaknesses, however, still represent signs of progress. It is true that it relies on a
+device's secure enclave, but devices already do---it is the same hardware devices that manages device unlock and
+encryption functionality in the first place. Adding functionality increases the attack surface, but it does not add a
+completely new threat vector. It is also true that the process is subject to the same problems as traditional key escrow
+after the device has been obtained, but that is precisely the progress that has been made---\ii{after the device has
+been obtained}. Leveraging advances in secure hardware design has meaningfully changed the \ac{EA} risk profile.
+
+In 2019, Carnegie Mellon assembled an ideologically diverse group of policy and security experts to engage in the kind
+of cross-disciplinary debate this thesis advocates. After considering all the technical corners of the situation, their
+report goes into detail on why \ac{EA} for domestic law enforcement (i.e., common cases instead of sophisticated
+adversaries) focusing on \ac{DAR} in mobile phones using device key escrow requiring physical access is the most
+tractable technical case to consider \cite{group_2019}. By now it should be clear why: traditional investigation mixed
+with a dose of lawful hacking is best suited for advanced opponents, and device key escrow represents actual progress as
+a path towards lower-risk \ac{EA}.
+
+Device key escrow still has a long way to go. There are few proposals, what few there are are high level, and questions
+of scaling and administration have not been addressed. However, as \ac{incrementalism}'s Lindblom and even \ac{GCHQ}'s
+Levy and Robinson have pointed out, focusing on specific proposals has the opportunity to identify mutually agreeable
+solutions---or at least refine the problem understanding enough that the next round of debate can be better informed.
+
+It is this task that we turn to next. The following chapter analyzes one particular device-escrow proposal in moderate
+detail, Stefan Savage's ``Lawful Device Access without Mass Surveillance Risk: A Technical Design Discussion''
+\cite{savage_lawful_2018}.
 
 
-\section{Specific Proposals}
+% \section{Specific Proposals}
+%% NOTE: not worth going into this section. Just describe a few and go straight to one of the most interesting.
 
-\begin{figure}[h]
-  \centering\CaptionFontSize
-  \includegraphics[width=\linewidth]{arguments/build/comprehensive.proposals.pdf}
-  \caption{EA Proposals}
-  \label{fig-arg-proposals}
-\end{figure}
+% \begin{figure}[h]
+%   \centering\CaptionFontSize
+%   \includegraphics[width=\linewidth]{arguments/build/comprehensive.proposals.pdf}
+%   \caption{EA Proposals}
+%   \label{fig-arg-proposals}
+% \end{figure}
 
-% See: committee_decrypting_2018, group_2019, various proposals
+% % See: committee_decrypting_2018, group_2019, various proposals
