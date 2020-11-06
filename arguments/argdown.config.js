@@ -100,6 +100,7 @@ module.exports = {
       selection: {
         selectedSections: [
           "Central Issues",
+          "Desireable Properties",
           "Response Measures",
           "Exceptional Access",
           "Current Capabilities",
@@ -117,6 +118,7 @@ module.exports = {
       selection: {
         selectedSections: [
           "Central Issues",
+          "Desireable Properties",
           "Exceptional Access",
           "DAR EA Classes",
           "DIM EA Classes",

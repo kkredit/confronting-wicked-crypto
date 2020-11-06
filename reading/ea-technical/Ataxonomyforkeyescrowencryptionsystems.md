@@ -8,6 +8,7 @@
 - Policy comments:
 - Technical comments:
 - Notes:
+  - Available: https://faculty.nps.edu/dedennin/publications/Taxonomy-CACM.pdf
 
 ```bib
 @article{denning_taxonomy_1996,

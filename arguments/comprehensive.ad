@@ -83,18 +83,22 @@ mode: strict
 #        - Current Capabilities
 #        - Legal Measures
 #        - Central Issues
+#        - Desireable Properties
 #        - Arguments for Measures
 
-## Types of EA
-#group:
-#    groupDepth: 3
-#selection:
-#    selectedSections:
-#        - Central Issues
-#        - Exceptional Access
-#        - DAR EA Classes
-#        - DIM EA Classes
-#        - Arguments for EA Types
+# Types of EA
+group:
+    groupDepth: 3
+selection:
+    selectedSections:
+        - Central Issues
+        - Desireable Properties
+        - Exceptional Access
+        - DAR EA Classes
+        - DIM EA Classes
+        - Arguments for EA Types
+    excludeStatements:
+        - Exceptional Access
 
 ## EA Proposals
 #group:
@@ -164,24 +168,37 @@ trust. #core
 
 [System Design EA]: Exceptional access achieved through system implementation. #action -->
 
+[Trusted-party key escrow] #action
+
+[Distributed key escrow] #action
+
+### Cryptographic EA Classes
+
+[Weak Cryptography]: EA by use of breakable cryptographic ciphers. #action
+    <- [Minimize Increased Security Risk]
+
+[Cryptographic Puzzles]: ADSF. #action
+
 ### DAR EA Classes
 <!-- See group_2019 -->
+<!-- TODO: finish map :/ -->
 
-[EA DAR type1] #ea-proposal #action #dar
+[Device key escrow] #action
+
+### DIM EA Classes
+
+[Ghost User] #action
+<!-- See levy_robinson_2018 -->
 
 ### DAR EA Proposals
 <!-- See denning_taxonomy_1996 -->
 
-[EA DAR prop1] #ea-proposal #action #dar
-
-### DIM EA Classes
-
-[EA DIM type1] #ea-proposal #action #dim
+[EA DAR prop1] #action
 
 ### DIM EA Proposals
 <!-- See denning_taxonomy_1996 -->
 
-[EA DIM prop1] #ea-proposal #action #dim
+[EA DIM prop1] #action
 
 # Arguments for Exceptional Access {isGroup: false}
 
@@ -419,8 +436,6 @@ conclusion. #fallacy
     -> [Exceptional Access]
     <_ [Appeal to Ignorance] -->
 
-# Arguments for Measures {isGroup: false}
-
 <!--
 # Response Measures
 ## Current Capabilities
@@ -436,6 +451,8 @@ conclusion. #fallacy
 
 <!-- Start with good properties
     See: varia_2018, group_2019, committee_decrypting_2018 -->
+
+# Desireable Properties {isGroup: false}
 
 [Minimize Increased Security Risk]: Measures should not dramatically increase risk for either specific data or
 cybersecurity in general. #neutral {rank: "metrics"}
@@ -456,9 +473,12 @@ generally. #neutral {rank: "metrics"}
     <+ [Institutional Trust]
 
 [Economic Impacts]: Measures should consider competitiveness and cost burdens. #neutral {rank: "metrics"}
-    -> [Exceptional Access]
     +> [Forced Password Disclosure]
     +> [Do Nothing]
+    -> [Exceptional Access]
+
+
+# Arguments for Measures {isGroup: false}
 
 <Relying Current Capabilities a Conservative Choice>: Introduces no new risks to security or liberty. #neutral
     <+ [Minimize Increased Security Risk]
@@ -488,8 +508,16 @@ safely. #neutral
     <+ [Minimize Increased Security Risk]
     -> [Exceptional Access]
 
-
 # Arguments for EA Types {isGroup: false}
+
+<!--
+# Desireable Properties
+    [Minimize Increased Security Risk]:
+    [Law Enforcement Utility]
+    [Protection of Civil Liberties]
+    [Transparency]
+    [Economic Impacts]
+-->
 
 <EA DAR type1 is Secure>: DAR type1 is secure #neutral
     <+ [Information Security]
