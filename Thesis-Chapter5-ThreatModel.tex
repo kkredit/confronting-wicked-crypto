@@ -5,35 +5,42 @@ In this chapter, develop a threat model using data flow diagrams. May need separ
 at rest on encrypted devices, data in motion using E2E), but want at least one high level diagram encapsulating
 everything.
 
+
+\section{Developing a Threat Model}
+
 % For a wholistic threat model, include both the threats of government (legislation) and of criminal abusers of your
 % system.
+
+% For analysis of threat actors, see bindenagel_discussion_2017
+
+
+\section{Basic Data at Rest}
+
+\begin{figure}[h]
+    \centering\CaptionFontSize
+    \includegraphics[width=\linewidth]{dfds/build/DAR-level-1-crypto-iphone.png}
+    \caption{The basic encrypted mobile phone data flow diagram.}
+    \label{fig-dfd-dar}
+\end{figure}
+
+
+\section{The LDAWMSR Proposal}
 
 \begin{figure}[h]
     \centering\CaptionFontSize
     \includegraphics[width=\linewidth]{dfds/build/DAR-level-1-crypto-iphone-LDAMSR.png}
-    \caption[A DAR EA Proposal]{A DAR EA Proposal based on \cite{savage_lawful_2018}.}
-    \label{fig-dfd-lawful}
+    \caption{The LDAWMSR data flow diagram.}
+    \label{fig-dfd-ldawmsr}
 \end{figure}
 
-\begin{figure}[h]
-    \centering\CaptionFontSize
-    \includegraphics[width=\linewidth]{dfds/build/DIM-level-1-crypto-E2E-signal-X3DH.png}
-    \caption[The Signal X3DH Protocol]{The Signal session creation protocol \cite{marlinspike_x3dh_2016}.}
-    \label{fig-dfd-signal-x3dh}
-\end{figure}
 
-\begin{figure}[h]
-    \centering\CaptionFontSize
-    \includegraphics[width=\linewidth]{dfds/build/DIM-level-1-crypto-E2E-signal-Double-Ratchet.png}
-    \caption[The Signal Double Ratchet Protocol]{The Signal \ac{E2EE} protocol \cite{marlinspike_2016}.}
-    \label{fig-dfd-signal-ratchet}
-\end{figure}
+\section{Discussion of Threats}
 
-% For analysis of threat actors, see bindenagel_discussion_2017
 
-% Generalize for DAR and DIM, then apply to specific examples. This proves that my analysis is helpful. Ex: apply to email: is a DIM _and_ DAR problem due to the server.
 
 %%%%%%%%%%%%
+% Old notes for reference
+% -----------------------
 % Chapter 4, threat models
 % (how to be specific enough to be useful but generic enough to apply to many systems? Focus on the EA type (DAR v DIM),
 %   then apply to specific systems)
