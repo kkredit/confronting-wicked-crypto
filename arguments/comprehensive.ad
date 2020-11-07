@@ -454,7 +454,7 @@ conclusion. #fallacy
 cybersecurity in general. #neutral {rank: "metrics"}
     <+ [Information Security]
 
-[Law Enforcement Utility]: Measures should actually be useful to law enforcement in terms of accuracy, speed, and
+[Law Enforcement Utility]: Measures should actually be useful to law enforcement in terms of reliability, speed, and
 cost. #neutral {rank: "metrics"}
     <+ [Public Safety]
     +> [Increase Investment]

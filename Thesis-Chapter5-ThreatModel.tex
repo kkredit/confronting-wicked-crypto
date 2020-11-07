@@ -1,32 +1,195 @@
 \chapter{Threat Model}
 \label{chap-threatmodel}
 
-In this chapter, develop a threat model using data flow diagrams. May need separate ones for different scenarios (data
-at rest on encrypted devices, data in motion using E2E), but want at least one high level diagram encapsulating
-everything.
+This chapter consists of a threat model and analysis of a specific device key escrow \ac{EA} proposal, Stefan Savage's
+``Lawful Device Access without Mass Surveillance Risk: A Technical Design Discussion'' \cite{savage_lawful_2018}.
+Lacking a concise name, this proposal will be referred to by its acronym, \ldawmsR. Note that the creators of the
+proposal intentionally chose the phrase ``lawful access'' over ``\acl{EA}'' in order to emphasize the role of legal
+process and dispel the negative stigma that accompanies \ac{EA}. I refer to \ldawmsr as an \ac{EA} proposal, but use the
+term entirely in the spirit of their paper.
+
+% TODO: remove this paragraph if I end up changing EA to LA
 
 
 \section{Developing a Threat Model}
 
-% For a wholistic threat model, include both the threats of government (legislation) and of criminal abusers of your
-% system.
+The essential threat modeling questions are ``what are we building'' and ``what can go wrong.'' The first step to
+answering those questions is to establish goals for the former and a list of threats in anticipation of the latter. The
+\ldawmsr proposal describes a threat model against which it was designed. This model takes cues from that one but is
+intended to be more generally applicable for any \ac{DAR} \ac{EA} proposal.
 
-% For analysis of threat actors, see bindenagel_discussion_2017
+\newcommand{\modelstart}[0]{\begin{itemize}}
+\newcommand{\modelitem}[2]{ % Name, description
+    \item \textbf{#1} \nopagebreak
+
+    \vspace{0.5\baselineskip} \parbox{\linewidth}{#2} \vspace{0.5\baselineskip}
+}
+\newcommand{\modelend}{\end{itemize}}
+
+% \newcommand{\modelstart}{\begin{itemize}}
+% \newcommand{\modelitem}[2]{\item \textbf{#1.} #2}
+% \newcommand{\modelend}{\end{itemize}}
+
+\subsection{Goals}
+
+The goals of an \ac{EA} cryptosystem are taken from the metrics of \mychap{chap-arguments}. Their justification stems
+from the preceding arguments. Each goal is listed according to priority, though none are absolute.
+
+\modelstart
+
+\modelitem{Security}{The system should minimize increased security risk with reference to the current state of the art.
+Risk is considered both with respect to individual devices and to the integrity of the entire class of devices.}
+
+\modelitem{Protection of civil liberties}{The system should include measures to prevent mass surveillance and abuse by
+political regimes that violate civil rights. This includes technologically enforcing the fundamental right to privacy
+but upon warranted search pursuant to the rule of law.}
+
+\modelitem{Transparency}{The system should be auditable by the public to enable trust that this significant power is
+being used responsibly. In the case of \ac{DAR}, the subject of the search should be aware of the access.}
+
+\modelitem{Law enforcement utility}{The system should actually be useful to law enforcement in terms of reliability,
+speed, and cost.}
+
+\modelitem{Economic impact}{The system should consider global competitiveness of devices using the cryptosystem as well
+as the distribution of costs associated with its development and administration. Even though this is a security-oriented
+threat model, architectural decisions determine the system's economics, and economics determines the system's ultimate
+feasibility.}
+
+\modelend
+
+\subsection{Threat Actors}
+
+\ac{EA} threat models necessarily include the full cast of traditional threat actors.
+
+\modelstart
+
+\modelitem{Criminals: ordinary, organized, cyber}{Criminals represent a threat to the \ac{EA} system by trying to use it
+to gain access without authority. Ordinary thieves may want to spy on a target or steal and resell phones. They will
+have physical access but only simple tools, using ordinary device interfaces. Organized criminals will have the same
+motives but considerably more advanced technical capabilities, exerting full control over all interfaces. Cyber
+criminals have a wide spectrum of motivations and capabilities. Their significant contribution to the threat landscape
+is that they will target the backend systems that operate the \ac{EA} system in order to steal and likely sell whatever
+access capabilities they can find.}
+
+\modelitem{Insider threat}{The insider threat is someone within the \ac{EA} recovery process, whether at the law
+enforcement agency or a vendor, that seeks to abuse the system for their own purposes. They may represent the
+motivations and capabilities of any of the criminal categories, but they begin with privileged access somewhere in the
+process.}
+
+\modelitem{Foreign intelligence}{Foreign intelligence agencies and \acp{APT} are always looking for means to escalate
+access and tamper with and steal information. They have world-class expertise and computing power, which they will apply
+to both individual devices and backend systems.}
+
+\modelitem{Authoritarian regimes}{States that do not respect lawful process will try to compel administers of an \ac{EA}
+system to provide access upon demand. Legal coercion may or may not be combined with state-backed hacking capability.}
+
+\modelend
+
+To make sense of an \ac{EA} proposal in the face of the stated goals and such a formidable list of threat actors, one
+must include two non-traditional threats. To do so is to step back and look at the situation from a broader view than
+security experts usually take.
+
+\modelstart
+
+\modelitem{The platform abuser}{Why bother with \ac{EA} at all? Because the device user may actually be a threat in the
+larger safety context. The end user is not the most important thing. This is a crucial point.
+
+All technologies have embedded values \cite{rogaway_moral_2015}, and at the top of this value system is some most
+important ``thing.'' Traditional device security threat models make the end user the most important thing. This is a
+very good rule. It leads to good security priorities and more importantly, honors the user's rights and autonomy.
+
+To stray from this rule is dangerous, but---make no mistake---it is already done on a regular basis. Software that can
+force updates values the vendor's judgement over the user's (even if it is a good idea). Software that enforces Digital
+Rights Management values corporations' rights over the user's (sometimes to extremes \cite{eff_2020}). Software that
+doesn't encrypt user communications at all says the service provider's ability to scrape personal information to create
+targeted ads is more important than the user's privacy. Software that enables \ac{EA} values lawful investigatory
+process over the user's ultimate privacy. Subversion of the user's will is not a pleasant concept, but a spade is a
+spade.
+
+In the broader threat model, the platform abuser is someone who is using the device encryption for cover of illicit
+activities. They represent a threat to public safety.}
+
+\modelitem{Hawkish lawmakers}{If one's very highest priorities are security and privacy for society as a whole, then
+aggressive lawmakers that have the power to \ii{mandate} arbitrary data access represent perhaps the largest threat of
+all. Crypto-anarchists can encrypt their data above the compromised layer all they want, but the vast majority of
+individuals using default products and all above-the-table organizations will abide by U.S. law.
+
+The hawkish lawmaker is a threat to the security of a cryptosystem (\ac{EA} or not) in that they may judge it too
+inhibitive to law enforcement and outlaw its very use, mandating something weaker in its place.}
+
+\modelend
+
+\subsection{Out of Scope}
+
+The following considerations are out of scope for this threat model.
+
+\modelstart
+
+\modelitem{Encyption workarounds}{Encryption workarounds are always in play for essentially any threat actor at any
+time. Discussion for defending against those is out of scope.}
+
+\modelitem{\ac{EA} workarounds}{The user is capable of evading \ac{EA} mechanisms by encrypting data at a higher level
+in the tech stack, e.g. by encrypting files before saving them to disk. This has already been discussed, and it out of
+scope for evaluating the \ac{EA} system itself.}
+
+\modelitem{Manipulation of internal hardware}{Hyper-advanced hardware analysis and manipulation is a real threat from
+foreign intelligence agencies. Defending against these attacks is a separate problem.}
+
+\modelitem{Breakdown in rule of law}{This threat model assumes that the legal process used to obtain the warrant is
+valid. Additionally, all forms of surveillance, even when protected from mass surveillance, require oversight.
+Transparency via auditability, preferably ensured via technical mechanism, is a goal for good \ac{EA} proposals.
+However, rule of law is an absolute prerequisite for which no \ac{EA} mechanism can compensate.}
+
+\modelend
+
+% What are we building?: proposal DFDs
+% What can go wrong?: elicitation of threats
 
 
 \section{Basic Data at Rest}
+
+Answering ``what are we building'' and comparing it with the state of the art requires an understanding of the state of
+the art. Apple iPhones are among the most secure consumer mobile phones, and serve as the point of reference for
+\ldawmsR. \myfig{fig-dfd-iphone} is a \ac{DFD} depicting the iPhone's unlock and decryption process according to their
+public documentation \cite{apple_2020}.
 
 \begin{figure}[h]
     \centering\CaptionFontSize
     \includegraphics[width=\linewidth]{dfds/build/DAR-level-1-crypto-iphone.png}
     \caption{The basic encrypted mobile phone data flow diagram.}
-    \label{fig-dfd-dar}
+    \label{fig-dfd-iphone}
 \end{figure}
 
+This \ac{DFD}, and all that follow, is at a specific level of abstraction, simplified in the spirit of ``all models are
+wrong, but some are useful.'' The \acp{DFD} are intended to be useful for communication and threat elicitation only, but
+are accurate in that capacity.
 
-\section{The LDAWMSR Proposal}
+As the diagram illustrates, several steps occur between the user entering her \ac{PIN} and unlocking of the device. The
+operating system forwards the \ac{PIN} to the Secure Enclave Processor, which combines it with the device-specific
+Hardware \ac{UID} to generate the Class key. The Class key is used to decrypt the Volume key, which is finally handed to
+the Encryption Module to perform encryption and decryption at a hardware level between the operating system and actual
+encrypted storage.
 
-\begin{figure}[h]
+The \ac{UID} is not depicted in key storage because it is actually burned into the secure processor silicon, and cannot
+be read by software. The Volume key is stored encrypted by the Class key. When a user updates his \ac{PIN}, the
+encrypted Volume key in storage is replaced with the copy encrypted with the new Class key. Application processors never
+handle any keys or secret information besides the \ac{PIN}, and due to inline encryption in the Encryption Module,
+persistent storage never handles and \ac{plaintext} data.
+
+
+\section{The \ldawmsr Proposal}
+
+\ldawmsr introduces device key escrow and an unexposed hardware interface that mediates \ac{EA} requests. When prompted,
+the hardware interface produces a Device ID. The law enforcement officer (assuming proper circumstances) receives this
+Device ID and reports it to her agency. The agency signs a request including the Device ID and presents it to the
+vendor's access compliance department. The vendor authenticates the request, audits the corresponding legal documents,
+and looks up the corresponding Device Seal key. This key is encrypted using the same agency's public key and returned to
+the agency. The agency decrypts the Device Seal key and issues it to the agent, who enters it through the special
+interface. The Secure Enclave Processor uses the private Device Seal key to decrypt the Class key, which was saved in
+key storage encrypted by the device's public Device Seal key, and the unlock process proceeds as normal from there. Each
+of these steps is analyzed in closer detail.
+
+\begin{figure}[p]
     \centering\CaptionFontSize
     \includegraphics[width=0.81\linewidth]{dfds/build/DAR-level-1-crypto-iphone-LDAMSR.png}
     \caption{The LDAWMSR data flow diagram.}
@@ -35,6 +198,10 @@ everything.
 
 
 \section{Discussion of Threats}
+
+\section{Response to Frameworks}
+
+% How does it answer (or not) committee_decrypting_2018's framework questions? What needs improvement?
 
 
 

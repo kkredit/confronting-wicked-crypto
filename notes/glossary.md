@@ -9,6 +9,7 @@
 | Acronym | Meaning                                           |
 | ------- | ------------------------------------------------- |
 | AECA    | Arms Export Control Act                           |
+| APT     | advanced persistent threat                        |
 | AV      | anti-virus                                        |
 | AWA     | All Writs Act                                     |
 | CALEA   | Communications Assistance for Law Enforcement Act |
@@ -48,6 +49,7 @@
 | SE      | strong encryption                                 |
 | SSO     | single sign-on                                    |
 | TLS     | Transport Layer Security                          |
+| UID     | Unique ID                                         |
 | VPN     | virtual private network                           |
 
 <!-- end acronyms -->

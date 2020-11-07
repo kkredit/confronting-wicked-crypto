@@ -8,6 +8,8 @@
 - Policy comments:
 - Technical comments:
 - Notes:
+  - See especially https://support.apple.com/guide/security/secure-enclave-overview-sec59b0b31ff/1/web/1
+  - and https://support.apple.com/guide/security/glossary-sec93292bfa6/1/web/1
 
 ```bib
 @misc{apple_2020,
