@@ -389,13 +389,13 @@ Unfortunately, the proposal they share is indeed problematic. The ghost user pro
 strong encryption. This is a good property, but compromising a messaging app's authorization protocol is as dangerous as
 compromising its encryption \cite{callas_1_2019}. Fundamentally, it suffers from the same weakness as trusted-party key
 escrow; the introduction of an authorization vulnerability in the messaging service provider's platform amounts to a
-highly risky centralization of access capability \cite{schneier_ghost_2019}. It has the same nature, if a different
-form, as rejected key escrow proposals.
+highly risky centralized access capability \cite{schneier_ghost_2019}. It has the same nature, if a different form, as
+rejected key escrow proposals.
 
 Finally, one \ac{DAR}-specific \ac{EA} class is device key escrow. In this scheme, key recovery material exists on the
 device itself. While not necessary to classify as device key escrow, most of these proposals include physical possession
 requirements and additionally ``brick'' the device or make it absolutely clear that \ac{EA} has been performed
-\cite{savage_lawful_2018} \cite{ozzie_2018}. Such features precludes mass surveillance and ensure transparency to the
+\cite{savage_lawful_2018} \cite{ozzie_2018}. Such features preclude mass surveillance and ensure transparency to the
 device user. This approach relies on secure hardware and a method of authorizing the recovery request to the device
 itself. The authentication step can be paired with other \ac{EA} strategies, such as engaging with trusted-parties or
 distributed systems. This is where the device escrow shows its weaknesses. Secure hardware enclaves, though improving,
@@ -403,7 +403,7 @@ are not totally reliable, and authentication to the hardware device is susceptib
 escrow \ac{EA}.
 
 Device key escrow's greatest weaknesses, however, still represent signs of progress. It is true that it relies on a
-device's secure enclave, but devices already do---it is the same hardware devices that manages device unlock and
+device's secure enclave, but devices already do---it is the same hardware device that manages device unlock and
 encryption functionality in the first place. Adding functionality increases the attack surface, but it does not add a
 completely new threat vector. It is also true that the process is subject to the same problems as traditional key escrow
 after the device has been obtained, but that is precisely the progress that has been made---\ii{after the device has
