@@ -179,29 +179,138 @@ persistent storage never handles and \ac{plaintext} data.
 
 \section{The \ldawmsr Proposal}
 
-\ldawmsr introduces device key escrow and an unexposed hardware interface that mediates \ac{EA} requests. When prompted,
-the hardware interface produces a Device ID. The law enforcement officer (assuming proper circumstances) receives this
-Device ID and reports it to her agency. The agency signs a request including the Device ID and presents it to the
-vendor's access compliance department. The vendor authenticates the request, audits the corresponding legal documents,
-and looks up the corresponding Device Seal key. This key is encrypted using the same agency's public key and returned to
-the agency. The agency decrypts the Device Seal key and issues it to the agent, who enters it through the special
-interface. The Secure Enclave Processor uses the private Device Seal key to decrypt the Class key, which was saved in
-key storage encrypted by the device's public Device Seal key, and the unlock process proceeds as normal from there. Each
-of these steps is analyzed in closer detail.
+\ldawmsr introduces device key escrow, an unexposed hardware interface that mediates \ac{EA} requests, and a vendor
+mediated authorization process. To achieve its goals, the proposal relies on the concepts of self-escrow, time vaulting,
+authorization, and transparency. These concepts are summarized in \mytab{table-ldawmsr-concepts}; see the original paper
+for full detail \cite{savage_lawful_2018}.
+
+\begin{table}[h]
+  \caption{Central Concepts in the \ldawmsr Proposal}
+  \label{table-ldawmsr-concepts}
+  \begin{FlushLeft}
+    \begin{tabular}{ |l|p{6.3cm}|p{6.3cm}| }
+      \hline
+      \thead{Concept} & \thead{Implementation} & \thead{Outcome} \\ \hline
+      Self-escrow
+      & The Class key is escrowed in the device's Secure Enclave (or equivalent) using a write-only component; i.e.,
+        software can update the key, but only an unexposed hardware interface can read it.
+      & Since the Class key itself is being stored, there is no change to the security of the underlying cryptographic
+        protocols. Physical possession and partial disassembly is required, which introduces practical barriers to mass
+        surveillance.
+      \\ \hline
+      Time vaulting
+      & The hardware interface responds to requests only after proof of sustained possession for a ``lockup period
+        (e.g., 72 hours).''
+      & The waiting period precludes ``sneak and peak'' attacks and further reduces the utility for mass surveillance.
+      \\ \hline
+      Authorization
+      & After the lockup period, the requestor must provide evidence of authorization. This comes from a shared secret
+        between the device and the manufacturer which can be obtained via legal process.
+        % Vendor authorization escrow (as opposed to _key_ escrow)
+      & Physical possession is now not enough; law enforcement (or attackers) must provide this secret information to
+        the device to unlock it.
+      \\ \hline
+      Transparency
+      & In addition to the device disassembly, the escrow agent modifies the device (e.g., burns a fuse) when it has
+        been unlocked. The device firmware detects this modification.
+      & The device user has evidence that the device has been unlocked, preventing covert usage.
+      \\ \hline
+    \end{tabular}
+  \end{FlushLeft}
+\end{table}
+
+Device key escrow is considered the most promising technical \ac{EA} direction because of the unique capabilities that
+secure hardware offers, and \ldawmsr demonstrates this capabilities perfectly. The greatest of these capabilities are
+physical possession requirements and strong transparency. Physical possession requirements strongly mitigate mass
+surveillance and, as Savage puts it, ``provides a more intuitive compatibility with common under-standings of the
+government’s reasonable law enforcement powers (e.g., the ability to seize physical property under court order) than
+more information-centric approaches, which may appear covert by comparison'' \cite{savage_lawful_2018}. Transparency is
+also rooted in the physicality of the approach, wherein the device cannot be unlocked without making irreversible and
+detectable changes, mitigating both mass surveillance and common criminal abuse.
+
+One clear weakness in the design is the shared secret between the device and the manufacturer used in the authorization
+protocol. The key may be stored on the device, but one can access it if they have this shared secret. This is very much
+like trusted-party key escrow where the vendor is the trusted party, only they store the authentication key instead of
+the unlock key itself. Due to this similarity, one of the biggest \ac{EA} problems of centralized risk is not fully
+addressed. This is discussed further in \mysec{sec-prop-threats}.
+
+\ldawmsR's full data flow is illustrated in \myfig{fig-dfd-ldawmsr}. The proposal offers a few variations of the
+self-escrow and authorization protocols. This figure uses the asymmetric key pair approach for Class key encryption in
+the Secure Enclave, which has stricter hardware requirements; however, Savage offers a symmetric key variant that
+achieves the same purposes. The asymmetric key pair approach was chosen here because it is semantically clearer and
+easier to illustrate.
 
 \begin{figure}[p]
     \centering\CaptionFontSize
-    \includegraphics[width=0.81\linewidth]{dfds/build/DAR-level-1-crypto-iphone-LDAMSR.png}
+    \includegraphics[width=0.9\linewidth]{dfds/build/DAR-level-1-crypto-iphone-LDAMSR.png}
     \caption{The LDAWMSR data flow diagram.}
     \label{fig-dfd-ldawmsr}
 \end{figure}
 
+The lawful access use case operates as follows: law enforcement obtains a warrant to conduct a search, including the
+suspect's mobile device. They obtain the phone, disassemble it to expose the \ac{EA} hardware interface, and begin the
+time-vaulted access request. After the lockout period is completed, the device offers its Device ID only. The law
+enforcement agency's digital forensics department digitally signs the Device ID and sends it to the device vendor,
+alongside the warrant and accompanying proof of legal authorization. The vendor's access compliance department audits
+the legal documents and submits the digitally signed Device ID to a secure computing environment such as a Hardware
+Security Module. The secure environment authenticates the digital signature, looks up the device's private Device Seal
+Key and authorization value, and encrypts them with the law enforcement agency's public key. These encrypted artifacts
+are returned to the agency, which decrypts and submits them to the device through the dedicated interface. First is
+the authorization value, which is hashed and compared to the stored hash. If that values match, the device accepts and
+uses the private Device Seal Key to decrypt the Class key, which was escrowed after being encrypted but the public
+Device Seal Key. Once the Class key is decrypted, the escrow agent burns a fuse, and the device is unlocked for forensic
+investigation.
+
 
 \section{Discussion of Threats}
+\label{sec-prop-threats}
+
+% Full lifecycle--how do the keys get in the DB!
+
+The proposal has been illustrated. What threats does it introduce? Recall from \mysec{sec-crypto-basics} that security
+can be expressed in the properties of authentication, integrity, non-repudiation, confidentiality, availability, and
+authorization. Threats are often expressed as the negative of these properties: spoofing, tampering, repudiation,
+information disclosure, denial of service, and elevation of privileged \cite{shostack_threat_2014}. This section
+analyzes \ldawmsr using these categories.
+
+\subsection{Spoofing}
+
+\begin{table}[h]
+  \caption{Spoofing Threats}
+  \label{table-ldawmsr-concepts}
+  \begin{FlushLeft}
+    \begin{tabular}{ |l|p{2cm}|p{2cm}|p{4.8cm}|p{4.8cm}| }
+      \hline
+      \thead{ID} & \thead{Identity \\ Spoofed} & \thead{With \\ Respect To} & \thead{Effect} & \thead{Mitigation}
+      \\ \hline
+      S1 & Device & Officer
+      & Planted device to unlock unauthorized device.
+      & Require it to be in the forensics department itself.
+      \\ \hline
+    \end{tabular}
+  \end{FlushLeft}
+\end{table}
+
+\ii{S1} is Eran Tromer's attack on CLEAR.
+
+\subsection{Tampering}
+
+\subsection{Repudiation}
+
+\subsection{Information Disclosure}
+
+\subsection{Denial of Service}
+
+\subsection{Elevation of Privilege}
+
 
 \section{Response to Frameworks}
 
+% Or just, relationship to my goals?
+
 % How does it answer (or not) committee_decrypting_2018's framework questions? What needs improvement?
+
+% Reflection on how much progress this represents
 
 
 

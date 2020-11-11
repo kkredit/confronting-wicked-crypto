@@ -51,7 +51,7 @@ of several properties: authentication, integrity, non-repudiation, confidentiali
 architecture of its subcomponents and the security of the subcompenents themselves. At the end of this chain of
 analysis, the security of primitive components commonly relies on cryptography.
 
-\mytab{table:security-and-crypto} connects each security property to its cryptographic basis. While lacking direct
+\mytab{table-security-and-crypto} connects each security property to its cryptographic basis. While lacking direct
 cryptographic foundations, availability indirectly relies on each other property, and authorization schemes are
 typically rooted in authentication.
 
@@ -62,10 +62,10 @@ typically rooted in authentication.
 % Denial of Service         Availability
 % Elevation of Privilege    Authorization
 \begin{table}[h]
-    \caption[Security Properties and Cryptography]{The Cryptographic Basis of Security Properties}
-    \label{table:security-and-crypto}
+    \caption{The Cryptographic Basis of Security Properties}
+    \label{table-security-and-crypto}
     \centering
-    \begin{tabular}{|l|l|}
+    \begin{tabular}{ |l|l| }
         \hline
         \thead{Property} & \thead{Cryptographic Basis} \\ \hline
         Authentication  & Digital certificates \\ \hline

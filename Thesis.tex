@@ -33,6 +33,14 @@
 \usepackage{rotating}
 \usepackage{float} % use if want to do `\begin{figure}[H]` to force image positioning
 
+\usepackage{makecell}
+% To use makecell like normal (lines between header cols)
+% \renewcommand\theadfont{\bfseries}
+% To not need makecell (no newlines in headers)
+% \newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
+% To modify makecell (no lines between header cols)
+\renewcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries \makecell{#1}}}
+
 % Setup bools (\ifBoolName ... \fi)
 \newbool{GVSU}
 \ifnum\pdfstrcmp{\jobname}{Thesis-GVSU}=0
@@ -117,7 +125,6 @@
     }
 \fi
 
-\newcommand*{\thead}[1]{\multicolumn{1}{c}{\bfseries #1}}
 \def\tt#1{\mbox{\texttt{#1}}}
 \def\bb#1{\mbox{\textbf{#1}}}
 \def\ii#1{\mbox{\textit{#1}}}
