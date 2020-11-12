@@ -132,13 +132,17 @@ time. Discussion for defending against those is out of scope.}
 in the tech stack, e.g. by encrypting files before saving them to disk. This has already been discussed, and it out of
 scope for evaluating the \ac{EA} system itself.}
 
+\modelitem{Supply chain attacks}{Protecting device hardware and software supply chains is necessary to prevent
+surreptitious, trivially exploitable backdoors. For the purposes of this threat model, device hardware and software are
+considered to be as-intended, though they are assumed to contain the standard amount of bugs and side-channels.}
+
 \modelitem{Manipulation of internal hardware}{Hyper-advanced hardware analysis and manipulation is a real threat from
 foreign intelligence agencies. Defending against these attacks is a separate problem.}
 
-\modelitem{Breakdown in rule of law}{This threat model assumes that the legal process used to obtain the warrant is
-valid. Additionally, all forms of surveillance, even when protected from mass surveillance, require oversight.
-Transparency via auditability, preferably ensured via technical mechanism, is a goal for good \ac{EA} proposals.
-However, rule of law is an absolute prerequisite for which no \ac{EA} mechanism can compensate.}
+\modelitem{Breakdown in (or absence of) rule of law}{This threat model assumes that the legal process used to obtain the
+warrant is valid. Additionally, all forms of surveillance, even when protected from mass surveillance, require
+oversight. Transparency via auditability, preferably ensured via technical mechanism, is a goal for good \ac{EA}
+proposals. However, rule of law is an absolute prerequisite for which no \ac{EA} mechanism can compensate.}
 
 \modelend
 
@@ -189,7 +193,7 @@ for full detail \cite{savage_lawful_2018}.
   \label{table-ldawmsr-concepts}
   \FlushLeft
   \small
-  \begin{tabular}{ |l|p{6.3cm}|p{6.3cm}| }
+  \begin{tabular}{ |l|p{6.4cm}|p{6.4cm}| }
     \hline
     \thead{Concept} & \thead{Implementation} & \thead{Outcome} \\ \hline
     Self-escrow
@@ -264,9 +268,9 @@ information lifecycle matters. In order to establish such a system, vendors and 
 mechanisms to populate and update the device and \ac{HSM} key stores and databases. \myfig{fig-dfd-ldawmsr-setup} is a
 \ac{DFD} for these scenarios.
 
-\begin{figure}[h!]
+\begin{figure}[p!]
   \centering\CaptionFontSize
-  \includegraphics[width=0.9\linewidth]{dfds/build/DAR-level-1-crypto-iphone-LDAMSR-setup.png}
+  \includegraphics[width=\linewidth]{dfds/build/DAR-level-1-crypto-iphone-LDAMSR-setup.png}
   \caption{The LDAWMSR maintenance data flow diagram.}
   \label{fig-dfd-ldawmsr-setup}
 \end{figure}
@@ -275,13 +279,12 @@ mechanisms to populate and update the device and \ac{HSM} key stores and databas
 \section{Discussion of Threats}
 \label{sec-prop-threats}
 
-% Full lifecycle--how do the keys get in the DB!
-
 The proposal has been illustrated. What threats does it introduce? Recall from \mysec{sec-crypto-basics} that security
 can be expressed in the properties of authentication, integrity, non-repudiation, confidentiality, availability, and
 authorization. Threats are often expressed as the negative of these properties: spoofing, tampering, repudiation,
 information disclosure, denial of service, and elevation of privileged \cite{shostack_threat_2014}. This section
-analyzes \ldawmsr using these categories.
+analyzes \ldawmsr using these categories. Threats that fit under multiple categories, such as tampering for the effect
+of repudiation, are listed only once.
 
 To save space, the tables use shorthand for law enforcement (LE); law enforcement officer (LEO); law enforcement agency
 (LEA); Device ID (DID);
@@ -293,7 +296,7 @@ To save space, the tables use shorthand for law enforcement (LE); law enforcemen
 \newcommand{\threattablebegin}[3]{
   \begin{FlushLeft}
     \small
-    \begin{longtable}{ lp{3cm}p{5.6cm}p{5.6cm} }
+    \begin{longtable}{ lp{3cm}p{5.2cm}p{6cm} }
       \caption{#1 Threats}
       \label{table-#2}
       \\ \toprule
@@ -375,17 +378,86 @@ Tampering threats are listed in \mytab{table-tampering}.
     associated with deploying and using the system.
   \\ \hline
   T3 & LE insider tampers with DID before digital signature
-  & .
-  & .
+  & LEA receives an unauthorized device's unlock artifacts. Can be combined with other attacks to compromise a device.
+  & Randomize DID's to make them unguessable, meaning a target device must be in possession in order for the attacker to
+    know what DID to use. Input to the vendor's \ac{HSM} could also include data from the legal documents, such as
+    device S/N; the \ac{HSM} would hash the value and verify a match before returning the unlock artifacts.
+  \\ \hline
+  T4 & Attacker tampers with hardware transparency mechanism
+  & The device user is unaware that the device was unlocked. Highly implementation dependent, but certainly requires
+    advanced hardware manipulation tools.
+  & Manufacture the device to require destructive disassembly to access the interface.
 \threattableend
 
 \subsection{Repudiation}
 
+Repudiation threats are listed in \mytab{table-repudiation}.
+
+\threattablebegin{Repudiation}{repudiation}{Repudiation}
+  R1 & Attacker or authoritarian government repudiates unlock attempt
+  & The user is unaware that someone tried to access their device.
+  & Manufacture the device to require destructive disassembly to access the interface, or use the same hardware
+    transparency mechanism to mark mere access attempts as well.
+  \\ \hline
+  R2 & Authoritarian government repudiates demanding vendor assistance
+  & Governments not respecting the legal framework governing the system can bully the vendor and try to force access
+    while maintaining deniability.
+  & This is close to being an out of scope threat under the ``rule of law'' exception. However, one could design the
+    system to require requests to be recorded on a public ledger. This opens up several new difficulties.
+  \\ \hline
+  R3 & LEA repudiates having unlocked a device
+  & The device is undeniably unlocked, but the LEA claims it was not them, allowing possible violations of civil
+    liberties and harming transparency.
+  & ...
+  \\ \hline
+  R4 & Vendor repudiates having responded to an access request
+  & The device is undeniably unlocked, but the vendor claims they did not provide the unlock artifacts, allowing the
+    vendor to cover up leaks or unsavory policy decisions by suggesting the device was instead hacked. Harms
+    transparency.
+  & ...
+\threattableend
+
 \subsection{Information Disclosure}
+
+Information disclosure threats are listed in \mytab{table-disclosure}.
+
+\threattablebegin{Information Disclosure}{disclosure}{Information \\ Disclosed}
+  I1 & .
+  & .
+  & .
+  \\ \hline
+  I2 & .
+  & .
+  & .
+\threattableend
 
 \subsection{Denial of Service}
 
+Denial of service threats are listed in \mytab{table-dos}.
+
+\threattablebegin{Denial of Service}{dos}{Service Denied}
+  D1 & .
+  & .
+  & .
+  \\ \hline
+  D2 & .
+  & .
+  & .
+\threattableend
+
 \subsection{Elevation of Privilege}
+
+Elevation of privilege are listed in \mytab{table-privilege}.
+
+\threattablebegin{Elevation of Privilege}{privilege}{Privilege Gained}
+  E1 & .
+  & .
+  & .
+  \\ \hline
+  E2 & .
+  & .
+  & .
+\threattableend
 
 
 \section{Response to Frameworks}
