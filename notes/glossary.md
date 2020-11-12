@@ -32,6 +32,7 @@
 | FISAAA  | FISA Amendments Act                               |
 | FISC    | Foreign Intelligence Surveillance Court           |
 | GCHQ    | (UK) Government Communications Headquarters       |
+| HSM     | Hardware Security Module                          |
 | IBIS    | issue-based information system                    |
 | ITAR    | International Traffic in Arms Regulations         |
 | KEK     | key encrypting key                                |

@@ -187,36 +187,35 @@ for full detail \cite{savage_lawful_2018}.
 \begin{table}[h]
   \caption{Central Concepts in the \ldawmsr Proposal}
   \label{table-ldawmsr-concepts}
-  \begin{FlushLeft}
-    \begin{tabular}{ |l|p{6.3cm}|p{6.3cm}| }
-      \hline
-      \thead{Concept} & \thead{Implementation} & \thead{Outcome} \\ \hline
-      Self-escrow
-      & The Class key is escrowed in the device's Secure Enclave (or equivalent) using a write-only component; i.e.,
-        software can update the key, but only an unexposed hardware interface can read it.
-      & Since the Class key itself is being stored, there is no change to the security of the underlying cryptographic
-        protocols. Physical possession and partial disassembly is required, which introduces practical barriers to mass
-        surveillance.
-      \\ \hline
-      Time vaulting
-      & The hardware interface responds to requests only after proof of sustained possession for a ``lockup period
-        (e.g., 72 hours).''
-      & The waiting period precludes ``sneak and peak'' attacks and further reduces the utility for mass surveillance.
-      \\ \hline
-      Authorization
-      & After the lockup period, the requestor must provide evidence of authorization. This comes from a shared secret
-        between the device and the manufacturer which can be obtained via legal process.
-        % Vendor authorization escrow (as opposed to _key_ escrow)
-      & Physical possession is now not enough; law enforcement (or attackers) must provide this secret information to
-        the device to unlock it.
-      \\ \hline
-      Transparency
-      & In addition to the device disassembly, the escrow agent modifies the device (e.g., burns a fuse) when it has
-        been unlocked. The device firmware detects this modification.
-      & The device user has evidence that the device has been unlocked, preventing covert usage.
-      \\ \hline
-    \end{tabular}
-  \end{FlushLeft}
+  \FlushLeft
+  \small
+  \begin{tabular}{ |l|p{6.3cm}|p{6.3cm}| }
+    \hline
+    \thead{Concept} & \thead{Implementation} & \thead{Outcome} \\ \hline
+    Self-escrow
+    & The Class key is escrowed in the device's Secure Enclave (or equivalent) using a write-only component; i.e.,
+      software can update the key, but only an unexposed hardware interface can read it.
+    & Since the Class key itself is being stored, there is no change to the security of the underlying cryptographic
+      protocols. Physical possession and partial disassembly is required, which introduces practical barriers to mass
+      surveillance.
+    \\ \hline
+    Time vaulting
+    & The hardware interface responds to requests only after proof of sustained possession for a ``lockup period (e.g.,
+      72 hours).''
+    & The waiting period precludes ``sneak and peak'' attacks and further reduces the utility for mass surveillance.
+    \\ \hline
+    Authorization
+    & After the lockup period, the requestor must provide evidence of authorization. This comes from a shared secret
+      between the device and the manufacturer which can be obtained via legal process.
+    & Physical possession is now not enough; law enforcement (or attackers) must provide this secret information to the
+      device to unlock it.
+    \\ \hline
+    Transparency
+    & In addition to the device disassembly, the escrow agent modifies the device (e.g., burns a fuse) when it has been
+      unlocked. The device firmware detects this modification.
+    & The device user has evidence that the device has been unlocked, preventing covert usage.
+    \\ \hline
+  \end{tabular}
 \end{table}
 
 Device key escrow is considered the most promising technical \ac{EA} direction because of the unique capabilities that
@@ -252,14 +251,25 @@ suspect's mobile device. They obtain the phone, disassemble it to expose the \ac
 time-vaulted access request. After the lockout period is completed, the device offers its Device ID only. The law
 enforcement agency's digital forensics department digitally signs the Device ID and sends it to the device vendor,
 alongside the warrant and accompanying proof of legal authorization. The vendor's access compliance department audits
-the legal documents and submits the digitally signed Device ID to a secure computing environment such as a Hardware
-Security Module. The secure environment authenticates the digital signature, looks up the device's private Device Seal
-Key and authorization value, and encrypts them with the law enforcement agency's public key. These encrypted artifacts
-are returned to the agency, which decrypts and submits them to the device through the dedicated interface. First is
-the authorization value, which is hashed and compared to the stored hash. If that values match, the device accepts and
-uses the private Device Seal Key to decrypt the Class key, which was escrowed after being encrypted but the public
-Device Seal Key. Once the Class key is decrypted, the escrow agent burns a fuse, and the device is unlocked for forensic
-investigation.
+the legal documents and submits the digitally signed Device ID to a secure computing environment such as a \ac{HSM}. The
+secure environment authenticates the digital signature, looks up the device's private Device Seal Key and authorization
+token, and encrypts them with the law enforcement agency's public key. These encrypted artifacts are returned to the
+agency, which decrypts and submits them to the device through the dedicated interface. First is the authorization token,
+which is hashed and compared to the stored hash. If that values match, the device accepts and uses the private Device
+Seal Key to decrypt the Class key, which was escrowed after being encrypted but the public Device Seal Key. Once the
+Class key is decrypted, the escrow agent burns a fuse, and the device is unlocked for forensic investigation.
+
+This concludes an summarized overview of the system as described in the proposal. However, in a real system, the entire
+information lifecycle matters. In order to establish such a system, vendors and law enforcement must establish
+mechanisms to populate and update the device and \ac{HSM} key stores and databases. \myfig{fig-dfd-ldawmsr-setup} is a
+\ac{DFD} for these scenarios.
+
+\begin{figure}[h!]
+  \centering\CaptionFontSize
+  \includegraphics[width=0.9\linewidth]{dfds/build/DAR-level-1-crypto-iphone-LDAMSR-setup.png}
+  \caption{The LDAWMSR maintenance data flow diagram.}
+  \label{fig-dfd-ldawmsr-setup}
+\end{figure}
 
 
 \section{Discussion of Threats}
@@ -273,27 +283,101 @@ authorization. Threats are often expressed as the negative of these properties: 
 information disclosure, denial of service, and elevation of privileged \cite{shostack_threat_2014}. This section
 analyzes \ldawmsr using these categories.
 
+To save space, the tables use shorthand for law enforcement (LE); law enforcement officer (LEO); law enforcement agency
+(LEA); Device ID (DID);
+
+% TODO: Check list of acronyms up to date here ^^
+
+\newcommand{\threattablesettings}{\FlushLeft \small}
+
+\newcommand{\threattablebegin}[3]{
+  \begin{FlushLeft}
+    \small
+    \begin{longtable}{ lp{3cm}p{5.6cm}p{5.6cm} }
+      \caption{#1 Threats}
+      \label{table-#2}
+      \\ \toprule
+      \thead{ID} & \thead{#3} & \thead{Effect} & \thead{Mitigation}
+      \\ \midrule
+      \endfirsthead
+      \caption[]{#1 Threats (continued)}
+      \\
+      \toprule
+      \thead{ID} & \thead{#3} & \thead{Effect} & \thead{Mitigation}
+      \\
+      % \midrule
+      \endhead
+      \endfoot
+      \bottomrule
+      \endlastfoot
+}
+
+\newcommand{\threattableend}{
+    \end{longtable}
+  \end{FlushLeft}
+}
+
 \subsection{Spoofing}
 
-\begin{table}[h]
-  \caption{Spoofing Threats}
-  \label{table-ldawmsr-concepts}
-  \begin{FlushLeft}
-    \begin{tabular}{ |l|p{2cm}|p{2cm}|p{4.8cm}|p{4.8cm}| }
-      \hline
-      \thead{ID} & \thead{Identity \\ Spoofed} & \thead{With \\ Respect To} & \thead{Effect} & \thead{Mitigation}
-      \\ \hline
-      S1 & Device & Officer
-      & Planted device to unlock unauthorized device.
-      & Require it to be in the forensics department itself.
-      \\ \hline
-    \end{tabular}
-  \end{FlushLeft}
-\end{table}
+Spoofing threats are listed in \mytab{table-spoofing}. Notably, \ii{S2} is Eran Tromer's attack \cite{tromer_2018} on
+computer scientist Ray Ozzie's related \ac{DAR} \ac{EA} protocol called CLEAR \cite{ozzie_2018}. Savage acknowledges the
+influence that CLEAR had on \ldawmsR, and specifically included a note that while this proposal is technically
+vulnerable to the same threat, the mitigations listed here would help, and furthermore the likelihood of such an attack
+is low and the difficulty high.
 
-\ii{S1} is Eran Tromer's attack on CLEAR.
+\threattablebegin{Spoofing}{spoofing}{Spoof}
+  S1 & Device is spoofed to LE via plant
+  & Attackers plant a device to get LE to unlock it for them.
+  & Require the device to be in the forensics department itself the entire time it is unlocked.
+  \\ \hline
+  S2 & Device is spoofed to LE via forged DID
+  & Attackers rig a device to report a different DID and record the entered unlock artifacts, allowing them into a
+    target device.
+  & Add a hardware integrity check or alternatively unlock the device in a Faraday cage, extract its data, and destroy
+    it.
+  \\ \hline
+  S3 & LEO is spoofed to LEA
+  & Attackers pose as a LEO while the LEA relays back unlock artifacts.
+  & Require the device to be in the forensics department itself the entire time it is unlocked.
+  \\ \hline
+  S4 & LEA is spoofed to vendor during key exchange
+  & Attackers pose as an LEA in order to spoof future access requests.
+  & Vendor key exchange process involves thorough in-person verification.
+  \\ \hline
+  S5 & LEA is spoofed to vendor during access request
+  & Attackers pose as a LEA and submit an access request. Requires forged legal documents and a stolen LEA private key
+    (unless attacker is an insider or has executed a spoofed key exchange).
+  & Vendor independently verifies all legal documents. Vendor supports a key revocation and update process that involves
+    the same level of in-person verification.
+  \\ \hline
+  S6 & Manufacturer is spoofed to vendor
+  & Attackers pose as the manufacturer to inject malicious data into the DID-Seal database. Must be combined with other
+    attacks to be of use.
+  & Vendor authenticates data transfers between manufacturing and corporate (does not address a compromised manufacturer
+    network or an inside threat).
+\threattableend
 
 \subsection{Tampering}
+
+Tampering threats are listed in \mytab{table-tampering}.
+
+\threattablebegin{Tampering}{tampering}{Tamper}
+  T1 & Defensive user corrupts DSK, DID, or token
+  & LE attempts at perform \ac{EA} will fail due to corrupt data. Requires compromise of the Secure Enclave or advanced
+    hardware manipulation tools.
+  & Since these values are known at manufacturing time and never change, they can be made read-only. (The symmetric key
+    variant of \ldawmsr requires updating the symmetric equivalent of the public DSK, and is therefore more vulnerable
+    to this threat.)
+  \\ \hline
+  T2 & Defensive user destroys the \ac{EA} hardware interface
+  & LE attempts at perform \ac{EA} will fail due to damaged hardware.
+  & Manufacture the device to require destructive disassembly to access the interface. This increases the cost
+    associated with deploying and using the system.
+  \\ \hline
+  T3 & LE insider tampers with DID before digital signature
+  & .
+  & .
+\threattableend
 
 \subsection{Repudiation}
 
