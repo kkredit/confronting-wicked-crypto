@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source $(git rev-parse --show-toplevel)/scripts/sourceme.sh
+# shellcheck disable=SC1090
+source "$(git rev-parse --show-toplevel)"/scripts/sourceme.sh
 
 ##################################################################### SCRIPT SETUP
 USAGE="
@@ -11,37 +12,37 @@ SOURCE - The DOI or URL of the new material
 "
 
 ORIG_DIR=$(pwd)
-cd $READING_DIR
+cd "$READING_DIR" || exit
 function cleanup() {
-    if [[ 2 == $? ]]; then
-        printf "$USAGE"
+    if (( 2 == $? )); then
+        echo "$USAGE"
     fi
 }
 trap cleanup EXIT
 
 ##################################################################### DEPENDENCIES
-[[ 0 < $(which docker | wc -l) ]] || exitprint 1 "Docker must be installed."
+which docker &>/dev/null || exitprint 1 "Docker must be installed."
 if [[ ! $(which getdoi) ]]; then
     echo "Installing scholarref tools..."
     git clone git://src.adamsgaard.dk/scholarref ../../scholarref &>/dev/null
-    pushd ../../scholarref &>/dev/null
+    pushd ../../scholarref &>/dev/null || exit
     sudo make install >/dev/null
-    popd &>/dev/null
+    popd &>/dev/null || exit
 fi
 
 ##################################################################### ARGUMENTS
 (( 2 <= $# )) || exitprint 2 "Incorrect args"
 case "$1" in
-    /*) SUBDIR=$(echo $1 | sed 's:/*$::') ;;
-    *)  SUBDIR=$ORIG_DIR/$(echo $1 | sed 's:/*$::') ;;
+    /*) SUBDIR=$(echo "$1" | sed 's:/*$::') ;;
+    *)  SUBDIR=$ORIG_DIR/$(echo "$1" | sed 's:/*$::') ;;
 esac
-[ -d $SUBDIR ] || exitprint 2 "SUBDIR=$SUBDIR must exist"
-SOURCE="${@:2}"
+[ -d "$SUBDIR" ] || exitprint 2 "SUBDIR=$SUBDIR must exist"
+SOURCE="${*:2}"
 
 ##################################################################### ZOTERO CONTAINER
 DOCKER_IMAGE="zotero/translation-server"
 DOCKER_PORT=1969
-if [[ 0 == $(docker container ls | grep $DOCKER_IMAGE | wc -l) ]]; then
+if ! docker container ls | grep -q "$DOCKER_IMAGE"; then
     echo "Launching Zotero container (30s)..."
     docker run -d -p $DOCKER_PORT:$DOCKER_PORT --rm $DOCKER_IMAGE >/dev/null
     sleep 30
@@ -52,25 +53,25 @@ FORMAT=bibtex
 CURL_TIMEOUT=20
 
 function bad_json() {
-    [[ 0 == $# ]] || [[ $(echo $@ | grep -v "{") ]]
+    (( 0 == $# )) || echo "$*" | grep -qv "{"
 }
 
 echo "Trying as a DOI..."
 JSON=$(curl -m $CURL_TIMEOUT -d "$SOURCE" -H "Content-Type: text/plain" \
                     127.0.0.1:$DOCKER_PORT/search 2>/dev/null)
-if bad_json $JSON; then
+if bad_json "$JSON"; then
     echo "Trying as a URL..."
     JSON=$(curl -m $CURL_TIMEOUT -d "$SOURCE" -H "Content-Type: text/plain" \
                     127.0.0.1:$DOCKER_PORT/web 2>/dev/null)
 fi
-if bad_json $JSON; then
+if bad_json "$JSON"; then
     echo "Trying to fetch the DOI..."
     DOI=$(getdoi "$SOURCE")
     echo "Trying as DOI $DOI..."
     JSON=$(curl -m $CURL_TIMEOUT -d "$DOI" -H "Content-Type: text/plain" \
                     127.0.0.1:$DOCKER_PORT/search 2>/dev/null)
 fi
-if bad_json $JSON; then
+if bad_json "$JSON"; then
     exitprint 1 "Could not identify data source from $SOURCE"
 fi
 BIBTEX_CITATION=$(curl -v -d "$JSON" -H "Content-Type: application/json" \
@@ -81,13 +82,12 @@ BIBTEX_CITATION=$(curl -v -d "$JSON" -H "Content-Type: application/json" \
 BIBTEX_CITATION="$(echo "$BIBTEX_CITATION" | sed '/^[[:space:]]*$/d')"
 
 ##################################################################### VERIFICATION
-TITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+title =" | cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
+TITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+title =" | cut -d\{ -f 2- | cut -d, -f 1 | tr -d {})"
 [[ "" != "$TITLE" ]] || exitprint 1 "Could not extract a title citation from $BIBTEX_CITATION"
 
 echo "Fetched data for resource titled:"
 echo "  \"$TITLE\""
-CONT=true
-while [ true ]; do
+while true; do
     read -r -p "Is this correct? [y/n/s] " response
     [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] && break
     [[ "$response" =~ ^([nN][oO]|[nN])$ ]] && exitprint 1 "Sorry."
@@ -96,15 +96,15 @@ while [ true ]; do
 done
 
 ##################################################################### CHECK FILE EXISTS
-FILE=$SUBDIR/$(echo $TITLE | tr -cd '[:alnum:]_-').md
+FILE=$SUBDIR/$(echo "$TITLE" | tr -cd '[:alnum:]_-').md
 
 SHORTTITLE="$(echo "$BIBTEX_CITATION" | grep "\s\+shorttitle =" | \
-                    cut -d{ -f 2- | cut -d, -f 1 | tr -d {})"
-[[ "" != "$SHORTTITLE" ]] && SHORTFILE=$SUBDIR/$(echo $SHORTTITLE | tr -cd '[:alnum:]_-').md
+                    cut -d\{ -f 2- | cut -d, -f 1 | tr -d {})"
+[[ "" != "$SHORTTITLE" ]] && SHORTFILE=$SUBDIR/$(echo "$SHORTTITLE" | tr -cd '[:alnum:]_-').md
 
 if [[ "" != "$SHORTFILE" ]]; then
-    printf "File will be named:\n  \"$FILE\"\n"
-    printf "Also have shorter name:\n  \"$SHORTFILE\"\n"
+    printf "File will be named:\n  \"%s\"\n" "$FILE"
+    printf "Also have shorter name:\n  \"%s\"\n" "$SHORTFILE"
     read -r -p "Prefer the short title? [y/N] " response
     [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]] && FILE=$SHORTFILE
     echo
@@ -116,7 +116,7 @@ fi
 NEW_CITATION_NAME=false
 
 function citation_missing_field() {
-    [[ $(echo $BIBTEX_CITATION | grep -v "\s$1 =") ]]
+    echo "$BIBTEX_CITATION" | grep -qv "\s$1 ="
 }
 
 function insert_bibtex_field() {
@@ -175,13 +175,14 @@ fi
 if $NEW_CITATION_NAME; then
     CITATION_AUTHOR="$(echo "$BIBTEX_CITATION" | grep '\sauthor =' | \
                             cut -d' ' -f3 | tr -cd '[:alnum:]')"
-    CITATION_YEAR="$(echo "$BIBTEX_CITATION" | grep '\syear =' | cut -d{ -f2 | cut -d} -f1)"
+    CITATION_YEAR="$(echo "$BIBTEX_CITATION" | grep '\syear =' | cut -d\{ -f2 | cut -d\} -f1)"
     [[ "" != "$CITATION_YEAR" ]] || CITATION_YEAR="$(echo "$BIBTEX_CITATION" | grep '\sdate =' | \
-                                                        cut -d{ -f2 | cut -d} -f1 | cut -d- -f1)"
+                                                        cut -d\{ -f2 | cut -d\} -f1 | cut -d- -f1)"
     UNDERSCORE="_"
     NEW_NAME="$(echo "$CITATION_AUTHOR$UNDERSCORE$CITATION_YEAR" | tr '[:upper:]' '[:lower:]')"
-    CURRENT_NAME="$(echo "$BIBTEX_CITATION" | head -1 | cut -d{ -f2 | cut -d, -f1)"
-    BIBTEX_CITATION="$(echo "$BIBTEX_CITATION" | sed "s|$CURRENT_NAME|$NEW_NAME|")"
+    CURRENT_NAME="$(echo "$BIBTEX_CITATION" | head -1 | cut -d\{ -f2 | cut -d, -f1)"
+    # BIBTEX_CITATION="$(echo "$BIBTEX_CITATION" | sed "s|$CURRENT_NAME|$NEW_NAME|")"
+    BIBTEX_CITATION="${BIBTEX_CITATION//$CURRENT_NAME/$NEW_NAME}"
 fi
 
 ##################################################################### CREATE FILE
@@ -189,7 +190,7 @@ FOLD_COL=120
 FORMATTED_CITATION="$(echo "$TIP_ADD_AUTHOR$BIBTEX_CITATION" | \
                         sed '/^$/d' | sed 's/\t/  /' | fold -s -w $FOLD_COL - | sed 's/ *$//g')"
 
-cat > $FILE <<EOF
+cat > "$FILE" <<EOF
 # $TITLE
 
 - Summary:
@@ -206,17 +207,17 @@ $FORMATTED_CITATION
 EOF
 
 ##################################################################### WARNINGS
-if [[ $(echo $FORMATTED_CITATION | grep "{http" | grep -v "}") ]]; then
+if echo "$FORMATTED_CITATION" | grep "{http" | grep -qv "}"; then
     echo "WARNING: may have cut-off URL in citation"
 fi
 
-REF_NAME="$(echo "$FORMATTED_CITATION" | head -1 | cut -d{ -f2 | cut -d, -f1)"
-if [[ $(cat ../Thesis.bib | grep $REF_NAME) ]]; then
+REF_NAME="$(echo "$FORMATTED_CITATION" | head -1 | cut -d\{ -f2 | cut -d, -f1)"
+if grep -q "$REF_NAME" ../Thesis.bib; then
     echo "WARNING: possible citation name collision using \"$REF_NAME\""
 fi
 
 ##################################################################### FINAL STEPS
 echo "Created file $FILE"
-git add $FILE
-codium $FILE
+git add "$FILE"
+codium "$FILE"
 ../scripts/bib-gen.sh

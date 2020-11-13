@@ -30,7 +30,7 @@ if which snap &>/dev/null; then
     snap install drawio
 else
     URL=$(curl -sL https://github.com/jgraph/drawio-desktop/releases/latest | grep "\.deb" | head -1  | cut -d\" -f2)
-    wget -q $URL
+    wget -q "$URL"
     sudo dpkg -i ./*.deb || sudo apt-get -fy install
     rm ./*.deb
 fi
