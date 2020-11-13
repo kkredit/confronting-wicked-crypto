@@ -18,10 +18,11 @@
 | CP      | child pornography                                 |
 | CSAM    | child sexual abuse material                       |
 | CSAV    | computer supported argument visualization         |
+| DAR     | data at rest                                      |
 | DE      | device encryption                                 |
 | DFD     | data flow diagram                                 |
 | DIM     | data in motion                                    |
-| DAR     | data at rest                                      |
+| DOS     | denial of service                                 |
 | E2E     | end to end                                        |
 | E2EE    | end to end encryption                             |
 | EA      | exceptional access                                |

@@ -268,7 +268,7 @@ information lifecycle matters. In order to establish such a system, vendors and 
 mechanisms to populate and update the device and \ac{HSM} key stores and databases. \myfig{fig-dfd-ldawmsr-setup} is a
 \ac{DFD} for these scenarios.
 
-\begin{figure}[p!]
+\begin{figure}[H]
   \centering\CaptionFontSize
   \includegraphics[width=\linewidth]{dfds/build/DAR-level-1-crypto-iphone-LDAMSR-setup.png}
   \caption{The LDAWMSR maintenance data flow diagram.}
@@ -282,12 +282,12 @@ mechanisms to populate and update the device and \ac{HSM} key stores and databas
 The proposal has been illustrated. What threats does it introduce? Recall from \mysec{sec-crypto-basics} that security
 can be expressed in the properties of authentication, integrity, non-repudiation, confidentiality, availability, and
 authorization. Threats are often expressed as the negative of these properties: spoofing, tampering, repudiation,
-information disclosure, denial of service, and elevation of privileged \cite{shostack_threat_2014}. This section
+information disclosure, \acl{DOS}, and elevation of privileged \cite{shostack_threat_2014}. This section
 analyzes \ldawmsr using these categories. Threats that fit under multiple categories, such as tampering for the effect
 of repudiation, are listed only once.
 
-To save space, the tables use shorthand for law enforcement (LE); law enforcement officer (LEO); law enforcement agency
-(LEA); Device ID (DID);
+To save space, the tables use shorthand for law enforcement (LE), law enforcement officer (LEO), law enforcement agency
+(LEA), Device ID (DID), Device Seal Key (DSK), \acf{DOS}
 
 % TODO: Check list of acronyms up to date here ^^
 
@@ -336,8 +336,8 @@ is low and the difficulty high.
   S2 & Device is spoofed to LE via forged DID
   & Attackers rig a device to report a different DID and record the entered unlock artifacts, allowing them into a
     target device.
-  & Add a hardware integrity check or alternatively unlock the device in a Faraday cage, extract its data, and destroy
-    it.
+  & Add a hardware integrity check or alternatively unlock the device in a Faraday cage (to prevent telemetry), extract
+    its data, and destroy it (to prevent recovering stored data).
   \\ \hline
   S3 & LEO is spoofed to LEA
   & Attackers pose as a LEO while the LEA relays back unlock artifacts.
@@ -354,7 +354,7 @@ is low and the difficulty high.
     the same level of in-person verification.
   \\ \hline
   S6 & Manufacturer is spoofed to vendor
-  & Attackers pose as the manufacturer to inject malicious data into the DID-Seal database. Must be combined with other
+  & Attackers pose as the manufacturer to inject malicious data into the DID-DSK database. Must be combined with other
     attacks to be of use.
   & Vendor authenticates data transfers between manufacturing and corporate (does not address a compromised manufacturer
     network or an inside threat).
@@ -362,7 +362,7 @@ is low and the difficulty high.
 
 \subsection{Tampering}
 
-Tampering threats are listed in \mytab{table-tampering}.
+Tampering threats are listed in \mytab{table-tampering}. \ii{S2} relies on tampering similar to \ii{T1}.
 
 \threattablebegin{Tampering}{tampering}{Tamper}
   T1 & Defensive user corrupts DSK, DID, or token
@@ -373,7 +373,7 @@ Tampering threats are listed in \mytab{table-tampering}.
     to this threat.)
   \\ \hline
   T2 & Defensive user destroys the \ac{EA} hardware interface
-  & LE attempts at perform \ac{EA} will fail due to damaged hardware.
+  & LE attempts to perform \ac{EA} will fail due to damaged hardware.
   & Manufacture the device to require destructive disassembly to access the interface. This increases the cost
     associated with deploying and using the system.
   \\ \hline
@@ -408,56 +408,99 @@ Repudiation threats are listed in \mytab{table-repudiation}.
   R3 & LEA repudiates having unlocked a device
   & The device is undeniably unlocked, but the LEA claims it was not them, allowing possible violations of civil
     liberties and harming transparency.
-  & ...
+  & The escrow agent could require some identifying information before unlocking, such as the LEA's public key digitally
+    signed by the vendor.
   \\ \hline
   R4 & Vendor repudiates having responded to an access request
   & The device is undeniably unlocked, but the vendor claims they did not provide the unlock artifacts, allowing the
     vendor to cover up leaks or unsavory policy decisions by suggesting the device was instead hacked. Harms
     transparency.
-  & ...
+  & The same identifying information used in \ii{R3} would implicate the vendor (assuming the integrity of the vendor's
+    signing key).
 \threattableend
 
 \subsection{Information Disclosure}
 
-Information disclosure threats are listed in \mytab{table-disclosure}.
+Information disclosure threats are listed in \mytab{table-disclosure}. In addition to the threats listed here, all
+attacks aimed at gaining unauthorized access to a device constitute information disclosure threats. Most spoofing
+attacks are aimed at disclosing information intended for another party.
 
 \threattablebegin{Information Disclosure}{disclosure}{Information \\ Disclosed}
-  I1 & .
-  & .
-  & .
+  I1 & Attacker exposes the DSK, DID, the encrypted class key, or hashed token
+  & By design, none of the information stored on the phone is sensitive. The most consequential information that could
+    be stolen is the DID, which could be paired with other attacks. Disclosing the DID requires either disassembly and
+    time vaulting or advanced hardware inspection tooling.
+  & Sensitivity of this data has already been mitigated as much as possible.
   \\ \hline
-  I2 & .
-  & .
-  & .
+  I2 & Attacker intercepts unlock artifacts between LEA \ac{HSM} and device
+  & The attacker is able to unlock the target device alone. Must be combined with a spoofed DID to be of use to other
+    devices (see \ii{S2}). The could record the values to replay them after the phone has been returned.
+  & See \ii{S2}. If choosing not to destroy the device, to prevent replay attacks, a new token could be generated and
+    stored in the vendor HSM, with the new hash installed during the unlock process.
+  \\ \hline
+  I3 & Attacker steals the LEA private key
+  & The attacker is now able to spoof the LEA and decrypt returned unlock artifacts. Without the devices (which are
+    already in LE possession), the artifacts are not useful. See \ii{S4} and \ii{S5} for LEA spoofing attacks.
+  & The key is stored in an \ac{HSM}, which has extensive security measures. See \ii{S5} for a revocation and update
+    mitigation.
+  \\ \hline
+  I4 & Attacker steals the DID-DSK database
+  & This is the big prize, the largest source of centralized risk. With the database, attackers could directly
+    compromise (or more likely, sell access to) any mobile device using this system in their possession, after
+    disassembly, and after the time vault.
+  & \ii{R3} defines a mitigation that requires use of a vendor private key to create a digital signature as part of the
+    authentication process. If used, that key would have to be compromised as well for the database to be of use.
+    However, if the database is compromised, that key probably is too. Savage argues that \ac{HSM}s, though imperfect,
+    actually do provide very strong assurance. Responses could be rate-limited, and leaking an entire database once it's
+    in the \ac{HSM} could not go unnoticed. Getting the data in may be harder---see \ii{I5}.
+  \\ \hline
+  I5 & Attacker steals device unlock artifacts between manufacturing and vendor \ac{HSM}
+  & Intercepting the unlock artifacts at the source achieves the same effect as \ii{I4}, only the data set is not
+    complete. Instead of granting the ability to unlock any device, including a specific target, this is suited for
+    getting access down the line or for sale.
+  & The unlock artifacts generation process must be treated as sensitively as the \ac{HSM} itself. The artifacts should
+    be encrypted immediately and periodically transported to the corporate \ac{HSM} on physical media. This threat is
+    difficult to definitively mitigate.
 \threattableend
 
 \subsection{Denial of Service}
 
-Denial of service threats are listed in \mytab{table-dos}.
+\Ac{DOS} threats are listed in \mytab{table-dos}. In addition to the threats listed, \ii{S4} can be used for \ac{DOS} by
+surreptitiously invalidating a LEA's identity key, and \ii{T1} and \ii{T2} are tampering attacks designed to deny LEAs
+from using the \ac{EA} mechanism.
 
 \threattablebegin{Denial of Service}{dos}{Service Denied}
-  D1 & .
-  & .
-  & .
-  \\ \hline
-  D2 & .
-  & .
-  & .
+  D1 & Unlock artifacts recovery
+  & \ii{S6} could be used to inject corrupt data to the DID-DSK database, potentially overwriting actual unlock artifact
+    data.
+  & Verify integrity of new data before entering it into the database, and disallow overwriting entirely.
 \threattableend
 
 \subsection{Elevation of Privilege}
 
-Elevation of privilege are listed in \mytab{table-privilege}.
+Elevation of privilege are listed in \mytab{table-privilege}. Spoofing to usurp a entity's privilege or using any attack
+to unlock a device without authorization can be seen as escalation of privilege.
 
 \threattablebegin{Elevation of Privilege}{privilege}{Privilege Gained}
-  E1 & .
-  & .
-  & .
+  E1 & Foreign intelligence or organized crime recruits an insider
+  & The primary attacker gains inside access through coercion or bribery, making any other attack easier.
+  & Limit the employees, accounts, and computers involved in any element of the system. Perform background checks on
+    each employee and maintain detailed logs.
   \\ \hline
-  E2 & .
-  & .
-  & .
+  E2 & Unexposed hardware interface allows access to Secure Enclave
+  & The attacker gains access to Secure Enclave operations and data, undermining the device and achieving unlock without
+    following the \ac{EA} protocol.
+  & The time vaulting protocol and all communication over the interface must be thoroughly tested, and if possible,
+    formally proven to be logically sound. Analysis must include side channel attacks to affect the time vaulting or
+    leak internal data.
 \threattableend
+
+
+\section{Risk Analysis}
+
+How much risk does \ldawmsr introduce? The answer varies based on how many mitigations are implemented. If the device is
+required to be unlocked on LEA premises and destructive disassembly is chosen, several threats are significantly
+reduced. The irreducible risks are those posed by the DID-DSK database and the Secure Enclave itself.
 
 
 \section{Response to Frameworks}
