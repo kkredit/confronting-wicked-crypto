@@ -48,6 +48,7 @@
   - Updated OODA diagram
   - Writing
 - Action items
+  - TODO: Slides draft by Thursday
   - Short paper on diagramming method of cryptography?
   - 2.5 Argument maps: add explanation of what people are looking at. A key: green arrows are support, red means undercut,
       yellow outline means X
