@@ -78,7 +78,9 @@ process.}
 
 \modelitem{Foreign intelligence}{Foreign intelligence agencies and \acp{APT} are always looking for means to escalate
 access and tamper with and steal information. They have world-class expertise and computing power, which they will apply
-to both individual devices and backend systems.}
+to both individual devices and backend systems. (Here I am referring to \ii{foreign} foreign intelligence agencies, as
+opposed to \ii{domestic} foreign intelligence agencies such as the \acs{CIA} or \acs{NSA} in the U.S., which are assumed
+to operate within---though push the boundaries of---the legal framework.)}
 
 \modelitem{Authoritarian regimes}{States that do not respect lawful process will try to compel administers of an \ac{EA}
 system to provide access upon demand. Legal coercion may or may not be combined with state-backed hacking capability.}
@@ -146,11 +148,9 @@ proposals. However, rule of law is an absolute prerequisite for which no \ac{EA}
 
 \modelend
 
-% What are we building?: proposal DFDs
-% What can go wrong?: elicitation of threats
-
 
 \section{Basic Data at Rest}
+\label{sec-basic-dar}
 
 Answering ``what are we building'' and comparing it with the state of the art requires an understanding of the state of
 the art. Apple iPhones are among the most secure consumer mobile phones, and serve as the point of reference for
@@ -345,13 +345,15 @@ is low and the difficulty high.
   \\ \hline
   S4 & LEA is spoofed to vendor during key exchange
   & Attackers pose as an LEA in order to spoof future access requests.
-  & Vendor key exchange process involves thorough in-person verification.
+  & Vendor key exchange process involves thorough in-person verification. Assume only a handful of digital forensics
+    laboratories nationwide are authorized to participate.
   \\ \hline
   S5 & LEA is spoofed to vendor during access request
   & Attackers pose as a LEA and submit an access request. Requires forged legal documents and a stolen LEA private key
     (unless attacker is an insider or has executed a spoofed key exchange).
   & Vendor independently verifies all legal documents. Vendor supports a key revocation and update process that involves
-    the same level of in-person verification.
+    the same level of in-person verification. Assume only a handful of digital forensics laboratories nationwide are
+    authorized to participate.
   \\ \hline
   S6 & Manufacturer is spoofed to vendor
   & Attackers pose as the manufacturer to inject malicious data into the DID-DSK database. Must be combined with other
@@ -379,9 +381,10 @@ Tampering threats are listed in \mytab{table-tampering}. \ii{S2} relies on tampe
   \\ \hline
   T3 & LE insider tampers with DID before digital signature
   & LEA receives an unauthorized device's unlock artifacts. Can be combined with other attacks to compromise a device.
-  & Randomize DID's to make them unguessable, meaning a target device must be in possession in order for the attacker to
+  & Randomize DIDs to make them unguessable, meaning a target device must be in possession in order for the attacker to
     know what DID to use. Input to the vendor's \ac{HSM} could also include data from the legal documents, such as
-    device S/N; the \ac{HSM} would hash the value and verify a match before returning the unlock artifacts.
+    device S/N; the \ac{HSM} would append the S/N to the DID and hash the result, verifying a match with the same stored
+    hash before returning the unlock artifacts.
   \\ \hline
   T4 & Attacker tampers with hardware transparency mechanism
   & The device user is unaware that the device was unlocked. Highly implementation dependent, but certainly requires
@@ -403,20 +406,23 @@ Repudiation threats are listed in \mytab{table-repudiation}.
   & Governments not respecting the legal framework governing the system can bully the vendor and try to force access
     while maintaining deniability.
   & This is close to being an out of scope threat under the ``rule of law'' exception. However, one could design the
-    system to require requests to be recorded on a public ledger. This opens up several new difficulties.
+    system to require requests and responses to be recorded on a public ledger. This creates several new difficulties.
   \\ \hline
   R3 & LEA repudiates having unlocked a device
   & The device is undeniably unlocked, but the LEA claims it was not them, allowing possible violations of civil
     liberties and harming transparency.
-  & The escrow agent could require some identifying information before unlocking, such as the LEA's public key digitally
-    signed by the vendor.
+  & At a high level, the system should require a long paper trail before access can be granted. At a low level, the
+    escrow agent could require and store some identifying information before unlocking, such as the LEA's public key
+    digitally signed by the vendor, which provides non-repudiation assuming independent access to the device. See also
+    the mitigation in \ii{R2}.
   \\ \hline
   R4 & Vendor repudiates having responded to an access request
   & The device is undeniably unlocked, but the vendor claims they did not provide the unlock artifacts, allowing the
-    vendor to cover up leaks or unsavory policy decisions by suggesting the device was instead hacked. Harms
+    vendor to cover up leaks or distasteful policy decisions by suggesting the device was instead hacked. Harms
     transparency.
-  & The same identifying information used in \ii{R3} would implicate the vendor (assuming the integrity of the vendor's
-    signing key).
+  & Assuming independent access to the device, the hardware transparency mechanism should confirm whether the \ac{EA}
+    process was used, and the same identifying information used in \ii{R3} would implicate the vendor. See also the
+    mitigation in \ii{R2}.
 \threattableend
 
 \subsection{Information Disclosure}
@@ -434,7 +440,7 @@ attacks are aimed at disclosing information intended for another party.
   \\ \hline
   I2 & Attacker intercepts unlock artifacts between LEA \ac{HSM} and device
   & The attacker is able to unlock the target device alone. Must be combined with a spoofed DID to be of use to other
-    devices (see \ii{S2}). The could record the values to replay them after the phone has been returned.
+    devices (see \ii{S2}). The attacker could record the values to replay them after the phone has been returned.
   & See \ii{S2}. If choosing not to destroy the device, to prevent replay attacks, a new token could be generated and
     stored in the vendor HSM, with the new hash installed during the unlock process.
   \\ \hline
@@ -446,11 +452,11 @@ attacks are aimed at disclosing information intended for another party.
   \\ \hline
   I4 & Attacker steals the DID-DSK database
   & This is the big prize, the largest source of centralized risk. With the database, attackers could directly
-    compromise (or more likely, sell access to) any mobile device using this system in their possession, after
-    disassembly, and after the time vault.
+    compromise any mobile device using this system in their possession, after disassembly, and after the time vault.
+    They may also try to sell access to the data.
   & \ii{R3} defines a mitigation that requires use of a vendor private key to create a digital signature as part of the
     authentication process. If used, that key would have to be compromised as well for the database to be of use.
-    However, if the database is compromised, that key probably is too. Savage argues that \ac{HSM}s, though imperfect,
+    However, if the database is compromised, that key probably is too. Savage argues that \acp{HSM}, though imperfect,
     actually do provide very strong assurance. Responses could be rate-limited, and leaking an entire database once it's
     in the \ac{HSM} could not go unnoticed. Getting the data in may be harder---see \ii{I5}.
   \\ \hline
@@ -461,6 +467,14 @@ attacks are aimed at disclosing information intended for another party.
   & The unlock artifacts generation process must be treated as sensitively as the \ac{HSM} itself. The artifacts should
     be encrypted immediately and periodically transported to the corporate \ac{HSM} on physical media. This threat is
     difficult to definitively mitigate.
+  \\ \hline
+  I6 & Attacker steals device \ac{plaintext} from LEA after unlock process
+  & Assuming the attacker doesn't care that the LEA gets access to plaintext, they could ``help'' the LE investigation
+    in order to access the data later either when it comes out as public evidence or through compromising the LEA
+    itself. This may be useful to authoritarian regimes, foreign intelligence, and organized crime.
+  & LEAs must have strong information security of their own. Disclosure of evidence is a natural side effect of
+    prosecution, so LEAs must practice discretion in choosing which devices to unlock in case mere information discovery
+    poses a great risk in itself.
 \threattableend
 
 \subsection{Denial of Service}
@@ -482,7 +496,7 @@ Elevation of privilege are listed in \mytab{table-privilege}. Spoofing to usurp 
 to unlock a device without authorization can be seen as escalation of privilege.
 
 \threattablebegin{Elevation of Privilege}{privilege}{Privilege Gained}
-  E1 & Foreign intelligence or organized crime recruits an insider
+  E1 & Foreign intelligence or organized criminals recruit an insider
   & The primary attacker gains inside access through coercion or bribery, making any other attack easier.
   & Limit the employees, accounts, and computers involved in any element of the system. Perform background checks on
     each employee and maintain detailed logs.
@@ -493,23 +507,67 @@ to unlock a device without authorization can be seen as escalation of privilege.
   & The time vaulting protocol and all communication over the interface must be thoroughly tested, and if possible,
     formally proven to be logically sound. Analysis must include side channel attacks to affect the time vaulting or
     leak internal data.
+  \\ \hline
+  E3 & An \ac{HSM} vulnerability allows access to protected data
+  & This is a technical route to achieving \ii{I4}, disclosure of the DID-DSK database.
+  & The \ac{HSM} should be on an air-gapped network disconnected to the internet, physically guarded, and regularly
+    patched. There is no defense against an unknown vulnerability, so security ultimately comes down to incident
+    detection and response.
 \threattableend
 
 
 \section{Risk Analysis}
 
-How much risk does \ldawmsr introduce? The answer varies based on how many mitigations are implemented. If the device is
-required to be unlocked on LEA premises and destructive disassembly is chosen, several threats are significantly
-reduced. The irreducible risks are those posed by the DID-DSK database and the Secure Enclave itself.
+How much risk does \ldawmsr introduce? The answer lies in a range depending on how many mitigations are implemented.
+Some threats introduce inherently low risk due to their difficult nature and low pay off. Others are higher risk but can
+be reasonably mitigated. Some threats specifically target transparency, and are difficult to address without trust.
+Finally, there are some risks that are irreducible. Each of classes are discussed in turn.
+
+\ii{S6}, \ii{T1}, \ii{T3}, \ii{I1}, \ii{I3}, \ii{I6}, \ii{D1}, and \ii{E1} \ii{E2} are each low risk either because they
+fail to produce useful results, they can be well mitigated, or they are a threat that is already present in
+state-of-the-art designs as depicted in \mysec{sec-basic-dar}. It is crucial for a design to consider and mitigate the
+risk posed by these threats as part of the design process, but they do not represent fatal flaws to a design. Except in
+combination with other threats, they are not worthy more concern here.
+
+\ii{S1}, \ii{S2}, \ii{S3}, \ii{S4}, \ii{S5}, \ii{T2}, \ii{T4}, \ii{R1}, and \ii{I2} are each higher risk threats to the
+security, trustworthiness, and effectiveness of the proposal, but can be addressed through a set of related mitigations:
+require destructive disassembly of the device to access the \ac{EA} hardware interface, require the device to be
+physically present on LEA premises the entire duration it is unlocked, and grant only a handful of LE facilities the
+lawful right to use the \ac{EA} mechanism. Requiring destructive disassembly is a technical measure that entirely
+precludes certain attacks; requiring the device to be on LEA premises is a procedural measure that prevents attackers
+from manipulating LE into achieving their own ends; limiting the number of LE facilities that can participate prevents
+LE impersonation attacks. Together, they make the proposal considerably harder to attack.
+
+\ii{R2}, \ii{R3}, and \ii{R4} are repudiation attacks that belie the system's potential for abuse. The system relies on
+legal process and cooperation of several parties. But what if the legal process involves secret courts, secret
+investigations, and secrecy orders on the vendor \cite{shamsi_2011}? Destructive disassembly or the weaker hardware
+transparency mechanism provide non-repudiation that the device was unlocked, if and only if one has physical access to
+the device. Technically enforced transparency into device access requests and responses would grant non-repudiation at a
+broader level. \ldawmsr does not include a mechanism for the feature, though other \ac{DAR} \ac{EA} proposals do
+\cite{phan_key_2017} \cite{servan_schreiber_jje_2020}. Unfortunately, building this feature into a proposal makes it
+potentially vulnerable the hawkish lawmaker, who may consider it an anti-feature.
+
+Finally, there are the threats of \ii{I4}, \ii{I5}, and \ii{E3}, each representing in slightly different ways the
+disclosure of unlock artifact data, the DID-DSK database. This is the truly difficult challenge---centralizing so much
+sensitive data makes it an extremely high value target for foreign intelligence and cyber criminals. The vendor is in a
+position where they need to protect this database from the most advanced attackers in the world while regularly updating
+and accessing it. \Acp{HSM} and strong security policies would make that a difficult task, but not impossible, and one
+has to assume that the data would leak eventually. What would leaked unlock artifacts mean? It depends who steals it.
+Criminals would use it for personal and financial gain; foreign intelligence and authoritarian regimes would use it to
+spy on their enemies. In the worst-case scenario, anyone with some specialized tools and a willingness to break the law
+could get into any device under the scheme, provided they destructively disassemble it and wait through the time vault.
+
+It is important to give \ldawmsr (and similar \ac{DAR} \ac{EA} proposals) its due. The worst case scenario still
+precludes mass surveillance and includes non-repudiation that access occurred. This is a significant gain for \ac{EA}
+proposals in terms of transparency and protection of civil liberties.
 
 
-\section{Response to Frameworks}
+\section{Achievement of Goals}
 
-% Or just, relationship to my goals?
+% Consider goals, threat actors, and loop-back to out of scope items, because they aaaaactually do matter.
 
-% How does it answer (or not) committee_decrypting_2018's framework questions? What needs improvement?
+% Economics: vastly increases costs and barrier to entry for vendors.
 
-% Reflection on how much progress this represents
 
 
 

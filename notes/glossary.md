@@ -15,6 +15,7 @@
 | CALEA   | Communications Assistance for Law Enforcement Act |
 | CESA    | Cyberspace Electronic Security Act                |
 | CFAA    | Computer Fraud and Abuse Act                      |
+| CIA     | Central Intelligence Agency                       |
 | CP      | child pornography                                 |
 | CSAM    | child sexual abuse material                       |
 | CSAV    | computer supported argument visualization         |
