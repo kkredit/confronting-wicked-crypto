@@ -3,10 +3,12 @@
 
 This chapter consists of a threat model and analysis of a specific device key escrow \ac{EA} proposal, Stefan Savage's
 ``Lawful Device Access without Mass Surveillance Risk: A Technical Design Discussion'' \cite{savage_lawful_2018}.
-Lacking a concise name, this proposal will be referred to by its acronym, \ldawmsR. Note that the creators of the
-proposal intentionally chose the phrase ``lawful access'' over ``\acl{EA}'' in order to emphasize the role of legal
-process and dispel the negative stigma that accompanies \ac{EA}. I refer to \ldawmsr as an \ac{EA} proposal, but use the
-term entirely in the spirit of their paper.
+Lacking a concise name, this proposal will be referred to by its acronym, \ldawmsR. This chapter assumes that the
+proposal is accompanied by some legal framework regulating its application and use, though it is not the focus of this
+analysis, and nothing is assumed about it in particular. Note that the creators of the proposal intentionally chose the
+phrase ``lawful access'' over ``\acl{EA}'' in order to emphasize the role of legal process and dispel the negative
+stigma that accompanies \ac{EA}. I refer to \ldawmsr as an \ac{EA} proposal, but use the term entirely in the spirit of
+their paper.
 
 % TODO: remove this paragraph if I end up changing EA to LA
 
@@ -296,6 +298,7 @@ To save space, the tables use shorthand for law enforcement (LE), law enforcemen
 \newcommand{\threattablebegin}[3]{
   \begin{FlushLeft}
     \small
+    \singlespacing
     \begin{longtable}{ lp{3cm}p{5.2cm}p{6cm} }
       \caption{#1 Threats}
       \label{table-#2}
@@ -564,25 +567,52 @@ proposals in terms of transparency and protection of civil liberties.
 
 \section{Achievement of Goals}
 
+This chapter began with a list of goals by which \ac{DAR} \ac{EA} proposals can be measured, including security,
+protection of civil liberties, transparency, law enforcement utility, and economic impact. In this section I measure
+\ldawmsr against each of these goals.
+
 % Consider goals, threat actors, and loop-back to out of scope items, because they aaaaactually do matter.
 
-% Economics: vastly increases costs and barrier to entry for vendors.
+\paragraph*{Security} Security is the main topic of this chapter, and has already been discussed thoroughly. \ldawmsr
+introduces significant risk in the DID-DSK database itself, but does a good job in many other respects, especially if
+the recommended mitigations are implemented. It goes from very hard to attack, when everything is working as intended,
+to simple to attack, when the database is leaked. However, even when it becomes trivial to attack, the impact is limited
+to devices in physical possession and cannot be hidden from the device user.
 
+\paragraph*{Protection of civil liberties} This goal was defined as defending against mass surveillance and abuse by
+authoritarian regimes. This proposal does an excellent job of protecting against mass surveillance due to its
+physicality. Any power cannot abuse this technology at scale. It is not as strong at protecting against authoritarian
+regimes. Prior to a leak, vendors would face intense and possibly coercive legal pressure to unlock devices in foreign
+countries. After a leak, these regimes could get into any device they want. If one lived in a country that was willing
+to take and destroy their devices to read their contents without legal due process, this would be an unwelcome
+technology.
 
+\paragraph*{Transparency} \ldawmsr excels at transparency on the device, but fails at transparency to the public. Due to
+destructive disassembly (or the hardware transparency mechanism), whether a device has been accessed using this method
+is irrefutable. However, this is only possible to confirm if the device is available. If it is stolen and unlocked by
+criminals or is lawfully accessed under secretive conditions, both the user and the public have no way of knowing. This
+leaves open the possibility for government abuse---though again with the caveat that physical possession requirements
+mean it cannot be abused without a trace.
 
+\paragraph*{Law enforcement utility} This proposal involves a few tradeoffs between security and law enforcement
+utility. The physical possession, time vault, and limited number of authorized law enforcement laboratory requirements
+each insert a barrier to usability. The physical possession requirement is far too important for security and civil
+liberties to sacrifice for utility. Furthermore, law enforcement, and search and seizure law generally, is geared
+towards physical evidence already. The time vault prevents against time-sensitive threats, though destructive
+disassembly (not part of the original proposal) may be enough to cover these cases as well, so the time vault could be
+decreased without significant impact. Limiting the number of parties able to use the system mitigates spoofing attacks;
+local law enforcement would have to cooperate with one of these parties, such as a regional \ac{FBI} office. (This
+really just shifts the spoofing threat up a level, though the shift is appropriate.) In the end, law enforcement still
+has a reliable way to get into lawfully seized devices. \ldawmsr upholds its end; the onus is on the government to fund
+the \ac{FBI} operation and cultivate cooperation between local and federal agencies.
 
-%%%%%%%%%%%%
-% Old notes for reference
-% -----------------------
-% Chapter 4, threat models
-% (how to be specific enough to be useful but generic enough to apply to many systems? Focus on the EA type (DAR v DIM),
-%   then apply to specific systems)
-% DAR, DIM threat models (make sure to cover abelson_2015)
-% Basic proposals
-%  --> mappings onto threat models
-% At work: 3 example systems analyzed with this threat model
-% 1. IM (E2E IM too?) -- in motion
-% 2. Cloud storage -- at rest
-% 3. Mobile phone -- at rest, but way different scenario than cloud
-%  --> include Ozzie's CLEAR, since it was higher profile
-%%%%%%%%%%%%
+\paragraph*{Economic impact} Economic costs to the vendor fall into three categories---implementing the design, running
+the system, and absorbing lost business. Even once a proposal like \ldawmsr was refined enough to be implemented, the
+vendor would need to update hardware designs and create the software systems to get it started. Once in use, the vendor
+would face considerable costs in running it securely, considering the supreme importance of transporting and storing the
+unlock artifacts safely. Finally, the vendor would certainly lose privacy-conscious customers to vendors not under the
+system, whether small businesses, foreign competitors, or resellers offering pre-\ac{EA} devices. The scale of these
+costs relative to device manufacturer's naturally large size is unclear. Costs to the government include the \ac{FBI}
+operation and a necessary scale-up in training and resources available to state and local law enforcement. Government
+reimbursement for vendor compliance costs has precedent in laws like \acs{CALEA}, and could be applied to a \ac{DAR}
+\ac{EA} regulation as well \cite{edwards_hr4922_1994}.
