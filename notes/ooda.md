@@ -2,7 +2,7 @@
 
 ## OODA in Security
 
-OODA is currently used in incident response.
+OODA is currently used in incident response. (schneier_future_2014)
 
 Note on the limits of intuition: Skill levels of chess players: the difference between children and adults is less than
 masters and grandmasters. So, common sense and intuition == adults; random == children; so intuition doesn't work beyond
@@ -62,7 +62,7 @@ Risk management options: avoid, mitigate, transfer, accept
     - **Mitigate** The body is constrained (5) so that they can not be crushingly wrong; members are judged with
       understanding of the difficulty of the task and not held personally responsible for the outcome
 
-## Ten Properties -> 5 Problems
+## Ten Properties -> 4 Problems
 
 1. (1) Problem definition depends on solutions; there is no linear observe->orient
    - 1 **Mitigate** Observe->Orient becomes Observe<=>Orient
