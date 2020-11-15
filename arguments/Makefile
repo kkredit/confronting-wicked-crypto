@@ -44,11 +44,12 @@ image:
 	# Requires ARGDOWN_ARGS and FILE
 	argdown run --config argdown.config.js $(ARGDOWN_ARGS)
 	inkscape -z -D --file=$(BINDIR)/$(FILE).svg --export-pdf=$(BINDIR)/$(FILE).pdf
-	inkscape -z -D --file=$(BINDIR)/$(FILE).svg --export-latex --export-ps=$(BINDIR)/$(FILE).ps
-	head -n 49 $(BINDIR)/$(FILE).ps_tex > $(BINDIR)/$(FILE).tex
-	cat inkscape-mod.tex >> $(BINDIR)/$(FILE).tex
-	tail -n +50 $(BINDIR)/$(FILE).ps_tex >> $(BINDIR)/$(FILE).tex
-	rm $(BINDIR)/$(FILE).ps_tex
+	inkscape -z -D --file=$(BINDIR)/$(FILE).svg --export-png=$(BINDIR)/$(FILE).png
+	# inkscape -z -D --file=$(BINDIR)/$(FILE).svg --export-latex --export-ps=$(BINDIR)/$(FILE).ps
+	# head -n 49 $(BINDIR)/$(FILE).ps_tex > $(BINDIR)/$(FILE).tex
+	# cat inkscape-mod.tex >> $(BINDIR)/$(FILE).tex
+	# tail -n +50 $(BINDIR)/$(FILE).ps_tex >> $(BINDIR)/$(FILE).tex
+	# rm $(BINDIR)/$(FILE).ps_tex
 
 $(WHOLE_FILES): $(DOCS_W_CITS) $(BUILD_CONFIG)
 	$(MAKE) image ARGDOWN_ARGS="file $(CITDIR)/$@.ad" FILE=$@
