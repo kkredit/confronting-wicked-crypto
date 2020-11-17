@@ -51,6 +51,7 @@ mode: strict
 #        - Going Dark Conclusions
 #        - Going Dark Argument
 #        - Going Dark Non Core
+#        - Mobile Device Security Sucks
 
 ## Golden Age
 #group:
@@ -62,6 +63,7 @@ mode: strict
 #        - Going Dark Conclusions
 #        - Golden Age Argument
 #        - Golden Age Non Core
+#        - Mobile Device Security Sucks
 
 ## Fallacies
 #dot:
@@ -97,6 +99,7 @@ selection:
         - DAR EA Classes
         - DIM EA Classes
         - Arguments for EA Types
+        - Mobile Device Security Sucks
     excludeStatements:
         - Exceptional Access
 
@@ -250,7 +253,7 @@ to investigation depending on their context and likelihood that they constitute 
 ----
 (5) [EA is bad]
 
-# Going Dark Conclusions
+# Going Dark Conclusions {isGroup: false}
 
 ["Going Dark" Conclusion]: Law enforcement is "Going Dark" due to evidence-hiding encryption. EA is needed to restore
 the balance between privacy and safety. #pro-ea  {rank: 'conclusions'}
@@ -260,6 +263,50 @@ the balance between privacy and safety. #pro-ea  {rank: 'conclusions'}
 defense. EA would compromise this goal. #anti-ea {rank: 'conclusions'}
     -> [Exceptional Access]
     >< ["Going Dark" Conclusion]
+
+# Golden Age Argument
+
+<"Golden Age" Argument>: Technology-enabled surveillance has emerged as a severe threat. Encryption must be encouraged
+    as a desperately needed defense. #anti-ea
+
+(1) [Mass Surveillance Highly Negative]: Mass surveillance violates liberal values. #neutral
+(2) [Technology a Boon to Surveillance]: Technology as a whole has enabled unprecedented levels of
+    surveillance. #neutral
+(3) [Encryption Mitigates Surveillance]: The data protection offered by encryption limits surveillance
+    effectiveness. #neutral
+----
+(4) ["Golden Age" Conclusion]
+
+# Golden Age Non Core {isGroup: false}
+
+<Argument Against Mass Surveillance>: Surveillance is a dangerous tool. Any use must include oversight, and mass
+application violates liberal values. #neutral
+
+(1) [Surveillance a Tool of Power]: Power that comes from the people is not bad, but violations and weak oversight have
+    diminished trust. #neutral
+    <+ [Institutional Trust]
+(2) [Surveillance Has Negative Side Effects]: Such as chilling free speech and precluding reform. #neutral
+(3) [Mass Surveillance Contradicts Privacy]: Privacy and mass surveillance are mutually exclusive. #neutral
+    <+ [Data Privacy]
+----
+(4) [Mass Surveillance Highly Negative]
+
+<EA Without Mass Surveillance>: EA can be conceived in manners that also preclude mass
+    surveillance. #neutral
+    _> ["Golden Age" Conclusion]
+
+<Assumes Law Enforcement Has Access>: The data exists, but law enforcement often has trouble accessing it even via
+traditional means. #neutral
+    _> [Technology a Boon to Surveillance]
+
+<Access not a problem for Mobile Phones>
+    +> [Technology a Boon to Surveillance]
+
+<!-- Ordering or groups is goofy to get column spacing right. -->
+# Mobile Device Security Sucks {isGroup: false}
+
+<Access not a problem for Mobile Phones>: As of this research, law enforcement has extensive access to data on mobile
+phones, encrypted or not. #neutral
 
 # Going Dark Argument
 
@@ -295,6 +342,9 @@ safety against those threats. #neutral
     _> <"Going Dark" Argument>
     <!-- _> [Privacy and Safety in Conflict] -->
 
+<Access not a problem for Mobile Phones>
+    _> [Encryption at Fault for Investigatory Failure]
+
 <Encryption Not Primary Cause>: Encryption is neither the only nor the most common source of
 difficulty. #neutral
     _> [Encryption at Fault for Investigatory Failure]
@@ -306,41 +356,6 @@ difficulty. #neutral
 (3) [Uncertain what Plaintext Holds]: It is uncertain that decrypted data will hold useful evidence. #neutral
 ----
 (4) [Encryption Not the Root Problem] {isInMap: false}
-
-# Golden Age Argument
-
-<"Golden Age" Argument>: Technology-enabled surveillance has emerged as a severe threat. Encryption must be encouraged
-    as a desperately needed defense. #anti-ea
-
-(1) [Mass Surveillance Highly Negative]: Mass surveillance violates liberal values. #neutral
-(2) [Technology a Boon to Surveillance]: Technology as a whole has enabled unprecedented levels of
-    surveillance. #neutral
-(3) [Encryption Mitigates Surveillance]: The data protection offered by encryption limits surveillance
-    effectiveness. #neutral
-----
-(4) ["Golden Age" Conclusion]
-
-# Golden Age Non Core {isGroup: false}
-
-<Argument Against Mass Surveillance>: Surveillance is a dangerous tool. Any use must include oversight, and mass
-application violates liberal values. #neutral
-
-(1) [Surveillance a Tool of Power]: Power that comes from the people is not bad, but violations and weak oversight have
-    diminished trust. #neutral
-    <+ [Institutional Trust]
-(2) [Surveillance Has Negative Side Effects]: Such as chilling free speech and precluding reform. #neutral
-(3) [Mass Surveillance Contradicts Privacy]: Privacy and mass surveillance are mutually exclusive. #neutral
-    <+ [Data Privacy]
-----
-(4) [Mass Surveillance Highly Negative]
-
-<EA Without Mass Surveillance>: EA can be conceived in manners that also preclude mass
-    surveillance. #neutral
-    _> ["Golden Age" Conclusion]
-
-<Assumes Law Enforcement Has Access>: The data exists, but law enforcement already has trouble accessing it even
-via traditional means. #neutral
-    _> [Technology a Boon to Surveillance]
 
 # Fallacies
 
@@ -569,6 +584,11 @@ the device for transparency. #neutral
     <+ [Protection of Civil Liberties]
     <+ [Transparency]
     +> [Device key escrow]
+
+<Access not a problem for Mobile Phones> {rank: "metrics"}
+    -> [Device key escrow]
+    <_ <Temporary circumstance>: Device manufacturer's inability to secure their products is a temporary
+       circumstance. #neutral
 
 <!-- # Arguments for EA Proposals {isGroup: false}
 

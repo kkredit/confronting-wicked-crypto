@@ -47,6 +47,7 @@ module.exports = {
           "Going Dark Conclusions",
           "Going Dark Argument",
           "Going Dark Non Core",
+          "Mobile Device Security Sucks",
         ],
       },
     },
@@ -63,6 +64,7 @@ module.exports = {
           "Going Dark Conclusions",
           "Golden Age Argument",
           "Golden Age Non Core",
+          "Mobile Device Security Sucks",
         ],
       },
       dot: {
@@ -128,6 +130,7 @@ module.exports = {
           "DAR EA Classes",
           "DIM EA Classes",
           "Arguments for EA Types",
+          "Mobile Device Security Sucks",
         ],
         excludeStatements: [
           "Exceptional Access",

@@ -134,7 +134,7 @@ a necessary defense, and any \ac{EA} implementation would compromise encryption'
 
 \begin{figure}[p!]
   \centering\CaptionFontSize
-  \includegraphics[width=0.9\linewidth]{arguments/build/comprehensive.goldenage.pdf}
+  \includegraphics[width=\linewidth]{arguments/build/comprehensive.goldenage.pdf}
   \caption{A ``Golden Age for Surveillance'' Argument Map}
   \label{fig-arg-golden-age}
 \end{figure}
@@ -294,14 +294,17 @@ vulnerabilities it discovers. Prominent proposals suggest mandating prompt discl
 \cite{bellovin_lawful_2013} \cite{hennessey_lawful_2016}. Theoretically, the supply of vulnerabilities is very large,
 and new ones could be found at a rate that maintains law enforcement access at constant levels while improving security
 as a positive side effect. The government would source these vulnerabilities from a combination of the public domain,
-the commercial exploit market, and a central ``Vulnerability Lab'' \cite{bellovin_lawful_2013}. However, as the \$2
-million price on the exploit market for an Apple iOS jailbreak bug shows, security really is improving
-\cite{goodin_zeroday_2019}. Law enforcement would still find itself without access, and would need to develop costly
-exploits in the lab. Mandatory vulnerability disclosure is key to a \ac{lawful-hacking} proposal; however, based on the
-\ac{FBI}'s historical abuses of power \cite{shamsi_2011} and Congress's distaste for funding even initiatives it has
-passed \cite{keller_internet_2019} or providing strong oversight \cite{johnson_congressional_2004}, one cannot imagine
-that the government would actually give up such expensive vulnerabilities so easily when they are the pillar of their
-access strategy.
+the commercial exploit market, and a central ``Vulnerability Lab'' \cite{bellovin_lawful_2013}.
+
+The availability and cost of exploits ebbs and flows. On one hand, January 2019 sported a \$2 million price on the
+exploit market for an Apple iOS jailbreak bug \cite{goodin_zeroday_2019}. On the other hand, an October 2020 report
+shows that law enforcement agencies can extract data from nearly every mobile phone on the market for less than \$2000 a
+unit \cite{koepke_2020}. As the exploit arms race continues, exploitability will be inconsistent. In the end, law
+enforcement would face periods where it struggles for access, and would need to develop costly exploits in the lab.
+Mandatory vulnerability disclosure is key to a \ac{lawful-hacking} proposal; however, based on the \ac{FBI}'s historical
+abuses of power \cite{shamsi_2011} and Congress's distaste for funding even initiatives it has passed
+\cite{keller_internet_2019} or providing strong oversight \cite{johnson_congressional_2004}, one cannot imagine that the
+government would actually give up expensive vulnerabilities easily when they are the pillar of their access strategy.
 
 The final proposal is \ac{EA} itself. Its advantage, generally speaking, is that it would provide reliable access to law
 enforcement in a reliable manner. It could serve as a compliment to \ac{lawful-hacking}, blunting the incentive to hoard
@@ -391,6 +394,8 @@ compromising its encryption \cite{callas_1_2019}. Fundamentally, it suffers from
 escrow; the introduction of an authorization vulnerability in the messaging service provider's platform amounts to a
 highly risky centralized access capability \cite{schneier_ghost_2019}. It has the same nature, if a different form, as
 rejected key escrow proposals.
+
+% FIXME: add note about how device security actually totally sucks
 
 Finally, one \ac{DAR}-specific \ac{EA} class is device key escrow. In this scheme, key recovery material exists on the
 device itself. While not necessary to classify as device key escrow, most of these proposals include physical possession
