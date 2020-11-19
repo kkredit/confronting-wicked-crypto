@@ -135,8 +135,9 @@ time. Discussion for defending against those is out of scope.}
 % FIXME: add current hacking techniques.
 
 \modelitem{\ac{EA} workarounds}{The user is capable of evading \ac{EA} mechanisms by encrypting data at a higher level
-in the tech stack, e.g. by encrypting files before saving them to disk. This has already been discussed, and it out of
-scope for evaluating the \ac{EA} system itself.}
+in the tech stack, e.g. by encrypting files before saving them to disk. Additionally, investigators or attackers are
+frequently capable of bypassing current lockout mechanisms. These have already been discussed, and it out of scope for
+evaluating the \ac{EA} system itself.}
 
 \modelitem{Supply chain attacks}{Protecting device hardware and software supply chains is necessary to prevent
 surreptitious, trivially exploitable backdoors. For the purposes of this threat model, device hardware and software are
@@ -201,11 +202,11 @@ for full detail \cite{savage_lawful_2018}.
     \hline
     \thead{Concept} & \thead{Implementation} & \thead{Outcome} \\ \hline
     Self-escrow
-    & The Class key is escrowed in the device's Secure Enclave (or equivalent) using a write-only component; i.e.,
-      software can update the key, but only an unexposed hardware interface can read it.
-    & Since the Class key itself is being stored, there is no change to the security of the underlying cryptographic
-      protocols. Physical possession and partial disassembly is required, which introduces practical barriers to mass
-      surveillance.
+    & The Class key is escrowed in encrypted form in the device's Secure Enclave (or equivalent) using a write-only
+      component; i.e., software can update the key, but only an unexposed hardware interface can read it.
+    & Since the Class key itself is being stored instead of the encryption scheme being changed, there is no change to
+      the security of the underlying cryptographic protocols. Physical possession and partial disassembly is required,
+      which introduces practical barriers to mass surveillance.
     \\ \hline
     Time vaulting
     & The hardware interface responds to requests only after proof of sustained possession for a ``lockup period (e.g.,
