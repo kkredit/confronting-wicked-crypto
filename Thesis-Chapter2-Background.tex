@@ -20,9 +20,9 @@ decryption on the text.
 
 % There are two classes of cryptographic ciphers---stream and block
 
-There are two major cryptographic protocol families, symmetric and asymmetric. In \ac{sym-crypto}, which was discovered
+There are two major cryptographic protocol families, symmetric and asymmetric. In \ac{sym-crypto}, which was invented
 long ago, encryption and decryption are performed with the same key, and both parties must have this key in order to
-communicate securely. In \ac{asym-crypto}, which was discovered recently and is also called \ac{public-key-crypto},
+communicate securely. In \ac{asym-crypto}, which was invented recently and is also called \ac{public-key-crypto},
 encryption and decryption are performed with two paired keys, called the public key and the private key. The innovation
 of \ac{public-key-crypto} is that the public key is not secret, and using this technique, two parties can communicate
 securely without requiring a previously agreed upon shared secret.
@@ -48,7 +48,7 @@ Cryptography is the technical foundation for many forms of computer and network 
 of several properties: authentication, integrity, non-repudiation, confidentiality, availability, and authorization
 \cite{shostack_threat_2014}. These system-level properties emerge from both the composition of the system's components
 (architecture) and the security of the components themselves; likewise, the security of each component emerges from the
-architecture of its subcomponents and the security of the subcompenents themselves. At the end of this chain of
+architecture of its subcomponents and the security of the subcomponents themselves. At the end of this chain of
 analysis, the security of primitive components commonly relies on cryptography.
 
 \mytab{table-security-and-crypto} connects each security property to its cryptographic basis. While lacking direct
@@ -94,7 +94,7 @@ tools away is clear when such attacks include interference with elections \cite{
 disruptions of business \cite{greenberg_2018_notpetya}, and hospital network ransoms that disrupt care of patients
 \cite{goodin_ransomware_2019}.
 
-% NOTE: tried to find examples of high profile bugs or hacks that relied on crypto failures, but most are still
+% I tried to find examples of high profile bugs or hacks that relied on crypto failures, but most are still
 % architectural (exposed databases, default credentials (Mirai botnet)), human (BEC), or insecure code (buffer
 % overflows--key to EternalBlue (wannacry and notpetya) and MS08-067 (Conficker)).
 
@@ -113,7 +113,7 @@ The section provides a brief overview of encryption from ancient to modern times
 
 Computerized encryption is a new technology, but the field of cryptography is old, since demand for privacy is as old as
 communication itself. The most well known ancient example of rudimentary encryption is the Caesar cipher, named after
-the character transposition technique Julius Caesar used to protect private correspondence
+the character substitution technique Julius Caesar used to protect private correspondence
 \cite{luciano_cryptology_1987}. Significant developments include the first formal cryptographic study by Arab scholars
 in the eighth century, advancements made out of necessity in the twentieth century's world wars, and the application of
 computers to cryptographic problems \cite{kahn_codebreakers_1996}. Claude Shannon's formalized the modern ``mathematical
@@ -255,8 +255,8 @@ phones. A research group at Carnegie Mellon with participants from both sides of
 \ac{DAR} as the more tractable problem \cite{group_2019}.
 
 \paragraph*{Volatile Politics} Finally, \ac{the-cw2} is taking place amongst a political landscape marked by
-uncertainty, extremism, misinformation, and most recently, a pandemic that will have unknown impacts. Since legislature
-is part of the broader data security threat model, its behavior is important. Unfortunately, the dynamics of present
+uncertainty, extremism, misinformation, and a pandemic that will have unknown long-term  impacts. Since legislature is
+part of the broader data security threat model, its behavior is important. Unfortunately, the dynamics of present
 leadership and the lack of reliable data on what law enforcement agencies need make it difficult for the technical
 community to engage productively with policy makers \cite{granick_2018}.
 
@@ -299,7 +299,7 @@ encrypted information:
 
 \newcommand{\lawsstart}{\begin{itemize}}
 \newcommand{\law}[4]{ % Year, name, citation, description
-    \item #1: \textbf{#2} \cite{#3} \nopagebreak
+    \item #1: \textbf{#2} #3 \nopagebreak
 
     \vspace{0.5\baselineskip} \parbox{\linewidth}{#4} \vspace{0.5\baselineskip}
 }
@@ -307,7 +307,7 @@ encrypted information:
 
 \lawsstart
 
-    \law{1789}{\acf{AWA}}{congress_1789}{
+    \law{1789}{\acf{AWA}}{\cite{congress_1789}}{
 
 A short law designed to grant federal courts the right to ``issue all writs necessary or appropriate in aid of their
 respective jurisdictions and agreeable to the usages and principles of law,'' creating a legal framework for providing
@@ -316,21 +316,21 @@ in general is unsettled \cite{matyas_incommensurability_2018}.
 
 }
 
-    \law{1791}{Bill of Rights: Amendments I, IV, and V}{madison_1791}{
+    \law{1791}{Bill of Rights: Amendments I, IV, and V}{\cite{madison_1791}}{
 
 The most frequently cited constitutional amendments in the \ac{EA} debate. I: freedom of speech; IV: protection from
 unreasonable searches and seizures and requirements for warrants; V: right against self-incrimination.
 
 }
 
-    \law{1976}{\acf{AECA}}{morgan_hr13680_1976}{
+    \law{1976}{\acf{AECA}}{\cite{morgan_hr13680_1976}}{
 
 Expanded arms export controls and created the \ac{ITAR} regulations framework. Encryption products were classified as
 arms and subjected to export controls \cite{kehl_right_2015}.
 
 }
 
-    \law{1978}{\acf{FISA}}{rodino_1978}{
+    \law{1978}{\acf{FISA}}{\cite{rodino_1978}}{
 
 Allows the executive branch ``to authorize electronic surveillance for foreign intelligence purposes without a court
 order, in some circumstances.'' \acs{FISA} applications take place in secret, and may be conducted against U.S. citizens
@@ -345,7 +345,7 @@ abuse \cite{shamsi_2011} \cite{tucker_2020}.
 
 }
 
-%     \law{1986}{\acf{CFAA}}{hughes_hr4718_1986}{
+%     \law{1986}{\acf{CFAA}}{\cite{hughes_hr4718_1986}}{
 % Criminalized ``knowingly access[ing] a computer without authorization or exceeding authorized access'' and thereby
 % violating the confidentiality, integrity, or availability of the system. While presumably intended to target hacking,
 % the \acs{CFAA} has been used to prosecute a host of crimes, and suffers from dated language;
@@ -357,7 +357,7 @@ abuse \cite{shamsi_2011} \cite{tucker_2020}.
 % Follow up: CFAA going before supreme court: https://www.cyberscoop.com/cfaa-will-soon-day-supreme-court/
 % }
 
-    \law{1986}{\acf{ECPA}}{kastenmeier_hr4952_1986}{
+    \law{1986}{\acf{ECPA}}{\cite{kastenmeier_hr4952_1986}}{
 
 Amended the Wiretap Act, Stored Communications Act, and Pen Register Act. Provided explicit protections for private
 % TODO: Briefly introduce these. Even just "Amended the switch-board-era"...
@@ -367,7 +367,7 @@ increasingly permissive \cite{shamsi_2011}.
 
 }
 
-    \law{1994}{\acf{CALEA}}{edwards_hr4922_1994}{
+    \law{1994}{\acf{CALEA}}{\cite{edwards_hr4922_1994}}{
 
 Mandated that telecommunications carriers enable the government to ``intercept all of the subscriber's wire and
 electronic communications'' in a manner that ``protects the privacy and security'' of communications not authorized to
@@ -378,7 +378,7 @@ though that exclusion is currently under attack \cite{pfefferkorn_2019}.
 
 }
 
-    \law{2001}{\ac{USAPATRIOTAct}}{sensenbrenner_2001}{
+    \law{2001}{\ac{USAPATRIOTAct}}{\cite{sensenbrenner_2001}}{
 
 Written in the aftermath of September 11, the \ac{USAPATRIOTAct} broadly expanded U.S. government surveillance powers
 in 25 sections of ``Title II: Enhanced Surveillance Procedures.'' The act notably expands \acs{FISA} order scope
@@ -389,12 +389,12 @@ individualized requests'' \cite{landau_making_2013}.
 
 }
 
-%     \law{2007}{\acf{PAA}}{mcconnell_s1927_2007}{
-% Retroactively approved of GWB's warrantless wiretapping policy, a loose interpretation of FISA
+%     \law{2007}{\acf{PAA}}{\cite{mcconnell_s1927_2007}}{
+% Retroactively approved of George W. Bush's warrantless wiretapping policy, a loose interpretation of FISA
 % \cite{landau_making_2013}.
 % }
 
-    \law{2008}{\acf{FISAAA}}{reyes_hr6304_2008}{
+    \law{2008}{\acf{FISAAA}}{\cite{reyes_hr6304_2008}}{
 
 Like the \ac{USAPATRIOTAct} before it, \acs{FISAAA} expanded \ac{FISA} powers once again. It additionally provided
 ``telephone companies retroactive immunity for participating in the warrantless surveillance'' on any international
@@ -403,7 +403,7 @@ creating prospective immunity for FISAAA activities'' \cite{landau_making_2013}.
 
 }
 
-    \law{2015}{\ac{USAFREEDOMAct}}{sensenbrenner_2015}{
+    \law{2015}{\ac{USAFREEDOMAct}}{\cite{sensenbrenner_2015}}{
 
 The \ac{USAFREEDOMAct}, introduced by the same U.S. House representative as the \ac{USAPATRIOTAct}, passed the Senate
 almost two years to the day after \ac{snowden}'s leaks began. It contains many reforms to \ac{FISA} and the use of
@@ -424,7 +424,7 @@ The following are proposed laws and regulations that did not go into effect or a
 
 \lawsstart
 
-    \law{1993}{The \ac{clipperchip}}{press_1993}{
+    \law{1993}{The \ac{clipperchip}}{\cite{press_1993}}{
 
 As described in \mysec{sec-history-cw1}, the \ac{clipperchip} was a voluntary \ac{EA} initiative from the White House.
 The initiative targeted \ac{DIM} and established the Escrowed Encryption Standard, which includes an encrypted copy of
@@ -434,7 +434,7 @@ reception \cite{kehl_right_2015}. When a security researcher discovered flaws th
 
 }
 
-    \law{1996}{The \acf{SAFEAct}}{goodlatte_hr3011_1996}{
+    \law{1996}{The \acf{SAFEAct}}{\cite{goodlatte_hr3011_1996}}{
 
 The \ac{SAFEAct} would have broadly protected ``use any encryption regardless of the encryption algorithm selected,
 encryption key length chosen, or implementation technique or medium used,'' excepting ``the unlawful use of encryption
@@ -444,7 +444,7 @@ pro-encryption policies in 1999 \cite{kehl_right_2015}.
 
 }
 
-    \law{1996}{The \acf{PROCODEAct}}{burns_s1726_1996}{
+    \law{1996}{The \acf{PROCODEAct}}{\cite{burns_s1726_1996}}{
 
 The Senate's \ac{PROCODEAct} was very similar to House's \ac{SAFEAct}, though it focused primarily on removing export
 controls, and used slightly weaker language protecting all forms of encryption. Like the \ac{SAFEAct}, it was abandoned
@@ -452,23 +452,23 @@ when the Clinton administration adopted the act's export control policies in 199
 
 }
 
-%     \law{1997}{Encrypted Communications Privacy Act}{leahy_s376_1997}{
+%     \law{1997}{Encrypted Communications Privacy Act}{\cite{leahy_s376_1997}}{
 % % mix of SE protection and EA guidelines?
 % }
 
 %     \law{1998}{Encryption Protects the Rights of Individuals from Violation and Abuse in CYberspace (E-PRIVACY) Act}
-%         {ashcroft_s2067_1998}{
+%         {\cite{ashcroft_s2067_1998}}{
 % % like above?
 % }
 
-%     \law{1999}{Encryption for the National Interest Act}{goss_hr2616_1999}{
+%     \law{1999}{Encryption for the National Interest Act}{\cite{goss_hr2616_1999}}{
 % }
 
-%     \law{1999}{Tax Relief for Responsible Encryption Act}{goss_hr2617_1999}{
+%     \law{1999}{Tax Relief for Responsible Encryption Act}{\cite{goss_hr2617_1999}}{
 % % ^^ these two introduced by same rep on same day
 % }
 
-    \law{1999}{\ac{CESA}}{administration_CESA_1999}{
+    \law{1999}{\ac{CESA}}{\cite{administration_CESA_1999}}{
 
 \Ac{CESA} was a legislative proposal by Clinton administration introduced on same day as encryption policy changes that
 led to the abandonment of the \ac{SAFEAct}. Section 102 lays out the government position precisely---encryption is an
@@ -481,7 +481,7 @@ member of Congress to officially sponsor the bill.
 
 }
 
-    \law{2000}{Enhancement of Privacy and Public Safety in Cyberspace Act}{leahy_s3083_2000}{
+    \law{2000}{Enhancement of Privacy and Public Safety in Cyberspace Act}{\cite{leahy_s3083_2000}}{
 
 After \ac{CESA} failed, the White House proposed watered-down legislation that this time was successfully sponsored by a
 senator. This bill would have amended the \ac{ECPA} and \ac{CFAA}. It would have made relatively modest changes to
@@ -490,7 +490,7 @@ parts of the bill, and it died in committee \cite{senate_2000}.
 
 }
 
-    \law{2016}{Compliance with Court Orders Act (discussion draft)}{burr_2016}{
+    \law{2016}{Compliance with Court Orders Act (discussion draft)}{\cite{burr_2016}}{
 
 Though this bill was not officially proposed, it represents one of the first legislative attempts to regulate encryption
 in \ac{the-cw2}. This draft was released shortly after the close of the Apple vs. FBI case, and would have compelled
@@ -502,7 +502,7 @@ bill.
 
 }
 
-    \law{2018}{The Secure Data Act}{lofgren_hr5823_2018}{
+    \law{2018}{The Secure Data Act}{\cite{lofgren_hr5823_2018}}{
 
 Proposed in reaction to the Compliance with Court Orders Act and anti-encryption sentiment, this bill would have
 provided protections against ``mandating the deployment of vulnerabilities in data security technologies'' at the
@@ -510,7 +510,7 @@ federal level. It stopped short of explicitly protecting all forms of encryption
 
 }
 
-    \law{2019}{The \ac{ENCRYPTAct}}{lieu_hr4170_2019}{
+    \law{2019}{The \ac{ENCRYPTAct}}{\cite{lieu_hr4170_2019}}{
 
 This bill is designed to ``preempt State data security vulnerability mandates and decryption requirements,'' being a
 state-level version of the Secure Data Act. This bill goes further to explicitly disallow \ac{EA} requirements in state
@@ -520,7 +520,7 @@ law.
 
 }
 
-    \law{2020}{The \acf{EARNITAct}}{graham_s3398_2020}{
+    \law{2020}{The \acf{EARNITAct}}{\cite{graham_s3398_2020}}{
 
 Introduced by the chair of the Senate Judiciary Committee, one of the outspoken encryption critics during the 2019
 Senate hearing on encryption and \ac{EA}, the \ac{EARNITAct} is designed to address \ac{CSAM} and has received attention
@@ -534,7 +534,7 @@ popular \ac{E2EE} messaging platform has threatened to pull out of the U.S. mark
 
 }
 
-    \law{2020}{The \acf{LEADAct}}{graham_2020}{
+    \law{2020}{The \acf{LEADAct}}{\cite{graham_2020}}{
 
 Introduced by the same senator as the \ac{EARNITAct}, the \ac{LEADAct} is a direct attack on encryption. The
 \ac{LEADAct} specifically addresses \ac{DAR} and \ac{DIM} by forcing device, operating system, and application
@@ -659,7 +659,7 @@ these countries, the member's encryption policies are relevant to one another.
 
 % IDEA: put this in an appendix too? Or its own chapter? Too much detail for the background section.
 %
-% For more, read donahue_comparative_2018 (Israel and China) and budish_encryption_2018 (framework for analysis)
+% For more, read donahue_comparative_2018 (Israel and China) and \cite{budish_encryption_2018} (framework for analysis)
 %
 % Since the enactment of the Regulation of Investigatory Powers Act 2000, the U.K. government had the ability to serve
 % written notices requiring mandated decryption. Law enforcement and intelligence agencies also have explicit permission
@@ -725,9 +725,9 @@ also has well developed \ac{lawful-hacking} capabilities and a centralized foren
 % - Allow strong encryption (anyone with the users' private keys can see it)
 % - Disallow encryption (anyone can see it)
 % - Make encryption sufficiently weak, e.g. limit key length (anyone with enough CPU can see it)
-% - Require use of backdoored algorithms, security via obscurity (anyone with the secret knowledge can see it)
+% - Require use of backdoor-ed algorithms, security via obscurity (anyone with the secret knowledge can see it)
 % - Allow any encryption, just be able to provide keys (anyone with the extra keys can see it)
-%   - Store extra in gov't DBs, in corporate DBs, in third-party DBs, on blockchain, in secure HW on device
+%   - Store extra in govt DBs, in corporate DBs, in third-party DBs, on blockchain, in secure HW on device
 %   - Split the key and store it multiple places
 %   - See denning_taxonomy_1996
 % - Use some alternative path
@@ -738,8 +738,8 @@ also has well developed \ac{lawful-hacking} capabilities and a centralized foren
 
 % Moving forward, what are the elements that are needed for a feasible EA system? (1) White-box-secure ways of producing
 % key recovery information. Do the protocols exist? EES failed. Needs to be rock solid. (2) Dispersed key recovery
-% information. (3) A robust, antifragile, inherently secure means of protecting those keys, and perhaps decaying them over
-% time (https://en.wikipedia.org/wiki/Data_degradation).
+% information. (3) A robust, anti-fragile, inherently secure means of protecting those keys, and perhaps decaying them
+% over time (https://en.wikipedia.org/wiki/Data_degradation).
 
 There are several technical approaches to \ac{EA}. This section categorizes these approaches according to one of three
 basic approaches---\ac{key-escrow}, cryptographic recovery without a key, or non-cryptographic means of acquiring
@@ -795,7 +795,7 @@ trusted parties or distributed systems, but on the device itself in specialized 
 \propsend
 
 
-\subsection{Non-Escrow Cryptographic Recovery}
+\subsection{Non-Escrow Cryptographic Data Recovery}
 
 Though key recovery is the most discussed \ac{EA} approach, alternative technical means have been proposed.
 
@@ -850,7 +850,7 @@ this approach draws debates about the Fifth Amendment right against self-incrimi
 \cite{sobel_2019}. Of course, this approach cannot address \ac{DIM} or situations in which the knowledgeable party is
 not in custody.
 
-% these look good: sacharoff_unlocking_2018, fredona_fifth_2016
+% these look good: \cite{sacharoff_unlocking_2018}, \cite{fredona_fifth_2016}
 % this probably has something to say: kerr_encryption_2017
 
 }
@@ -865,6 +865,14 @@ international law enforcement operation used this technique to take down a large
 
 }
 \propsend
+
+% FIXME: Separate out into separate, short chapter. Also adds natural place to introduce my more "advanced" DFD syntax.
+
+% Kalafut: I'm not sure that 2.5 and 2.6 really fit well as subsections of 2. Consider separating them into their own
+% (short) chapter.
+% Kalafut: Argument maps are used in chapter 4. I'm not sure that you need to mention argdown at all. If you do, I would
+% only do so in the context of stating that it is the tool you are using to create argument maps.
+
 
 \section{Argument Maps}
 \label{sec-arg-maps-intro}
@@ -890,14 +898,6 @@ or undercut other arguments.
     \caption[Argdown Demo]{A demonstrative example of argument maps with Argdown.}
     \label{fig-args-demo}
 \end{figure}
-
-% IDEA:
-% Use the slightly more complete IBIS notation, which includes ISSUES and POSITIONS as well as ARGUMENTS.
-% (Argdown) basically just has arguments and positions. The additional types may make the total picture clearer.
-% Either use styling with #hashtags (https://argdown.org/syntax/#hashtags with
-%                                    https://argdown.org/guide/colorizing-maps.html#the-colorscheme-setting)
-% Or add a plugin (https://argdown.org/guide/extending-argdown.html)
-
 
 
 \section{Threat Models and Data Flow Diagrams}
