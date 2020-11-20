@@ -22,8 +22,10 @@
 | DAR     | data at rest                                      |
 | DE      | device encryption                                 |
 | DFD     | data flow diagram                                 |
+| DID     | Device ID                                         |
 | DIM     | data in motion                                    |
 | DOS     | denial of service                                 |
+| DSK     | Device Seal Key                                   |
 | E2E     | end to end                                        |
 | E2EE    | end to end encryption                             |
 | EA      | exceptional access                                |
@@ -33,7 +35,7 @@
 | FISA    | Foreign Intelligence Surveillance Act             |
 | FISAAA  | FISA Amendments Act                               |
 | FISC    | Foreign Intelligence Surveillance Court           |
-| GCHQ    | (UK) Government Communications Headquarters       |
+| GCHQ    | Government Communications Headquarters (UK)       |
 | HSM     | Hardware Security Module                          |
 | IBIS    | issue-based information system                    |
 | ITAR    | International Traffic in Arms Regulations         |
