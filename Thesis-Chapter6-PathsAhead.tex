@@ -1,5 +1,5 @@
-\chapter{Paths Ahead}
-\label{chap-pathsahead}
+\chapter{Paths Forward}
+\label{chap-pathsforward}
 
 The interests of security, safety, privacy, and trust are converging on the issue of encryption and \acl{EA} and
 creating a \ac{wicked-prob}. Information security is increasingly important as more data, business, and infrastructure
@@ -27,20 +27,62 @@ trust differently.
 
 This complex mix of issues is what makes encryption policy a \ac{wicked-prob}. To merely formulate the problem requires
 explanation upon explanation and research upon research. Any formulation is concomitant with a solution, but the outcome
-of a solution cannot be accurately forecasted or independently evaluated. The underlying conditions are constantly in
+of a solution cannot be accurately forecasted or evaluated in isolation. The underlying conditions are constantly in
 flux, affected by external forces as well as every policy action and inaction.
 
 In this thesis I propose a method to contend with \acp{wicked-prob}, a modified \ac{OODAloop} that emphasizes
 collaborative debate between individuals diverse in background and values, facilitated in part by argument maps, and
 focusing on specific proposals. I try to capture that here by surveying the debate, mapping the arguments, and
-ultimately performing threat model analysis of a specific \ac{EA} proposal for \acl{DAR}.
+ultimately performing threat model analysis of a specific \ac{EA} proposal for \acl{DAR}. I now turn to conclusions and
+paths forward for both the technical and policymaking communities.
 
+
+\section{Conclusions}
 
 % What can we conclude?
 %   - It may not feel like it, but (meaningful) debate and discussion counts as progress for a wicked problem
 %   - Neither side has the whole picture, but the "no EA" arguments are currently stronger
 %   - A threat model including malicious users and threatening governments makes EA make more sense
 %   - Device escrow with secure hardware represents true progress towards acceptably secure EA, so hope is not lost
+
+Regarding the arguments analyzed in \mychap{chap-arguments}, while neither side of the \ac{EA} debate fully incorporates
+the whole picture, the anti-\ac{EA} argument is currently stronger. Encryption poses a present danger to public safety
+in certain respects. The bogeymen of terrorists and criminals using encryption to evade the law are real---in the case
+of those peddling and viewing \acl{CSAM}, shockingly so \cite{keller_internet_2019}. However, the argument that
+\ac{encryption} is creating circumstances that are to blame for \acl{LE} failure is not currently strong enough to
+justify an \ac{EA} mandate. For \ac{DIM}, the primary issues are poor coordination and training \cite{carter_2018}; for
+\ac{DAR}, commercial \ac{lawful-hacking} tools currently have the upper hand on mobile phone manufacturers, meaning
+\acl{LE} can get into almost any mobile device they acquire \cite{koepke_2020}. Strong \ac{encryption} plays a key role
+in protecting security and privacy, public goods that other technological developments often fail to provide.
+
+Though the pro-\ac{EA} argument is ultimately not strong enough to justify an \ac{EA} mandate, incorporating it to the
+technologist's point of view teaches important lessons. One is that wholistic cryptosystem threat models need to include
+two non-traditional threat actors, the malicious user and threatening lawmaker. Encryption lends power to its user, and
+this power can be abused. Technology makers should treat abuse of their creations as a threat, and take mitigating
+steps. Governments are naturally sensitive to shifts in power, and thus are interested in the impacts of encryption;
+lawmakers represent a unique threat in that they can outlaw certain types of encryption entirely if they deem them too
+dangerous. The threat of an \ac{EA} mandate should be treated as a true threat in the security modeling sense.
+
+Another lesson is that the current situation is temporary. This is necessarily true of \acp{wicked-prob}, but especially
+true for encryption policy in the context of rapidly evolving technology and a vulnerability arms race between device
+manufacturers and lawful hackers. The facts of the case are bound to change, and the conclusion that \ac{EA} is
+unjustified may change as well.
+
+% TODO: make a \term for mass surveillance
+
+The additions to the threat model and the instability of present circumstances mean that additional research into
+\ac{EA} is fully justified. It belongs as just a component of the effort that society should be putting towards
+addressing the broader set of issues. Fortunately, developments in secure hardware mark real progress in the search for
+acceptably secure \ac{EA}. Secure hardware technology is clearly imperfect, and alone does not resolve the numerous
+challenges that full-fledged \ac{EA} proposals must overcome, but device escrow for \acl{DAR} such as that described in
+Savage's proposal offers transparency, protection from mass surveillance, and \acl{LE} utility while making progress on
+security.
+
+These are not strong conclusions. However, when dealing with \acp{wicked-prob}, meaningful debate and discussion counts
+as progress even when it doesn't seem like it. \Acp{wicked-prob} cannot be analyzed into resolution; grasping the
+problem alone constitutes much of the work towards solving it. The conclusions above do not bring closure, but they
+should bring more clarity, and its clarity that counts.
+
 % Where do we go from here?
 %   - This was an attempt an "OO" iteration in the OODA; we need more, with involvement all around
 %   - committee_decrypting_2018 presented a framework to use to judge proposals. I have a simple version of it.
@@ -48,17 +90,98 @@ ultimately performing threat model analysis of a specific \ac{EA} proposal for \
 %       - X
 %       - Y
 %       - Z
+
+\section{Paths Forward: Technology Makers}
+
+This thesis represents an ``OO'' in the \ac{OODAloop} (see \myfig{fig-policy-ooda-loop}). It is observation and
+orientation, framed around the debate and a specific proposal. Observation and orientation are just the beginning of the
+process; next it is time to decide and act. How should technology makers respond?
+
+The technical community needs to accept and deal with the enormous role technology is playing in current policy issues,
+such as encryption, automation, and misinformation. Government sometimes suggests that the tech world is is not trying
+hard enough, and that ``nerding harder'' will result in solutions. The tech world is absolutely right that nerding
+harder will not work on these issues---because they are \acp{wicked-prob}---but that does not mean they cannot deal with
+them. Tech is used to addressing tame problems, but it is time that they turn their massive operations and intellectual
+capital towards strategies designed for \acp{wicked-prob}. This means including people of diverse experiences,
+backgrounds, and values in decision making processes that steer investment and design decisions. It means creating
+products and business models that are responsive to evolving conditions. It means considering the ways their creations
+will be abused.
+
+Work on \acp{wicked-prob} spins out smaller problems, some tame and some wicked yet manageable (see
+\myfig{fig-policy-ooda-process}). Aside from making the changes to tackle \acp{wicked-prob} head on, the technical
+community should also work on the tame sub-problems, a few of which are listed here.
+
+\newcommand{\taskstart}[0]{\begin{itemize}}
+\newcommand{\taskitem}[2]{ % Name, description
+    \item \textbf{#1} \nopagebreak
+
+    \vspace{0.5\baselineskip} \parbox{\linewidth}{#2} \vspace{0.5\baselineskip}
+}
+\newcommand{\taskend}{\end{itemize}}
+
+% FIXME: flesh out.
+\taskstart
+    \taskitem{Basic security research}{
+
+\ac{EA} is only applicable when security is actually strong enough to keep attackers out in the first place.
+
+}
+
+    \taskitem{Research technical transparency mechanisms}{
+
+Technically-enforce transparency mechanisms would help with \ac{DAR} and are a necessity for \ac{DIM}.
+
+}
+
+    \taskitem{Research distributed trust mechanisms}{
+
+Centralized trust in the \ac{EA} proposals represent their greatest risk.
+
+}
+\taskend
+
+While these problems remain unsolved, technologists must continue to provide clear security advice and be vigilant
+against bad technology policy.
+
+
+\section{Paths Forward: Policy Makers}
+
+Government has not been silent on the issue of encryption and lawful access. The dynamics created by the executive,
+legislative, and judicial branches ensures that the regulatory environment will evolve with changing federal policies,
+new laws, and rulings that refine implementation existing law.
+
+Be strategic about \acp{wicked-prob}.
+
+% FIXME: flesh out ^^vv.
+
+\taskstart
+    \taskitem{Take the low-hanging fruit}{
+
+Implement low-risk, high-reward policies first: fund industry-LE engagement that leverages existing access laws and
+follow through on anti-CSAM legislation.
+
+}
+
+    \taskitem{Regulate current lawful hacking }{
+
+Establish rules for federal LE and guidlines for state and local that create a non-abusive use of current mobile device
+forensic tools.
+
+}
+
+    \taskitem{Fund research}{
+
+Don't compare \ac{EA} to going to the moon unless you fund it like it.
+
+}
+\taskend
+
 %   - Government:
-%% Prof. Walsh:
-%% The dynamic regulatory environment and competing governmental branches at the executive, legislative, and judicial
-%% level will continue to shape the...
 %       - Take the low hanging fruit first, please
 %       - Fund research, don't mislead, don't be premature
 %           - If you're going to compare it to going to the moon, fund us like it!
 %       - Take on weak area XYZ
-%   - Tech:
-%       - Do research, provide clear security advice, be vigilant
-%       - Take on weak area XYZ
+
 %   - Either:
 %       - Know that there is no stable solution, balance rules and principles, serve your neighbor
 % see varia_2018 (maybe a good quote?)
