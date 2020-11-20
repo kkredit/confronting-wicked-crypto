@@ -67,13 +67,13 @@ typically rooted in authentication.
     \centering
     \begin{tabular}{ |l|l| }
         \hline
-        \thead{Property} & \thead{Cryptographic Basis} \\ \hline
-        Authentication  & Digital certificates \\ \hline
-        Integrity       & Cryptographic hashes \\ \hline
-        Non-repudiation & Digital signatures \\ \hline
-        Confidentiality & Encryption \\ \hline
-        Availability    & \small{\ii{based on architecture}} \\ \hline
-        Authorization   & \small{\ii{rooted in authentication}} \\ \hline
+        \thead{Property} & \thead{Cryptographic Basis}           \\ \hline
+        Authentication   & Digital certificates                  \\ \hline
+        Integrity        & Cryptographic hashes                  \\ \hline
+        Non-repudiation  & Digital signatures                    \\ \hline
+        Confidentiality  & Encryption                            \\ \hline
+        Availability     & \small{\ii{based on architecture}}    \\ \hline
+        Authorization    & \small{\ii{rooted in authentication}} \\ \hline
     \end{tabular}
 \end{table}
 
@@ -797,7 +797,7 @@ trusted parties or distributed systems, but on the device itself in specialized 
 
 \subsection{Non-Escrow Cryptographic Data Recovery}
 
-Though key recovery is the most discussed \ac{EA} approach, alternative technical means have been proposed.
+Though key escrow is the most discussed \ac{EA} approach, alternative technical means have been proposed.
 
 \propsstart
     \prop{Translucent cryptography}{
@@ -866,7 +866,8 @@ international law enforcement operation used this technique to take down a large
 }
 \propsend
 
-% FIXME: Separate out into separate, short chapter. Also adds natural place to introduce my more "advanced" DFD syntax.
+% FIXME: Separate out into separate, short chapter, probably after the wicked problems chapter. Also adds natural place
+% to introduce my more "advanced" DFD syntax.
 
 % Kalafut: I'm not sure that 2.5 and 2.6 really fit well as subsections of 2. Consider separating them into their own
 % (short) chapter.

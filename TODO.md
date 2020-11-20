@@ -45,10 +45,15 @@
 ## Status meeting agenda
 
 - Updates
-  - Updated OODA diagram
-  - Writing
+  - Received grad school citation
+  - Guests in the defense Zoom?
+    - "Why not?"
+  - Go over thesis comments
+  - Presentation?
+    - Looks fine
+    - Concern: time limit--I'll practice
+    - Target time: about 45 minutes
 - Action items
-  - TODO: Slides draft by Thursday
   - Short paper on diagramming method of cryptography?
   - 2.5 Argument maps: add explanation of what people are looking at. A key: green arrows are support, red means undercut,
       yellow outline means X
