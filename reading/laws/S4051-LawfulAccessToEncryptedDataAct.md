@@ -16,7 +16,7 @@
   year = {2020},
   month = {jun},
   title = {Graham, {Cotton}, {Blackburn} {Introduce} {Balanced} {Solution} to {Bolster} {National} {Security}, {End}
-{Use} of {Warrant}-{Proof} {Encryption} that {Shields} {Criminal} {Activity} {	extbar} {United} {States} {Senate}
+{Use} of {Warrant}-{Proof} {Encryption} that {Shields} {Criminal} {Activity} {\textbar} {United} {States} {Senate}
 {Committee} on the {Judiciary}},
   url =
 {https://www.judiciary.senate.gov/press/rep/releases/graham-cotton-blackburn-introduce-balanced-solution-to-bolster-national-security-end-use-of-warrant-proof-encryption-that-shields-criminal-activity},
