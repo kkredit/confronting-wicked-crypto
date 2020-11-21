@@ -16,8 +16,7 @@
 {Backdoors}?},
   shorttitle = {{FBI} {Boss} {Chris} {Wray}},
   url =
-{https://www.techdirt.com/articles/20180721/12074340282/fbi-boss-chris-wray-we-put-man-moon-so-why-not-encryption-backdo
-ors.shtml},
+{https://www.techdirt.com/articles/20180721/12074340282/fbi-boss-chris-wray-we-put-man-moon-so-why-not-encryption-backdoors.shtml},
   abstract = {Despite the FBI finally admitting it had greatly exaggerated the number of encrypted devices it can't get
 into, FBI Director Chris Wray keeps pushing the "going dark" theory to whoever will listen. This time it was NBC's
 Lester...},

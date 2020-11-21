@@ -14,7 +14,7 @@ SOURCE - The DOI or URL of the new material
 ORIG_DIR=$(pwd)
 cd "$READING_DIR" || exit
 function cleanup() {
-    if (( 2 == $? )); then
+    if (( 2 < $? )); then
         echo "$USAGE"
     fi
 }

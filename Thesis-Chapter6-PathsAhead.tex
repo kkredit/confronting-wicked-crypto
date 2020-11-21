@@ -39,12 +39,6 @@ paths forward for both the technical and policymaking communities.
 
 \section{Conclusions}
 
-% What can we conclude?
-%   - It may not feel like it, but (meaningful) debate and discussion counts as progress for a wicked problem
-%   - Neither side has the whole picture, but the "no EA" arguments are currently stronger
-%   - A threat model including malicious users and threatening governments makes EA make more sense
-%   - Device escrow with secure hardware represents true progress towards acceptably secure EA, so hope is not lost
-
 Regarding the arguments analyzed in \mychap{chap-arguments}, while neither side of the \ac{EA} debate fully incorporates
 the whole picture, the anti-\ac{EA} argument is currently stronger. Encryption poses a present danger to public safety
 in certain respects. The bogeymen of terrorists and criminals using encryption to evade the law are real---in the case
@@ -83,13 +77,6 @@ as progress even when it doesn't seem like it. \Acp{wicked-prob} cannot be analy
 problem alone constitutes much of the work towards solving it. The conclusions above do not bring closure, but they
 should bring more clarity, and its clarity that counts.
 
-% Where do we go from here?
-%   - This was an attempt an "OO" iteration in the OODA; we need more, with involvement all around
-%   - committee_decrypting_2018 presented a framework to use to judge proposals. I have a simple version of it.
-%     here are where we are weak:
-%       - X
-%       - Y
-%       - Z
 
 \section{Paths Forward: Technology Makers}
 
@@ -119,73 +106,107 @@ community should also work on the tame sub-problems, a few of which are listed h
 }
 \newcommand{\taskend}{\end{itemize}}
 
-% FIXME: flesh out.
 \taskstart
     \taskitem{Basic security research}{
 
-\ac{EA} is only applicable when security is actually strong enough to keep attackers out in the first place.
+\ac{EA} is only applicable when security is actually strong enough to keep attackers out in the first place, which is
+not the case for current device encryption. To some extent, this is a security ergonomics problem more than a technical
+problem: cryptographers can make device encryption incredibly strong today, but users will not let them because of its
+adverse effects on usability. Solving the strong yet usable device encryption problem will make the most promising class
+of \ac{EA}, device key escrow, relevant. Improving basic security across the board will make any \ac{EA} proposal more
+tenable.
 
 }
 
     \taskitem{Research technical transparency mechanisms}{
 
-Technically-enforce transparency mechanisms would help with \ac{DAR} and are a necessity for \ac{DIM}.
+One of the largest non-technical risks of \ac{EA} is abuse by jurisdictions with poor rule of law, or where law
+insufficiently respects civil rights in the first place. This is the motive for transparency as a goal of the threat
+model. Device key escrow can achieve partial transparency through physical possession and disassembly requirements.
+Ideally, usage of \ac{EA} mechanisms would be fully auditable to the public through inherent technical mechanisms. This
+would mark an improvement for \acl{DAR} and is a necessity for progress on \acl{DIM}.
 
 }
 
     \taskitem{Research distributed trust mechanisms}{
 
-Centralized trust in the \ac{EA} proposals represent their greatest risk.
+Centralized trust in \ac{EA} proposals represent their greatest risk, whether it is in the form of a database of keys or
+a control center with the power to add ``ghost users'' to conversations. Knowing that insecurity (and trust) cannot be
+destroyed, only moved around, the goal is a distribution of trust that allows the system to function without large
+amounts of trust assigned to any single party. This would contribute to transparency and greatly reduce the risk profile
+of an \ac{EA} proposal overall.
 
 }
 \taskend
 
-While these problems remain unsolved, technologists must continue to provide clear security advice and be vigilant
-against bad technology policy.
+Fortunately, research in these areas is occurring. More is necessary. Some \ac{EA} proposals include built in
+transparency and distributed trust mechanisms \cite{goos_oblivious_1996} \cite{phan_key_2017}
+\cite{servan_schreiber_jje_2020}; these proposals' weakness is that the approaches are insufficiently understood to be
+trusted with the high stakes of implementation. While these problems remain unsolved, technologists must continue to
+provide clear security advice and be vigilant against bad technology policy.
 
 
 \section{Paths Forward: Policy Makers}
 
 Government has not been silent on the issue of encryption and lawful access. The dynamics created by the executive,
 legislative, and judicial branches ensures that the regulatory environment will evolve with changing federal policies,
-new laws, and rulings that refine implementation existing law.
+new laws, and rulings that refine implementation existing law. The judiciary will indeed shape encryption policy through
+its rulings, and is correct to be reevaluating current Fourth Amendment jurisprudence in light of rapidly changing
+circumstances. Still, the primary actors capable of consciously taking part in strategic policymaking will be the
+executive and legislative branches. How should these policymakers respond?
 
-Be strategic about \acp{wicked-prob}.
+Government must strategically approach encryption policy as a \ac{wicked-prob}. Industry has failed at analyzing the
+problem away, and government has failed at muddling the problem away. It is true that incrementalism has safely avoided
+dangerous outcomes such as blanket \ac{EA} mandates, but it has also resulted in a research-stifling high-tension debate
+and circumstances of poor utilization of current capabilities mixed with unregulated use of invasive \ac{lawful-hacking}
+tools. Policymakers and law enforcement agencies need to be forthcoming with the real challenges they face. They are
+important contributors to the diverse groups that can iteratively refine the problem definition and possible solutions.
+Just like the technical side, the policy side of the solutions must be responsive to evolving conditions. Most
+importantly, any initiative needs follow through, since a single \ac{OODAloop} iteration will not be enough to tame this
+issue.
 
-% FIXME: flesh out ^^vv.
+Based on the analysis performed thus far, there are a few policy changes that would be good first steps to take today.
 
 \taskstart
     \taskitem{Take the low-hanging fruit}{
 
-Implement low-risk, high-reward policies first: fund industry-LE engagement that leverages existing access laws and
-follow through on anti-CSAM legislation.
+Law enforcement is often ill-equiped to handle digital evidence and coordinate with servive providers using existing
+access mechanisms \cite{carter_2018}. Justice Department task forces to combat \acl{CSAM} are underfunded and
+understaffed \cite{keller_internet_2019}. Improving the effectiveness of existing capabilities and programs carries no
+risk and guaranteed results.
 
 }
 
-    \taskitem{Regulate current lawful hacking }{
+    \taskitem{Regulate current lawful hacking}{
 
-Establish rules for federal LE and guidlines for state and local that create a non-abusive use of current mobile device
-forensic tools.
+\Ac{lawful-hacking} using commercial mobile device forensic tools has become a common practice but invokes serious
+privacy and civil rights concerns \cite{koepke_2020}. Regardless of any long-term strategy to encryption and lawful
+access policy, \ac{lawful-hacking} must be constrained. Michigan's 2020 constitutional amendment represents one positive
+development: it explicitly protects electronic data and communications from search without a warrant
+\cite{ballotpedia_2020}. Protections like this enable a non-abusive use of current \ac{lawful-hacking} capability.
 
 }
 
     \taskitem{Fund research}{
 
-Don't compare \ac{EA} to going to the moon unless you fund it like it.
+The government wants technical advancement in \ac{EA} technology, but there is very little financial incentive for
+private companies to research \ac{EA}, and the threatening climate is stifling academic research. If the federal
+government is going to compare building secure \ac{EA} to going to the moon \cite{cushing_moon_2018}, then they should
+fund it like the Apollo program. In order to be welcomed, such funding should be accompanied with a binding statute
+excluding the possibility of any premature \ac{EA} mandate.
 
 }
 \taskend
 
-%   - Government:
-%       - Take the low hanging fruit first, please
-%       - Fund research, don't mislead, don't be premature
-%           - If you're going to compare it to going to the moon, fund us like it!
-%       - Take on weak area XYZ
 
-%   - Either:
-%       - Know that there is no stable solution, balance rules and principles, serve your neighbor
-% see varia_2018 (maybe a good quote?)
+\section{Decision and Action}
 
+The goal of this thesis is to clarify encryption and \ac{EA} as a \ac{wicked-prob}, to break down the debate, and to
+evaluate the security of current \ac{EA} proposals. I aim to move the discussion forward with the ideas of how to tackle
+\acp{wicked-prob}, additions to the traditional cryptosystem threat model, and security analysis of a modern proposal.
+This study is observation and orientation; it is up to technologists, policymakers, and common people to decide and
+act. Contending with these issues is difficult on many levels, but the future of security, safety, and privacy depend on
+coming together to find a good answer where no perfect answer exists.
 
 
 
