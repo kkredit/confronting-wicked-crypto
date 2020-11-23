@@ -372,14 +372,14 @@ is low and the difficulty high.
 Tampering threats are listed in \mytab{table-tampering}. \ii{S2} relies on tampering similar to \ii{T1}.
 
 \threattablebegin{Tampering}{tampering}{Tamper}
-  T1 & Defensive user corrupts DSK, DID, or token
+  T1 & Platform abuser corrupts DSK, DID, or token
   & LE attempts at perform \ac{EA} will fail due to corrupt data. Requires compromise of the Secure Enclave or advanced
     hardware manipulation tools.
   & Since these values are known at manufacturing time and never change, they can be made read-only. (The symmetric key
     variant of \ldawmsr requires updating the symmetric equivalent of the public DSK, and is therefore more vulnerable
     to this threat.)
   \\ \hline
-  T2 & Defensive user destroys the \ac{EA} hardware interface
+  T2 & Platform abuser destroys the \ac{EA} hardware interface
   & LE attempts to perform \ac{EA} will fail due to damaged hardware.
   & Manufacture the device to require destructive disassembly to access the interface. This increases the cost
     associated with deploying and using the system.
@@ -615,6 +615,6 @@ would face considerable costs in running it securely, considering the supreme im
 unlock artifacts safely. Finally, the vendor would certainly lose privacy-conscious customers to vendors not under the
 system, whether small businesses, foreign competitors, or resellers offering pre-\ac{EA} devices. The scale of these
 costs relative to device manufacturer's naturally large size is unclear. Costs to the government include the \ac{FBI}
-operation and a necessary scale-up in training and resources available to state and local law enforcement. Government
-reimbursement for vendor compliance costs has precedent in laws like \acs{CALEA}, and could be applied to a \ac{DAR}
-\ac{EA} regulation as well \cite{edwards_hr4922_1994}.
+laboratory cost and a necessary scale-up in training and resources available to state and local law enforcement.
+Government reimbursement for vendor compliance costs has precedent in laws like \acs{CALEA}, and could be applied to a
+\ac{DAR} \ac{EA} regulation as well \cite{edwards_hr4922_1994}.
