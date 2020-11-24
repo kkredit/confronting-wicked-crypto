@@ -30,11 +30,11 @@ securely without requiring a previously agreed upon shared secret.
 One can also define two major cryptographic applications---securing \acf{DIM} and \acf{DAR}. Each application is a
 different problem that results in different solutions. \Ac{DIM} typically uses long-lived \ac{asym-crypto} keys to
 perform authentication and establish short-lived \ac{sym-crypto} session keys; the session keys perform the actual
-encryption of the data in transit. Two important properties of \ac{DIM} encryption protocols are \ac{forward-secrecy}
-and \ac{replay-protection}. \Ac{forward-secrecy} ensures that a leaked private key or session key does not compromise
-any other private key or session key; \ac{replay-protection} ensures that messages cannot be replayed by an
-attacker without detection \cite{bellovin_thinking_2016}. \Ac{E2EE} for instant messaging services is an example of
-encryption for \ac{DIM}.
+encryption of the data in motion. Two important properties of \ac{DIM} encryption protocols are \ac{forward-secrecy} and
+\ac{replay-protection}. \Ac{forward-secrecy} ensures that a leaked private key or session key does not compromise any
+other private key or session key; \ac{replay-protection} ensures that messages cannot be replayed by an attacker without
+detection \cite{bellovin_thinking_2016}. \Ac{E2EE} for instant messaging services is an example of encryption for
+\ac{DIM}.
 
 \Ac{DAR} by nature must use long-lived keys for encryption. Instead of being negotiated and randomly generated at
 encryption-time, as \ac{DIM} session keys are, these keys are either derived from a user-entered password or are stored
@@ -216,7 +216,7 @@ have repeatedly appealed to the fact that strong cryptography is a necessity for
 Several events and arguments have come to characterize \ac{the-cw2}.
 
 \paragraph*{``Security vs. Security''} The relationship between security and privacy is sometimes viewed as
-antagonistic, an assumption implicit in in the ``nothing-to-hide'' argument, but discussions in recent years have shown
+antagonistic, an assumption implicit in the ``nothing-to-hide'' argument, but discussions in recent years have shown
 that the debate is more about ``Security vs. Security'' than ``Security vs. Privacy''
 \cite{stalla_bourdillon_privacy_2014}. In this context, there are two types of security: public security, the pursuit of
 law enforcement, and cybersecurity, the pursuit of the technical community. Both sides of the debate have by now
@@ -718,6 +718,9 @@ also has well developed \ac{lawful-hacking} capabilities and a centralized foren
 \section{Approaches to Exceptional Access}
 \label{sec-tech-approaches}
 
+% FIXME: Engelsma: Consider moving this right after "encryption basics", as I have referred to many of these approaces
+% already.
+
 % There are several types of approaches:
 % IDEA: my selections here are also rather sparse. Create another appendix? (I love work). Possibly create table of
 % properties below, similar to denning_taxonomy_1996. savage_lawful_2018 has some good citations to mine.
@@ -867,6 +870,12 @@ international law enforcement operation used this technique to take down a large
 
 % FIXME: Separate out into separate, short chapter, probably after the wicked problems chapter. Also adds natural place
 % to introduce my more "advanced" DFD syntax.
+
+% TODO: include a more descriptive key to understand argument maps.
+
+% - Prof. Dulimarta: Could you apply fuzzy logic to the argument map? Quantify it? -- I think this would run into limits
+%   once you start comparing unquantifiable things, but it could be used to suss out the valid arguments, and would
+%   probably be really interesting otherwise.
 
 % Kalafut: I'm not sure that 2.5 and 2.6 really fit well as subsections of 2. Consider separating them into their own
 % (short) chapter.

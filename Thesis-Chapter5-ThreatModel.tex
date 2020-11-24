@@ -12,6 +12,8 @@ their paper.
 
 % TODO: remove this paragraph if I end up changing EA to LA
 
+% TODO: Dulimarta: only looking at iPhone DAR? -- So I have to make clear that we are limiting scope here
+
 
 \section{Developing a Threat Model}
 
@@ -183,7 +185,7 @@ The \ac{UID} is not depicted in key storage because it is actually burned into t
 be read by software. The Volume key is stored encrypted by the Class key. When a user updates his \ac{PIN}, the
 encrypted Volume key in storage is replaced with the copy encrypted with the new Class key. Application processors never
 handle any keys or secret information besides the \ac{PIN}, and due to inline encryption in the Encryption Module,
-persistent storage never handles and \ac{plaintext} data.
+persistent storage never handles any \ac{plaintext} data.
 
 
 \section{The \ldawmsr Proposal}
@@ -256,9 +258,9 @@ easier to illustrate.
 \end{figure}
 
 The lawful access use case operates as follows: law enforcement obtains a warrant to conduct a search, including the
-suspect's mobile device. They obtain the phone, disassemble it to expose the \ac{EA} hardware interface, and begin the
-time-vaulted access request. After the lockout period is completed, the device offers its Device ID only. The law
-enforcement agency's digital forensics department digitally signs the Device ID and sends it to the device vendor,
+suspect's mobile device. They obtain the phone, disassemble it to reveal the unexposed \ac{EA} hardware interface, and
+begin the time-vaulted access request. After the lockout period is completed, the device offers its Device ID only. The
+law enforcement agency's digital forensics department digitally signs the Device ID and sends it to the device vendor,
 alongside the warrant and accompanying proof of legal authorization. The vendor's access compliance department audits
 the legal documents and submits the digitally signed Device ID to a secure computing environment such as a \ac{HSM}. The
 secure environment authenticates the digital signature, looks up the device's private Device Seal Key and authorization
@@ -291,7 +293,8 @@ information disclosure, \acl{DOS}, and elevation of privileged \cite{shostack_th
 analyzes \ldawmsr using these categories. Threats that fit under multiple categories, such as tampering for the effect
 of repudiation, are listed only once.
 
-To save space, the tables use shorthand for \acf{LE}, \acf{LEO}, \acf{LEA}, \acf{DID}, \acf{DSK}, and \acf{DOS}.
+To save space, the tables use shorthand for \acf{LE}, \acf{LEO}, \acf{LEA}, \acf{HSM}, \acf{DID}, \acf{DSK}, and
+\acf{DOS}.
 
 % TODO: Check list of acronyms up to date here ^^
 
@@ -437,7 +440,7 @@ attacks aimed at gaining unauthorized access to a device constitute information 
 attacks are aimed at disclosing information intended for another party.
 
 \threattablebegin{Information Disclosure}{disclosure}{Information \\ Disclosed}
-  I1 & Attacker exposes the DSK, DID, the encrypted class key, or hashed token
+  I1 & Attacker discloses the DSK, DID, the encrypted class key, or hashed token
   & By design, none of the information stored on the phone is sensitive. The most consequential information that could
     be stolen is the DID, which could be paired with other attacks. Disclosing the DID requires either disassembly and
     time vaulting or advanced hardware inspection tooling.
