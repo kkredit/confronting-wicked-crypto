@@ -255,9 +255,9 @@ phones. A research group at Carnegie Mellon with participants from both sides of
 
 \paragraph*{Volatile Politics} Finally, \ac{the-cw2} is taking place amongst a political landscape marked by
 uncertainty, extremism, misinformation, and a pandemic that will have unknown long-term impacts. Since legislature is
-part of the broader data security threat model, its behavior is important. Unfortunately, the dynamics of present
-leadership and the lack of reliable data on what law enforcement agencies need make it difficult for the technical
-community to engage productively with policymakers \cite{granick_2018}.
+part of the broader data security threat model, its behavior is important. Unfortunately, the present political dynamics
+and the lack of reliable data on what law enforcement agencies need make it difficult for the technical community to
+engage productively with policymakers \cite{granick_2018}.
 
 That brings us to where the debate stands today. A December 2019 U.S. Senate Judiciary Committee featured the top two
 U.S. parties both expressing anger over whether data should be ``beyond the reach of the law'' and expressed threats
@@ -267,11 +267,11 @@ establish a 16-chair committee with the power to revoke online platforms' liabil
 content if the committee determines the platform is not doing enough to fight \ac{CSAM}, a legal synonym for child
 pornography \cite{graham_s3398_2020}. As illustrated by the previously mentioned \textit{New York Times} feature
 \cite{keller_internet_2019} that likely triggered the December 2019 hearing, the problem is enormous; however, critics
-largely see the \ac{EARNITAct} as an attempt to indirectly yet effectively outlaw \ac{E2EE} \cite{newman_2020}
-\cite{pfefferkorn_2020}.
+largely saw the \ac{EARNITAct} as an attempt to indirectly yet effectively outlaw \ac{E2EE} \cite{newman_2020}
+\cite{pfefferkorn_2020}. In response, legislators narrowed the focus of the \ac{EARNITAct}, but only after unveiling the
+\ac{LAEDAct}
 
-% NOTE: keep up to date, including the section above mentioning the pandemic
-% IDEA: create timeline! https://tex.stackexchange.com/questions/196794/how-can-you-create-a-vertical-timeline
+% IDEA: create timeline https://tex.stackexchange.com/questions/196794/how-can-you-create-a-vertical-timeline
 
 
 \section{Regulatory Environment}
@@ -288,7 +288,7 @@ describes regulations around the world.
 %  Wiretap Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_119.html)
 %  Stored Communications Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_121.html)
 %  Pen Register Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_II_20_206.html)
-% TODO: I _really_ need to understand these and how they're used today.
+% It would be nice to really understand these and how they're used today. committee_decrypting_2018 describes them.
 
 \subsection{Enacted U.S. Regulations}
 \label{sec-us-regs}
@@ -358,11 +358,10 @@ abuse \cite{shamsi_2011} \cite{tucker_2020}.
 
     \law{1986}{\acf{ECPA}}{\cite{kastenmeier_hr4952_1986}}{
 
-Amended the Wiretap Act, Stored Communications Act, and Pen Register Act. Provided explicit protections for private
-% TODO: Briefly introduce these. Even just "Amended the switch-board-era"...
-electronic communications data, and updated definitions to contemporary technology. It granted law enforcement explicit
-access to certain data as well; some terminology has aged poorly with technological evolution, making the access
-increasingly permissive \cite{shamsi_2011}.
+Included the Stored Communications Act and Pen Register Act, amending the switchboard-era Wiretap Act. Provided explicit
+protections for private electronic communications data, and updated definitions to contemporary technology. It granted
+law enforcement explicit access to certain data as well; some terminology has aged poorly with technological evolution,
+making the access increasingly permissive \cite{shamsi_2011}.
 
 }
 
@@ -515,33 +514,34 @@ This bill is designed to ``preempt State data security vulnerability mandates an
 state-level version of the Secure Data Act. This bill goes further to explicitly disallow \ac{EA} requirements in state
 law.
 
-% TODO: as of 7/10/20, this bill is still active. Follow up.
-
 }
 
-    \law{2020}{The \acf{EARNITAct}}{\cite{graham_s3398_2020}}{
+%     \law{2020}{The \acf{EARNITAct}}{\cite{graham_s3398_2020}}{
 
-Introduced by the chair of the Senate Judiciary Committee, one of the outspoken encryption critics during the 2019
-Senate hearing on encryption and \ac{EA}, the \ac{EARNITAct} is designed to address \ac{CSAM} and has received attention
-as a threat to encryption \cite{newman_2020} \cite{pfefferkorn_2020}. As described in \mysec{sec-history-current}, the
-bill would revoke online platforms' liability protection for user-submitted content if it is does not doing enough to
-combat \ac{CSAM}. Critics fear that meeting the regulatory requirements would preclude \ac{E2EE}, and at least one
-popular \ac{E2EE} messaging platform has threatened to pull out of the U.S. market if the bill were to pass
-\cite{lund_2020}.
+% Introduced by the chair of the Senate Judiciary Committee, one of the outspoken encryption critics during the 2019
+% Senate hearing on encryption and \ac{EA}, the \ac{EARNITAct} is designed to address \ac{CSAM} and has received attention
+% as a threat to encryption \cite{newman_2020} \cite{pfefferkorn_2020}. As described in \mysec{sec-history-current}, the
+% bill would revoke online platforms' liability protection for user-submitted content if it is does not doing enough to
+% combat \ac{CSAM}. Critics fear that meeting the regulatory requirements would preclude \ac{E2EE}, and at least one
+% popular \ac{E2EE} messaging platform has threatened to pull out of the U.S. market if the bill were to pass
+% \cite{lund_2020}.
 
-% TODO: Update based on new amendment.
+% % NOTE: based on the amendment's modifications, it is no longer about encryption. This has become more moderation and
+% % CSAM focused, and the LAED Act has taken over the encryption side. A wise split (not that either bill is necessarily
+% % good.)
+% % https://www.engadget.com/earn-it-act-amendments-pass-senate-judiciary-committee-165030518.html
 
-}
+% }
 
     \law{2020}{The \acf{LAEDAct}}{\cite{graham_2020}}{
 
-Introduced by the same senator as the \ac{EARNITAct}, the \ac{LAEDAct} is a direct attack on encryption. The
-\ac{LAEDAct} specifically addresses \ac{DAR} and \ac{DIM} by forcing device, operating system, and application
-developers to implement the ability to decrypt all data stored or passing through the device or software system
-``concurrently with their transmission'' ``unless the independent actions of an unaffiliated entity make it technically
-impossible to do so.'' The act neither mandates nor recommends any technical approach to providing this capability.
-
-% TODO: how does this differ from the old "Compliance with Court Orders Act" draft?
+The \ac{LAEDAct} is a direct attack on encryption and the direct successor of the Compliance with Court Orders Act. It
+was introduced by the chair of the Senate Judiciary Committee, also sponsor of the \ac{EARNITAct} and one of the
+outspoken encryption critics during the 2019 Senate hearing on encryption and \ac{EA}. The \ac{LAEDAct} specifically
+addresses \ac{DAR} and \ac{DIM} by forcing device, operating system, and application developers to implement the ability
+to decrypt all data stored or passing through the device or software system ``concurrently with their transmission''
+``unless the independent actions of an unaffiliated entity make it technically impossible to do so.'' The act neither
+mandates nor recommends any technical approach to providing this capability.
 
 }
 

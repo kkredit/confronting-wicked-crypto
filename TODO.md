@@ -7,6 +7,13 @@
 - Proof read for style
 - Edit: "You're finished not when there's nothing left to add, but when there is nothing left to take away"
 
+## If return and publish later
+
+- Follow up on current items
+  - Pandemic
+  - Bills that are active, but will expire
+- Consider changing "exceptional access" term to "lawful access"
+
 ## Status meeting agenda
 
 - Discuss
