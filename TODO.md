@@ -13,6 +13,7 @@
   - Pandemic
   - Bills that are active, but will expire
 - Consider changing "exceptional access" term to "lawful access"
+- Maybe remove international policy comments. Some may be wrong, and it's not a real area of expertise or added value.
 
 ## Status meeting agenda
 
