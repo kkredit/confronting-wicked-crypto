@@ -1,4 +1,4 @@
-# Contending with Wicked Crypto
+# Confronting Wicked Crypto
 
 This repository contains the source for my master's thesis on addressing the
 [wicked problem](https://en.wikipedia.org/wiki/Wicked_problem) of cryptography and exceptional access in the midst of

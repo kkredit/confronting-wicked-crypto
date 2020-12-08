@@ -2,17 +2,13 @@
 \label{chap-threatmodel}
 
 This chapter consists of a threat model and analysis of a specific device key escrow \ac{EA} proposal, Stefan Savage's
-``Lawful Device Access without Mass Surveillance Risk: A Technical Design Discussion'' \cite{savage_lawful_2018}.
-Lacking a concise name, this proposal will be referred to by its acronym, \ldawmsR. This chapter assumes that the
-proposal is accompanied by some legal framework regulating its application and use, though it is not the focus of this
-analysis, and nothing is assumed about it in particular. Note that the creators of the proposal intentionally chose the
-phrase ``lawful access'' over ``\acl{EA}'' in order to emphasize the role of legal process and dispel the negative
-stigma that accompanies \ac{EA}. I refer to \ldawmsr as an \ac{EA} proposal, but use the term entirely in the spirit of
-their paper.
-
-% TODO: remove this paragraph if I end up changing EA to LA
-
-% TODO: Dulimarta: only looking at iPhone DAR? -- So I have to make clear that we are limiting scope here
+``Lawful Device Access without Mass Surveillance Risk: A Technical Design Discussion'' \cite{savage_lawful_2018}. The
+proposal is specific to \acl{DAR} for mobile devices. Lacking a concise name, this proposal will be referred to by its
+acronym, \ldawmsR. This chapter assumes that the proposal is accompanied by some legal framework regulating its
+application and use, though it is not the focus of this analysis, and nothing is assumed about it in particular. Note
+that the creators of the proposal intentionally chose the phrase ``lawful access'' over ``\acl{EA}'' in order to
+emphasize the role of legal process and dispel the negative stigma that accompanies \ac{EA}. I refer to \ldawmsr as an
+\ac{EA} proposal, but use the term entirely in the spirit of their paper.
 
 
 \section{Developing a Threat Model}
@@ -44,7 +40,7 @@ from the preceding arguments. Each goal is listed according to priority, though 
 \modelitem{Security}{The system should minimize increased security risk with reference to the current state of the art.
 Risk is considered both with respect to individual devices and to the integrity of the entire class of devices.}
 
-\modelitem{Protection of civil liberties}{The system should include measures to prevent mass surveillance and abuse by
+\modelitem{Protection of civil liberties}{The system should include measures to prevent \ac{masssurv} and abuse by
 political regimes that violate civil rights. This includes technologically enforcing the fundamental right to privacy
 but upon warranted search pursuant to the rule of law.}
 
@@ -134,8 +130,6 @@ The following considerations are out of scope for this threat model.
 \modelitem{Encyption workarounds}{Encryption workarounds are always in play for essentially any threat actor at any
 time. Discussion for defending against those is out of scope.}
 
-% FIXME: add current hacking techniques.
-
 \modelitem{\ac{EA} workarounds}{The user is capable of evading \ac{EA} mechanisms by encrypting data at a higher level
 in the tech stack, e.g. by encrypting files before saving them to disk. Additionally, investigators or attackers are
 frequently capable of bypassing current lockout mechanisms. These have already been discussed, and it out of scope for
@@ -149,9 +143,9 @@ considered to be as-intended, though they are assumed to contain the standard am
 foreign intelligence agencies. Defending against these attacks is a separate problem.}
 
 \modelitem{Breakdown in (or absence of) rule of law}{This threat model assumes that the legal process used to obtain the
-warrant is valid. Additionally, all forms of surveillance, even when protected from mass surveillance, require
-oversight. Transparency via auditability, preferably ensured via technical mechanism, is a goal for good \ac{EA}
-proposals. However, rule of law is an absolute prerequisite for which no \ac{EA} mechanism can compensate.}
+warrant is valid. Additionally, all forms of surveillance, even when protected from \ac{masssurv}, require oversight.
+Transparency via auditability, preferably ensured via technical mechanism, is a goal for good \ac{EA} proposals.
+However, rule of law is an absolute prerequisite for which no \ac{EA} mechanism can compensate.}
 
 \modelend
 
@@ -161,8 +155,9 @@ proposals. However, rule of law is an absolute prerequisite for which no \ac{EA}
 
 Answering ``what are we building'' and comparing it with the state of the art requires an understanding of the state of
 the art. Apple iPhones are among the most secure consumer mobile phones, and serve as the point of reference for
-\ldawmsR. \myfig{fig-dfd-iphone} is a \ac{DFD} depicting the iPhone's unlock and decryption process according to their
-public documentation \cite{apple_2020}.
+\ldawmsR. As this analysis is limited to a specific proposal, it is also limited to this reference architecture.
+\myfig{fig-dfd-iphone} is a \ac{DFD} depicting the iPhone's unlock and decryption process according to Apple's public
+documentation \cite{apple_2020}.
 
 \begin{figure}[h]
     \centering\CaptionFontSize
@@ -208,12 +203,12 @@ for full detail \cite{savage_lawful_2018}.
       component; i.e., software can update the key, but only an unexposed hardware interface can read it.
     & Since the Class key itself is being stored instead of the encryption scheme being changed, there is no change to
       the security of the underlying cryptographic protocols. Physical possession and partial disassembly is required,
-      which introduces practical barriers to mass surveillance.
+      which introduces practical barriers to \ac{masssurv}.
     \\ \hline
     Time vaulting
     & The hardware interface responds to requests only after proof of sustained possession for a ``lockup period (e.g.,
       72 hours).''
-    & The waiting period precludes ``sneak and peak'' attacks and further reduces the utility for mass surveillance.
+    & The waiting period precludes ``sneak and peak'' attacks and further reduces the utility for \ac{masssurv}.
     \\ \hline
     Authorization
     & After the lockup period, the requestor must provide evidence of authorization. This comes from a shared secret
@@ -236,7 +231,7 @@ surveillance and, as Savage puts it, ``provides a more intuitive compatibility w
 government’s reasonable law enforcement powers (e.g., the ability to seize physical property under court order) than
 more information-centric approaches, which may appear covert by comparison'' \cite{savage_lawful_2018}. Transparency is
 also rooted in the physicality of the approach, wherein the device cannot be unlocked without making irreversible and
-detectable changes, mitigating both mass surveillance and common criminal abuse.
+detectable changes, mitigating both \ac{masssurv} and common criminal abuse.
 
 One clear weakness in the design is the shared secret between the device and the manufacturer used in the authorization
 protocol. The key may be stored on the device, but one can access it if they have this shared secret. This is very much
@@ -293,10 +288,8 @@ information disclosure, \acl{DOS}, and elevation of privileged \cite{shostack_th
 analyzes \ldawmsr using these categories. Threats that fit under multiple categories, such as tampering for the effect
 of repudiation, are listed only once.
 
-To save space, the tables use shorthand for \acf{LE}, \acf{LEO}, \acf{LEA}, \acf{HSM}, \acf{DID}, \acf{DSK}, and
-\acf{DOS}.
-
-% TODO: Check list of acronyms up to date here ^^
+To save space, the tables use shorthand for \acf{LE}, \acf{LEO}, \acf{LEA}, \acf{HSM}, \acf{DID}, \acf{DSK}, \acf{SN},
+and \acf{DOS}.
 
 \newcommand{\threattablesettings}{\FlushLeft \small}
 
@@ -496,9 +489,12 @@ from using the \ac{EA} mechanism.
   & \ii{S6} could be used to inject corrupt data to the DID-DSK database, potentially overwriting actual unlock artifact
     data.
   & Verify integrity of new data before entering it into the database, and disallow overwriting entirely.
+  \\ \hline
+  D2 & Unlock artifacts recovery
+  & Determined adversaries could physically destroy the medium storing the DID-DSK database.
+  & The \ac{HSM} should be in a physically secure and guarded facility, and the storage medium should be stable and
+    persistent.
 \threattableend
-
-% TODO: Platform abuser destroys the unlock artifacts database through physical attack
 
 \subsection{Elevation of Privilege}
 
@@ -533,11 +529,11 @@ Some threats introduce inherently low risk due to their difficult nature and low
 be reasonably mitigated. Some threats specifically target transparency, and are difficult to address without trust.
 Finally, there are some risks that are irreducible. Each of classes are discussed in turn.
 
-\ii{S6}, \ii{T1}, \ii{T3}, \ii{I1}, \ii{I3}, \ii{I6}, \ii{D1}, and \ii{E1} \ii{E2} are each low risk either because they
-fail to produce useful results, they can be well mitigated, or they are a threat that is already present in
-state-of-the-art designs as depicted in \mysec{sec-basic-dar}. It is crucial for a design to consider and mitigate the
-risk posed by these threats as part of the design process, but they do not represent fatal flaws to a design. Except in
-combination with other threats, they are not worthy more concern here.
+\ii{S6}, \ii{T1}, \ii{T3}, \ii{I1}, \ii{I3}, \ii{I6}, \ii{D1}, \ii{D2}, and \ii{E1} \ii{E2} are each low risk either
+because they fail to produce useful results, they can be reasonably mitigated, or they are a threat that is already
+present in state-of-the-art designs as depicted in \mysec{sec-basic-dar}. It is crucial for a design to consider and
+mitigate the risk posed by these threats as part of the design process, but they do not represent fatal flaws to a
+design. Except in combination with other threats, they are not worthy more concern here.
 
 \ii{S1}, \ii{S2}, \ii{S3}, \ii{S4}, \ii{S5}, \ii{T2}, \ii{T4}, \ii{R1}, and \ii{I2} are each higher risk threats to the
 security, trustworthiness, and effectiveness of the proposal, but can be addressed through a set of related mitigations:
@@ -568,7 +564,7 @@ spy on their enemies. In the worst-case scenario, anyone with some specialized t
 could get into any device under the scheme, provided they destructively disassemble it and wait through the time vault.
 
 It is important to give \ldawmsr (and similar \ac{DAR} \ac{EA} proposals) its due. The worst case scenario still
-precludes mass surveillance and includes non-repudiation that access occurred. This is a significant gain for \ac{EA}
+precludes \ac{masssurv} and includes non-repudiation that access occurred. This is a significant gain for \ac{EA}
 proposals in terms of transparency and protection of civil liberties.
 
 
@@ -586,13 +582,12 @@ the recommended mitigations are implemented. It goes from very hard to attack, w
 to simple to attack, when the database is leaked. However, even when it becomes trivial to attack, the impact is limited
 to devices in physical possession and cannot be hidden from the device user.
 
-\paragraph*{Protection of civil liberties} This goal was defined as defending against mass surveillance and abuse by
-authoritarian regimes. This proposal does an excellent job of protecting against mass surveillance due to its
-physicality. Any power cannot abuse this technology at scale. It is not as strong at protecting against authoritarian
-regimes. Prior to a leak, vendors would face intense and possibly coercive legal pressure to unlock devices in foreign
-countries. After a leak, these regimes could get into any device they want. If one lived in a country that was willing
-to take and destroy their devices to read their contents without legal due process, this would be an unwelcome
-technology.
+\paragraph*{Protection of civil liberties} This goal was defined as defending against \ac{masssurv} and abuse by
+authoritarian regimes. This proposal does an excellent job of protecting against \ac{masssurv} due to its physicality.
+Any power cannot abuse this technology at scale. It is not as strong at protecting against authoritarian regimes. Prior
+to a leak, vendors would face intense and possibly coercive legal pressure to unlock devices in foreign countries. After
+a leak, these regimes could get into any device they want. If one lived in a country that was willing to take and
+destroy their devices to read their contents without legal due process, this would be an unwelcome technology.
 
 \paragraph*{Transparency} \ldawmsr excels at transparency on the device, but fails at transparency to the public. Due to
 destructive disassembly (or the hardware transparency mechanism), whether a device has been accessed using this method

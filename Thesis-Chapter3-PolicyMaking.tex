@@ -92,21 +92,32 @@ individual choices contribute to greenhouse gas emissions? How effective are int
 changes be, and how capable is technology to respond? Evaluating the validity of each proposal requires updates to the
 problem statement itself.
 
+% Elements of the problem may be tame---for example, one can develop a new renewable energy widget and another can
+% independently confirm its efficiency. Other elements of the problem are wicked---for example, one cannot predict the
+% side effects of the deploying the widget, and there is now way to know how effort spent there could have been used
+% elsewhere. \Acp{wicked-prob} always consist of subproblems, which may be tame or wicked in and of themselves
+
 \Acp{wicked-prob} always consist of subproblems, which may be tame or wicked in and of themselves. For example, climate
 change has the tame subproblem of developing clean energy technology, and the wicked subproblem of implementing any
-solution in a way that doesn't leave vast swaths of people behind.
+solution in a way that doesn't leave vast swaths of people behind. \Acp{wicked-prob} quickly grow in complexity with the
+number of subproblems that comprise them. Truly imposing \acp{wicked-prob} are a tangle of contributing factors, and
+despite the presence of tame elements, they pose a large number of difficult challenges.
 
-% TODO: what am I really trying to express here?
 % ... WPs quickly grow in complexity with the number of subproblems that comprise them. Refining the problem statement
 % and combining tame solutions with wicked subproblem mitigations is the truly ``wicked'' part.
 
 % Elements of the problem may be tame---for example, one can independently confirm that reducing global carbon emissions
 % by a certain amount will result in a certain difference in response with a certain statistical confidence. Other
 % elements of the problem are wicked---for example, one cannot verify the effectiveness of a plan ahead of time, port a
-% solution from a different domain, or definitively evaluate its performance after the fact.
+% solution from a different domain, or definitively evaluate its performance after the fact. Refining the problem
+% statement and combining the tame elements into a cohesive solution is the ``wicked'' part.
 
-% Refining the problem statement and combining the
-% tame elements into a cohesive solution is the ``wicked'' part.
+% Elements of the problem may be tame---one can independently confirm that reducing global carbon emissions by a certain
+% amount will result in a certain difference in response with a certain statistical confidence. \Acp{wicked-prob} always
+% consist of subproblems, which may be tame or wicked in and of themselves. Refining the problem statement and combining
+% the tame elements in a cohesive solution is the ``wicked'' part. Despite certain tame elements, one cannot verify the
+% effectiveness of a plan ahead of time, port a solution from a different domain, or even definitively evaluate its
+% performance after the fact.
 
 \subsection{Encryption and EA as a Wicked Problem}
 
@@ -139,7 +150,13 @@ consensus is that we are not presently capable of acceptably secure \ac{EA}, tha
 especially as the area is under-researched. Third, that the problem cannot be definitively solved. Evolving values and
 technology mean that the subject is always up for renegotiation.
 
-Rozenshtein reflects on the diagnosis optimistically:
+\Ac{encryption} technology is particularly sensitive to the property that policy implementation has irreversible
+effects. Technology deployments have long tails, and attackers have the ability to record and store data for later
+analysis. In one investigation, Australian authorities cracked a cold case based on evidence acquired from a mobile
+device that they cracked five years after it was seized \cite{evans_arrests_2020}. Lawful authorities wouldn't be the
+only ones to benefit from a policy miscalculation could negatively impact security for a very long time.
+
+Rozenshtein reflects on the \ac{wicked-prob} diagnosis optimistically:
 
 \begin{displayquote}
 Recognizing that something is a wicked problem is not an admission of its insolubility; rather, it’s just a realistic
@@ -262,11 +279,6 @@ goals and lack the ability to unilaterally impose their will. Rather a symptom o
 \mysec{sec-history-current}) than an inherent weakness in the incrementalist approach, both of these assumptions are
 incorrect.
 
-% FIXME: include this idea somewhere in this section.
-% Note: a problem with muddling through wicked problems is that each attempted fix leads to long lasting unintended side
-% effects. This is especially true with matters of encryption, where the data could be stored for years till it can be
-% decrypted! So must be very careful to avoid solution attempts that leave long scars.
-
 
 \subsection{Lessons}
 \label{sec-policy-lessons}
@@ -280,7 +292,7 @@ strategically under control and relatively non-controversial? Use \ac{incrementa
 strategic response or highly controversial? What then?
 
 Let us define one strategy for handling \ac{wicked-prob} as corralling it back into the classes of problems we are
-better at dealing with. That means breaking it into tame sub-problems and developing agreeable strategies for its
+better at dealing with. That means breaking it into tame subproblems and developing agreeable strategies for its
 irreducibly wicked elements. Once that is done, we can rationally analyze and increment our way to victory. There is no
 handbook for how to do this, but several sources offer advice.
 
@@ -360,14 +372,14 @@ often can agree on policy'' \cite{lindblom_muddling_1959}.
 
 \wickedtipsend
 
-% TODO: Dulimarta: consider changing this heading to "Proposal: Observe-Orient-Decide-Act"
+
 \section{Proposal: The OODA Loop for Wicked Problems}
 
 The above discussion describes the failure of well-established methods of policymaking at addressing \acp{wicked-prob}
 and properties a better method would have. Here, I propose a modified \acs{OODAloop} as an alternative policymaking
 model.
 
-The \ac{OODAloop} was a developed by Air Force Colonel John Boyd as a description of a successful strategy for
+The \acl{OODAloop} was a developed by Air Force Colonel John Boyd as a description of a successful strategy for
 countering opponents in real-time combat \cite{angerman_2004}. Boyd created it in the context of military strategy, but
 its ideas have penetrated many other sectors, including cybersecurity, where it serves as a model for structuring
 incident response \cite{schneier_future_2014}. There is an emphasis on fast cycle times and ``getting inside'' your
@@ -409,6 +421,8 @@ on a problem definition and concrete proposals on which they can agree.
 
 % TODO: Kalafut: It's not clear to me that this paragraph is a good fit here. It is good content. Perhaps this paragraph
 % or its ideas should be at the start of the Argument Maps section.
+% PLAN: I will move this to when I talk more about argument maps. After the refactor, they won't even be introduced yet
+% here.
 
 
 \section{Summary}
@@ -420,12 +434,16 @@ controversial nature of so-called ``\acp{wicked-prob}.'' The strategy proposed h
 of all parties, who engage in ongoing research and debate that rejects easy answers, encourages flexible risk-based
 solutions, and crystallizes discussion around specific proposals. \Acp{argmap} are one tool that may facilitate this
 process. The result from a single iteration is an imperfect step forward based on implementing a particular proposal.
-The result from many iterations is the breakdown of the problem into sub-problems---some tame and inevitably some still
-wicked. The tame sub-problems can be addressed with the \ac{classical-method}, and the wicked sub-problems, by now
-restrained under a sound and agreeable strategy, can be addressed with \ac{incrementalism}. This process is demonstrated
-in \myfig{fig-policy-ooda-process}.
+The result from many iterations is the breakdown of the problem into subproblems---some tame and inevitably some still
+wicked. The tame subproblems can be addressed with the \ac{classical-method}, and the wicked subproblems, by now
+restrained under a sound and agreeable strategy, can be addressed with \ac{incrementalism}.
 
-% TODO: explain the icons
+% TODO: do I need this explanation?
+
+This process is demonstrated in \myfig{fig-policy-ooda-process}. An out of control problem (the large storm) is being
+confronted. Several iterations of the \ac{OODAloop} gradually bring it down to size, spinning out tame problems (puzzle
+pieces) addressed by classical analysis and wicked but restrained problems (small storms) controlled by
+\ac{incrementalism}.
 
 \begin{figure}[h]
   \centering\CaptionFontSize
