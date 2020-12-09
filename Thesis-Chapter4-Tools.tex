@@ -1,17 +1,9 @@
 \chapter{Analysis Tools}
 \label{chap-tools}
 
-
-% FIXME: include a more descriptive key to understand argument maps.
-
-% - Prof. Dulimarta: Could you apply fuzzy logic to the argument map? Quantify it? -- I think this would run into limits
-%   once you start comparing unquantifiable things, but it could be used to suss out the valid arguments, and would
-%   probably be really interesting otherwise.
-
-% Kalafut: I'm not sure that 2.5 and 2.6 really fit well as subsections of 2. Consider separating them into their own
-% (short) chapter.
-% Kalafut: Argument maps are used in chapter 4. I'm not sure that you need to mention argdown at all. If you do, I would
-% only do so in the context of stating that it is the tool you are using to create argument maps.
+Encryption policy arguments and \acl{EA} threat models are complex. \Acp{argmap} and \aclp{DFD} two methodological tools
+to structure analysis and reduce complexity. This chapter introduces these tools and their syntax as used in
+\mychap{chap-arguments} and \mychap{chap-threatmodel}.
 
 
 \section{Argument Maps}
@@ -21,40 +13,35 @@ The arguments used in the \ac{EA} debate are diverse and complex; in order to ad
 help to organize all the arguments used in a cohesive manner. One way to organize arguments is to create \acp{argmap}.
 \Acp{argmap} are graphical representations of the logical structures and relationships between statements, premises, and
 conclusions. \Acp{argmap} are an outgrowth of the same research by Horst Rittel that originated the idea of
-\acp{wicked-prob}. In 1970 his research group developed \acp{IBIS} to break down \acp{wicked-prob} and document the
-reasoned approaches that go into solving them \cite{kunz_issues_1970}. Interest in \ac{IBIS} has waxed and waned. Some
-software tools have been developed, including the now-defunct gIBIS \cite{conklin_gibis_1988} and Compendium
-\cite{dutoit_hypermedia_2006} tools designed to produce graphical representations. Argdown is a recent tool that
-generates \acp{argmap} from structures specified in a Markdown-based language \cite{voigt_argdown_2018}.
-
-Argdown is used in \mychap{chap-arguments} to analyze the arguments used in the \ac{EA} debate. \myfig{fig-args-demo}
-shows the basic structure of arguments. Statements are positions on issues. Some statements are based on values that
-cannot be addressed through argument. Statements and arguments may support or attack one another, and arguments support
-or undercut other arguments.
-
-\begin{figure}[ht]
-    \centering\CaptionFontSize
-    \myincludeargument{demo}
-    \caption{A demonstrative example of argument maps with Argdown}
-    \label{fig-args-demo}
-\end{figure}
-
-%%%%%%%%%%%%%%%%% Hack job
-
-Recall from \mysec{sec-arg-maps-intro} that \acp{argmap} resulted from the same research that produced the concept of
 \acp{wicked-prob}. Though formal research on the technique is thin, \acp{argmap} have proven helpful in simplifying
 complex arguments around \acp{wicked-prob} \cite{renton_2007} and in facilitating debate by helpfully slowing down
 discussion, depersonalizing conflict, and lending structure and rhythm \cite{dutoit_hypermedia_2006}. This makes them
 well suited as a tool for conducting the collaborative debate that helps problem solvers with disparate views narrow in
 on a problem definition and concrete proposals on which they can agree.
 
-% FIXME: Kalafut: It's not clear to me that this paragraph is a good fit here. It is good content. Perhaps this
-% paragraph or its ideas should be at the start of the Argument Maps section.
-% PLAN: I will move this to when I talk more about argument maps. After the refactor, they won't even be introduced yet
-% here.
+In 1970 Rittel's research group developed \acp{IBIS} to break down \acp{wicked-prob} and document the reasoned
+approaches that go into solving them \cite{kunz_issues_1970}. Interest in \ac{IBIS} has waxed and waned. Some software
+tools have been developed, including the now-defunct gIBIS \cite{conklin_gibis_1988} and Compendium
+\cite{dutoit_hypermedia_2006} tools designed to produce graphical representations. Argdown is a recent tool that
+generates \acp{argmap} from structures specified in a Markdown-based language \cite{voigt_argdown_2018}. Argdown is used
+in \mychap{chap-arguments} to analyze the arguments used in the \ac{EA} debate.
+
+\myfig{fig-args-key} shows the basic structure of arguments. Statements are positions, values, and assertions. The
+``Proposals,'' ``Statements,'' ``Fallacies,'' and ``Values'' in the figure are classes of statements in this sense. The
+color of a statement's border indicates the class to which it belongs. Arguments are premise-conclusion structures that
+relate to statements. Arguments as classified as ``anti-EA,'' ``pro-EA,'' ``neutral,'' or ``fallacious.'' The color of
+an argument's solid background indicates the class to which it belongs. Statements and arguments may support, attack, or
+undercut one another. Supporting relationships have green arrows; attacking, red; and undercutting, purple.
+
+\begin{figure}[h]
+    \centering\CaptionFontSize
+    \myincludeargument{key}
+    \caption{A demonstrative example of argument maps with Argdown}
+    \label{fig-args-key}
+\end{figure}
 
 
-\section{Threat Models and Data Flow Diagrams}
+\section{Threat Modeling with Data Flow Diagrams}
 \label{sec-threat-model-intro}
 
 Threat modeling is an important step in analyzing the security at the systems level. Using models abstracts away fine
@@ -75,7 +62,7 @@ flow, not control flow \cite{shostack_threat_2014}. They are particularly well s
 primary concern. \myfig{fig-dfd-dh-traditional} shows the basic elements of a \ac{DFD} of a simplified Diffie-Hellman
 key exchange.
 
-\begin{figure}[p]
+\begin{figure}[h]
     \centering\CaptionFontSize
     \includegraphics[width=0.8\linewidth]{dfds/build/diffie-hellman-traditional.png}
     \caption{A \acf{DFD} for a simplified Diffie-Hellman key exchange}
@@ -87,7 +74,7 @@ key exchange.
 communicative ability in the context of encryption and \acl{EA} schemes, I introduce the additional syntax show in
 \myfig{fig-dfd-dh-updated}.
 
-\begin{figure}[p]
+\begin{figure}[h]
     \centering\CaptionFontSize
     \includegraphics[width=\linewidth]{dfds/build/diffie-hellman.png}
     \caption{A Diffie-Hellman key exchange illustrated with additional syntax}
@@ -99,7 +86,7 @@ data itself, it eliminates the need for labels on lines and can be used to commu
 diagram. \myfig{fig-dfd-key} contains the full set of symbols. In \mychap{chap-threatmodel} I create \acp{DFD} in this
 style to analyze the threats already present and those that \ac{EA} would introduce.
 
-\begin{figure}[p]
+\begin{figure}[h]
     \centering\CaptionFontSize
     \includegraphics[width=0.85\linewidth]{dfds/build/dfd-key.png}
     \caption{Expanded set of DFD symbols}

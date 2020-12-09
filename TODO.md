@@ -14,6 +14,11 @@
   - Bills that are active, but will expire
 - Consider changing "exceptional access" term to "lawful access" (amend threat model intro if so)
 - Maybe remove international policy comments. Some may be wrong, and it's not a real area of expertise or added value.
+- Dulimarta's research idea:
+  - Assign strength values to the argument nodes and relations and perform quantitative ("fuzzy logic") analysis on them
+  - My thoughts: would be interesting, but assigning values would be hard, and you would inevitably end with strong,
+    valid arguments that come to different conclusions simply due to conflicting underlying values
+  - Could be a good way to weed out bad arguments.
 
 ## Status meeting agenda
 
@@ -30,4 +35,3 @@
     - Short paper on diagramming method of cryptography (Kalafut)?
     - Short overview for the Applied Computing Institute blog (Engelsma)? (would link to full thesis)
     - Adapting for 290 class (Leidig)?
-  - TODO: Update Resume for citation award

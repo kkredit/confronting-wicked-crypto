@@ -10,11 +10,10 @@ color:
         pro-ea: 0
         anti-ea: 1
         neutral: "#929292"
-        fact: 5
         fallacy: 5
         fallacious: 6
-        value: 2
         action: 8
+        core: 1
 dot:
     measureLineWidth: true
     group:
@@ -238,10 +237,10 @@ investigate and prevent statecraft and terrorism. #pro-ea
 ----
 (5) [Exceptional Access]
 
-[Absolute Right to Privacy]: Individuals in a free society have an absolute right to privacy. #value #anti-ea
+[Absolute Right to Privacy]: Individuals in a free society have an absolute right to privacy. #neutral
 
 <Right to Privacy is not Absolute>: An individual's right to privacy is contextual. One's words and actions are subject
-to investigation depending on their context and likelihood that they constitute a violation of law. #pro-ea
+to investigation depending on their context and likelihood that they constitute a violation of law. #neutral
     -> [Absolute Right to Privacy]
 
 <Argument from Social Desirability>: Exceptional access is not socially desirable. #anti-ea

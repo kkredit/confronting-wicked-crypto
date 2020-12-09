@@ -8,12 +8,11 @@ color:
     tagColors:
         pro-ea: 0
         anti-ea: 1
-        neutral-ea: "#929292"
-        fact: 5
+        neutral: "#929292"
         fallacy: 5
         fallacious: 6
-        value: 2
         action: 8
+        core: 1
 dot:
     measureLineWidth: true
     group:
@@ -31,21 +30,28 @@ selection:
     excludeDisconnected: false
 ===
 
-# I am a Group of Proposals
+# Core Values
 
-[Statement 1]: I am a proposal to implement EA. #action {inGroup: true}
+[Value 1]: A core value underlying Argument 1. #core
+  +> <Argument 1>
 
-[Statement 2]: I am a contradictory proposal. #action {inGroup: true}
-  >< [Statement 1]
+[Value 2]: A core value underlying Argument 3. #core
+  +> <Argument 3>
+
+# A Group of Proposals
+
+[Proposal 1]: A proposal to implement EA. #action
+
+[Proposal 2]: An alternative proposal. #action
 
 # Arguments {isGroup: false}
 
-[Statement 1]
-  - <Argument 1>: I am an (anti-EA) attacking argument. #anti-ea
-  + <Argument 2>: I am a (pro-EA) supporting argument. #pro-ea
-    <_ [Statement 3]: I am an undercutting statement of fact. #fact
-    + [Statement 4]: I am a supporting statement of values. #value
+[Proposal 1]
+  - <Argument 1>: An (anti-EA) argument attacking Proposal 1. #anti-ea
+  + <Argument 2>: A (pro-EA) argument supporting Proposal 1. #pro-ea
+    <_ <Argument 3>: A (neutral) argument undercutting Argument 2. #neutral
+    + [Statement 1]: A (neutral) statement supporting Argument 2. #neutral
 
-[Statement 2]
-  + <Argument 3>: I am a fallacious argument. #fallacious
-    <_ [Statement 5]: I am a description of a fallacy. #fallacy
+[Proposal 2]
+  + <Argument 4>: A (fallacious) argument supporting Proposal 2. #fallacious
+    <_ [Fallacy 1]: A description of a fallacy undercutting Argument 4. #fallacy
