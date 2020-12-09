@@ -35,7 +35,7 @@ or undercut other arguments.
 \begin{figure}[ht]
     \centering\CaptionFontSize
     \myincludeargument{demo}
-    \caption[Argdown Demo]{A demonstrative example of argument maps with Argdown.}
+    \caption{A demonstrative example of argument maps with Argdown}
     \label{fig-args-demo}
 \end{figure}
 
@@ -72,12 +72,36 @@ cannot be faithfully answered without knowing what is being built.
 \Acp{DFD} are one tool designed to address these questions. \Acp{DFD} feature processes, data flows, data stores, and
 external entities. \Acp{DFD} are well suited for threat modeling because security vulnerabilities tend to follow data
 flow, not control flow \cite{shostack_threat_2014}. They are particularly well suited for \ac{EA}, as data privacy is of
-primary concern. \myfig{fig-dfd-demo} shows the basic elements of a \ac{DFD}. In \mychap{chap-threatmodel} I create
-\acp{DFD} in this style to analyze the threats already present and those that \ac{EA} would introduce.
+primary concern. \myfig{fig-dfd-dh-traditional} shows the basic elements of a \ac{DFD} of a simplified Diffie-Hellman
+key exchange.
 
-\begin{figure}[ht]
+\begin{figure}[p]
     \centering\CaptionFontSize
-    \includegraphics[width=\linewidth]{dfds/build/DFD-demo.png}
-    \caption[\Acs{DFD} Demo]{A demonstrative example of a \acf{DFD}.}
-    \label{fig-dfd-demo}
+    \includegraphics[width=0.8\linewidth]{dfds/build/diffie-hellman-traditional.png}
+    \caption{A \acf{DFD} for a simplified Diffie-Hellman key exchange}
+    \label{fig-dfd-dh-traditional}
 \end{figure}
+
+\Acp{DFD} show what data is transferred via labels on the flows. However, labels can be insufficient in complex
+\acp{DFD}, and the method has no syntax for computation or cryptographic protocols. In order to maximize their
+communicative ability in the context of encryption and \acl{EA} schemes, I introduce the additional syntax show in
+\myfig{fig-dfd-dh-updated}.
+
+\begin{figure}[p]
+    \centering\CaptionFontSize
+    \includegraphics[width=\linewidth]{dfds/build/diffie-hellman.png}
+    \caption{A Diffie-Hellman key exchange illustrated with additional syntax}
+    \label{fig-dfd-dh-updated}
+\end{figure}
+
+The new syntax illustrates the data in more detail as it is stored, transferred, and operated on. By illustrating the
+data itself, it eliminates the need for labels on lines and can be used to communicate entire protocols in a single
+% diagram. \myfig{fig-dfd-key} contains the full set of symbols. In \mychap{chap-threatmodel} I create \acp{DFD} in this
+style to analyze the threats already present and those that \ac{EA} would introduce.
+
+% \begin{figure}[p]
+%     \centering\CaptionFontSize
+%     \includegraphics[width=\linewidth]{dfds/build/dfd-key.png}
+%     \caption{A Diffie-Hellman key exchange illustrated with additional syntax}
+%     \label{fig-dfd-key}
+% \end{figure}
