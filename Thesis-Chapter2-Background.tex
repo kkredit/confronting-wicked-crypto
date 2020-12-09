@@ -271,7 +271,162 @@ largely saw the \ac{EARNITAct} as an attempt to indirectly yet effectively outla
 \cite{pfefferkorn_2020}. In response, legislators narrowed the focus of the \ac{EARNITAct}, but only after unveiling the
 \ac{LAEDAct}
 
-% IDEA: create timeline https://tex.stackexchange.com/questions/196794/how-can-you-create-a-vertical-timeline
+% Could create timeline https://tex.stackexchange.com/questions/196794/how-can-you-create-a-vertical-timeline
+
+
+
+\section{Approaches to Exceptional Access}
+\label{sec-tech-approaches}
+
+% TODO: Does this read well here? Used to be after Regulatory Environment section.
+
+% There are several types of approaches:
+%  My selections here are also rather sparse. Create another appendix? Possibly create table of
+% properties below, similar to denning_taxonomy_1996. savage_lawful_2018 has some good citations to mine.
+% - Allow strong encryption (anyone with the users' private keys can see it)
+% - Disallow encryption (anyone can see it)
+% - Make encryption sufficiently weak, e.g. limit key length (anyone with enough CPU can see it)
+% - Require use of backdoor-ed algorithms, security via obscurity (anyone with the secret knowledge can see it)
+% - Allow any encryption, just be able to provide keys (anyone with the extra keys can see it)
+%   - Store extra in govt DBs, in corporate DBs, in third-party DBs, on blockchain, in secure HW on device
+%   - Split the key and store it multiple places
+%   - See denning_taxonomy_1996
+% - Use some alternative path
+%   - Coerced passwords, finding unencrypted copies, seizing devices while unlocked, lawful hacking
+
+% Lesson: the problem is _not_ cryptographically storing and splitting key recovery information. It's keeping those keys
+%   safe! If you can sit on recorded data and wait for the keys to get leaked, which they will...
+
+% Moving forward, what are the elements that are needed for a feasible EA system? (1) White-box-secure ways of producing
+% key recovery information. Do the protocols exist? EES failed. Needs to be rock solid. (2) Dispersed key recovery
+% information. (3) A robust, anti-fragile, inherently secure means of protecting those keys, and perhaps decaying them
+% over time (https://en.wikipedia.org/wiki/Data_degradation).
+
+There are several technical approaches to \ac{EA}. This section categorizes these approaches according to one of three
+basic approaches---\ac{key-escrow}, cryptographic recovery without a key, or non-cryptographic means of acquiring
+plaintext.
+
+\newcommand{\propsstart}[0]{\begin{itemize}}
+\newcommand{\prop}[2]{ % Name, description
+    \item \textbf{#1} \nopagebreak
+
+    \vspace{0.5\baselineskip} \parbox{\linewidth}{#2} \vspace{0.5\baselineskip}
+}
+\newcommand{\propsend}{\end{itemize}}
+
+
+\subsection{Types of Key Escrow}
+
+The most obvious approach to \ac{EA} is to store additional copies of the encrypting keys. A variation is to store
+information that can be used to derive additional copies. This approach is called \ac{key-escrow}. There are several
+classes of key escrow.
+
+\propsstart
+    \prop{Trusted-party key escrow}{
+
+Any scheme that relies on the fidelity and security of information held by an entity besides the data owner (in the case
+of \ac{DAR}) or sender or receiver (in the case of \ac{DIM}) is a ``trusted-party'' key escrow approach. Though there is
+a wide variety of implementation options within this category \cite{denning_taxonomy_1996}---secret or open protocol,
+hardware-enabled or software-only, single key or split key, government or third-party escrow---the foundation of the
+effectiveness of these approaches lies in the security of the trusted party. The \ac{clipperchip} is one example, being
+a secret protocol hardware-enabled split key government escrow system \cite{denning_taxonomy_1996}.
+
+}
+
+    \prop{Distributed key escrow}{
+
+Some schemes compensate for the risk of concentrated sensitive information by massively distributing the secret
+information. In this arrangement, trust is put in the distributed system, not in any single party. Such systems offer
+high data availability while making it difficult for attempts to acquire keys to be secret or to subvert access
+policies. This approach was introduced in \ac{the-cw1} \cite{goos_oblivious_1996} and has modern blockchain
+\cite{phan_key_2017} and distributed device \cite{servan_schreiber_jje_2020} variations. These approaches are not as
+thoroughly explored as trusted-party \ac{key-escrow}.
+
+}
+
+    \prop{Device key escrow}{
+
+A third type of \ac{key-escrow} is device-based. In device-based \ac{key-escrow}, special key information is held not by
+trusted parties or distributed systems, but on the device itself in specialized hardware. Advances in secure hardware
+``enclaves'' since \ac{the-cw1} have enabled secure local key storage. Approaches relying on hardware primarily target
+\ac{DAR}, and may include time elements and split keys with trusted parties as well \cite{savage_lawful_2018}
+\cite{ozzie_2018}.
+
+}
+\propsend
+
+
+\subsection{Non-Escrow Cryptographic Data Recovery}
+
+Though key escrow is the most discussed \ac{EA} approach, alternative technical means have been proposed.
+
+\propsstart
+    \prop{Translucent cryptography}{
+
+Research in \ac{the-cw1} included the introduction of ``translucent'' cryptography, in which an observer could surveil
+some but not all communications using statistical cryptographic methods \cite{bellare_translucent_1996}. Under this
+scheme, no keys are escrowed, but law enforcement could recover a predetermined fraction---say, 40\%---of plaintext
+data. That fraction would be designed to balance privacy, digital security, and public security. This research, though
+decidedly more experimental than key escrow proposals, was explicitly pursued to demonstrate that alternatives to key
+escrow do exist \cite{bellare_translucent_1996}.
+
+}
+
+    \prop{Cryptographic ``crumple zones''}{
+
+A recent proposal adopts the idea of crumple zones from automotive engineering---``in an emergency situation the
+construction should break a little bit in order to protect the integrity of the system as a whole and the safety of its
+human users'' \cite{wright_crypto_2018}. Similar to the translucent approach, no keys are escrowed and only passive
+surveillance is possible. Strong cryptography is a precondition for this scheme, in which keys are generated in a manner
+that makes them inherently recoverable only after a large up front and marginal cost.
+
+}
+\propsend
+
+
+\subsection{Alternative Approaches}
+\label{sec-alt-approaches}
+
+The following approaches do not use \ac{EA} at all, but are alternative technical or legal mechanisms that can be used
+towards the same goal.
+
+\propsstart
+    \prop{\Ac{lawful-hacking}}{
+
+As introduced in \mysec{sec-reg-environment}, one workaround to direct \ac{EA} is \ac{lawful-hacking}. Under
+\ac{lawful-hacking}, instead of having access to plaintext data via an alternative means of decryption, law enforcement
+is allowed to perform otherwise-illegal hacking activity in order to find the key, compromise a device, or intercept
+plaintext versions of the data \cite{kerr_encryption_2017}. While some see this as a viable middle ground
+\cite{nguyen_lawful_2017}, encouraging law enforcement to exploit vulnerabilities creates mis-aligned incentives. If law
+enforcement opposes strong security in general, it could foster the exploit market while costing ordinary users money
+and security \cite{soesanto_2018}.
+
+}
+
+    \prop{Compelled password disclosure}{
+
+In some cases, a suspect in custody may have the ability to access the desired encrypted information via a key,
+\ac{PIN}, or password. In these cases, authorities sometimes compel the suspect to disclose the password. In the U.S.,
+this approach draws debates about the Fifth Amendment right against self-incrimination \cite{bittenbender_2019}
+\cite{sobel_2019}. Of course, this approach cannot address \ac{DIM} or situations in which the knowledgeable party is
+not in custody.
+
+% these look good: \cite{sacharoff_unlocking_2018}, \cite{fredona_fifth_2016}
+% this probably has something to say: kerr_encryption_2017
+
+}
+
+    \prop{Alternative paths to plaintext}{
+
+Simpler methods can be used than computer hacking or legal coercion: encrypted data may exist in plaintext elsewhere, or
+authorities may seize equipment while it is unlocked \cite{kerr_encryption_2017}. This approach relies on skills law
+enforcement is traditionally good at---investigation and sting operations---and is used successfully. In 2017, an
+international law enforcement operation used this technique to take down a large illicit online drug market
+\cite{greenberg_2018}. This approach also does not address \ac{DIM}, and requires well-executed operations.
+
+}
+\propsend
+
 
 
 \section{Regulatory Environment}
@@ -282,13 +437,6 @@ U.S.--focused, it is worth briefly touching on the regulatory environment of oth
 international problem, as digital technology has little respect for political borders.
 \mysecrange{sec-us-regs}{sec-us-judicial} describe the regulatory environment in the U.S. and \mysec{sec-world-regs}
 describes regulations around the world.
-
-% IDEA: Create an appendix to go into greater detail?
-% Could go into these, as well as the commented-out ones below
-%  Wiretap Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_119.html)
-%  Stored Communications Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_I_20_121.html)
-%  Pen Register Act (http://www.law.cornell.edu/uscode/usc_sup_01_18_10_II_20_206.html)
-% It would be nice to really understand these and how they're used today. committee_decrypting_2018 describes them.
 
 \subsection{Enacted U.S. Regulations}
 \label{sec-us-regs}
@@ -526,7 +674,7 @@ law.
 % popular \ac{E2EE} messaging platform has threatened to pull out of the U.S. market if the bill were to pass
 % \cite{lund_2020}.
 
-% % NOTE: based on the amendment's modifications, it is no longer about encryption. This has become more moderation and
+% % Note: based on the amendment's modifications, it is no longer about encryption. This has become more moderation and
 % % CSAM focused, and the LAED Act has taken over the encryption side. A wise split (not that either bill is necessarily
 % % good.)
 % % https://www.engadget.com/earn-it-act-amendments-pass-senate-judiciary-committee-165030518.html
@@ -614,9 +762,7 @@ Second, a Supreme Court Fifth Amendment case could settle under what circumstanc
 compelled. Third, a surprise \ac{AWA} ruling could open the door to demands for access, though legislation like
 \ac{LAEDAct} is more likely to have this effect.
 
-% Prof. Walsh:
-% Due to the dynamic nature of future judicial rulings that may expand or retract the application of exceptional access
-% it is beyond the scope of this research to comment further...
+
 
 \subsection{Regulations around the World}
 \label{sec-world-regs}
@@ -713,227 +859,3 @@ also has well developed \ac{lawful-hacking} capabilities and a centralized foren
 }
 
 \countriesend
-
-
-
-\section{Approaches to Exceptional Access}
-\label{sec-tech-approaches}
-
-% FIXME: Engelsma: Consider moving this right after "encryption basics", as I have referred to many of these approaches
-% already.
-
-% There are several types of approaches:
-% IDEA: my selections here are also rather sparse. Create another appendix? (I love work). Possibly create table of
-% properties below, similar to denning_taxonomy_1996. savage_lawful_2018 has some good citations to mine.
-% - Allow strong encryption (anyone with the users' private keys can see it)
-% - Disallow encryption (anyone can see it)
-% - Make encryption sufficiently weak, e.g. limit key length (anyone with enough CPU can see it)
-% - Require use of backdoor-ed algorithms, security via obscurity (anyone with the secret knowledge can see it)
-% - Allow any encryption, just be able to provide keys (anyone with the extra keys can see it)
-%   - Store extra in govt DBs, in corporate DBs, in third-party DBs, on blockchain, in secure HW on device
-%   - Split the key and store it multiple places
-%   - See denning_taxonomy_1996
-% - Use some alternative path
-%   - Coerced passwords, finding unencrypted copies, seizing devices while unlocked, lawful hacking
-
-% Lesson: the problem is _not_ cryptographically storing and splitting key recovery information. It's keeping those keys
-%   safe! If you can sit on recorded data and wait for the keys to get leaked, which they will...
-
-% Moving forward, what are the elements that are needed for a feasible EA system? (1) White-box-secure ways of producing
-% key recovery information. Do the protocols exist? EES failed. Needs to be rock solid. (2) Dispersed key recovery
-% information. (3) A robust, anti-fragile, inherently secure means of protecting those keys, and perhaps decaying them
-% over time (https://en.wikipedia.org/wiki/Data_degradation).
-
-There are several technical approaches to \ac{EA}. This section categorizes these approaches according to one of three
-basic approaches---\ac{key-escrow}, cryptographic recovery without a key, or non-cryptographic means of acquiring
-plaintext.
-
-\newcommand{\propsstart}[0]{\begin{itemize}}
-\newcommand{\prop}[2]{ % Name, description
-    \item \textbf{#1} \nopagebreak
-
-    \vspace{0.5\baselineskip} \parbox{\linewidth}{#2} \vspace{0.5\baselineskip}
-}
-\newcommand{\propsend}{\end{itemize}}
-
-
-\subsection{Types of Key Escrow}
-
-The most obvious approach to \ac{EA} is to store additional copies of the encrypting keys. A variation is to store
-information that can be used to derive additional copies. This approach is called \ac{key-escrow}. There are several
-classes of key escrow.
-
-\propsstart
-    \prop{Trusted-party key escrow}{
-
-Any scheme that relies on the fidelity and security of information held by an entity besides the data owner (in the case
-of \ac{DAR}) or sender or receiver (in the case of \ac{DIM}) is a ``trusted-party'' key escrow approach. Though there is
-a wide variety of implementation options within this category \cite{denning_taxonomy_1996}---secret or open protocol,
-hardware-enabled or software-only, single key or split key, government or third-party escrow---the foundation of the
-effectiveness of these approaches lies in the security of the trusted party. The \ac{clipperchip} is one example, being
-a secret protocol hardware-enabled split key government escrow system \cite{denning_taxonomy_1996}.
-
-}
-
-    \prop{Distributed key escrow}{
-
-Some schemes compensate for the risk of concentrated sensitive information by massively distributing the secret
-information. In this arrangement, trust is put in the distributed system, not in any single party. Such systems offer
-high data availability while making it difficult for attempts to acquire keys to be secret or to subvert access
-policies. This approach was introduced in \ac{the-cw1} \cite{goos_oblivious_1996} and has modern blockchain
-\cite{phan_key_2017} and distributed device \cite{servan_schreiber_jje_2020} variations. These approaches are not as
-thoroughly explored as trusted-party \ac{key-escrow}.
-
-}
-
-    \prop{Device key escrow}{
-
-A third type of \ac{key-escrow} is device-based. In device-based \ac{key-escrow}, special key information is held not by
-trusted parties or distributed systems, but on the device itself in specialized hardware. Advances in secure hardware
-``enclaves'' since \ac{the-cw1} have enabled secure local key storage. Approaches relying on hardware primarily target
-\ac{DAR}, and may include time elements and split keys with trusted parties as well \cite{savage_lawful_2018}
-\cite{ozzie_2018}.
-
-}
-\propsend
-
-
-\subsection{Non-Escrow Cryptographic Data Recovery}
-
-Though key escrow is the most discussed \ac{EA} approach, alternative technical means have been proposed.
-
-\propsstart
-    \prop{Translucent cryptography}{
-
-Research in \ac{the-cw1} included the introduction of ``translucent'' cryptography, in which an observer could surveil
-some but not all communications using statistical cryptographic methods \cite{bellare_translucent_1996}. Under this
-scheme, no keys are escrowed, but law enforcement could recover a predetermined fraction---say, 40\%---of plaintext
-data. That fraction would be designed to balance privacy, digital security, and public security. This research, though
-decidedly more experimental than key escrow proposals, was explicitly pursued to demonstrate that alternatives to key
-escrow do exist \cite{bellare_translucent_1996}.
-
-}
-
-    \prop{Cryptographic ``crumple zones''}{
-
-A recent proposal adopts the idea of crumple zones from automotive engineering---``in an emergency situation the
-construction should break a little bit in order to protect the integrity of the system as a whole and the safety of its
-human users'' \cite{wright_crypto_2018}. Similar to the translucent approach, no keys are escrowed and only passive
-surveillance is possible. Strong cryptography is a precondition for this scheme, in which keys are generated in a manner
-that makes them inherently recoverable only after a large up front and marginal cost.
-
-}
-\propsend
-
-
-\subsection{Alternative Approaches}
-\label{sec-alt-approaches}
-
-The following approaches do not use \ac{EA} at all, but are alternative technical or legal mechanisms that can be used
-towards the same goal.
-
-\propsstart
-    \prop{\Ac{lawful-hacking}}{
-
-As introduced in \mysec{sec-reg-environment}, one workaround to direct \ac{EA} is \ac{lawful-hacking}. Under
-\ac{lawful-hacking}, instead of having access to plaintext data via an alternative means of decryption, law enforcement
-is allowed to perform otherwise-illegal hacking activity in order to find the key, compromise a device, or intercept
-plaintext versions of the data \cite{kerr_encryption_2017}. While some see this as a viable middle ground
-\cite{nguyen_lawful_2017}, encouraging law enforcement to exploit vulnerabilities creates mis-aligned incentives. If law
-enforcement opposes strong security in general, it could foster the exploit market while costing ordinary users money
-and security \cite{soesanto_2018}.
-
-}
-
-    \prop{Compelled password disclosure}{
-
-In some cases, a suspect in custody may have the ability to access the desired encrypted information via a key,
-\ac{PIN}, or password. In these cases, authorities sometimes compel the suspect to disclose the password. In the U.S.,
-this approach draws debates about the Fifth Amendment right against self-incrimination \cite{bittenbender_2019}
-\cite{sobel_2019}. Of course, this approach cannot address \ac{DIM} or situations in which the knowledgeable party is
-not in custody.
-
-% these look good: \cite{sacharoff_unlocking_2018}, \cite{fredona_fifth_2016}
-% this probably has something to say: kerr_encryption_2017
-
-}
-
-    \prop{Alternative paths to plaintext}{
-
-Simpler methods can be used than computer hacking or legal coercion: encrypted data may exist in plaintext elsewhere, or
-authorities may seize equipment while it is unlocked \cite{kerr_encryption_2017}. This approach relies on skills law
-enforcement is traditionally good at---investigation and sting operations---and is used successfully. In 2017, an
-international law enforcement operation used this technique to take down a large illicit online drug market
-\cite{greenberg_2018}. This approach also does not address \ac{DIM}, and requires well-executed operations.
-
-}
-\propsend
-
-% FIXME: Separate out into separate, short chapter, probably after the wicked problems chapter. Also adds natural place
-% to introduce my more "advanced" DFD syntax.
-
-% TODO: include a more descriptive key to understand argument maps.
-
-% - Prof. Dulimarta: Could you apply fuzzy logic to the argument map? Quantify it? -- I think this would run into limits
-%   once you start comparing unquantifiable things, but it could be used to suss out the valid arguments, and would
-%   probably be really interesting otherwise.
-
-% Kalafut: I'm not sure that 2.5 and 2.6 really fit well as subsections of 2. Consider separating them into their own
-% (short) chapter.
-% Kalafut: Argument maps are used in chapter 4. I'm not sure that you need to mention argdown at all. If you do, I would
-% only do so in the context of stating that it is the tool you are using to create argument maps.
-
-
-\section{Argument Maps}
-\label{sec-arg-maps-intro}
-
-The arguments used in the \ac{EA} debate are diverse and complex; in order to advance the \ac{EA} discussion, it would
-help to organize all the arguments used in a cohesive manner. One way to organize arguments is to create \acp{argmap}.
-\Acp{argmap} are graphical representations of the logical structures and relationships between statements, premises, and
-conclusions. \Acp{argmap} are an outgrowth of the same research by Horst Rittel that originated the idea of
-\acp{wicked-prob}. In 1970 his research group developed \acp{IBIS} to break down \acp{wicked-prob} and document the
-reasoned approaches that go into solving them \cite{kunz_issues_1970}. Interest in \ac{IBIS} has waxed and waned. Some
-software tools have been developed, including the now-defunct gIBIS \cite{conklin_gibis_1988} and Compendium
-\cite{dutoit_hypermedia_2006} tools designed to produce graphical representations. Argdown is a recent tool that
-generates \acp{argmap} from structures specified in a Markdown-based language \cite{voigt_argdown_2018}.
-
-Argdown is used in \mychap{chap-arguments} to analyze the arguments used in the \ac{EA} debate. \myfig{fig-args-demo}
-shows the basic structure of arguments. Statements are positions on issues. Some statements are based on values that
-cannot be addressed through argument. Statements and arguments may support or attack one another, and arguments support
-or undercut other arguments.
-
-\begin{figure}[ht]
-    \centering\CaptionFontSize
-    \myincludeargument{demo}
-    \caption[Argdown Demo]{A demonstrative example of argument maps with Argdown.}
-    \label{fig-args-demo}
-\end{figure}
-
-
-\section{Threat Models and Data Flow Diagrams}
-\label{sec-threat-model-intro}
-
-Threat modeling is an important step in analyzing the security at the systems level. Using models abstracts away fine
-details and focuses on the architecture, processes, and dataflows in a system. Models assist in the understanding of
-current systems and the prevention of problems in new systems, both of which are important when facing the prospect of
-designing an \ac{EA} mechanism built on top of a complex and aging technology stack.
-
-Threat modeling begins with the questions, ``What are you building?'' and ``What can go wrong?''
-\cite{shostack_threat_2014}. Answering the first question accurately is crucial, particularly for the field of
-cryptography, which hinges on precise definitions of security requirements \cite{varia_2018}. Answering the second
-question depends on the types of attackers to worry about, and determines the scope of threats to be considered. ``What
-are you building?'' hasn't been asked enough in the current phase of the \ac{EA} debate, and ``What can go wrong?''
-cannot be faithfully answered without knowing what is being built.
-
-\Acp{DFD} are one tool designed to address these questions. \Acp{DFD} feature processes, data flows, data stores, and
-external entities. \Acp{DFD} are well suited for threat modeling because security vulnerabilities tend to follow data
-flow, not control flow \cite{shostack_threat_2014}. They are particularly well suited for \ac{EA}, as data privacy is of
-primary concern. \myfig{fig-dfd-demo} shows the basic elements of a \ac{DFD}. In \mychap{chap-threatmodel} I create
-\acp{DFD} in this style to analyze the threats already present and those that \ac{EA} would introduce.
-
-\begin{figure}[ht]
-    \centering\CaptionFontSize
-    \includegraphics[width=\linewidth]{dfds/build/DFD-demo.png}
-    \caption[\Acs{DFD} Demo]{A demonstrative example of a \acf{DFD}.}
-    \label{fig-dfd-demo}
-\end{figure}
