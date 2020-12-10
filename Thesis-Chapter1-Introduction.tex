@@ -1,10 +1,10 @@
 \chapter{Introduction}
 \label{chap-introduction}
 
-Certain policy issues are \acp{wicked-prob}. Originally coming from the field of design theory, the term
-``\ac{wicked-prob}'' uses ``wicked'' not in the moral sense, but in the malignant, vicious, and tricky sense
+Certain policy issues can be described as ``\acp{wicked-prob}.'' Originally coming from the field of design theory, the
+term ``\ac{wicked-prob}'' uses ``wicked'' not in the moral sense, but in the malignant, vicious, and tricky sense
 \cite{rittel_dilemmas_1973}. Unlike their ``tame'' counterparts which science, engineering, and traditional policymaking
-are well equipped to answer, \acp{wicked-prob} lack clear formulations, causes, resolutions, or measurements. Each
+are well equipped to answer, \acp{wicked-prob} lack clear formulations, causes, resolutions, and measurements. Each
 attempted solution has permanent and often unintended consequences, and is likely to exist in a pattern of chronic
 policy failure.
 
@@ -17,32 +17,33 @@ attempt to end the debate, but to structure and analyze it.
 \section{Motivation}
 \label{sec-motivation}
 
-The conflict at the heart of the encryption and \ac{EA} debate is that the same cryptographic and design principles that
-underlie nearly all digital security also enable an unprecedented degree of individual privacy. Encryption is a
+The conflict at the heart of the encryption and \ac{EA} debate is this: the same cryptographic and design principles
+that underlie nearly all digital security also enable an unprecedented degree of individual privacy. Encryption is a
 foundational tool to the integrity and confidentiality of all connected computing systems. Its increasing ubiquity in
-communications and storage provides clear benefits and should be welcomed by all. In a world where information security
-is frightfully poor yet increasingly important, strong encryption's necessity can not be understated. However, the
-privacy afforded by certain encryption technologies hampers law enforcement investigations and hides wrongdoing
-\cite{cox_2020} \cite{keller_internet_2019}. In a society that cares about bringing wrongdoers to justice, this risk
-should not be ignored.
+communications and storage provides clear benefits. In a world where information security is frightfully poor yet
+increasingly important, the necessity of strong encryption cannot be understated. However, the privacy afforded by
+certain encryption technologies hampers law enforcement investigations and hides wrongdoing \cite{cox_2020}
+\cite{keller_internet_2019}. In a society that cares about bringing wrongdoers to justice, this risk should not be
+ignored.
 
-The conversation over encryption is in a stalemate. Governments and law enforcement agencies frequently cite the need to
-access encrypted data to perform their duties \cite{ministerial_2018} \cite{intl_2020} \cite{comey_2014}. Human rights
-groups and technical leaders counter that a weakened encryption environment would fatally compromise privacy and
-security as we know it \cite{abelson_2015} \cite{eightythree_2017} \cite{ruiz_there_2018}. As the debate continues,
-sides have become entrenched, and both sides have engaged in disingenuous attacks against their opponents.
+The conversation regarding encryption has reached a stalemate. Governments and law enforcement agencies frequently cite
+the need to access encrypted data to perform their duties \cite{ministerial_2018} \cite{intl_2020} \cite{comey_2014}.
+Human rights groups and technical leaders counter that a weakened encryption environment would fatally compromise
+privacy and security as we know it \cite{abelson_2015} \cite{eightythree_2017} \cite{ruiz_there_2018}. As the debate
+continues, many on both sides have become entrenched in their positions and have engaged in disingenuous attacks against
+their opponents.
 
-In the long term, increased regulation of the tech industry in general is inevitable, and regulation of encryption is
-possible. Despite strong encryption's benefits, regulatory interest in the subject has not subdued. The form that
-regulation will take in the field of encryption depends on the good faith efforts made to equitably balance all the
-benefits and risks involved in deploying a cryptographic system. If the technical community acts, it can lead and shape
-legislation instead of being subjected to it.
+In the long term, increased regulation of the tech industry is inevitable and regulation of encryption is possible.
+Despite the benefits of strong encryption, regulatory interest in the subject has not subdued. The form that regulation
+will take in the field of encryption depends on the good faith efforts made to equitably balance the benefits and risks
+involved in deploying a cryptographic system. If the technical community acts, it can lead and shape legislation rather
+than be subjected to it.
 
 Most importantly, in the pursuit of data privacy, regulatory action is part of the threat model. If the technical
-community fails to act but regulators move forward, everyone may become subject to technically misguided laws that do
-great harm. Bad \ac{EA} policy is just as much a threat as poor passwords. Due to this threat, as long as lawmakers
-continue pursuing \ac{EA} regulation, it is the responsibility of the technical community to engage in discussion and
-respond to the arguments being presented.
+community fails to act but regulators move forward, everyone may become subject to technically misguided, harmful laws.
+Bad policy is just as much a threat as weak passwords. Due to this threat, as long as lawmakers continue pursuing
+\ac{EA} regulation, it is the responsibility of the technical community to engage in discussion and respond to the
+presented arguments.
 
 For these reasons, it is important that the technical community keeps moving the debate forward.
 
@@ -51,7 +52,7 @@ For these reasons, it is important that the technical community keeps moving the
 \label{sec-premises}
 
 This paper accepts and builds on the following premises. These premises are not principles for potential \ac{EA}
-designs, but the starting place for discussing the \ac{EA} debate.
+designs, but the foundation for discussing the \ac{EA} debate.
 
 \newcommand{\principlesstart}{\begin{enumerate}}
 \newcommand{\principle}[2]{\item \textbf{#1.} #2}
@@ -59,24 +60,25 @@ designs, but the starting place for discussing the \ac{EA} debate.
 
 \principlesstart
 
-\principle{Cybersecurity is critical}{With current levels of reliance on computer information systems, cybersecurity is
+\principle{Cybersecurity is critical}{Due to modern culture's reliance on computer information systems, cybersecurity is
 critical to the wellbeing of society. Two important elements of cybersecurity are cryptography and system architecture.
-Policy which supports security does not undercut cryptographic integrity or require high-risk architectures.}
+Policy that supports security does not undercut cryptographic integrity or require high-risk architectures.}
 
 \principle{Absolute privacy is not an absolute right}{Certain rights supersede the legitimate claims of government, but
-privacy in all contexts is not one of them. While individuals under a limited government are entitled to an expectation
-of privacy, an absolute right to privacy does not apply in all circumstances. Investigators should have access to some
-classes of data. In particular, access to certain classes of digital data is important today and will be increasingly
-important in the future.}
+privacy in all contexts does not. While individuals under a limited government are entitled to an expectation of
+privacy, an absolute right to privacy does not apply in all circumstances. Investigators should have access to some
+classes of data. In particular, access to certain classes of digital data is important today and will become
+increasingly important in the future.}
 
-\principle{\Ac{EA} is an inherently complex problem}{The factors factors that make \ac{EA} a \ac{wicked-prob} mean that
-proposed solutions must be analyzed at many levels. Some these factors are \ac{EA}'s relation to \ac{masssurv},
-potential for abuse, international consequences, economic impact, and need for transparency.}
+\principle{\Ac{EA} is an inherently complex problem}{The factors that make \ac{EA} a \ac{wicked-prob} require proposed
+solutions to be analyzed at many levels. These factors include \ac{EA}'s relation to \ac{masssurv}, potential for abuse,
+international consequences, economic impact, and need for transparency.}
 
-\principle{Perfection is not the standard}{Wicked policy problems do not have perfect solutions, or even verifiably
-optimal solutions, so we cannot use perfection as the standard. To quote the ``insecurity axioms,'' insecurity cannot be
-destroyed, only moved around \cite{nrc_schneider_1999}. \Ac{EA}, like all security problems, is a matter of finding the
-right balance of risk given the threats under consideration---including the threat of regulatory action.}
+\principle{Perfection is not the standard}{Wicked policy problems do not have perfect solutions; they do not even have
+verifiably optimal solutions. Therefore, we cannot use perfection as the standard. To quote a famous security axiom,
+insecurity cannot be destroyed, only moved around \cite{nrc_schneider_1999}. The \Ac{EA} problem, like all security
+problems, involves finding the right balance of risk given the threats under consideration---including the threat of
+regulatory action.}
 
 \principlesend
 
@@ -84,9 +86,9 @@ right balance of risk given the threats under consideration---including the thre
 \section{Contribution}
 \label{sec-contribution}
 
-This thesis aims to clarify the arguments composing debate and the nature of the technical problem. After reproducing a
-brief U.S.--focused history of encryption regulation, technology, and conflict, I analyze strategies for tacking
+This thesis aims to clarify the arguments of the debate and the nature of the technical problem. After reproducing a
+brief U.S.--focused history of encryption regulation, technology, and conflict, I analyze strategies for tackling
 \acp{wicked-prob} and introduce \acp{argmap} and threat modeling with data flow diagrams. In the following chapters, I
 map the \acl{EA} arguments in detail and demonstrate the security risks with data flow diagrams and threat analysis,
-focusing on one particular EA proposal. The thesis concludes with research and policy paths forward in light of valid
-arguments and threats.
+focusing on one EA proposal in particular. The thesis concludes with paths forward for research and policy that take the
+arguments and threats discussed into consideration.

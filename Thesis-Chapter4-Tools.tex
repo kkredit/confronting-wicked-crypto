@@ -9,15 +9,15 @@ to structure analysis and reduce complexity. This chapter introduces these tools
 \section{Argument Maps}
 \label{sec-arg-maps-intro}
 
-The arguments used in the \ac{EA} debate are diverse and complex; in order to advance the \ac{EA} discussion, it would
-help to organize all the arguments used in a cohesive manner. One way to organize arguments is to create \acp{argmap}.
+The arguments used in the \ac{EA} debate are diverse and complex. Therefore, in order to advance the \ac{EA} discussion,
+it is necessary to organize the many different arguments in a cohesive manner. This thesis uses \acp{argmap} to do so.
 \Acp{argmap} are graphical representations of the logical structures and relationships between statements, premises, and
 conclusions. \Acp{argmap} are an outgrowth of the same research by Horst Rittel that originated the idea of
-\acp{wicked-prob}. Though formal research on the technique is thin, \acp{argmap} have proven helpful in simplifying
-complex arguments around \acp{wicked-prob} \cite{renton_2007} and in facilitating debate by helpfully slowing down
-discussion, depersonalizing conflict, and lending structure and rhythm \cite{dutoit_hypermedia_2006}. This makes them
-well suited as a tool for conducting the collaborative debate that helps problem solvers with disparate views narrow in
-on a problem definition and concrete proposals on which they can agree.
+\acp{wicked-prob}. Though formal research on the technique is sparse, \acp{argmap} have proven helpful in simplifying
+complex arguments around \acp{wicked-prob} \cite{renton_2007} and in facilitating debate. This is because they slow down
+discussion, depersonalize conflict, and lend structure and rhythm to meetings \cite{dutoit_hypermedia_2006}. They are
+therefore useful as a tool for conducting the collaborative debate that helps problem-solvers with disparate views
+narrow in on a problem definition and concrete proposals on which they can agree.
 
 In 1970 Rittel's research group developed \acp{IBIS} to break down \acp{wicked-prob} and document the reasoned
 approaches that go into solving them \cite{kunz_issues_1970}. Interest in \ac{IBIS} has waxed and waned. Some software
@@ -44,23 +44,23 @@ undercut one another. Supporting relationships have green arrows; attacking, red
 \section{Threat Modeling with Data Flow Diagrams}
 \label{sec-threat-model-intro}
 
-Threat modeling is an important step in analyzing the security at the systems level. Using models abstracts away fine
-details and focuses on the architecture, processes, and dataflows in a system. Models assist in the understanding of
-current systems and the prevention of problems in new systems, both of which are important when facing the prospect of
-designing an \ac{EA} mechanism built on top of a complex and aging technology stack.
+Threat modeling is an important step in analyzing the security at the systems level. Models abstract away fine details
+and focus on the architecture, processes, and dataflows in a system. Models assist in the understanding of current
+systems and the prevention of problems in new systems, both of which are important when facing the prospect of designing
+an \ac{EA} mechanism built on top of a complex and aging technology stack.
 
 Threat modeling begins with the questions, ``What are you building?'' and ``What can go wrong?''
-\cite{shostack_threat_2014}. Answering the first question accurately is crucial, particularly for the field of
-cryptography, which hinges on precise definitions of security requirements \cite{varia_2018}. Answering the second
-question depends on the types of attackers to worry about, and determines the scope of threats to be considered. ``What
-are you building?'' hasn't been asked enough in the current phase of the \ac{EA} debate, and ``What can go wrong?''
-cannot be faithfully answered without knowing what is being built.
+\cite{shostack_threat_2014}. Accurately answering the first question is crucial, particularly for the field of
+cryptography, which hinges on precise definitions of security requirements \cite{varia_2018}. The answer to the second
+question depends on the types of attackers under consideration and determines the scope of threats to be considered.
+``What are you building?'' hasn't been asked enough in the current phase of the \ac{EA} debate, and ``What can go
+wrong?'' cannot be faithfully answered without knowing what is being built.
 
-\Acp{DFD} are one tool designed to address these questions. \Acp{DFD} feature processes, data flows, data stores, and
-external entities. \Acp{DFD} are well suited for threat modeling because security vulnerabilities tend to follow data
-flow, not control flow \cite{shostack_threat_2014}. They are particularly well suited for \ac{EA}, as data privacy is of
-primary concern. \myfig{fig-dfd-dh-traditional} shows the basic elements of a \ac{DFD} of a simplified Diffie-Hellman
-key exchange.
+\Acp{DFD} were designed to address these questions. \Acp{DFD} feature processes, data flows, data stores, and external
+entities. \Acp{DFD} are well suited for threat modeling because security vulnerabilities tend to follow data flow, not
+control flow \cite{shostack_threat_2014}. They are particularly well suited for \ac{EA}, as data privacy is of primary
+concern. \myfig{fig-dfd-dh-traditional} shows the basic elements of a \ac{DFD} of a simplified Diffie-Hellman key
+exchange.
 
 \begin{figure}[h]
     \centering\CaptionFontSize
@@ -83,7 +83,7 @@ communicative ability in the context of encryption and \acl{EA} schemes, I intro
 
 The new syntax illustrates the data in more detail as it is stored, transferred, and operated on. By illustrating the
 data itself, it eliminates the need for labels on lines and can be used to communicate entire protocols in a single
-diagram. \myfig{fig-dfd-key} contains the full set of symbols. In \mychap{chap-threatmodel} I create \acp{DFD} in this
+diagram. \myfig{fig-dfd-key} contains the full set of symbols. \mychap{chap-threatmodel} includes \acp{DFD} in this
 style to analyze the threats already present and those that \ac{EA} would introduce.
 
 \begin{figure}[h]

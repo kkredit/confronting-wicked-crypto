@@ -26,6 +26,7 @@
         "FISA",
         "FISAAA",
         "GCHQ",
+        "Gizzi",
         "Hellmann",
         "ISPs",
         "ITAR",
@@ -95,7 +96,8 @@
             "words": {
                 "hte": "the",
                 "{e,E}{nrc,cnr,crn,rnc,rcn}ypt": "{}{ncr}ypt",
-                "{e,E}{nrc,cnr,crn,rnc,rcn}ypt{s,ed,ing,ion}": "{}{ncr}ypt{}"
+                "{e,E}{nrc,cnr,crn,rnc,rcn}ypt{s,ed,ing,ion}": "{}{ncr}ypt{}",
+                "{e,En}{cyr}pt{s,ed,ing,ion}": "{}{cry}ypt{}"
             }
         }
     ]
