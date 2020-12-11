@@ -15,8 +15,7 @@
   chapter = {U.S.},
   title = {The {Internet} {Is} {Overrun} {With} {Images} of {Child} {Sexual} {Abuse}. {What} {Went} {Wrong}?},
   issn = {0362-4331},
-  url = {https://www.nytimes.com/interactive/2019/09/28/us/child-sex-abuse.html,
-https://www.nytimes.com/interactive/2019/09/28/us/child-sex-abuse.html},
+  url = {https://www.nytimes.com/interactive/2019/09/28/us/child-sex-abuse.html},
   abstract = {Online predators create and share the illegal material, which is increasingly cloaked by technology. Tech
 companies, the government and the authorities are no match.},
   language = {en-US},

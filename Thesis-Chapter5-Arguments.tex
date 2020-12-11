@@ -1,29 +1,31 @@
 \chapter{EA Debate Arguments}
 \label{chap-arguments}
 
-In this chapter we will analyze the \ac{encryption} debate using \acp{argmap}. The maps help one digest the debate, but
-there are two important shortcomings of the ones presented here. First, argument mapping is ideally just one tool in the
-collaborative process that progressively approaches the problem definition and solution. One can make an approximation
-from research, but it is not a replacement for debate arising from live discussion. Second, \acp{argmap} as portrayed in
-this thesis can be deceiving about the strength of an argument. Argument nodes show no indication of their strength or
-validity; one can formulate ten poor arguments against a single strong one, and a glance at the map will indicate that
-the case of the ten is stronger. With those qualifications in mind, let us begin by looking at the factors at the heart
-of the conflict.
+This chapter will analyze the \ac{encryption} debate using \acp{argmap}. The maps facilitate comprehension of the
+debate, but there are two important shortcomings of the maps presented here. First, argument maps should be used simply
+as tools in the collaborative pursuit of the problem definition and solution. One can approximate the debate based on
+research, but it is not a replacement for debate arising from live discussion. Second, \acp{argmap} may deceptively
+portray the strength of an argument. Argument nodes do not indicate their strength or validity. If ten unsound arguments
+were presented against one indisputable argument, the side with more arguments would, regardless of their integrity,
+appear stronger. With those qualifications in mind, let us begin by examining the factors at the center of the conflict.
 
 
 \section{Contributing Factors}
 \label{sed-arg-contrib}
 
-\myfig{fig-args-contrib} maps the central arguments in the EA debate. As previously stated, it is \ac{encryption}'s dual
-role as enabler of radical privacy and cornerstone of security is at the heart of the debate. Of course, there is only a
-conflict if one sees radical privacy as a bad thing. The right to privacy is both a strongly held value and an enshrined
-legal principle, and many use privacy-based arguments to show \ac{EA} as socially undesirable. The Snowden revelations
-\cite{landau_making_2013} only unveiled the scale of privacy-eroding U.S. government surveillance enabled by
-technological changes, terrorism-motivated policies, and weak oversight \cite{shamsi_2011}. Violations of privacy are
-concerning for those most vulnerable and for society at large. For example, Saudi journalist Jamal Khashoggi's private
-communications were surveilled by the Saudi government before he became a victim of politically motivated murder
-\cite{liebermann_2019}. At a societal level, presence of surveillance alone changes behavior and chills free speech
-\cite{rogaway_moral_2015}, while government violations of the law degrade institutional trust.
+\myfig{fig-args-contrib} maps the central arguments in the EA debate. As previously stated, \ac{encryption}'s dual
+contributions to information security and radical privacy are central to the debate. Of course, there is only conflict
+when radical privacy is perceived as a negative. The right to privacy is both a strongly held value and an enshrined
+legal principle. Many use privacy concerns to argue that \ac{EA} is socially undesirable. The Snowden revelations
+\cite{landau_making_2013} unveiled the scale of privacy-eroding U.S. government surveillance enabled by technological
+changes, terrorism-motivated policies, and weak oversight \cite{shamsi_2011}. Privacy violations are an abstract worry
+to many, but for the most vulnerable, they are frighteningly concrete. For example, Saudi journalist Jamal Khashoggi's
+fell
+% TODO: bookmark
+
+private communications were surveilled by the Saudi government before he became a victim of politically motivated murder
+\cite{liebermann_2019}. At a societal level, the mere presence of surveillance changes behavior and chills free speech
+\cite{rogaway_moral_2015}, and government violations of the law degrade institutional trust.
 
 \begin{sidewaysfigure}
   \centering\CaptionFontSize
@@ -32,54 +34,50 @@ communications were surveilled by the Saudi government before he became a victim
   \label{fig-args-contrib}
 \end{sidewaysfigure}
 
-The government, and particularly \acl{LE}, argues that encryption is handcuffing their investigational capacity. The
-\ac{FBI} has branded strong encryption as ``warrant-proof'' and states that ``the government often cannot obtain the
-electronic evidence necessary to investigate and prosecute threats to public and national safety'' \cite{fbi_2020}. The
-pro-\ac{EA} argument is typically rooted in public safety: investigators need access to evidence to fulfill their
-commission to catch and convict lawbreakers, and encryption is making that too difficult. Five-eyes nations regularly
-put out joint statements expressing their frustration with encryption \cite{ministerial_2018} \cite{goodale_2017}, and
-were joined in 2020 by India and Japan in a statement emphasizing the growing danger of \ac{CSAM} \cite{intl_2020}.
-Child pornography is one the original \ac{horsemen} that some argue are used to scare people into supporting backdoors
-\cite{schneier_scaring_2019}, but it is also a problem growing to astonishing proportions. The \textit{New York Times}'s
-2019 investigation on the matter quoted one law enforcement officer as estimating that 400,000 New Jerseyans, more than
-4\% of the state's population, could be charged with violating child exploitation material laws
+\Acl{LE}, argues that encryption handcuffs its investigational capacity. The \ac{FBI} brands strong encryption as
+``warrant-proof'' and states that ``the government often cannot obtain the electronic evidence necessary to investigate
+and prosecute threats to public and national safety'' \cite{fbi_2020}. The pro-\ac{EA} argument is typically rooted in
+public safety: encryption makes it too difficult for investigators to access the evidence needed to catch and convict
+law-breakers. Five-eyes nations have regularly published joint statements expressing their frustration with encryption
+\cite{ministerial_2018} \cite{goodale_2017}. They were joined in 2020 by India and Japan in a statement emphasizing the
+growing danger of \ac{CSAM} \cite{intl_2020}. Child pornography is one of the original \ac{horsemen} used to scare
+people into supporting backdoors \cite{schneier_scaring_2019}, but it is also a problem growing to astonishing
+proportions. A 2019 investigation by the \textit{New York Times} quoted a law officer's estimate that 400,000 New
+Jerseyans, more than 4\% of the state's population, have violated child exploitation material laws
 \cite{keller_internet_2019}.
 
-Unfortunately, shocking assertions such as this have not been independently confirmed or backed up with hard data.
-Intelligence agencies have a long history or misrepresenting positions and overstepping bounds
-\cite{johnson_congressional_2004} \cite{shamsi_2011}, and this has led to lack of institutional trust undercutting their
-claims that they need \ac{EA}. Indeed, the \ac{FBI} has already been caught exaggerating by several times how many
-mobile devices they could not access due to \acl{DE} \cite{devlin_2018}. As Rozenshtein says on this subject, ``It is
-impossible to know the precise extent to which encryption frustrates law-enforcement investigations, both because
-law-enforcement agencies are only beginning to collect accurate statistics, and because one can never be sure of how an
-investigation would have proceeded in the absence of encryption'' \cite{rozenshtein_wicked_2018}, but it is still
-crucial to have an accurate depiction of the problem in order to come to justified and helpful solutions. This argument
-is analyzed further in the next section.
+Unfortunately, these shocking claims have not been independently confirmed with hard data. Intelligence agencies have
+historically misrepresented statistics and overstepped their bounds \cite{johnson_congressional_2004}
+\cite{shamsi_2011}. This undercuts their claims that they need \ac{EA} and has diminished institutional trust. For
+example, the \ac{FBI} has already been found to exaggerate the number of mobile devices it could not access due to
+\acl{DE} \cite{devlin_2018}. As Rozenshtein points out, ``It is impossible to know the precise extent to which
+encryption frustrates law-enforcement investigations, both because law-enforcement agencies are only beginning to
+collect accurate statistics, and because one can never be sure of how an investigation would have proceeded in the
+absence of encryption'' \cite{rozenshtein_wicked_2018}. However, it is still crucial to have an accurate depiction of
+the problem in order to come to justified and helpful solutions. This argument is analyzed further in the next section.
 
-Information security is a the remaining central issue in the debate. As described in \mysec{sec-crypto-basics},
-\ac{cryptography} in various forms plays a foundational technical role in nearly every aspect of security, and
-information confidentiality itself is one of the primary properties security practitioners fight to protect. Efforts in
-the past have sought to undermine the cryptographic foundations of encryption, though this is not a feature of proposals
-today, as that is universally seen as too risky. \mysec{sec-tech-approaches} introduced several alternative technical
-approaches to \ac{EA}, but experts still proclaim loud and clear that the current state of the art is far from capable
-of providing the type of access \acl{LE} in an acceptably secure manner \cite{abelson_2015} \cite{abelson_risks_1997}.
-Security was an afterthought in early computing and networking designs, and the field of cybersecurity is still more of
-an art the a science; hobbling systems with a mandate to provide \ac{EA} would inevitably diminish security to some
-degree \cite{abelson_2015}.
+Information security is the remaining central issue in the debate. As described in \mysec{sec-crypto-basics},
+\ac{cryptography} plays a foundational role in nearly every aspect of security. Past \ac{EA} regulation efforts sought
+to compromise the cryptographic foundations of encryption, though this is not a feature of proposals today, as that is
+universally seen as too risky. \mysec{sec-tech-approaches} introduced several alternative technical approaches to
+\ac{EA}, but experts still proclaim that the current state of the art is far from capable of providing the type of
+access \acl{LE} in an acceptably secure manner \cite{abelson_2015} \cite{abelson_risks_1997}. Security was an
+afterthought in early computing and networking designs, and the field of cybersecurity is still equal parts art and
+science; mandated \ac{EA} would inevitably diminish security to some degree \cite{abelson_2015}.
 
-Finally, one may argue that \ac{EA}, depending on its implementation, could have positive auxiliary use cases. It could
-enable malware scanning, administrator access in a business setting, or password recovery. Typically these use cases
-have other solutions, however, and to combine the requirements of these uses with those of any reasonable \ac{EA}
-proposal would likely fatally weaken it.
+Finally, it is arguable that \ac{EA} could have positive alternative applications. It could enable malware scanning,
+password recovery, or administrator access in a business setting. Typically these applications have other solutions,
+however, and to combine the requirements of these uses with those of any reasonable \ac{EA} proposal would likely
+fatally weaken it.
 
 
 \section{Going Dark vs. The Golden Age}
 
 A significant portion of the disconnect between government and technical community representatives is disagreement over
 whether law enforcement has \ii{too little} or \ii{too much} access to data. The argument for \ii{too little} is
-well-represented by proponent former \ac{FBI} Director James Comey in a 2014 speech titled ``Going Dark''
-\cite{comey_2014} (though he did not coin the phrase \cite{swire_encryption_2011}). The argument is represented in
-\myfig{fig-arg-going-dark}, also informed by critiques \cite{rogaway_moral_2015}.
+well-represented by proponent former \ac{FBI} Director James Comey in his 2014 speech titled ``Going Dark''
+\cite{comey_2014} (though he did not coin the phrase \cite{swire_encryption_2011}). The argument is presented in
+\myfig{fig-arg-going-dark} including several critiques \cite{rogaway_moral_2015}.
 
 \begin{figure}[t!]
   \centering\CaptionFontSize
@@ -88,32 +86,40 @@ well-represented by proponent former \ac{FBI} Director James Comey in a 2014 spe
   \label{fig-arg-going-dark}
 \end{figure}
 
-The ``Going Dark'' argument goes that privacy and safety are both desirable goods, but they inherently conflict, and we
-need balance. Individuals must give up some of their personal good of privacy to make room for the public good of
-safety. Encryption tips the scales too far towards privacy, upsetting the balance of the status quo. \ac{EA} is needed
-to restore the balance and enable law enforcement agencies to do their jobs and protect the public.
+According to the "Going Dark" argument, privacy and safety are both desirable goods, but they conflict with one another;
+therefore, they must be balanced. Individuals must sacrifice some of their personal good of privacy to in honor of the
+public good of safety. Widespread encryption tips the scales too far towards privacy, upsetting the balance we had
+before. \ac{EA} restores the balance and enables law enforcement agencies to fulfill their duty to protect the public.
 
-The argument has a few blind spots. Depicting privacy and safety as competing in a zero-sum tradeoff ignores all the
-ways in which privacy directly enhances safety. Data privacy makes certain crimes more difficult, such as stalking or
-identity theft. Privacy is also a public good to the extent that it precludes \ac{masssurv}, an argument explored more
-deeply in the ``Golden Age'' side of the argument.
+The ``Going Dark'' argument has a few shortcomings. It oversimplifies the relationship between privacy and safety by
+depicting it as a zero-sum conflict. In reality, privacy does not always diminish safety, but sometimes enhances safety.
+For example, data privacy makes crimes such as stalking and identify more difficult. The ``Going Dark'' argument also
+categorizes privacy as a personal good and safety as a public good. However, privacy can also be a public good when it
+precludes \ac{masssurv}. This argument is explored more deeply in the ``Golden Age for Surveillance'' map.
 
-Most importantly, the ``Going Dark'' argument hinges on encryption being responsible for failure of law enforcement
-investigations. As described in \mysec{sed-arg-contrib}, there is a lack of data on the extent to which encryption is
-itself to blame for failed cases. One can certainly understand the argument, but the lack of evidence is an issue. The
-highest-profile case of \ac{the-cw2}, Apple vs. FBI, ended with the \ac{FBI} breaking into the phone but finding nothing
-of value. Tellingly, each of Comey's examples in his 2014 speech were not cases where encryption inhibited
-investigations, but where cases hypothetically \ii{could} have been inhibited if encryption was a factor
-\cite{comey_2014}. More recently, an 2020 report shows that law enforcement agencies currently have the upper hand on
-mobile device encryption, and are actually able to extract data from nearly every mobile phone on the market
-\cite{koepke_2020}.
+Most importantly, the strength of the ``Going Dark'' argument rests on law enforcement investigations failing due to
+encryption. As described in \mysec{sed-arg-contrib}, there is no conclusive data regarding the extent to which
+encryption is to blame for failed cases. One can certainly understand the argument, but the lack of evidence is an
+issue. The highest-profile case of \ac{the-cw2}, Apple vs. FBI, ended when the \ac{FBI} broke into the phone and found
+nothing of value. Tellingly, the examples cited in Comey's 2014 speech were not cases in which encryption inhibited
+investigations, but were cases in which encryption \ii{could have} inhibited investigations, had it been a factor.
+\cite{comey_2014}. More recently, a 2020 report titled ``Mass Extraction: The Widespread Power of U.S. Law Enforcement
+to Search Mobile Phones'' revealed that law enforcement agencies currently have the upper hand on mobile device
+encryption and are actually able to extract data from nearly every mobile phone on the market \cite{koepke_2020}.
 
 Citing lack of evidence that encryption is stymieing cases only gets you so far, however. In most cases, it is
-impossible to know what would have happened in an investigation unimpeded by strong encryption. This is part of why it
-is a \ac{wicked-prob}. Indeed, when the encryption curtain is pulled back, there is often much to see. Unencrypted
-Facebook Messenger is has approximately 20\% market share in active monthly users \cite{statista_2020} but accounts for
-65\% of \ac{CSAM} reports \cite{keller_internet_2019}, and European law enforcement's infiltration of encrypted
-messaging service Encrochat exposed crime rings and led to a massive raids \cite{cox_2020}.
+impossible to know what would have happened without the interference of strong encryption. Inability to perform
+controlled tests is a characteristic of \ac{wicked-prob}. When controlled settings are unachievable, another way to
+gather data is by observing naturally-occurring conditions where everything but the variable of interest is the same.
+These conditions exist for encryption in messaging application ecosystem. Messaging applications WhatsApp, Facebook
+Messenger, and Telegram all have large user bases have approximate feature parity. Among these services, only Facebook
+Messenger does not employ \ac{E2EE}. What effect does that have on investigation? Globally, Facebook Messenger has
+approximately 20\% market share as measured by active monthly users \cite{statista_2020} but accounts for 65\% of
+\ac{CSAM} reports \cite{keller_internet_2019}.
+
+% TODO: I still really want to use this!
+% European law enforcement's infiltration of encrypted messaging service Encrochat exposed crime rings and led to a
+% massive raids \cite{cox_2020}.
 
 Aside from the challenge of encryption entirely, a 2018 study found that law enforcement's primary difficulties with
 digital evidence were identifying service providers and getting the sought after data from them \cite{carter_2018}. This
@@ -127,12 +133,12 @@ similarly underfunded \cite{carter_2018}.
 
 % Golden age
 
-The argument for law enforcement having \ii{too much} access to data claims that instead of law enforcement ``Going
-Dark,'' they are living in the ``Golden Age for Surveillance'' \cite{swire_encryption_2011}. This argument goes that
-although encryption makes certain data completely unaccessible, technological change on the whole has given authorities
-much more digital evidence than encryption has taken away. Paired with the dangers of \ac{masssurv}, encryption is a
-necessary defense, and any \ac{EA} implementation would compromise encryption's protection. The argument is mapped in
-\myfig{fig-arg-golden-age}.
+The argument for law enforcement having \ii{too much} access to data claims that law enforcement is not ``Going Dark'';
+rather, they are experiencing the ``Golden Age for Surveillance'' \cite{swire_encryption_2011}. This argument posits
+that although encryption makes certain data completely unaccessible, technological change on the whole has given
+authorities much more digital evidence than encryption has taken away. Paired with the dangers of \ac{masssurv},
+encryption is a necessary defense, and any \ac{EA} implementation would compromise encryption's protection. The argument
+is mapped in \myfig{fig-arg-golden-age}.
 
 \begin{figure}[p!]
   \centering\CaptionFontSize
@@ -141,39 +147,39 @@ necessary defense, and any \ac{EA} implementation would compromise encryption's 
   \label{fig-arg-golden-age}
 \end{figure}
 
-The ``Golden Age'' argument revolves around surveillance, its undesirability, and technology's role in it. Cryptographer
+The ``Golden Age'' argument focuses on surveillance, its undesirability, and technology's role in it. Cryptographer
 Phillip Rogaway writes at length about the negative impacts of \ac{masssurv} in his essay ``The Moral Character of
-Cryptographic Work'' \cite{rogaway_moral_2015}. Rogaway argues that ``pervasive collection \ii{itself} chills
-free-speech and threatens liberal democracy'' (emphasis his) through the way its mere existence affects the subject. He
-argues that it is fundamentally a tool of power, and though I would add that power from the people created through
-representative political process is valid power, clear abuses have undercut reasonable confidence in these institutions.
+Cryptographic Work'' \cite{rogaway_moral_2015}. Rogaway asserts that ``pervasive collection \ii{itself} chills
+free-speech and threatens liberal democracy.'' He argues that surveillance is fundamentally a tool of power, and for
+this reason it should be resisted. Though power from the people created through representative political process is
+valid, clear abuses have undercut reasonable confidence in these institutions.
 
-The next element is that technology has increased the government's surveillance powers. This can hardly be contested.
-Going back to Comey's ``Going Dark'' examples once more, each case he cited was cracked by digital evidence that would
-not have been available even twenty years ago \cite{comey_2014}. In response to the danger of \ac{masssurv} and the
-scale of modern surveillance capabilities, encryption is one of the only privacy-saving tools. (Opting out may be
-possible for some, but is not a realistic option for society as a whole.)
+After establishing the danger of surveillance, the argument notes how technology has increased the government's
+surveillance abilities. This can hardly be contested. Going back to Comey's ``Going Dark'' examples once more, each case
+he cited was cracked by digital evidence that would not have been available even twenty years ago \cite{comey_2014}. In
+response to the danger of \ac{masssurv} and the scale of modern surveillance capabilities, encryption is one of the only
+privacy-saving tools. (Opting out may be possible for some, but is not a realistic option for society as a whole.)
 
-While much stronger than the ``Going Dark'' argument, the ``Golden Age for Surveillance'' argument suffers from one
-major flaw. It focuses strongly on the abilities of and dangers posed by agencies like the \ac{NSA} and ignores the
-problems of local, state, and sometimes-surprisingly-cash-strapped federal law enforcement. The boom in the existence of
-digital evidence is clear, but as shown, law enforcement already has trouble acquiring many forms of evidence with the
-help of tech and communications companies, and does not have the funding or capability to get it on its own
-\cite{carter_2018}. Exacerbating the situation is the ``tech effect,'' which is increasing jurors' expectations of hard
-evidence in cases where it may be suspected to exist \cite{shelton_study_2006}.
+While stronger than the ``Going Dark'' argument, the ``Golden Age for Surveillance'' argument suffers from a significant
+flaw. It focuses on the abilities and dangers of agencies like the \ac{NSA} while ignoring the problems of
+resource-strapped local, state, and federal law enforcement. It is obvious that the amount of digital evidence is
+increasing. However, law enforcement already has trouble acquiring many forms of evidence with the help of tech and
+communications companies, and does not have the funding or capability to get it on its own \cite{carter_2018}.
+Exacerbating the situation is the ``tech effect,'' which refers to jurors' increased expectations of hard evidence in cases
+where it may be suspected to exist \cite{shelton_study_2006}.
 
-Still, the fact that the tools of \ac{masssurv} are out of reach for most law enforcement must not be relied upon. That
-is, most likely, a temporary situation. Law enforcement's present ability to access mobile devices proves this point. A
-safer criticism of the ``Golden Age'' framing of \ac{EA} is that \ac{EA} without \ac{masssurv} is conceivable. \ac{EA}
-implementations that enable law enforcement but thwart \ac{masssurv} by remote powers subvert most of the ``Golden Age''
-argument. \ac{EA} proposals striving for these properties are explored in future argument maps.
+Still, law enforcement's inability to access the tools of \ac{masssurv} cannot be taken for granted. It will likely
+change---they already have access to mobile devices. A more conservative criticism of the ``Golden Age'' argument rests
+in the fact that \ac{EA} without \ac{masssurv} is conceivable. \ac{EA} implementations that enable law enforcement but
+thwart \ac{masssurv} by remote powers subvert most of the ``Golden Age'' argument. \ac{EA} proposals that strive for these
+properties will be explored in \mysec{sec-ea-types}.
 
 
 \section{Eliminating Fallacious Arguments}
 
-Analyzing debates in the \ac{argmap} format invites one to seriously consider the merits of opposing arguments. Part of
-that consideration includes identifying and eliminating fallacious arguments. In heated, partisan debates, fallacious
-arguments spread easily. \myfig{fig-arg-fallacies} shows those used in the encryption and \ac{EA} debate.
+Using \acp{argmap} to analyze debates allows for consideration of opposing arguments. Part of that consideration
+includes identifying and eliminating fallacious arguments. In heated partisan debates, fallacious arguments spread
+easily. \myfig{fig-arg-fallacies} shows those most commonly used in the encryption and \ac{EA} debate.
 
 \begin{figure}[t!]
   \centering\CaptionFontSize
@@ -182,64 +188,67 @@ arguments spread easily. \myfig{fig-arg-fallacies} shows those used in the encry
   \label{fig-arg-fallacies}
 \end{figure}
 
-Let us begin with bad arguments used to attack \ac{EA}. The first is the most common: ``\ac{EA} is a bad idea because
-backdoors are insecure.'' It appears on the map as a straw man argument due to the way the term ``backdoor'' is used.
-``Backdoor'' is essentially technical shorthand for ``insecure hack that should never be used in production''; when it
-is used as a basket term for all \ac{EA} proposals, the audience is primed to think them all stupid and helplessly
-dangerous. Thus, the arguer is presenting their opponent's request for some form of \ac{EA} in the worst possible light.
+The map begins with fallacious arguments used to attack \ac{EA}. The first is the most common: ``\ac{EA} is a bad idea
+because backdoors are insecure.'' It appears on the map as a straw man argument due to the way the term ``backdoor'' is
+used. ``Backdoor'' is essentially technical shorthand for ``insecure hack that should never be used in production'';
+when it is used as a basket term for all \ac{EA} proposals, the audience is primed to consider them all ill-conceived
+and hopelessly dangerous. Thus, the arguer is presenting their opponent's argument for any degree of \ac{EA} in the
+weakest possible fashion.
 
-Another common argument is that implementing \ac{EA}---or even researching it---moves us inexorably down a slippery
-slope, where government demands will never be satisfied. This argument can be used even if one thinks judicious
-hypothetical use of \ac{EA} tools would be a good thing. Going too far and too fast is certainly a danger, but it is
-both cynical and fallacious to declare the permanent destruction of privacy as the inevitable end of \ac{EA} research.
+Another common argument is that implementing \ac{EA}---or even researching it---inexorably moves tech policy down a
+slippery slope, in which government demands will never be satisfied. This argument can be used to prevent research from
+those who think judicious hypothetical use of \ac{EA} tools could be positive. Going too far and too fast is certainly
+dangerous, but it is both cynical and misleading to declare the permanent destruction of privacy as the inevitable end
+of \ac{EA} research.
 
-It is highly tempting to declare government calls for \ac{EA} disingenuous due to hypocritical behavior in their
-treatment of the issues. For example, if combatting \ac{CSAM} is a government priority, how come Congress hasn't funded
-it and the Justice Department hasn't prioritized it \cite{keller_internet_2019}? This question, and others like it,
-demands an answer, but it ultimately does not impact the validity (or invalidity) of pro-\ac{EA} arguments. The absence
-of government funding doesn't mean technical anti-\ac{CSAM} measures are unnecessary.
+It is tempting to declare government requests for \ac{EA} disingenuous due to their hypocritical behavior towards some
+of these issues. For example, if combatting \ac{CSAM} is a government priority, why has Congress underfunded the laws
+they've passed, and why has the Justice Department understaffed their task force for it \cite{keller_internet_2019}?
+These questions demand answers, but they do not change the validity (or invalidity) of pro-\ac{EA} arguments. The
+absence of government funding does not mean technical anti-\ac{CSAM} measures are unnecessary.
 
-The final two anti-\ac{EA} fallacies are examples of false dichotomies, presenting the situation as if there are only
-two choices. \Acp{wicked-prob} have an unlimited set of possible responses, so reducing it to two (and often, presenting
-one as a straw man) is misleading. One false dichotomy is that the only acceptable solutions are perfect \ac{EA} or no
-\ac{EA}. This leaves no room for risk-based approaches, the typical security strategy outside the realm of cryptography.
-Another false dichotomy is that regulators must either allow strong cryptography or we will live in a \ac{masssurv}
-dystopia. This one carries hints of ``slippery slope'' and appeal to emotion as well, framed as a choice between only
-two futures. Framing the situation in all or nothing terms harms the chances for successful collaborative debate.
+The final two anti-\ac{EA} fallacies are examples of false dichotomies; they present the situation as if there are only
+two outcomes. \Acp{wicked-prob} have unlimited sets of potential responses, so reducing them to two is misleading. One
+false dichotomy is that the only acceptable solutions are either perfect \ac{EA} or no \ac{EA}. This leaves no room for
+risk-based approaches, the typical security strategy outside the realm of cryptography. Another false dichotomy is that
+regulators must either allow strong cryptography or we will live in a \ac{masssurv} dystopia. This one carries hints of
+``slippery slope'' and appeal to emotion as well, framed as a choice between only two futures. Framing the situation in
+all or nothing terms reduces the chance of a successful collaborative debate.
 
-Fallacious arguments used to support \ac{EA} rely heavily on appeal to emotion. Politicians and law enforcement agents
-commonly appeal to pity for child abuse victims or fear of terrorists, drug dealers, and kidnappers to make their point.
-Public safety is a core value in the debate and the technical community needs to and does take these concerns seriously
-\cite{schneier_scaring_2019}. These appeals become fallacious when they are used to manipulate the audience into
-supporting measures incommensurate with the problems, or to manipulate the audience into thinking that tech somehow
-actually does not care about these issues.
+Some arguments used to support \ac{EA} rely on appeal to emotion. Politicians and law enforcement agents often appeal to
+pity for child abuse victims or fear of terrorists, drug dealers, and kidnappers to make their point. Public safety is a
+central issue in the debate. The technical community does take these concerns seriously \cite{schneier_scaring_2019}.
+These appeals become fallacious when they are used to manipulate the audience into supporting solutions incommensurate
+with the problems or to manipulate the audience into believing that the technical community does not care about these
+issues.
 
 Another argument used to subvert anti-EA arguments from experts goes along the lines of, since we put a man on the moon,
-we can surely create secure \ac{EA} \cite{cushing_moon_2018}. This is a weak analogy. The problem of landing an
-astronaut on the moon is different from the problem of encryption and \ac{EA} in every way except that it was hard. The
-Apollo program solved mostly tame problems, and it had enormous government backing. Resolving the encryption debate has
-neither of these factors. Many similar technological-progress based arguments suffer the same faults.
+we can surely create secure \ac{EA} \cite{cushing_moon_2018}. This is a weak analogy. The only similarity between the
+challenge of landing an astronaut on the moon and the challenge of building a cryptosystem with secure EA is that they
+are difficult. Once the political commitment was made, the Apollo program solved mostly tame problems and had enormous
+government backing. Resolving the encryption debate has neither of these benefits. Many similar arguments comparing
+\ac{EA} to other feats of technological progress suffer the same faults.
 
-Lastly, government officials often pose \ac{EA} as a problem that security experts simply have not researched enough. If
-they just ``nerd harder,'' they can find a solution \cite{schneier_2019}. This misses the point of research done up to
-this point. Encryption and \ac{EA} is a \ac{wicked-prob} for which tame, technical-only solutions will not work
-\cite{rozenshtein_wicked_2018}. Even on the technical side, experts have stated time and again that depending how you
-look at it, the technical problem is solved---\ac{EA} is easy from a purely cryptographic point of view. The hard part
-is the security of the interfaces with the human users and administers of the system \cite{abelson_risks_1997}
-\cite{abelson_2015}. This may be an area of anemic academic research, but to frame that as the primary roadblock to
-progress utterly misses the point.
+Lastly, government officials often portray \ac{EA} as a problem that security experts simply have not researched enough.
+If experts just ``nerd harder,'' as some put it, they can find a solution \cite{schneier_2019}. This misses the point of
+research done up to this point. Encryption and \ac{EA} is a \ac{wicked-prob} for which tame, technical-only solutions
+will not work \cite{rozenshtein_wicked_2018}. Even on the technical side, experts have stated time and again that,
+depending how you look at it, the technical problem is solved---\ac{EA} is easy from a purely cryptographic point of
+view. The hard part is the security of the interfaces with the human users and administers of the system
+\cite{abelson_risks_1997} \cite{abelson_2015}. This may not be an area of strong academic research, but to frame that
+as the primary roadblock to progress utterly misses the point.
 
 
 \section{EA and Alternatives}
 
 Moving on from problem framing and meritless arguments, we next turn to actions that can be taken in response to the
-situation. \myfig{fig-arg-measures} breaks the actions down into the current capabilities, legal measures, and \ac{EA}.
-Current capabilities can be implemented today, and include maintaining the status quo and increasing investment in
-current programs. Legal measures require some change in legal or political direction, but do not require fundamentally
-new technical research. These include compelling passwords, which requires legal clarification, and sanctioning lawful
-hacking, which requires a strategic pivot and an oversight framework. (These non-\ac{EA} approaches were first
-introduced in \mysec{sec-alt-approaches}.) At this level, \ac{EA} is analyzed in general. Specific EA approaches are
-addressed in the next map.
+situation. \myfig{fig-arg-measures} divides potential solutions into the categories of current capabilities, legal
+measures, and \ac{EA}. Current capabilities can be implemented today, and include maintenance of the status quo and
+increasing investment in current programs. Legal measures require change the text or application of the law, but do not
+require fundamentally new technical capabilities. These include compelling passwords, which requires legal
+clarification, and sanctioning lawful hacking, which requires a strategic pivot and an oversight framework. (These
+non-\ac{EA} approaches were first introduced in \mysec{sec-alt-approaches}.) At this level, \ac{EA} is analyzed in
+general. Specific EA approaches are addressed in the next map.
 
 \begin{sidewaysfigure}
   \centering\CaptionFontSize
@@ -251,42 +260,45 @@ addressed in the next map.
 Each measure is considered with reference to five metrics. These metrics represent a generalization of metrics from
 several sources, including two separate diverse committees gathered to analyze the encryption debate
 \cite{committee_decrypting_2018} \cite{group_2019} \cite{varia_2018}. They also align closely to the four central issues
-of security, safety, privacy, and trust. The five metrics used to analyze response measures are minimization of
-increased security risk, utility to law enforcement, protection of civil liberties---particularly important as after the
-analysis of the ``Golden Age for Surveillance'' argument---and economic impact. Economic impact is not as much of a
-primary concern as the others, but it does help determine practical viability of a proposal.
+of security, safety, privacy, and trust. The five metrics used to analyze response measures are (1) minimization of
+increased security risk, (2) utility to law enforcement, (3) protection of civil liberties---particularly important as
+after the analysis of the ``Golden Age for Surveillance'' argument---(4) transparency, and (5) economic impact. Economic
+impact is not as central an issue as the others, but it does help determine practical viability of a proposal.
 
-Beginning with current capabilities, the first choice is to do nothing. One may come to the conclusion that the current
-state of affairs actually does represent an acceptable balance of interests. If technology and government agree on this
-approach, then \ac{the-cw2} can end much like the first. However, legislative action is a risk to be mitigated in
-itself, and if the technical community ``decides'' on this approach and government continues to reject it, we could be
-forced in an undesirable direction.
+Beginning with current capabilities, the first choice is to do nothing. Some may conclude that the current state of
+affairs actually does represent an acceptable balance of interests. If technology and government agree on this approach,
+then \ac{the-cw2} can end much like the first. However, legislative action itself is a risk to be mitigated. If the
+technical community ``decides'' on this approach and government continues to reject it, we could be forced in an
+undesirable direction.
 
-We could also decide to increase investment in current technologies and investigative techniques. As already shown,
-encryption is not the greatest barrier in law enforcement's use of digital evidence \cite{carter_2018}. Even when
-encryption is involved, traditional sleuthing can often achieve access. Security expert Bruce Schneier and cyberlaw
-expert Orin Kerr have compiled a list of ``encryption workarounds'' that do not rely on \ac{EA}, including finding the
-key, guessing the key, accessing plaintext while the device is in use, and finding another copy of the plaintext
-\cite{kerr_encryption_2017}. Though probabilistic and time consuming in comparison to \ac{EA}, none of these methods
-require new legal or technical capability. These methods are effective \cite{greenberg_2018}, and paired with investment
-in current digital evidence capabilities and anti-\ac{CSAM} (for example) task forces, they represent a safe response.
+We could also decide to increase investment in current technologies and investigative techniques. As previously
+discussed, encryption is not the most significant barrier in law enforcement's use of digital evidence
+\cite{carter_2018}. Even when encryption is involved, traditional sleuthing can often lead to access. Security expert
+Bruce Schneier and cyberlaw expert Orin Kerr have compiled a list of ``encryption workarounds'' that do not rely on
+\ac{EA}. These include finding the key, guessing the key, accessing plaintext while the device is in use, and finding
+another copy of the plaintext \cite{kerr_encryption_2017}. Though probabilistic and time-consuming in comparison to
+\ac{EA}, these methods do not require new legal or technical capability. These methods are effective
+\cite{greenberg_2018}; investment in current digital evidence capabilities and anti-\ac{CSAM} task forces, they are also
+safe.
 
-Compelled password disclosure is a proposal to simply require defendants to hand over passwords and \acp{PIN} to their
-devices. The legality of this approach is working its way through the courts \cite{bittenbender_2019} \cite{sobel_2019},
-as it rubs against the Fifth Amendment right against self-incrimination. Even so, its strongest argument in favor is
-that it is cheap. Schneier and Kerr point out that this approach requires the password holder to be known and available
-to investigators, the prosecution has to overcome several legal hurdles even if the basic approach is ruled
-Constitutionally legal, and even then the defendant may choose to withhold the password and be held in contempt rather
-than be charged for crime evidenced by the plaintext \cite{kerr_encryption_2017}.
+Compelled password disclosure is a potential solution that simply requires defendants to surrender passwords and
+\acp{PIN} to their devices. Questions regarding the legality of this approach have been working their way through the
+courts \cite{bittenbender_2019} \cite{sobel_2019}, as may be interpreted to conflict with the Fifth Amendment right
+against self-incrimination. Even so, affordability is the strongest argument in its favor. Schneier and Kerr point out
+that this approach requires the password-holder to be available to investigators, the prosecution has to overcome
+several legal hurdles even if the basic approach is ruled Constitutionally legal, and even then the defendant may choose
+to withhold the password and be held in contempt rather than be charged for crime evidenced by the plaintext
+\cite{kerr_encryption_2017}.
 
-\Ac{lawful-hacking} is the primary alternative argued for besides investment or \ac{EA}, though it is universally seen
-as a sub-optimal compromise \cite{bellovin_lawful_2013} \cite{hennessey_lawful_2016} \cite{rozenshtein_wicked_2018}
-\cite{kerr_encryption_2017} \cite{soesanto_2018}. Its advantages: it is effective against those for whom \ac{EA} would
-not necessarily work, and, well, it's a technical route that isn't \ac{EA} itself. \Ac{lawful-hacking} has the advantage
-over \ac{EA} at being effective against organized crime and terror groups because while they would inevitably use
-encryption tools to evade any \ac{EA} scheme, their operational security would fail at some point, letting law
-enforcement or intelligence agencies into their networks and devices. This approach is already in use to some extent
-\cite{cox_2020}, most famously to bring down cartel kingpin El Chapo \cite{feuer_chapo_2019}.
+\Ac{lawful-hacking} is the most prominent proposed alternative to \ac{EA}, though it is universally seen as a
+sub-optimal compromise \cite{bellovin_lawful_2013} \cite{hennessey_lawful_2016} \cite{rozenshtein_wicked_2018}
+\cite{kerr_encryption_2017} \cite{soesanto_2018}. One explanation for \ac{lawful-hacking}'s support is that it's a
+technical route that isn't \ac{EA} itself. Another is its effectiveness against those for whom \ac{EA} would not
+necessarily work. \Ac{lawful-hacking} has the advantage over \ac{EA} at being effective against organized crime and
+terror groups because while they would inevitably use encryption tools to evade any \ac{EA} scheme, their operational
+security would fail at some point, letting law enforcement or intelligence agencies into their networks and devices.
+This approach is already in use to some extent \cite{cox_2020}, most famously to bring down cartel kingpin El Chapo
+\cite{feuer_chapo_2019}.
 
 The real change that this policy would take would be a sanctioning and formalization of this strategy. One downside is
 that it would be of little use to ill-resourced departments, nullifying its usefulness for more commonplace crimes. Its
@@ -319,6 +331,7 @@ risk. The next map analyzes this more closely.
 
 
 \section{Zooming in on EA}
+\label{sec-ea-types}
 
 \myfig{fig-arg-classes} lists several classes of \ac{EA} and arguments in their favor and disfavor. Classes applicable
 to both \ac{DIM} and \ac{DAR} include using weak cryptography, trusted-party key escrow, and distributed key escrow.
@@ -337,7 +350,7 @@ proposal. That leaves room for points and counterpoints to be elaborated in deta
 of un-elaborated connections. For the sake of brevity, this thesis considers \ac{EA}'s alternatives and variations at a
 high level. For an excellent, thorough discussion of \ac{EA}'s alternatives and variations, see the National Academies
 of Sciences, Engineering, and Medicine's 2018 report titled \ii{Decrypting the Encryption Debate: A Framework for
-Decision Makers} \cite{committee_decrypting_2018}.
+  Decision Makers} \cite{committee_decrypting_2018}.
 
 The first \ac{EA} class is to simply use weak cryptographic ciphers or short encryption keys. This was the approach
 taken before \ac{the-cw1}, when strong cryptography was not highly available and subject to export controls. No party
@@ -374,17 +387,17 @@ notably suggested by \ac{GCHQ} officials Ian Levy and Crispin Robinson \cite{lev
 with some core ideas of this thesis:
 
 \begin{displayquote}
-In any discussion of cyber security, details matter.
+  In any discussion of cyber security, details matter.
 
-Unfortunately, it's the details that are missing from the discussion around lawful access to commodity end-to-end
-encrypted services and devices (often called the ``going dark'' problem). Without details, the problem is debated as a
-purely academic abstraction concerning security, liberty, and the role of government.
+  Unfortunately, it's the details that are missing from the discussion around lawful access to commodity end-to-end
+  encrypted services and devices (often called the ``going dark'' problem). Without details, the problem is debated as a
+  purely academic abstraction concerning security, liberty, and the role of government.
 
-There is a better way that doesn’t involve, on one side, various governments, and on the other side lawyers,
-philosophers, and vendors' PR departments continuing to shout at each other. If we can get all parties to look at some
-actual detail, some practices and proposals---without asking anyone to compromise on things they fundamentally believe
-in---we might get somewhere.
-\cite{levy_robinson_2018}
+  There is a better way that doesn’t involve, on one side, various governments, and on the other side lawyers,
+  philosophers, and vendors' PR departments continuing to shout at each other. If we can get all parties to look at some
+  actual detail, some practices and proposals---without asking anyone to compromise on things they fundamentally believe
+  in---we might get somewhere.
+  \cite{levy_robinson_2018}
 \end{displayquote}
 
 As goodwill participants in the conversation, trying to spur discussion around specific proposals ``without people being
@@ -412,7 +425,7 @@ device's secure enclave, but devices already do---it is the same hardware device
 encryption functionality in the first place. Adding functionality increases the attack surface, but it does not add a
 completely new threat vector. It is also true that the process is subject to the same problems as traditional key escrow
 after the device has been obtained, but that is precisely the progress that has been made---\ii{after the device has
-been obtained}. Leveraging advances in secure hardware design has meaningfully changed the \ac{EA} risk profile.
+  been obtained}. Leveraging advances in secure hardware design has meaningfully changed the \ac{EA} risk profile.
 
 In 2019, Carnegie Mellon assembled an ideologically diverse group of policy and security experts to engage in the kind
 of cross-disciplinary debate this thesis advocates. After considering all the technical corners of the situation, their
