@@ -302,25 +302,25 @@ This approach is already in use \cite{cox_2020}, most famously to bring down car
 The real change that \ac{lawful-hacking} would take would be a sanctioning and formalization of this strategy.
 % TODO: tie to paragraph above?
 
-Despite its strength's \ac{lawful-hacking} is a sub-optimal compromise. Because it requires time and specialized skills,
-it is unuseful for small departments and commonplace crimes. It would also alter the relationship between law
+Despite its strengths \ac{lawful-hacking} is a sub-optimal compromise. Because it requires time and specialized skills,
+it is not useful for small departments and commonplace crimes. It would also alter the relationship between law
 enforcement and tech companies. Law enforcement agencies would be forced into competition with tech companies if they
 were incentivized to conceal the vulnerabilities they discover. Prominent proposals suggest mandating disclosure of
 discovered vulnerabilities to mitigate this issue \cite{bellovin_lawful_2013} \cite{hennessey_lawful_2016}.
-Theoretically, the supply of vulnerabilities is very large, so even though the disclosed vulnerabilities would be
-disclosed and patched, new ones could be found at a rate that maintains law enforcement access. Government could source
-these vulnerabilities from a combination of the public domain, the commercial exploit market, and a central
-``Vulnerability Lab'' \cite{bellovin_lawful_2013}.
+Theoretically, there are enough vulnerabilities that, even though these discovered vulnerabilities would be disclosed and
+patched, new ones could be found quickly enough to enable steady levels of access. Government could source these
+vulnerabilities from a combination of the public domain, the commercial exploit market, and a central ``Vulnerability
+Lab'' \cite{bellovin_lawful_2013}.
 
 The availability and cost of exploits fluctuates. For example, in January 2019, an Apple iOS jailbreak bug was valued at
 \$2 million on the exploit market \cite{goodin_zeroday_2019}. In contrast, a 2020 report revealed that cracking mobile
 devices cost law enforcement a mere \$2000 per unit \cite{koepke_2020}. As the exploit arms race continues,
-exploitability will be inconsistent. In the end, law enforcement would face periods where it struggles for access, and
-would need to develop costly exploits in the lab. Mandatory vulnerability disclosure is necessary to avoid competition
-between law enforcement and tech companies. However, based on the \ac{FBI}'s historical abuses of power
-\cite{shamsi_2011} and Congress's reluctance to fund initiatives it has passed \cite{keller_internet_2019} and failure
-to provide strong oversight \cite{johnson_congressional_2004}, it seems unlikely that government would readily forfeit
-expensive vulnerabilities.
+exploitability will be inconsistent. If law enforcement relies on \ac{lawful-hacking} as its strategy, it would face
+periods where it struggles for access, and would need to develop costly exploits in the lab. Mandatory vulnerability
+disclosure is necessary to avoid competition between law enforcement and tech companies. However, based on the
+\ac{FBI}'s historical abuses of power \cite{shamsi_2011} and Congress's reluctance to fund initiatives it has passed
+\cite{keller_internet_2019} and failure to provide strong oversight \cite{johnson_congressional_2004}, it seems unlikely
+that government would readily forfeit expensive vulnerabilities.
 
 The final proposal is \ac{EA} itself. \ac{EA} would provide a standardized method for law enforcement to reliably access
 \ac{plaintext}. It could serve as a compliment to \ac{lawful-hacking}by eliminating the incentive to conceal
@@ -377,14 +377,14 @@ Unfortunately, these systems would likely be costly to deploy and difficult to u
 
 One class of \ac{DIM} \ac{EA} involves using strong cryptography, but including cryptographic puzzle pieces as message
 metadata. These pieces are designed to reveal the encryption key after the surveiller spends considerable computational
-power \cite{bellare_translucent_1996} \cite{wright_crypto_2018}. This approach precludes \ii{mass} surveillance, but it
-also enables \ii{arbitrary} surveillance by anyone with enough computing power. Use in common cases would be impractical
-due to high cost, but use in high profile cases would be less effective due to the likelihood of \ac{EA} workarounds
-employed by sophisticated adversaries. Additionally, the calibration of puzzle difficulty is dependent on the state of
-computing. Since opponents can record data and decrypt it later when computational capabilities have changed, the data
-becomes steadily less secure over time.
+power \cite{bellare_translucent_1996} \cite{wright_crypto_2018}. This approach precludes mass surveillance, but it also
+enables arbitrary surveillance by anyone with enough computing power. Using this class of \ac{DIM} \ac{EA} in common
+cases would be impractical due to its high cost. However, it would be less effective in high-profile cases due to the
+ability of sophisticated adversaries to employ \ac{EA} workarounds. Additionally, the calibration of puzzle difficulty
+is dependent on the state of computing. Since opponents can record data and decrypt it later when computational
+capabilities have changed, the data becomes steadily less secure over time.
 
-Another \ac{DIM} proposal is to ``conference call'' authorities in as a ghost participant in the conversation. It was
+Another \ac{DIM} proposal is to ``conference call'' authorities in as ghost participants in the conversation. This was
 notably suggested by \ac{GCHQ} officials Ian Levy and Crispin Robinson \cite{levy_robinson_2018}. Their writeup begins
 with some core ideas of this thesis:
 
@@ -402,15 +402,12 @@ in---we might get somewhere.
 \cite{levy_robinson_2018}
 \end{displayquote}
 
-As goodwill participants in the conversation, trying to spur discussion around specific proposals ``without people being
-vilified for having a point of view or daring to work on this as a problem,'' they deserve credit and thanks.
-
-Unfortunately, the proposal they share is indeed problematic. The ghost user proposal prides itself on not compromising
-strong encryption. This is a good property, but compromising a messaging app's authorization protocol is as dangerous as
-compromising its encryption \cite{callas_1_2019}. Fundamentally, it suffers from the same weakness as trusted-party key
-escrow; the introduction of an authorization vulnerability in the messaging service provider's platform amounts to a
-highly risky centralized access capability \cite{schneier_ghost_2019}. It has the same nature, if a different form, as
-rejected key escrow proposals.
+Although this proposal was raised with good intentions, it is nevertheless problematic. The ghost user proposal prides
+itself on not compromising strong encryption. Although this is a good property, compromising a messaging app's
+authorization protocol is as dangerous as compromising its encryption \cite{callas_1_2019}. Fundamentally, this proposal
+suffers from the same weakness as trusted-party key escrow---it introduces an authorization vulnerability in the
+messaging service provider's platform, resulting in dangerous centralized access capability \cite{schneier_ghost_2019}.
+It has the same nature, if a different form, as rejected key escrow proposals.
 
 Finally, one \ac{DAR}-specific \ac{EA} class is device key escrow. In this scheme, key recovery material exists on the
 device itself. While not necessary to classify as device key escrow, most of these proposals include physical possession
@@ -418,24 +415,24 @@ requirements and additionally ``brick'' the device or make it absolutely clear t
 \cite{savage_lawful_2018} \cite{ozzie_2018}. Such features preclude \ac{masssurv} and ensure transparency to the device
 user. This approach relies on secure hardware and a method of authorizing the recovery request to the device itself. The
 authentication step can be paired with other \ac{EA} strategies, such as engaging with trusted-parties or distributed
-systems. This is where the device escrow shows its weaknesses. Secure hardware enclaves, though improving, are not
-totally reliable, and authentication to the hardware device is susceptible to the same attacks as traditional escrow
-\ac{EA}.
+systems. This is where the weakness of the device escrow is revealed. Secure hardware enclaves, though improving, are
+not totally reliable. Therefore, authentication to the hardware device is susceptible to the same attacks as traditional
+escrow \ac{EA}.
 
-Device key escrow's greatest weaknesses, however, still represent signs of progress. It is true that it relies on a
-device's secure enclave, but devices already do---it is the same hardware device that manages device unlock and
-encryption functionality in the first place. Adding functionality increases the attack surface, but it does not add a
+Device key escrow's greatest weaknesses, however, are still signs of progress. It is true that it relies on a device's
+secure enclave, but devices already do---it is the same hardware device that manages device unlock and encryption
+functionality in the first place. Additional functionality increases the attack surface, but it does not add a
 completely new threat vector. It is also true that the process is subject to the same problems as traditional key escrow
 after the device has been obtained, but that is precisely the progress that has been made---\ii{after the device has
-been obtained}. Leveraging advances in secure hardware design has meaningfully changed the \ac{EA} risk profile.
+been obtained}. Advances in secure hardware design have meaningfully changed the \ac{EA} risk profile.
 
 In 2019, Carnegie Mellon assembled an ideologically diverse group of policy and security experts to engage in the kind
-of cross-disciplinary debate this thesis advocates. After considering all the technical corners of the situation, their
-report goes into detail on why \ac{EA} for domestic law enforcement (i.e., common cases instead of sophisticated
-adversaries) focusing on \ac{DAR} in mobile phones using device key escrow requiring physical access is the most
-tractable technical niche to consider \cite{group_2019}. By now it should be clear why: traditional investigation mixed
-with a dose of lawful hacking is best suited for advanced opponents, and device key escrow represents actual progress as
-a path towards lower-risk \ac{EA} for typical cases.
+of cross-disciplinary research. After describing every technical branch of the situation, their report goes into detail
+on why \ac{EA} for domestic law enforcement (i.e., common cases instead of sophisticated adversaries) focusing on
+\ac{DAR} in mobile phones using device key escrow requiring physical access is the most tractable technical niche to
+consider \cite{group_2019}. By now it should be clear why: traditional investigation mixed with a dose of lawful hacking
+is best suited for advanced opponents, and device key escrow represents actual progress as a path towards lower-risk
+\ac{EA} for typical cases.
 
 A strong argument against device key escrow is that device encryption, particularly in mobile phones, may actually pose
 the smallest impediment to investigation of any encryption technology. The previously cited report into law enforcement

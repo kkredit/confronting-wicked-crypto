@@ -5,88 +5,89 @@ The interests of security, safety, privacy, and trust converge on the issue of e
 \ac{wicked-prob}. The importance of information security is increasing as more data, business, and infrastructure goes
 online. The technical community is struggles with security. Even for the most well-equipped organizations, thwarting the
 average attacker is difficult, and the best attacker, impossible. \Ac{cryptography} plays a fundamental role in
-security, yet its simultaneous role in enabling unprecedented privacy means it has controversial side effects.
+security, yet it remains a controversial technology due to its simultaneous role in enabling unprecedented privacy.
 
-One of these side effects is encryption-enabled privacy's impact on public safety. Despite a shortage of quantitative
-analyses showing its impact on crime, encryption certainly does allow evidence of wrongdoing to be hidden from service
-providers and law enforcement. This enables harmful activity to go unchecked and decreases public safety, which is a
-legitimate concern and the primary motivation for \ac{EA}.
+First, proponents of \acl{EA} argue that encryption-enabled privacy as harmful effects on public safety. Despite a
+shortage of quantitative analyses showing its impact on crime, encryption certainly does allow evidence of wrongdoing to
+be hidden from service providers and law enforcement. This enables harmful activity to go unchecked and decreases public
+safety, which is a legitimate concern and the primary motivation for \ac{EA}.
 
-However, at the same time as encryption is enabling strong privacy, the broader technological path society is taking is
-stripping it away. The ubiquity and insecurity of networked computers has been a bear to privacy, enabling identity
-theft, inappropriate data mining, \ac{masssurv}, and other threats. To the extent that encryption mitigates these, it
-increases public safety.
+However, while encryption adds privacy, technological change as a whole is stripping it away. The ubiquity of modern
+computing has created terabytes of data on every individual; access laws, business models, and insecurity have exposed
+this data to huge audiences. This trend has enabled \ac{masssurv}, inappropriate data mining, identity theft, and other
+threats. When encryption mitigates these threats, it increases public safety.
 
-Finally, deciding how to respond to these issues---whether with inaction, \ac{EA}, or some alternative---involves
-considerable questions of trust. Law enforcement agencies, intelligence agencies, technology makers, individual users,
-and the public at large are all players; each have demonstrated untrustworthiness, and different approaches disperse
-trust differently.
+Finally, deciding how to respond to these issues---whether with inaction, \ac{EA}, or some alternative---requires
+determining what institutions are worthy of trust. Potential solutions assign different levels of trust to law
+enforcement agencies, intelligence agencies, technology makers, individual users, and the public at large. Each of these
+groups have demonstrated untrustworthiness, but all paths forward require putting trust somewhere.
 
-This complex mix of issues makes encryption policy a \ac{wicked-prob}. Even just the problem requires explanation upon
-explanation and research upon research. Any formulation is concomitant with a solution, but the outcome of a solution
-cannot be accurately evaluated in isolation. The underlying conditions constantly change due to external forces and
-policy actions (or lack thereof).
+This complex mix of issues makes encryption policy a \ac{wicked-prob}. Even formulating the problem requires several
+iterations of research into history, arguments, and technology. Every formulation presupposes a solution, but the
+effectiveness of a solution cannot be accurately evaluated. Meanwhile, the underlying conditions constantly change due
+to external forces and policy actions (or lack thereof).
 
-In this thesis I propose a method to confront \acp{wicked-prob}, a modified \ac{OODAloop} that emphasizes collaborative
-debate between individuals diverse in background and values, facilitated in part by argument maps, and focusing on
-specific proposals. I try to capture that here by surveying the debate, mapping the arguments, and ultimately performing
-threat model analysis of a specific \ac{EA} proposal for \acl{DAR}. I now turn to conclusions and paths forward for both
-the technical and policymaking communities.
+In this thesis, I propose a method to confront \acp{wicked-prob} based on a modified \ac{OODAloop}. The method
+emphasizes collaborative debate between diverse individuals, facilitated in part by argument maps and focused on
+specific proposals. The second half of the thesis applies this method by surveying the debate, mapping the arguments,
+and ultimately performing threat model analysis of a specific \ac{EA} proposal for \acl{DAR}. I now turn to conclusions
+and paths forward for both the technical and policymaking communities.
 
 
 \section{Conclusions}
 
-Regarding the arguments analyzed in \mychap{chap-arguments}, while neither side of the \ac{EA} debate fully incorporates
-the whole picture, the anti-\ac{EA} argument is currently stronger. Encryption does pose certain threats to public
-safety. Terrorists and criminals can and do use encryption to evade the law; this has allowed for shocking levels of
-\acf{CSAM} to be peddled \cite{keller_internet_2019}. However, the argument that \ac{encryption} is causing \acl{LE}
-failure is not currently strong enough to justify an \ac{EA} mandate. For \ac{DIM}, the primary issues are poor
-coordination and training \cite{carter_2018}; for \ac{DAR}, commercial \ac{lawful-hacking} tools currently have the
-upper hand on mobile phone manufacturers, meaning \acl{LE} can get into almost any mobile device they acquire
-\cite{koepke_2020}. Additionally, strong \ac{encryption} is necessary to protect security and privacy---two public goods
-that other technological developments often fail to provide.
+Based on the arguments analyzed in \mychap{chap-arguments}, neither side of the \ac{EA} debate addresses all of the root
+issues. However, given the wide gap between the requests of government officials and the maturity of \ac{EA} technology,
+the anti-\ac{EA} argument is currently stronger. Encryption does pose certain threats to public safety. Terrorists and
+criminals can and do use encryption to evade the law; in particular, this has allowed for shocking levels of \acf{CSAM}
+to be peddled \cite{keller_internet_2019}. However, the argument that \ac{encryption} is causing \acl{LE} failure is
+unsubstantiated at this time. For \acl{DIM}, poor coordination and training hamper law enforcement more than encryption
+\cite{carter_2018}. For \acl{DAR}, commercial \ac{lawful-hacking} tools currently outdo mobile phone manufacturers,
+meaning \acl{LE} can get into almost any mobile device they acquire \cite{koepke_2020}. Additionally, strong
+\ac{encryption} is a necessary tool in protecting security and privacy---two public goods that other technological
+developments often fail to provide.
 
-Though the pro-\ac{EA} argument is ultimately not strong enough to justify an \ac{EA} mandate, incorporating it to the
-technologist's point of view teaches important lessons. One is that holistic cryptosystem threat models must include two
-non-traditional threat actors, the malicious user and threatening lawmaker. Encryption lends power to its user, and this
-power can be abused. Technology makers should treat abuse of their creations as a threat, and take mitigating steps.
-Governments are naturally sensitive to shifts in power, and thus are interested in the impacts of encryption; lawmakers
-represent a unique threat in that they can outlaw certain types of encryption entirely if they deem them too dangerous.
-The threat of an \ac{EA} mandate should be treated as a true threat in the security modeling sense.
+Though the pro-\ac{EA} argument does not justify an \ac{EA} mandate, it can teach technologists some important lessons.
+First, holistic cryptosystem threat models must include two non-traditional threat actors, the malicious user and
+threatening lawmaker. Encryption lends power to its user, and this power can be abused. Technology makers must include
+abusive use in their threat modeling. Governments are inherently sensitive to changes in personal privacy; lawmakers
+therefore represent a unique threat because they can outlaw uses of encryption entirely if they deem them too dangerous.
+The danger of an \ac{EA} mandate must also be included in the cryptosystem threat model.
 
-Another lesson is that the current situation is temporary. This is necessarily true of \acp{wicked-prob}, but especially
-true for encryption policy in the context of rapidly evolving technology and a vulnerability arms race between device
-manufacturers and lawful hackers. The facts of the case are bound to change, and the conclusion that \ac{EA} is
-unjustified may change as well.
+Second, \ac{EA} history teaches that the current situation is temporary. This is true of all \acp{wicked-prob}, but
+especially for encryption policy due to rapidly evolving technology and a vulnerability arms race between device
+manufacturers and lawful hackers. The circumstances are sure to change, and the conclusion that \ac{EA} is unjustified
+may change as well.
 
-The additions to the threat model and the instability of present circumstances mean that additional research into
-\ac{EA} is fully justified. It belongs as just a component of the effort that society should be putting towards
-addressing the broader set of issues. Fortunately, developments in secure hardware mark real progress in the search for
-acceptably secure \ac{EA}. Secure hardware technology is clearly imperfect, and alone does not resolve the numerous
-challenges that full-fledged \ac{EA} proposals must overcome, but device escrow for \acl{DAR} such as that described in
-Savage's proposal offers transparency, protection from \ac{masssurv}, and \acl{LE} utility while making progress on
-security.
+% Research is just part of the effort that society should put towards addressing the root issues.
 
-The conclusions I draw do not settle the issue. However, when dealing with \acp{wicked-prob}, meaningful debate and
-discussion counts as progress even when it doesn't seem like it. \Acp{wicked-prob} cannot be analyzed into resolution;
-grasping the problem alone constitutes much of the work towards solving it. The conclusions above do not bring closure,
-but they should bring more clarity, and its clarity that counts.
+Further research into \ac{EA} is justified by the additions to the threat model and the instability of present
+circumstances. Fortunately, developments in secure hardware mark real progress in the search for acceptably secure
+\ac{EA}. Secure hardware technology is not perfect; on its own, it does not resolve the numerous challenges that
+full-fledged \ac{EA} proposals must overcome. However, \ac{EA} proposals leveraging secure hardware, such as device
+escrow for \acl{DAR}, represent progress. They offer transparency, protection from \ac{masssurv}, and \acl{LE} utility
+while remaining somewhat secure.
+
+The conclusions presented here do not settle the issue. However, when dealing with \acp{wicked-prob}, meaningful
+discussion can be considered progress even if it does not reach concrete resolution. Much of the work involved in
+confronting \acp{wicked-prob} is understanding the problem itself. The conclusions above do not bring closure, but
+clarity.
 
 
 \section{Paths Forward: Technology Makers}
 
-The technical community needs to accept and deal with the enormous role technology is playing in current policy issues,
-such as encryption, automation, and misinformation. Government sometimes suggests that the tech world is not trying hard
-enough, and that ``nerding harder'' will result in solutions. The tech world is absolutely right that nerding harder
-will not work on these issues---because they are \acp{wicked-prob}---but that does not mean they cannot deal with them.
-Tech is used to addressing tame problems, but it is time that they turn their massive financial and intellectual capital
-towards strategies designed for \acp{wicked-prob}. This means including people of diverse experiences, backgrounds, and
-values in decision making processes that steer investment and design decisions. It means creating products and business
-models that are responsive to evolving conditions. It means considering the ways their creations will be abused.
+It is the responsibility of the technical community to accept and address the substantial role technology plays in
+current policy issues, such as encryption, automation, and misinformation. Government sometimes suggests that the tech
+community simply needs to try harder. Because these are not tame problems, the tech world is absolutely right that
+simply trying harder will not work---but that does not mean they cannot deal with them. The tech industry is optimized
+to address tame problems, but it must now turn its financial and intellectual capital towards strategies designed for
+\acp{wicked-prob}. In order to do so, the tech industry must involve people of diverse backgrounds and values in design
+and investment decisions. Designers must consider the ways in which their products could be abused and business models
+must be responsive to evolving conditions.
 
-Work on \acp{wicked-prob} spins out smaller problems, some tame and some wicked yet manageable (see
-\myfig{fig-policy-ooda-process}). Aside from making the changes to tackle \acp{wicked-prob} head on, the technical
-community should also work on the tame sub-problems, a few of which are listed here.
+Addressing \acp{wicked-prob} reveals smaller subproblems, some tame and some also wicked (see
+\myfig{fig-policy-ooda-process}). In addition to making changes to tackle \acp{wicked-prob} directly, the technical
+community should also address the tame subproblems. Some suggestions for doing so are listed below.
 
 \newcommand{\taskstart}[0]{\begin{itemize}}
 \newcommand{\taskitem}[2]{ % Name, description
@@ -99,96 +100,88 @@ community should also work on the tame sub-problems, a few of which are listed h
 \taskstart
     \taskitem{Basic security research}{
 
-\ac{EA} is only applicable when security is actually strong enough to keep attackers out in the first place, which is
-not the case for current device encryption. To some extent, this is a security ergonomics problem more than a technical
-problem: cryptographers can make device encryption incredibly strong today, but users will not let them because of its
-adverse effects on usability. Solving the strong yet usable device encryption problem will make the most promising class
-of \ac{EA}, device key escrow, relevant. Improving basic security across the board will make any \ac{EA} proposal more
-tenable.
+\ac{EA} is only worthwhile when security is strong enough to keep attackers out in the first place, which is not the
+case for current device encryption. This is a security ergonomics problem more than a technical problem---cryptographers
+are already capable of creating stronger device encryption, but users would rebel due to its adverse effects on
+usability. Solving the strong-yet-usable device encryption problem will make the most promising class of \ac{EA}, device
+key escrow, relevant. Improving security in general will make any \ac{EA} proposal more tenable.
 
 }
 
     \taskitem{Research technical transparency mechanisms}{
 
-One of the largest non-technical risks of \ac{EA} is abuse by jurisdictions with poor rule of law, or where law
-insufficiently respects civil rights in the first place. This is the motive for transparency as a goal of the threat
-model. Device key escrow can achieve partial transparency through physical possession and disassembly requirements.
-Ideally, usage of \ac{EA} mechanisms would be fully auditable to the public through inherent technical mechanisms. This
-would mark an improvement for \acl{DAR} and is a necessity for progress on \acl{DIM}.
+One of the largest non-technical risks of \ac{EA} is its potential abuse by jurisdictions with poor rule of law. This is
+the reason transparency is a goal of the threat model. Device key escrow can achieve partial transparency through
+physical possession and disassembly requirements. Ideally, usage of \ac{EA} mechanisms would be fully auditable to the
+public through inherent technical mechanisms. This could be improved for \acl{DAR} and must be improved for \acl{DIM}.
 
 }
 
     \taskitem{Research distributed trust mechanisms}{
 
-Centralized trust in \ac{EA} proposals represent their greatest risk, whether it is in the form of a database of keys or
-a control center with the power to add ``ghost users'' to conversations. Knowing that insecurity (and trust) cannot be
-destroyed, only moved around, the goal is a distribution of trust that allows the system to function without large
-amounts of trust assigned to any single party. This would contribute to transparency and greatly reduce the risk profile
-of an \ac{EA} proposal overall.
+Most \ac{EA} proposals would still result in a concentrated center of risk, whether it would take the form of a database
+of keys or of a control center with the ability to add ``ghost users'' to conversations. As explained in
+\mysec{sec-premises}, insecurity cannot be destroyed, it can only be moved around. Distributed trust mechanisms avoid
+assigning a large amount of trust to any single party. This contributes to both transparency and security.
 
 }
 \taskend
 
-Fortunately, research in these areas is occurring. More is necessary. Some \ac{EA} proposals include built in
-transparency and distributed trust mechanisms \cite{goos_oblivious_1996} \cite{phan_key_2017}
-\cite{servan_schreiber_jje_2020}; these proposals' weakness is that the approaches are insufficiently understood to be
-trusted with the high stakes of implementation. While these problems remain unsolved, technologists must continue to
-provide clear security advice and be vigilant against bad technology policy.
+Fortunately, this research is already happening to some degree, but more is necessary. Some \ac{EA} proposals include
+built-in transparency and distributed trust mechanisms \cite{goos_oblivious_1996} \cite{phan_key_2017}
+\cite{servan_schreiber_jje_2020}. Like device key escrow, approaches such as these hold promise, but must be better
+understood before they could be implemented. Even while these problems remain unsolved, technologists must provide clear
+security advice and speak out against bad policy.
 
 
 \section{Paths Forward: Policymakers}
 
-% Prof. Walsh:
+% TODO: Prof. Walsh:
 % - Liked the lessons for techies; this distills the same problems for policymakers
 % - Enjoyed perspective of the "hawkish lawmaker" and how that connects to LAED Act and fallacious argmap
 % - Would love to see this in the conclusion -- tie it all together and make sure it hits home for policymakers
 
-Government has not been silent on the issue of encryption and lawful access. The dynamics created by the executive,
+Policymakers have not been silent on the issue of encryption and lawful access. The influence of the executive,
 legislative, and judicial branches ensures that the regulatory environment will evolve with changing federal policies,
-new laws, and rulings that refine implementation existing law. The judiciary will indeed shape encryption policy through
-its rulings, and is correct to be reevaluating current Fourth Amendment jurisprudence in light of rapidly changing
-circumstances. Still, the primary actors capable of consciously taking part in strategic policymaking will be the
-executive and legislative branches.
+laws, and rulings. The judiciary will shape encryption policy through its rulings and by reevaluating Fourth Amendment
+jurisprudence in light of rapidly changing circumstances. Still, the primary actors capable of consciously taking part
+in strategic policymaking will be the executive and legislative branches.
 
 Executive and legislative policymakers must strategically approach encryption policy as a \ac{wicked-prob}. Industry has
-failed at analyzing the problem away, and government has failed at muddling the problem away. It is true that
-incrementalism has safely avoided dangerous outcomes such as blanket \ac{EA} mandates, but it has also resulted in a
-research-stifling high-tension debate and circumstances of poor utilization of current capabilities mixed with
-unregulated use of invasive \ac{lawful-hacking} tools. Policymakers and law enforcement agencies need to be forthcoming
-with the real challenges they face. They are important contributors to the diverse groups that can iteratively refine
-the problem definition and possible solutions. Just like the technical side, the policy side of the solutions must be
-responsive to evolving conditions. Most importantly, any initiative needs follow through, since a single \ac{OODAloop}
-iteration will not be enough to tame this issue.
+failed to resolve the problem with analysis, and government has failed to resolve the problem with \ac{incrementalism}.
+\Ac{incrementalism} has safely avoided dangerous outcomes such as blanket \ac{EA} mandates. However, it has also
+resulted in a research-stifling debate, the poor utilization of current capabilities, and the unregulated use of
+invasive \ac{lawful-hacking} tools. While policymakers and law enforcement agencies have made important contributions to
+the debate, they need to share data more openly. Just like the technical aspects, the policy aspects of the solutions
+must be responsive to evolving conditions.
 
-Based on the analysis performed thus far, there are a few policy changes that would be good first steps to take today.
+Based on the analysis performed thus far, the following steps could be taken today.
 
 \taskstart
     \taskitem{Take the low-hanging fruit}{
 
-Law enforcement is often ill-equipped to handle digital evidence and coordinate with service providers using existing
-access mechanisms \cite{carter_2018}. Justice Department task forces to combat \acl{CSAM} are underfunded and
-understaffed \cite{keller_internet_2019}. Improving the effectiveness of existing capabilities and programs carries no
-risk and guaranteed results.
+Law enforcement is ill-equipped to access digital evidence with existing mechanisms \cite{carter_2018}. Justice
+Department task forces for combatting \acl{CSAM} are underfunded and understaffed \cite{keller_internet_2019}.
+Investment in existing programs will likely produce results without introducing risk.
 
 }
 
     \taskitem{Regulate current lawful hacking}{
 
-\Ac{lawful-hacking} using commercial mobile device forensic tools has become a common practice but invokes serious
-privacy and civil rights concerns \cite{koepke_2020}. Regardless of any long-term strategy to encryption and lawful
-access policy, \ac{lawful-hacking} must be constrained. Michigan's 2020 constitutional amendment represents one positive
-development: it explicitly protects electronic data and communications from search without a warrant
-\cite{ballotpedia_2020}. Protections like this enable a non-abusive use of current \ac{lawful-hacking} capability.
+\Ac{lawful-hacking} using commercial mobile device forensic tools has become a common practice; this invokes serious
+privacy and civil rights concerns \cite{koepke_2020}. Regardless of long-term encryption policy strategy,
+\ac{lawful-hacking} must be regulated. Michigan's 2020 constitutional amendment represents one positive development: it
+explicitly protects electronic data and communications from search without a warrant \cite{ballotpedia_2020}.
+Protections like this can prevent abuse of current \ac{lawful-hacking} capability.
 
 }
 
     \taskitem{Fund research}{
 
-The government wants technical advancement in \ac{EA} technology, but there is very little financial incentive for
-private companies to research \ac{EA}, and the threatening climate is stifling academic research. If the federal
-government is going to compare building secure \ac{EA} to going to the moon \cite{cushing_moon_2018}, then they should
-fund it like the Apollo program. In order to be welcomed, such funding should be accompanied with a binding statute
-excluding the possibility of any premature \ac{EA} mandate.
+Lawmakers request research into \ac{EA} technology, but private companies lack financial incentive and universities lack
+interest due to the threatening climate. The federal government cannot compare building secure \ac{EA} to going to the
+moon if it does not provide the same level of funding. In order to be welcomed by the academic community, such funding
+must be accompanied by a binding statute excluding the possibility of a premature \ac{EA} mandate.
 
 }
 \taskend
@@ -196,38 +189,9 @@ excluding the possibility of any premature \ac{EA} mandate.
 
 \section{Decision and Action}
 
-The goal of this thesis is to clarify encryption and \ac{EA} as a \ac{wicked-prob}, to break down the debate, and to
-evaluate the security of current \ac{EA} proposals. I aim to move the discussion forward with the ideas of how to tackle
-\acp{wicked-prob}, additions to the traditional cryptosystem threat model, and security analysis of a modern proposal.
-In the language of the \ac{OODAloop}, this study is observation and orientation; it is up to technologists,
-policymakers, and common people to decide and act. Contending with these issues is difficult on many levels, but the
-future of security, safety, and privacy depend on coming together to find a good answer where no perfect answer exists.
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-% OLD NOTES for reference
-%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% In this chapter, describe actions to take in discussion, regulation, and research.
-
-% \section{Legislative Priorities}
-
-% \begin{itemize}
-%     \item Reject EA until technical capabilities are ready \cite{varia_2018}
-%     \item Be forthcoming with data so that we know what to work on \cite{devlin_2018}
-%     \item Don't prescribe technical methods, but be clear about principles \cite{matyas_incommensurability_2018}
-%         (e.g., ECPA became outdated because was too tied to specific technology \cite{shamsi_2011})
-%     \item Fund the research \cite{varia_2018} (like \cite{goss_hr2616_1999})
-% \end{itemize}
-
-% \section{Technical Research}
-
-% \begin{itemize}
-%     \item Acknowledge the moral character of cryptography \cite{rogaway_moral_2015}
-%     \item Do the research
-%     \item Focus on principles \cite{levy_robinson_2018}
-%     \item Be clear on definitions \cite{varia_2018}, but don't expect govt to provide those (unlike
-%             \cite{abelson_2015}), and clearly define their interfaces with principles
-%             \cite{matyas_incommensurability_2018}
-% \end{itemize}
+The goal of this thesis is to establish encryption and \ac{EA} as a \ac{wicked-prob}, to analyze the debate, and to
+evaluate the security of current \ac{EA} technology. I aim to advance the discussion with a strategy to tackle
+\acp{wicked-prob}, additions to the cryptosystem threat model, and detailed analysis of a modern proposal. The strategy
+is based on the \acl{OODAloop}. In those terms, this paper serves to \ii{observe} and \ii{orient}. Technologists,
+policymakers, and common people must \ii{decide} and \ii{act}. Confronting these issues may be difficult, but the future
+of security, safety, and privacy depends on finding an acceptable solution where no perfect solution exists.
