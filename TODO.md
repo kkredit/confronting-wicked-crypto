@@ -23,15 +23,16 @@
 ## Status meeting agenda
 
 - Discuss
+  - Congrats on 10 years
+  - Sharing with friends and family?
   - Publishing?
-  - Recording upload
 - Action items
   - Finalization
-    - Settle on title, subtitle
     - [ScholarWorks form](https://www.gvsu.edu/cms4/asset/777A03CA-E5D1-90B3-8FF97B7EA6E9ECB3/thesis_agreement_fillable(3).pdf)
     - [Approval form](https://www.gvsu.edu/cms4/asset/777A03CA-E5D1-90B3-8FF97B7EA6E9ECB3/thesis_approval_form_2020-21.docx)
-      - Requires signatures
+      - Still need signature from Engelsma!
   - Spinoffs
     - Short paper on diagramming method of cryptography (Kalafut)?
     - Short overview for the Applied Computing Institute blog (Engelsma)? (would link to full thesis)
     - Adapting for 290 class (Leidig)?
+  - Pro

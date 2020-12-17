@@ -4,19 +4,20 @@
 This chapter consists of a threat model and analysis of a specific device key escrow \ac{EA} proposal, Stefan Savage's
 ``Lawful Device Access without Mass Surveillance Risk: A Technical Design Discussion'' \cite{savage_lawful_2018}. The
 proposal is specific to \acl{DAR} for mobile devices. Due to the length of its title, this proposal will be referred to
-by its acronym, \ldawmsR. This chapter assumes that the proposal is accompanied by some legal framework regulating its
-application and use, though it is not the focus of this analysis, and nothing is assumed about it in particular. Note
-that the creators of the proposal intentionally chose the phrase ``lawful access'' over ``\acl{EA}'' in order to
-emphasize the role of legal process and dispel the negative stigma that accompanies \ac{EA}. I refer to \ldawmsr as an
-\ac{EA} proposal, but use the term in the spirit of their paper.
+by its acronym, \ldawmsR. This chapter assumes that the proposal is accompanied by a legal framework regulating its
+application and use, though the legal framework is not the focus of this analysis.
+
+% Note that the creators of the proposal intentionally chose the phrase ``lawful access'' over ``\acl{EA}'' in order to
+% emphasize the role of legal process and dispel the negative stigma that accompanies \ac{EA}. I refer to \ldawmsr as an
+% \ac{EA} proposal, but use \ac{EA} in ... [that spirit].
 
 
 \section{Developing a Threat Model}
 
-``What are we building?'' and ``What can go wrong?'' are the essential threat modeling questions. The first step to
-answering those questions is to establish goals for the former and a list of threats in anticipation of the latter. The
-\ldawmsr proposal describes a threat model against which it was designed. This model takes cues from that one but is
-intended to be more generally applicable for any \ac{DAR} \ac{EA} proposal.
+``What are we building?'' and ``What can go wrong?'' are the essential threat modeling questions. The process of
+answering these questions begins with setting goals, identifying threat actors, and declaring scope. The \ldawmsr
+proposal describes a threat model against which the proposal was designed. This threat model takes cues from the
+\ldawmsr model, but is intended to be more generally applicable for any \ac{DAR} \ac{EA} proposal.
 
 \newcommand{\modelstart}[0]{\begin{itemize}}
 \newcommand{\modelitem}[2]{ % Name, description
@@ -32,50 +33,48 @@ intended to be more generally applicable for any \ac{DAR} \ac{EA} proposal.
 
 \subsection{Goals}
 
-The goals of an \ac{EA} cryptosystem are taken from the metrics of \mychap{chap-arguments}. Their justification stems
-from the preceding arguments. Each goal is listed according to priority, though no goal has absolute priority over the
+The goals of an \ac{EA} cryptosystem are taken from the five metrics used to judge \ac{EA} alternatives and variations
+in \mychap{chap-arguments}. Each goal is listed according to priority, though no goal has absolute priority over the
 others.
 
 \modelstart
 
-\modelitem{Security}{The system should minimize security risk with reference to the current state of the art. Risk is
-considered with respect to both individual devices and the entire class of devices.}
+\modelitem{Security}{The system should minimize security risk relative to the current baseline. Risk is considered with
+respect to both individual devices and the entire class of devices.}
 
 \modelitem{Protection of civil liberties}{The system should include measures to prevent \ac{masssurv} and abuse by
-authoritarian regimes. This includes technologically enforcing the fundamental right to privacy but upon warranted
-search pursuant to the rule of law.}
+authoritarian regimes. This includes technologically enforcing the fundamental right to privacy outside the context of
+warranted search under the rule of law.}
 
 \modelitem{Transparency}{The system should be auditable by the public to allow for verification that its power is being
-used responsibly. In the case of \ac{DAR}, the subject of the search should be aware of the access.}
+used responsibly. In the case of \ac{DAR}, access should be apparent to the data owner.}
 
 \modelitem{Law enforcement utility}{The system should be useful to law enforcement in terms of reliability, speed, and
 cost.}
 
 \modelitem{Economic impact}{The system should consider global competitiveness of devices using the cryptosystem and the
 distribution of costs associated with its development and administration. Even though this is a security-oriented threat
-model, architectural decisions determine the system's economics, and economics determines the system's ultimate
-feasibility.}
+model, a system's design affects its economics, and its economics determines its ultimate feasibility.}
 
 \modelend
 
 \subsection{Threat Actors}
 
-\ac{EA} threat models include the full cast of traditional threat actors.
+\ac{EA} threat models include the full slate of traditional threat actors.
 
 \modelstart
 
 \modelitem{Criminals: ordinary, organized, cyber}{Criminals threaten the \ac{EA} system by using it to access plaintext
-without authority. Ordinary thieves may spy on targets or steal and resell phones. They will have physical
-access but only simple tools that use ordinary device interfaces. Organized criminals will have the same motives but
-considerably more advanced technical capabilities, exerting full control over all interfaces. Cyber criminals have a
-wide spectrum of motivations and capabilities. Their significant contribution to the threat landscape is that they will
-target the backend systems that operate the \ac{EA} system in order to steal and likely sell whatever access
-capabilities they can find.}
+without authority. Ordinary thieves may spy on targets or steal and resell phones. They will have physical access but
+only simple tools that use ordinary device interfaces. Organized criminals will have the same motives but considerably
+more advanced technical capabilities, including full control over all interfaces. Cyber criminals have a wide variety of
+of motivations and capabilities. They will target the backend systems that operate the \ac{EA} system in order to abuse
+or sell whatever access capabilities they acquire.}
 
-\modelitem{Insider threat}{The insider threat involves someone within the \ac{EA} recovery process, perhaps at the law
-enforcement agency or a vendor, that seeks to abuse the system for their own purposes. They may have the same
-motivations and skills of any other criminal category, but they have the advantage of privileged access at some stage in
-the process.}
+\modelitem{Insider threat}{Insider threats involve attackers with roles inside the \ac{EA} recovery process who seek to
+abuse the system for their own purposes. They could work in law enforcement, a device vendor, or a digital service
+provider. They may have the same motivations and skills of any other criminal category, but they have the advantage of
+privileged access at some stage in the process.}
 
 \modelitem{Foreign intelligence}{Foreign intelligence agencies and \acp{APT} are constantly looking for ways to escalate
 their privilege and tamper with or steal information. They have world-class expertise and computing power, which they
@@ -83,39 +82,39 @@ can apply to both individual devices and backend systems. (Here I am referring t
 agencies, as opposed to \ii{domestic} foreign intelligence agencies such as the \acs{CIA} or \acs{NSA} in the U.S.,
 which are assumed to operate within---though push the boundaries of---the legal framework.)}
 
-\modelitem{Authoritarian regimes}{States that do not respect lawful process will try to compel administrators of an
+\modelitem{Authoritarian regimes}{Governments that do not adhere to rule of law will try to compel administrators of an
 \ac{EA} system to provide access upon demand. Legal coercion may or may not be combined with state-backed hacking
 capability.}
 
 \modelend
 
-To make sense of an \ac{EA} proposal in the face of the stated goals and such a formidable list of threat actors, one
-must include two non-traditional threats. To do so is to step back and view the situation with a broader perspective
-than security experts usually take.
+Two non-traditional threats must be considered to make sense of an \ac{EA} proposal in the face of the stated goals and
+such a formidable list of threat actors. Understanding these threats requires viewing security with a broader than usual
+perspective.
 
 \modelstart
 
 \modelitem{The platform abuser}{The device user him or herself may actually be a threat in the larger safety context.
-The end user is not the most important thing. This is a crucial point.
+Therefore, the end user's will is not the platform's top priority.\\
 
-All technologies have embedded values \cite{rogaway_moral_2015}, and at the top of this value system is some most
-important ``thing.'' Traditional device security threat models define this ``thing'' as the end user. This leads to good
-security priorities and honors the user's rights and autonomy.
+All technologies have embedded values \cite{rogaway_moral_2015}, and at the top of each value system is one top
+priority. Traditional device security threat models prioritize the will of end user. This leads to robust design
+decisions and honors the user's rights and autonomy.\\
 
-To stray from this rule is dangerous, but is already frequent practice. Software that forces updates values the vendor's
-judgement over the user's (even if it is a good idea). Software that enforces Digital Rights Management values
-corporations' data rights over the user's (sometimes to extremes \cite{eff_2020}). Software that does not encrypt user
-communications at all values the service provider's ability to scrape personal information over the user's privacy.
-Software that enables \ac{EA} values lawful investigatory process over the user's ultimate privacy. Intentional
-subversion of the user's will is not a comfortable thought, but it is a frequent reality, and the reality of \ac{EA}.
+It is dangerous to stray from this rule, but many systems already do. Auto-updating software values the vendor's update
+policy over the user's preferences. Digital Rights Management software values corporations' data rights over the user's
+(sometimes to extremes \cite{eff_2020}). Unencrypted e-mail software values the e-mail provider's ability to collect
+personal information over the user's privacy. \Acl{EA} software values lawful investigation over the user's absolute
+privacy. Intentional subversion of the user's will violates a security practitioner's instincts, but it is a frequent
+reality.\\
 
-In the broader threat model, the platform abuser uses encryption to hide illicit activities. He is a threat to public
-safety.}
+In the broader threat model, the platform abuser uses encryption to hide illicit activities. He or she is a threat to
+public safety.}
 
-\modelitem{Hawkish lawmakers}{If one's very highest priorities are security and privacy for society as a whole, then
-aggressive lawmakers that have the power to \ii{mandate} arbitrary data access represent perhaps the largest threat of
-all. Crypto-anarchists can encrypt their data above the compromised layer all they want, but above-the-table
-organizations and most individuals who use default products will abide by U.S. law.
+\modelitem{Hawkish lawmakers}{In the pursuit of security and privacy for society as a whole, aggressive lawmakers that
+have the power to \ii{mandate} arbitrary data access present perhaps the largest threat of all. Crypto-anarchists will
+encrypt their data above the compromised layer regardless, but above-the-table organizations and most individuals who
+use default products will abide by U.S. law.\\
 
 Hawkish lawmakers threaten the security of a cryptosystem (whether it uses \ac{EA} or not) because they may judge the
 system as too inhibitive to law enforcement. Therefore, they may outlaw its use and mandate something weaker in its
@@ -129,8 +128,8 @@ The following considerations are beyond the scope of this threat model.
 
 \modelstart
 
-\modelitem{Encyption workarounds}{Encryption workarounds are always in play for essentially any threat actor at any
-time. Discussion for defending against those is out of scope.}
+\modelitem{Encyption workarounds}{Encryption workarounds, such as finding a copy of plaintext or guessing a password,
+are always a risk. Defending against such workarounds is not the role of the \ac{EA} system itself.}
 
 \modelitem{\ac{EA} workarounds}{The user can evade \ac{EA} mechanisms by encrypting data at a higher level in the tech
 stack, for example by encrypting files before saving them to disk. Additionally, investigators or attackers can often
@@ -139,16 +138,16 @@ system itself.}
 
 \modelitem{Supply chain attacks}{It is necessary to protecting device hardware and software supply chains in order to
 prevent surreptitious, trivially exploitable backdoors. For the purposes of this threat model, device hardware and
-software are considered to be as-intended, though they are assumed to contain the standard amount of bugs and
-side-channels.}
+software are assumed to be uncompromised, aside from the standard amount of bugs and side-channels.}
 
-\modelitem{Manipulation of internal hardware}{Hyper-advanced hardware analysis and manipulation is a real threat from
-foreign intelligence agencies. Defending against these attacks is a separate problem.}
+\modelitem{Manipulation of internal hardware}{Foreign intelligence agencies may have the capability to perform
+hyper-advanced hardware analysis and manipulation. Defending against these attacks is not the role of the \ac{EA} system
+itself.}
 
-\modelitem{Breakdown in (or absence of) rule of law}{This threat model assumes that the legal process used to obtain the
-warrant is valid. Additionally, all forms of surveillance, even when protected from \ac{masssurv}, require oversight.
-Transparency via auditability, preferably ensured via technical mechanism, is a goal for good \ac{EA} proposals.
-However, rule of law is an absolute prerequisite for which no \ac{EA} mechanism can compensate.}
+\modelitem{Breakdown in (or absence of) rule of law}{This threat model assumes legitimacy of the legal process used to
+obtain the warrant. All forms of government search require oversight. Transparency via auditability, preferably ensured
+via technical mechanism, should be a goal for \ac{EA} proposals. However, rule of law is an absolute prerequisite for
+which no \ac{EA} mechanism can compensate.}
 
 \modelend
 
@@ -156,11 +155,11 @@ However, rule of law is an absolute prerequisite for which no \ac{EA} mechanism 
 \section{Basic Data at Rest}
 \label{sec-basic-dar}
 
-Answering ``what are we building'' and comparing it with the state of the art requires an understanding of the state of
-the art. Apple iPhones are among the most secure consumer mobile phones, and serve as the point of reference for
-\ldawmsR. As this analysis is limited to a specific proposal, it is also limited to this reference architecture.
-\myfig{fig-dfd-iphone} is a \ac{DFD} depicting the iPhone's unlock and decryption process according to Apple's public
-documentation \cite{apple_2020}.
+Understanding the \ldawmsr proposal and comparing it to current mobile device encryption technology requires an
+understanding of current technology. Apple iPhones are among the most secure consumer mobile phones and serve as the
+point of reference for \ldawmsR. Because this analysis is limited to a specific proposal, it is also limited to this
+reference architecture. In \myfig{fig-dfd-iphone}, a \ac{DFD} depicts the iPhone's unlock and decryption process
+according to Apple's public documentation \cite{apple_2020}.
 
 \begin{figure}[h]
     \centering\CaptionFontSize
@@ -169,29 +168,28 @@ documentation \cite{apple_2020}.
     \label{fig-dfd-iphone}
 \end{figure}
 
-This \ac{DFD}, and all that follow, is at a specific level of abstraction, simplified in the spirit of ``all models are
-wrong, but some are useful.'' The \acp{DFD} are intended to be useful for communication and threat elicitation only, but
-are accurate in that capacity.
+This \ac{DFD}, and all that follow, presents the system at a specific level of abstraction. The system representation is
+simplified in the spirit of ``all models are wrong, but some are useful.'' The \acp{DFD} exclude some details, but are
+accurate for the purposes of communication and threat elicitation.
 
-As the diagram illustrates, several steps occur between the user entering her \ac{PIN} and unlocking of the device. The
-operating system forwards the \ac{PIN} to the Secure Enclave Processor, which combines it with the device-specific
-Hardware \ac{UID} to generate the Class key. The Class key is used to decrypt the Volume key, which is finally handed to
-the Encryption Module to perform encryption and decryption at a hardware level between the operating system and actual
-encrypted storage.
+As the diagram illustrates, several steps occur between the \ac{PIN} being entered and the device being unlocked. The
+operating system forwards the \ac{PIN} to the Secure Enclave Processor, which combines the \ac{PIN} with the
+device-specific Hardware \ac{UID} to generate the Class key. The Class key is used to decrypt the Volume key, which is
+passed to the Encryption Module. The Encryption Module performs encryption and decryption at a hardware level between
+the operating system and the encrypted storage.
 
-The \ac{UID} is not depicted in key storage because it is actually burned into the secure processor silicon, and cannot
-be read by software. The Volume key is stored encrypted by the Class key. When a user updates his \ac{PIN}, the
-encrypted Volume key in storage is replaced with the copy encrypted with the new Class key. Application processors never
-handle any keys or secret information besides the \ac{PIN}, and due to inline encryption in the Encryption Module,
-persistent storage never handles any \ac{plaintext} data.
+The \ac{UID} is not depicted in key storage because it is burned into the secure processor silicon and cannot be read by
+software. The Volume key is encrypted by the Class key before it is stored. When a user updates his \ac{PIN}, the
+encrypted Volume key in storage is replaced with the copy encrypted with the new Class key. Application processors do
+not handle any keys or secret information besides the \ac{PIN}. Due to inline encryption in the Encryption Module,
+persistent storage does not handle \ac{plaintext} data.
 
 
 \section{The \ldawmsr Proposal}
 
-\ldawmsr introduces device key escrow, an unexposed hardware interface that mediates \ac{EA} requests, and a vendor
-mediated authorization process. To achieve its goals, the proposal relies on the concepts of self-escrow, time vaulting,
-authorization, and transparency. These concepts are summarized in \mytab{table-ldawmsr-concepts}; see the original paper
-for full detail \cite{savage_lawful_2018}.
+\ldawmsr introduces device key escrow, an unexposed hardware interface that mediates \ac{EA} requests, and a
+vendor-mediated authorization process. To achieve its goals, the proposal relies on the concepts of self-escrow, time
+vaulting, authorization, and transparency. These concepts are summarized in \mytab{table-ldawmsr-concepts}.
 
 \begin{table}[h]
   \caption{Central Concepts in the \ldawmsr Proposal}
@@ -228,25 +226,24 @@ for full detail \cite{savage_lawful_2018}.
 \end{table}
 
 Device key escrow is considered the most promising technical \ac{EA} direction because of the unique capabilities that
-secure hardware offers, and \ldawmsr demonstrates this capabilities perfectly. The greatest of these capabilities are
-physical possession requirements and strong transparency. Physical possession requirements strongly mitigate mass
-surveillance and, as Savage puts it, ``provides a more intuitive compatibility with common under-standings of the
-government’s reasonable law enforcement powers (e.g., the ability to seize physical property under court order) than
-more information-centric approaches, which may appear covert by comparison'' \cite{savage_lawful_2018}. Transparency is
-also rooted in the physicality of the approach, wherein the device cannot be unlocked without making irreversible and
-detectable changes, mitigating both \ac{masssurv} and common criminal abuse.
+secure hardware offers---namely, physical possession requirements and strong transparency. The physical possession
+requirement mitigates the risk of \ac{masssurv}. As Savage adds, it also ``provides a more intuitive compatibility with
+common under-standings of the government’s reasonable law enforcement powers (e.g., the ability to seize physical
+property under court order) than more information-centric approaches, which may appear covert by comparison''
+\cite{savage_lawful_2018}. Transparency is also rooted in the physicality of the approach, wherein the device cannot be
+unlocked without making irreversible and detectable changes, reducing the risk of both \ac{masssurv} and common criminal
+abuse.
 
-One clear weakness in the design is the shared secret between the device and the manufacturer used in the authorization
-protocol. The key may be stored on the device, but one can access it if they have this shared secret. This is very much
-like trusted-party key escrow where the vendor is the trusted party, only they store the authentication key instead of
-the unlock key itself. Due to this similarity, one of the biggest \ac{EA} problems of centralized risk is not fully
-addressed. This is discussed further in \mysec{sec-prop-threats}.
+One clear weakness in the design is its reliance on the secret used in the authorization protocol shared between the
+device and the manufacturer. Although the key is stored on the device, anyone could access the key if they know the
+shared secret. This is similar to trusted-party key escrow. The vendor is the trusted party, and they store the
+authorization key rather than the encryption key itself. Due to this similarity, the problem of centralized risk is not
+fully addressed. This is discussed further in \mysec{sec-prop-threats}.
 
 \ldawmsR's full data flow is illustrated in \myfig{fig-dfd-ldawmsr}. The proposal offers a few variations of the
 self-escrow and authorization protocols. This figure uses the asymmetric key pair approach for Class key encryption in
-the Secure Enclave, which has stricter hardware requirements; however, Savage offers a symmetric key variant that
-achieves the same purposes. The asymmetric key pair approach was chosen here because it is semantically clearer and
-easier to illustrate.
+the Secure Enclave, which creates strict hardware requirements. However, Savage offers a symmetric key variant that
+achieves the same purposes. The asymmetric key variant was chosen for analysis because it is semantically simpler.
 
 \begin{figure}[p]
     \centering\CaptionFontSize
@@ -255,23 +252,24 @@ easier to illustrate.
     \label{fig-dfd-ldawmsr}
 \end{figure}
 
-The lawful access use case operates as follows: law enforcement obtains a warrant to conduct a search, including the
-suspect's mobile device. They obtain the phone, disassemble it to reveal the unexposed \ac{EA} hardware interface, and
-begin the time-vaulted access request. After the lockout period is completed, the device offers its Device ID only. The
-law enforcement agency's digital forensics department digitally signs the Device ID and sends it to the device vendor,
-alongside the warrant and accompanying proof of legal authorization. The vendor's access compliance department audits
-the legal documents and submits the digitally signed Device ID to a secure computing environment such as a \ac{HSM}. The
-secure environment authenticates the digital signature, looks up the device's private Device Seal Key and authorization
-token, and encrypts them with the law enforcement agency's public key. These encrypted artifacts are returned to the
-agency, which decrypts and submits them to the device through the dedicated interface. First is the authorization token,
-which is hashed and compared to the stored hash. If that values match, the device accepts and uses the private Device
-Seal Key to decrypt the Class key, which was escrowed after being encrypted but the public Device Seal Key. Once the
-Class key is decrypted, the escrow agent burns a fuse, and the device is unlocked for forensic investigation.
+When law enforcement needs access to a device, it first obtains a warrant to conduct the search. The warrant uniquely
+identifies the suspect's mobile device. Law enforcement obtains the device, disassembles it to reveal the unexposed
+\ac{EA} hardware interface, and begins the time-vaulted access request. After the lockout period is completed, the
+device offers its Device ID only. The law enforcement agency's digital forensics department digitally signs the Device
+ID and sends it to the device vendor, alongside the warrant and accompanying proof of legal authorization. The vendor's
+access compliance department audits the legal documents and submits the digitally signed Device ID to a secure computing
+environment such as a \ac{HSM}. The secure environment authenticates the digital signature, looks up the device's
+private Device Seal Key and authorization token, and encrypts them with the law enforcement agency's public key. These
+encrypted artifacts are returned to the agency, which decrypts and submits them to the device through the dedicated
+interface. First, the authorization token is hashed and compared to the stored hash. If the hash matches, the device
+accepts and uses the private Device Seal Key to decrypt the Class key, which was escrowed after being encrypted but the
+public Device Seal Key. Once the Class key is decrypted, the escrow agent burns a fuse, and the device is unlocked for
+forensic investigation.
 
-This concludes an summarized overview of the system as described in the proposal. However, in a real system, the entire
-information lifecycle matters. In order to establish such a system, vendors and law enforcement must establish
-mechanisms to populate and update the device and \ac{HSM} key stores and databases. \myfig{fig-dfd-ldawmsr-setup} is a
-\ac{DFD} for these scenarios.
+This above process is a summary of the system in the \ldawmsr proposal. However, complete proposals must account for the
+entire information lifecycle. In order to establish such a system, vendors and law enforcement must build mechanisms to
+populate and update the device and \ac{HSM} key stores and databases. \myfig{fig-dfd-ldawmsr-setup} depicts a \ac{DFD}
+for these scenarios.
 
 \begin{figure}[H]
   \centering\CaptionFontSize
@@ -284,12 +282,12 @@ mechanisms to populate and update the device and \ac{HSM} key stores and databas
 \section{Discussion of Threats}
 \label{sec-prop-threats}
 
-The proposal has been illustrated. What threats does it introduce? Recall from \mysec{sec-crypto-basics} that security
-can be expressed in the properties of authentication, integrity, non-repudiation, confidentiality, availability, and
-authorization. Threats are often expressed as the negative of these properties: spoofing, tampering, repudiation,
-information disclosure, \acl{DOS}, and elevation of privileged \cite{shostack_threat_2014}. This section
-analyzes \ldawmsr using these categories. Threats that fit under multiple categories, such as tampering for the effect
-of repudiation, are listed only once.
+The next step in threat modeling is to elicit threats based on the system's goals, threat actors, scope, and design.
+Recall from \mysec{sec-crypto-basics} that security can be expressed in terms of authentication, integrity,
+non-repudiation, confidentiality, availability, and authorization. Threats are often expressed as the opposite of these
+properties: spoofing, tampering, repudiation, information disclosure, \acl{DOS}, and elevation of privileged
+\cite{shostack_threat_2014}. This section analyzes \ldawmsr according to these categories. Threats that could fall into
+multiple categories, such as tampering for the effect of repudiation, are listed only once.
 
 To save space, the tables use shorthand for \acf{LE}, \acf{LEO}, \acf{LEA}, \acf{HSM}, \acf{DID}, \acf{DSK}, \acf{SN},
 and \acf{DOS}.
@@ -328,9 +326,9 @@ and \acf{DOS}.
 
 Spoofing threats are listed in \mytab{table-spoofing}. Notably, \ii{S2} is Eran Tromer's attack \cite{tromer_2018} on
 computer scientist Ray Ozzie's related \ac{DAR} \ac{EA} protocol called CLEAR \cite{ozzie_2018}. Savage acknowledges the
-influence that CLEAR had on \ldawmsR, and specifically included a note that while this proposal is technically
-vulnerable to the same threat, the mitigations listed here would help, and furthermore the likelihood of such an attack
-is low and the difficulty high.
+influence that CLEAR had on \ldawmsR, and specifically included a note that this proposal is technically vulnerable to
+the same threat. This threat is not particularly severe, as the difficulty of such an attack is so high that it is
+unlikely to be attempted. Even so, the mitigations listed here would also help.
 
 \threattablebegin{Spoofing}{spoofing}{Spoof}
   S1 & Device is spoofed to LE via plant
@@ -368,7 +366,8 @@ is low and the difficulty high.
 
 \subsection{Tampering}
 
-Tampering threats are listed in \mytab{table-tampering}. \ii{S2} relies on tampering similar to \ii{T1}.
+Tampering threats are listed in \mytab{table-tampering}. Note that execution of \ii{S2} above relies on a tampering
+attack such as \ii{T1}.
 
 \threattablebegin{Tampering}{tampering}{Tamper}
   T1 & Platform abuser corrupts DSK, DID, or token
@@ -431,9 +430,9 @@ Repudiation threats are listed in \mytab{table-repudiation}.
 
 \subsection{Information Disclosure}
 
-Information disclosure threats are listed in \mytab{table-disclosure}. In addition to the threats listed here, all
-attacks aimed at gaining unauthorized access to a device constitute information disclosure threats. Most spoofing
-attacks are aimed at disclosing information intended for another party.
+Information disclosure threats are listed in \mytab{table-disclosure}. In addition to the threats listed, any attack
+aimed at gaining unauthorized access to a device is an information disclosure threat. Most spoofing attacks aim to
+disclose information intended for another party.
 
 \threattablebegin{Information Disclosure}{disclosure}{Information \\ Disclosed}
   I1 & Attacker discloses the DSK, DID, the encrypted class key, or hashed token
@@ -527,44 +526,46 @@ to unlock a device without authorization can be seen as escalation of privilege.
 
 \section{Risk Analysis}
 
-How much risk does \ldawmsr introduce? The answer lies in a range depending on how many mitigations are implemented.
-Some threats introduce inherently low risk due to their difficult nature and low pay off. Others are higher risk but can
-be reasonably mitigated. Some threats specifically target transparency, and are difficult to address without trust.
-Finally, there are some risks that are irreducible. Each of classes are discussed in turn.
+The amount of risk \ldawmsr introduces depends on the number of suggested mitigations that are implemented. Some threats
+introduce inherently little risk due to their difficult nature and low pay off. Others introduce greater risk but can be
+reasonably mitigated. Some threats specifically target transparency, and therefore are difficult to address without
+trust. Finally, there are some risks that cannot be safely mitigated. Each of these classes of threats are discussed in
+turn.
 
-\ii{S6}, \ii{T1}, \ii{T3}, \ii{I1}, \ii{I3}, \ii{I6}, \ii{D1}, \ii{D2}, and \ii{E1} \ii{E2} are each low risk either
-because they fail to produce useful results, they can be reasonably mitigated, or they are a threat that is already
-present in state-of-the-art designs as depicted in \mysec{sec-basic-dar}. It is crucial for a design to consider and
-mitigate the risk posed by these threats as part of the design process, but they do not represent fatal flaws to a
-design. Except in combination with other threats, they are not worthy more concern here.
+\ii{S6}, \ii{T1}, \ii{T3}, \ii{I1}, \ii{I3}, \ii{I6}, \ii{D1}, \ii{D2}, and \ii{E1} \ii{E2} are each low-risk. They
+either they fail to produce useful results, can be reasonably mitigated, or are a threat that is already present in the
+baseline depicted in \mysec{sec-basic-dar}. Although these threats are not fatal flaws to a design, it is important for
+a design to consider and mitigate the risk they pose. Unless they appear in combination with other threats, they are do
+not deserve more discussion.
 
-\ii{S1}, \ii{S2}, \ii{S3}, \ii{S4}, \ii{S5}, \ii{T2}, \ii{T4}, \ii{R1}, and \ii{I2} are each higher risk threats to the
-security, trustworthiness, and effectiveness of the proposal, but can be addressed through a set of related mitigations:
-require destructive disassembly of the device to access the \ac{EA} hardware interface, require the device to be
-physically present on LEA premises the entire duration it is unlocked, and grant only a handful of LE facilities the
-lawful right to use the \ac{EA} mechanism. Requiring destructive disassembly is a technical measure that entirely
-precludes certain attacks; requiring the device to be on LEA premises is a procedural measure that prevents attackers
-from manipulating LE into achieving their own ends; limiting the number of LE facilities that can participate prevents
-LE impersonation attacks. Together, they make the proposal considerably harder to attack.
+\ii{S1}, \ii{S2}, \ii{S3}, \ii{S4}, \ii{S5}, \ii{T2}, \ii{T4}, \ii{R1}, and \ii{I2} are all higher-risk threats to the
+security, trustworthiness, and effectiveness of the proposal. However, they can be addressed through a set of related
+requirements: require destructive disassembly of the device to access the \ac{EA} hardware interface, require the device
+to be physically present on LEA premises the entire duration it is unlocked, and grant only a handful of LE facilities
+the lawful right to use the \ac{EA} mechanism. Requiring destructive disassembly entirely precludes certain attacks.
+Requiring the device to be on LEA premises prevents attackers from manipulating LE into achieving the attackers' ends.
+Limiting the number of law enforcement facilities that can participate in the \ac{EA} system prevents LE impersonation
+attacks. Together, these mitigations make the proposal more resistant to attack.
 
 \ii{R2}, \ii{R3}, and \ii{R4} are repudiation attacks that belie the system's potential for abuse. The system relies on
-legal process and cooperation of several parties. But what if the legal process involves secret courts, secret
-investigations, and secrecy orders on the vendor \cite{shamsi_2011}? Destructive disassembly or the weaker hardware
-transparency mechanism provide non-repudiation that the device was unlocked, if and only if one has physical access to
-the device. Technically enforced transparency into device access requests and responses would grant non-repudiation at a
-broader level. \ldawmsr does not include a mechanism for the feature, though other \ac{DAR} \ac{EA} proposals do
-\cite{phan_key_2017} \cite{servan_schreiber_jje_2020} \cite{goldwasser_public_2017}. Unfortunately, building this
-feature into a proposal makes it potentially vulnerable the hawkish lawmaker, who may consider it an anti-feature.
+legal process and cooperation of several parties. Even in the U.S., the legal process can involve secret courts, secret
+investigation, and secrecy orders on the vendor \cite{shamsi_2011}. Under these conditions, transparency is difficult to
+achieve. A destructive disassembly requirement provides non-repudiation that the device was unlocked, if and only if one
+has physical access to the device. Technically enforced transparency into device access requests and responses would
+grant non-repudiation at a broader level. \ldawmsr does not include a mechanism for the feature, though other \ac{DAR}
+\ac{EA} proposals do \cite{phan_key_2017} \cite{servan_schreiber_jje_2020} \cite{goldwasser_public_2017}. Unfortunately,
+building this feature into a proposal makes it potentially vulnerable the hawkish lawmaker, who may consider too much
+transparency to be an anti-feature.
 
-Finally, there are the threats of \ii{I4}, \ii{I5}, and \ii{E3}, each representing in slightly different ways the
-disclosure of unlock artifact data, the DID-DSK database. This is the truly difficult challenge---centralizing so much
-sensitive data makes it an extremely high value target for foreign intelligence and cyber criminals. The vendor is in a
-position where they need to protect this database from the most advanced attackers in the world while regularly updating
-and accessing it. \Acp{HSM} and strong security policies would make that a difficult task, but not impossible, and one
-has to assume that the data would leak eventually. What would leaked unlock artifacts mean? It depends who steals it.
-Criminals would use it for personal and financial gain; foreign intelligence and authoritarian regimes would use it to
-spy on their enemies. In the worst-case scenario, anyone with some specialized tools and a willingness to break the law
-could get into any device under the scheme, provided they destructively disassemble it and wait through the time vault.
+Finally, there are the threats of \ii{I4}, \ii{I5}, and \ii{E3}, which each represent the disclosure of unlock artifact
+data, the DID-DSK database. These threats create a large amount of risk that cannot be safely mitigated. To store so
+much sensitive data in a central database creates a high-value target for foreign intelligence and cyber criminals. The
+vendor needs to protect this database from the most advanced attackers in the world while regularly updating and
+accessing it. \Acp{HSM} and robust security policies would make that a difficult task. The data will almost certainly
+leak eventually. The effects of such an event would depend on who stole the unlock artifacts. Criminals would use the
+data for personal and financial gain; foreign intelligence and authoritarian regimes would use it to spy on their
+enemies. In the worst-case scenario, anyone with specialized tools and disregard for the law could get into any
+compliant device after dissembling it and waiting through the time vault.
 
 It is important to give \ldawmsr (and similar \ac{DAR} \ac{EA} proposals) its due. The worst case scenario still
 precludes \ac{masssurv} and includes non-repudiation that access occurred. This is a significant gain for \ac{EA}
@@ -574,50 +575,48 @@ proposals in terms of transparency and protection of civil liberties.
 \section{Achievement of Goals}
 
 This chapter began with a list of goals by which \ac{DAR} \ac{EA} proposals can be measured, including security,
-protection of civil liberties, transparency, law enforcement utility, and economic impact. In this section I measure
-\ldawmsr against each of these goals.
+protection of civil liberties, transparency, law enforcement utility, and economic impact. In this section \ldawmsr is
+measured against each of these goals.
 
-% Consider goals, threat actors, and loop-back to out of scope items, because they aaaaactually do matter.
-
-\paragraph*{Security} Security is the main topic of this chapter, and has already been discussed thoroughly. \ldawmsr
-introduces significant risk in the DID-DSK database itself, but does a good job in many other respects, especially if
-the recommended mitigations are implemented. It goes from very hard to attack, when everything is working as intended,
-to simple to attack, when the database is leaked. However, even when it becomes trivial to attack, the impact is limited
-to devices in physical possession and cannot be hidden from the device user.
+\paragraph*{Security} Security has already been discussed at length in this chapter. \ldawmsr introduces significant
+risk in the DID-DSK database itself, but performs well in many other respects, especially if the recommended mitigations
+are implemented. It goes from very hard to attack, when everything is working as intended, to simple to attack, when the
+database is leaked. However, even when it becomes trivial to attack, the attackers are limited to devices in their
+physical possession and cannot hide access from their victims.
 
 \paragraph*{Protection of civil liberties} This goal was defined as defending against \ac{masssurv} and abuse by
-authoritarian regimes. This proposal does an excellent job of protecting against \ac{masssurv} due to its physicality.
-Any power cannot abuse this technology at scale. It is not as strong at protecting against authoritarian regimes. Prior
-to a leak, vendors would face intense and possibly coercive legal pressure to unlock devices in foreign countries. After
-a leak, these regimes could get into any device they want. If one lived in a country that was willing to take and
-destroy their devices to read their contents without legal due process, this would be an unwelcome technology.
+authoritarian regimes. \ldawmsr does an excellent job of protecting against \ac{masssurv} due to its physicality. Any
+power cannot abuse this technology at scale. It is not as strong at protecting against authoritarian regimes. Prior to a
+leak, vendors would face intense and possibly coercive legal pressure to unlock devices in foreign countries. After a
+leak, these regimes could get into any device they want. If one lived in a country that was willing to take and destroy
+their devices to read their contents without legal due process, this would be an unwelcome technology.
 
-\paragraph*{Transparency} \ldawmsr excels at transparency on the device, but fails at transparency to the public. Due to
-destructive disassembly (or the hardware transparency mechanism), whether a device has been accessed using this method
-is irrefutable. However, this is only possible to confirm if the device is available. If it is stolen and unlocked by
-criminals or is lawfully accessed under secretive conditions, both the user and the public have no way of knowing. This
-leaves open the possibility for government abuse---though again with the caveat that physical possession requirements
-mean it cannot be abused without a trace.
+\paragraph*{Transparency} \ldawmsr provides transparency to the device user, but does not provide transparency to the
+public. Due to destructive disassembly (or the hardware transparency mechanism), whether a device has been accessed
+using this method is irrefutable. However, this can only be confirmed if the device is available. Neither the user nor
+the public can detect if a device is lawfully accessed under secretive conditions or is stolen and unlocked by
+criminals. This leaves allows the potential for government abuse---though again with the caveat that physical possession
+requirements mean it cannot be abused without a trace.
 
-\paragraph*{Law enforcement utility} This proposal involves a few tradeoffs between security and law enforcement
-utility. The physical possession, time vault, and limited number of authorized law enforcement laboratory requirements
-each insert a barrier to usability. The physical possession requirement is far too important for security and civil
-liberties to sacrifice for utility. Furthermore, law enforcement, and search and seizure law generally, is geared
-towards physical evidence already. The time vault prevents against time-sensitive threats, though destructive
-disassembly (not part of the original proposal) may be enough to cover these cases as well, so the time vault could be
-decreased without significant impact. Limiting the number of parties able to use the system mitigates spoofing attacks;
-local law enforcement would have to cooperate with one of these parties, such as a regional \ac{FBI} office. (This
-really just shifts the spoofing threat up a level, though the shift is appropriate.) In the end, law enforcement still
-has a reliable way to get into lawfully seized devices. \ldawmsr upholds its end; the onus is on the government to fund
-the \ac{FBI} operation and cultivate cooperation between local and federal agencies.
+\paragraph*{Law enforcement utility} \ldawmsr performs a few tradeoffs between security and law enforcement utility. The
+requirements to have physical possession of the device, to wait through the time vault, and to limit the number of
+authorized law enforcement laboratories each create barriers to usability. The physical possession requirement is far
+too important for security and civil liberties to sacrifice for utility. Furthermore, law enforcement, and search and
+seizure law generally, is geared towards physical evidence already. The time vault prevents against time-sensitive
+threats, though destructive disassembly (not part of the original proposal) may be enough to cover these cases as well,
+so the time vault could be decreased without significant impact. Limiting the number of laboratories able to use the
+system reduces the risk of spoofing attacks; local law enforcement would have to cooperate with one of these special
+laboratories, such as a regional \ac{FBI} office. (This really just shifts the spoofing threat up a level, though the
+shift is appropriate.) In the end, law enforcement still has a reliable way to get into lawfully seized devices.
+\ldawmsr upholds its end, but the government must fund the \ac{FBI} operation and cultivate cooperation between local
+and federal agencies.
 
-\paragraph*{Economic impact} Economic costs to the vendor fall into three categories---implementing the design, running
-the system, and absorbing lost business. Even once a proposal like \ldawmsr was refined enough to be implemented, the
-vendor would need to update hardware designs and create the software systems to get it started. Once in use, the vendor
-would face considerable costs in running it securely, considering the supreme importance of transporting and storing the
-unlock artifacts safely. Finally, the vendor would certainly lose privacy-conscious customers to vendors not under the
-system, whether small businesses, foreign competitors, or resellers offering pre-\ac{EA} devices. The scale of these
-costs relative to device manufacturer's naturally large size is unclear. Costs to the government include the \ac{FBI}
-laboratory cost and a necessary scale-up in training and resources available to state and local law enforcement.
-Government reimbursement for vendor compliance costs has precedent in laws like \acs{CALEA}, and could be applied to a
-\ac{DAR} \ac{EA} regulation as well \cite{edwards_hr4922_1994}.
+\paragraph*{Economic impact} Expenses to the vendor fall into three categories---the costs of implementing the design,
+running the system, and absorbing lost business. Even if a proposal like \ldawmsr was refined enough to be implemented,
+the vendor would need to update hardware designs and create the software systems to get it started. Once in use, the
+vendor would face considerable costs in running it securely, due to the difficulty or safely accessing and updating the
+unlock artifacts. Finally, the vendor would certainly lose privacy-conscious customers to small businesses, foreign
+competitors, or resellers offering pre-\ac{EA} devices. The scale of these costs relative to device manufacturer's large
+size is unclear. Costs to the government include the \ac{FBI} laboratory cost and the cost of law enforcement resources
+and training. Government reimbursement for vendor compliance costs has precedent in laws like \acs{CALEA}, and could be
+applied to a \ac{DAR} \ac{EA} regulation as well \cite{edwards_hr4922_1994}.
