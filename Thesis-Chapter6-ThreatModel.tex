@@ -533,39 +533,39 @@ trust. Finally, there are some risks that cannot be safely mitigated. Each of th
 turn.
 
 \ii{S6}, \ii{T1}, \ii{T3}, \ii{I1}, \ii{I3}, \ii{I6}, \ii{D1}, \ii{D2}, and \ii{E1} \ii{E2} are each low-risk. They
-either they fail to produce useful results, can be reasonably mitigated, or are a threat that is already present in the
+either fail to produce useful results, can be reasonably mitigated, or are a threat that is already present in the
 baseline depicted in \mysec{sec-basic-dar}. Although these threats are not fatal flaws to a design, it is important for
-a design to consider and mitigate the risk they pose. Unless they appear in combination with other threats, they are do
+a designer to consider and mitigate the risk they pose. Unless they appear in combination with other threats, they do
 not deserve more discussion.
 
 \ii{S1}, \ii{S2}, \ii{S3}, \ii{S4}, \ii{S5}, \ii{T2}, \ii{T4}, \ii{R1}, and \ii{I2} are all higher-risk threats to the
-security, trustworthiness, and effectiveness of the proposal. However, they can be addressed through a set of related
+security, trustworthiness, and effectiveness of the proposal. However, they can be mitigated through a set of related
 requirements: require destructive disassembly of the device to access the \ac{EA} hardware interface, require the device
 to be physically present on LEA premises the entire duration it is unlocked, and grant only a handful of LE facilities
 the lawful right to use the \ac{EA} mechanism. Requiring destructive disassembly entirely precludes certain attacks.
 Requiring the device to be on LEA premises prevents attackers from manipulating LE into achieving the attackers' ends.
-Limiting the number of law enforcement facilities that can participate in the \ac{EA} system prevents LE impersonation
-attacks. Together, these mitigations make the proposal more resistant to attack.
+Limiting the number of LE facilities that can participate in the \ac{EA} process prevents LE impersonation attacks.
+Together, these mitigations make the proposal more resistant to attacks.
 
 \ii{R2}, \ii{R3}, and \ii{R4} are repudiation attacks that belie the system's potential for abuse. The system relies on
-legal process and cooperation of several parties. Even in the U.S., the legal process can involve secret courts, secret
-investigation, and secrecy orders on the vendor \cite{shamsi_2011}. Under these conditions, transparency is difficult to
-achieve. A destructive disassembly requirement provides non-repudiation that the device was unlocked, if and only if one
-has physical access to the device. Technically enforced transparency into device access requests and responses would
-grant non-repudiation at a broader level. \ldawmsr does not include a mechanism for the feature, though other \ac{DAR}
-\ac{EA} proposals do \cite{phan_key_2017} \cite{servan_schreiber_jje_2020} \cite{goldwasser_public_2017}. Unfortunately,
-building this feature into a proposal makes it potentially vulnerable the hawkish lawmaker, who may consider too much
-transparency to be an anti-feature.
+legal processes and cooperation of several parties. Even in the U.S., the legal process may involve secret courts,
+secret investigations, and secrecy orders on the vendor \cite{shamsi_2011}. Under these conditions, transparency is
+difficult to achieve. A destructive disassembly requirement provides non-repudiation that the device was unlocked, if
+and only if one has physical access to the device. Technically enforced transparency into device access requests and
+responses would grant non-repudiation at a broader level. \ldawmsr does not include a mechanism for the feature, though
+other \ac{DAR} \ac{EA} proposals do \cite{phan_key_2017} \cite{servan_schreiber_jje_2020} \cite{goldwasser_public_2017}.
+Unfortunately, building this feature into a proposal makes it potentially vulnerable the hawkish lawmaker, who may
+consider too much transparency to be an anti-feature.
 
 Finally, there are the threats of \ii{I4}, \ii{I5}, and \ii{E3}, which each represent the disclosure of unlock artifact
-data, the DID-DSK database. These threats create a large amount of risk that cannot be safely mitigated. To store so
+data (the DID-DSK database). These threats create a large amount of risk that cannot be safely mitigated. Storing so
 much sensitive data in a central database creates a high-value target for foreign intelligence and cyber criminals. The
 vendor needs to protect this database from the most advanced attackers in the world while regularly updating and
 accessing it. \Acp{HSM} and robust security policies would make that a difficult task. The data will almost certainly
 leak eventually. The effects of such an event would depend on who stole the unlock artifacts. Criminals would use the
 data for personal and financial gain; foreign intelligence and authoritarian regimes would use it to spy on their
 enemies. In the worst-case scenario, anyone with specialized tools and disregard for the law could get into any
-compliant device after dissembling it and waiting through the time vault.
+compliant device after disassembling it and waiting through the time vault.
 
 It is important to give \ldawmsr (and similar \ac{DAR} \ac{EA} proposals) its due. The worst case scenario still
 precludes \ac{masssurv} and includes non-repudiation that access occurred. This is a significant gain for \ac{EA}
@@ -594,14 +594,14 @@ their devices to read their contents without legal due process, this would be an
 \paragraph*{Transparency} \ldawmsr provides transparency to the device user, but does not provide transparency to the
 public. Due to destructive disassembly (or the hardware transparency mechanism), whether a device has been accessed
 using this method is irrefutable. However, this can only be confirmed if the device is available. Neither the user nor
-the public can detect if a device is lawfully accessed under secretive conditions or is stolen and unlocked by
-criminals. This leaves allows the potential for government abuse---though again with the caveat that physical possession
-requirements mean it cannot be abused without a trace.
+the public can detect if a device has been unlocked under secretive conditions, whether lawfully or criminally. This
+leaves allows the potential for government abuse---though again with the caveat that physical possession requirements
+mean it cannot be abused without a trace.
 
-\paragraph*{Law enforcement utility} \ldawmsr performs a few tradeoffs between security and law enforcement utility. The
+\paragraph*{Law enforcement utility} \ldawmsr includes a few tradeoffs between security and law enforcement utility. The
 requirements to have physical possession of the device, to wait through the time vault, and to limit the number of
-authorized law enforcement laboratories each create barriers to usability. The physical possession requirement is far
-too important for security and civil liberties to sacrifice for utility. Furthermore, law enforcement, and search and
+authorized law enforcement laboratories all create barriers to usability. The physical possession requirement is far too
+important for security and civil liberties to sacrifice for utility. Furthermore, law enforcement, and search and
 seizure law generally, is geared towards physical evidence already. The time vault prevents against time-sensitive
 threats, though destructive disassembly (not part of the original proposal) may be enough to cover these cases as well,
 so the time vault could be decreased without significant impact. Limiting the number of laboratories able to use the
@@ -614,9 +614,9 @@ and federal agencies.
 \paragraph*{Economic impact} Expenses to the vendor fall into three categories---the costs of implementing the design,
 running the system, and absorbing lost business. Even if a proposal like \ldawmsr was refined enough to be implemented,
 the vendor would need to update hardware designs and create the software systems to get it started. Once in use, the
-vendor would face considerable costs in running it securely, due to the difficulty or safely accessing and updating the
+vendor would face considerable costs in running it securely due to the difficulty of safely accessing and updating the
 unlock artifacts. Finally, the vendor would certainly lose privacy-conscious customers to small businesses, foreign
 competitors, or resellers offering pre-\ac{EA} devices. The scale of these costs relative to device manufacturer's large
 size is unclear. Costs to the government include the \ac{FBI} laboratory cost and the cost of law enforcement resources
-and training. Government reimbursement for vendor compliance costs has precedent in laws like \acs{CALEA}, and could be
-applied to a \ac{DAR} \ac{EA} regulation as well \cite{edwards_hr4922_1994}.
+and training. \acs{CALEA} includes provisions for government reimbursement of vendor compliance costs, and a similar
+provision could be applied to a \ac{DAR} \ac{EA} regulation \cite{edwards_hr4922_1994}.
