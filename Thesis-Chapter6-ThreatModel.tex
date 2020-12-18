@@ -526,17 +526,16 @@ to unlock a device without authorization can be seen as escalation of privilege.
 
 \section{Risk Analysis}
 
-The amount of risk \ldawmsr introduces depends on the number of suggested mitigations that are implemented. Some threats
-introduce inherently little risk due to their difficult nature and low pay off. Others introduce greater risk but can be
-reasonably mitigated. Some threats specifically target transparency, and therefore are difficult to address without
-trust. Finally, there are some risks that cannot be safely mitigated. Each of these classes of threats are discussed in
-turn.
+The amount of risk \ldawmsr introduces depends on the number of suggested mitigations that are implemented. Some
+possible attacks introduce inherently little risk due to their difficult nature and low pay off. Others introduce
+greater risk but can be reasonably addressed. Some threats specifically target transparency, and therefore are difficult
+to address without trust. Finally, there are some risks that cannot be safely mitigated. Each of these classes of
+threats are discussed in turn.
 
 \ii{S6}, \ii{T1}, \ii{T3}, \ii{I1}, \ii{I3}, \ii{I6}, \ii{D1}, \ii{D2}, and \ii{E1} \ii{E2} are each low-risk. They
-either fail to produce useful results, can be reasonably mitigated, or are a threat that is already present in the
-baseline depicted in \mysec{sec-basic-dar}. Although these threats are not fatal flaws to a design, it is important for
-a designer to consider and mitigate the risk they pose. Unless they appear in combination with other threats, they do
-not deserve more discussion.
+either are preventable, unuseful, or already present in the baseline depicted in \mysec{sec-basic-dar}. Although these
+threats are not fatal flaws to a design, it is important for a designer to consider and mitigate the risk they pose.
+Unless they appear in combination with other threats, they do not deserve more discussion.
 
 \ii{S1}, \ii{S2}, \ii{S3}, \ii{S4}, \ii{S5}, \ii{T2}, \ii{T4}, \ii{R1}, and \ii{I2} are all higher-risk threats to the
 security, trustworthiness, and effectiveness of the proposal. However, they can be mitigated through a set of related
@@ -550,17 +549,16 @@ Together, these mitigations make the proposal more resistant to attacks.
 \ii{R2}, \ii{R3}, and \ii{R4} are repudiation attacks that belie the system's potential for abuse. The system relies on
 legal processes and cooperation of several parties. Even in the U.S., the legal process may involve secret courts,
 secret investigations, and secrecy orders on the vendor \cite{shamsi_2011}. Under these conditions, transparency is
-difficult to achieve. A destructive disassembly requirement provides non-repudiation that the device was unlocked, if
-and only if one has physical access to the device. Technically enforced transparency into device access requests and
-responses would grant non-repudiation at a broader level. \ldawmsr does not include a mechanism for the feature, though
-other \ac{DAR} \ac{EA} proposals do \cite{phan_key_2017} \cite{servan_schreiber_jje_2020} \cite{goldwasser_public_2017}.
-Unfortunately, building this feature into a proposal makes it potentially vulnerable the hawkish lawmaker, who may
-consider too much transparency to be an anti-feature.
+difficult to achieve. The destructive disassembly requirement enables transparency at a device level. Auditable logs of
+device access \ii{requests and responses} would enable transparency at a system level. \ldawmsr does not create such a
+log, though other \ac{DAR} \ac{EA} proposals do \cite{phan_key_2017} \cite{servan_schreiber_jje_2020}
+\cite{goldwasser_public_2017}. Unfortunately, building this feature into a proposal makes it potentially vulnerable the
+hawkish lawmaker, who may consider too much transparency to be an anti-feature.
 
 Finally, there are the threats of \ii{I4}, \ii{I5}, and \ii{E3}, which each represent the disclosure of unlock artifact
 data (the DID-DSK database). These threats create a large amount of risk that cannot be safely mitigated. Storing so
 much sensitive data in a central database creates a high-value target for foreign intelligence and cyber criminals. The
-vendor needs to protect this database from the most advanced attackers in the world while regularly updating and
+vendor needs to protect this database from the most advanced attackers in the world while also regularly updating and
 accessing it. \Acp{HSM} and robust security policies would make that a difficult task. The data will almost certainly
 leak eventually. The effects of such an event would depend on who stole the unlock artifacts. Criminals would use the
 data for personal and financial gain; foreign intelligence and authoritarian regimes would use it to spy on their
@@ -580,36 +578,33 @@ measured against each of these goals.
 
 \paragraph*{Security} Security has already been discussed at length in this chapter. \ldawmsr introduces significant
 risk in the DID-DSK database itself, but performs well in many other respects, especially if the recommended mitigations
-are implemented. It goes from very hard to attack, when everything is working as intended, to simple to attack, when the
-database is leaked. However, even when it becomes trivial to attack, the attackers are limited to devices in their
-physical possession and cannot hide access from their victims.
+are implemented. When the unlock artifacts are disclosed, the system becomes simple to attack. However, even in these
+conditions, attackers are limited to devices in their physical possession and cannot hide access from their victims.
 
 \paragraph*{Protection of civil liberties} This goal was defined as defending against \ac{masssurv} and abuse by
-authoritarian regimes. \ldawmsr does an excellent job of protecting against \ac{masssurv} due to its physicality. Any
-power cannot abuse this technology at scale. It is not as strong at protecting against authoritarian regimes. Prior to a
-leak, vendors would face intense and possibly coercive legal pressure to unlock devices in foreign countries. After a
-leak, these regimes could get into any device they want. If one lived in a country that was willing to take and destroy
-their devices to read their contents without legal due process, this would be an unwelcome technology.
+authoritarian regimes. \ldawmsr successfully protects against \ac{masssurv} due to the physical possession and
+destructive disassembly requirements. It is not as effective against authoritarian regimes, which would put intense and
+possibly coercive legal pressure on vendors to unlock devices. In the case of an unlock artifacts leak, regimes could
+broadly abuse the system. This technology would be unwelcome to those living in countries that do not respect rule of
+law.
 
 \paragraph*{Transparency} \ldawmsr provides transparency to the device user, but does not provide transparency to the
-public. Due to destructive disassembly (or the hardware transparency mechanism), whether a device has been accessed
-using this method is irrefutable. However, this can only be confirmed if the device is available. Neither the user nor
-the public can detect if a device has been unlocked under secretive conditions, whether lawfully or criminally. This
-leaves allows the potential for government abuse---though again with the caveat that physical possession requirements
-mean it cannot be abused without a trace.
+public. As discussed in the previous section, the destructive disassembly requirement would result in transparency at
+the device level. However, access to a device can only be confirmed if the device is available. Neither the user nor the
+public can detect if a device has been unlocked under secretive conditions, whether lawfully or criminally. This creates
+potential for government abuse.
 
 \paragraph*{Law enforcement utility} \ldawmsr includes a few tradeoffs between security and law enforcement utility. The
 requirements to have physical possession of the device, to wait through the time vault, and to limit the number of
-authorized law enforcement laboratories all create barriers to usability. The physical possession requirement is far too
-important for security and civil liberties to sacrifice for utility. Furthermore, law enforcement, and search and
-seizure law generally, is geared towards physical evidence already. The time vault prevents against time-sensitive
-threats, though destructive disassembly (not part of the original proposal) may be enough to cover these cases as well,
-so the time vault could be decreased without significant impact. Limiting the number of laboratories able to use the
-system reduces the risk of spoofing attacks; local law enforcement would have to cooperate with one of these special
-laboratories, such as a regional \ac{FBI} office. (This really just shifts the spoofing threat up a level, though the
-shift is appropriate.) In the end, law enforcement still has a reliable way to get into lawfully seized devices.
-\ldawmsr upholds its end, but the government must fund the \ac{FBI} operation and cultivate cooperation between local
-and federal agencies.
+authorized law enforcement laboratories all create barriers to usability. The physical possession requirement is too
+important for security to be compromised for utility. Additionally, search and seizure law is already designed for
+physical evidence; maintaining the possession requirement makes the system operate within well-understood norms. The
+time vault prevents against time-sensitive attacks, though destructive disassembly (not part of the original proposal)
+may be enough to cover these cases. The time vault period could be decreased without significant impact. Limiting the
+number of laboratories that can use the system reduces the risk of spoofing attacks; local law enforcement would have to
+cooperate with one of these special laboratories, such as a regional \ac{FBI} office, to unlock a device. In the end,
+law enforcement still has a reliable way to get into lawfully seized devices. \ldawmsr upholds its end, but the
+government must fund the \ac{FBI} operation and cultivate cooperation between local and federal agencies.
 
 \paragraph*{Economic impact} Expenses to the vendor fall into three categories---the costs of implementing the design,
 running the system, and absorbing lost business. Even if a proposal like \ldawmsr was refined enough to be implemented,
