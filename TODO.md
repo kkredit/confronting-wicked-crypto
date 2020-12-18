@@ -2,10 +2,9 @@
 
 ## By final submission (Dec. 19)
 
-- Address TODO:s and FIXME:s
-- Proof read for errors
-- Proof read for style
-- Edit: "You're finished not when there's nothing left to add, but when there is nothing left to take away"
+- Final read-through
+- Pottieger signature
+- Submit
 
 ## If return and publish later
 
@@ -24,15 +23,21 @@
 
 - Discuss
   - Congrats on 10 years
+  - The dean's citation award ceremony was last night -- thanks again for nominating me
   - Sharing with friends and family?
   - Publishing?
+    - He tends to favor journals over conferences
+    - GVSU does pay for open access publication fees (<$3000)
+    - Journal choice
+      - ACM, IEEE probably fine (IEEE, not always)
+      - USENIX probably fine if applicable
+      - IARIA has low-standards
 - Action items
   - Finalization
     - [ScholarWorks form](https://www.gvsu.edu/cms4/asset/777A03CA-E5D1-90B3-8FF97B7EA6E9ECB3/thesis_agreement_fillable(3).pdf)
     - [Approval form](https://www.gvsu.edu/cms4/asset/777A03CA-E5D1-90B3-8FF97B7EA6E9ECB3/thesis_approval_form_2020-21.docx)
-      - Still need signature from Engelsma!
+      - Still need signature from Dean Pottieger
   - Spinoffs
     - Short paper on diagramming method of cryptography (Kalafut)?
     - Short overview for the Applied Computing Institute blog (Engelsma)? (would link to full thesis)
     - Adapting for 290 class (Leidig)?
-  - Pro
