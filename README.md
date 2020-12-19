@@ -4,27 +4,27 @@ This repository contains the source for my master's thesis on addressing the
 [wicked problem](https://en.wikipedia.org/wiki/Wicked_problem) of cryptography and exceptional access in the midst of
 overlapping issues of security, safety, privacy, and trust.
 
-The title is partially derived from Alan Z. Rozenshtein's excellent paper on the subject titled
+The title is partially derived from Alan Z. Rozenshtein's paper on the subject titled
 [_Wicked Crypto_](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3256858).
 
 ## Abstract
 
-Public debate has resumed over whether encryption systems should support alternative means of decryption intended for
-law enforcement use, called exceptional access (EA). Rather than a renege on a solemn promise made at the end of the
-1990s ``crypto war,'' this represents a valid reassessment of optimal policy in light of changing circumstances.
-Achieving proper balance between privacy and access in the context of constantly changing society and technology is a
-wicked problem that has and will evade a permanent solution. As policymakers consider next steps, it behooves the
-technical community to stay engaged. Although the introduction of EA would inevitably introduce risk, the quality of the
-technical and regulatory approach can make a substantial difference. Furthermore, if one considers ham-fisted
-legislative action and malicious abuse of cryptosystems as part of the threat model, well-designed EA may reduce overall
-risk.
+Public debate has resumed on the topic of exceptional access (EA), which refers to alternative means of decryption
+intended for law enforcement use. The resumption of this debate is not a renege on a resolute promise made at the end of
+the 1990s "crypto war"; rather, it represents a valid reassessment of optimal policy in light of changing circumstances.
+The imbalance between privacy, access, and security in the context of constantly changing society and technology is a
+wicked problem that has and will continue to evade a permanent solution. As policymakers consider next steps, it is
+necessary that the technical community remain engaged. Although any EA framework would increase risk, the magnitude of
+that increase varies greatly with the quality of the technical and regulatory approach. Furthermore, if one considers
+hard-line legislative action and malicious abuse of cryptosystems as part of the threat model, well-designed EA may
+reduce risk overall.
 
-The root of the conflict lies in cryptography's dual role as enabler of unprecedented privacy and cornerstone of
-security. The emergence of strong encryption triggered the first crypto war, and its proliferation is causing the
-second. In response to both polarized and conciliatory voices, I will analyze strategies that do and do not work on
-wicked problems and promote an iterative approach to the case of encryption and EA. Along the way I will illustrate the
-components of the debate in argument maps and demonstrate the security risks with data flow diagrams, making clear
-distinctions for the separate problems of EA for data in motion and data at rest.
+The root of the conflict lies in cryptography's dual role as an enabler of unprecedented privacy and a cornerstone of
+security. The emergence of strong encryption incited the first crypto war, and its proliferation is causing the second.
+In response to both polarized and conciliatory voices, this paper analyzes strategies for confronting wicked problems
+and proposes an iterative approach to the case of encryption and EA. Along the way, it illustrates the components of the
+debate in argument maps and demonstrate the security risks with data flow diagrams and threat analysis, focusing on one
+EA proposal in particular, Stefan Savage's "Lawful Device Access without Mass Surveillance Risk."
 
 ## Key Influences
 

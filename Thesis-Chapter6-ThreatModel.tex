@@ -71,7 +71,7 @@ more advanced technical capabilities, including full control over all interfaces
 of motivations and capabilities. They will target the backend systems that operate the \ac{EA} system in order to abuse
 or sell whatever access capabilities they acquire.}
 
-\modelitem{Insider threat}{Insider threats involve attackers with roles inside the \ac{EA} recovery process who seek to
+\modelitem{Insider threat}{Insider threats are attackers with roles inside the \ac{EA} recovery process who seek to
 abuse the system for their own purposes. They could work in law enforcement, a device vendor, or a digital service
 provider. They may have the same motivations and skills of any other criminal category, but they have the advantage of
 privileged access at some stage in the process.}
@@ -95,30 +95,30 @@ perspective.
 \modelstart
 
 \modelitem{The platform abuser}{The device user him or herself may actually be a threat in the larger safety context.
-Therefore, the end user's will is not the platform's top priority.\\
+Therefore, the end user's will is not the platform's top priority.
 
-All technologies have embedded values \cite{rogaway_moral_2015}, and at the top of each value system is one top
-priority. Traditional device security threat models prioritize the will of end user. This leads to robust design
-decisions and honors the user's rights and autonomy.\\
+\parboxindent All technologies have embedded values \cite{rogaway_moral_2015}, and at the top of each value system is
+one top priority. Traditional device security threat models prioritize the will of end user. This leads to robust design
+decisions and honors the user's rights and autonomy.
 
-It is dangerous to stray from this rule, but many systems already do. Auto-updating software values the vendor's update
-policy over the user's preferences. Digital Rights Management software values corporations' data rights over the user's
-(sometimes to extremes \cite{eff_2020}). Unencrypted e-mail software values the e-mail provider's ability to collect
-personal information over the user's privacy. \Acl{EA} software values lawful investigation over the user's absolute
-privacy. Intentional subversion of the user's will violates a security practitioner's instincts, but it is a frequent
-reality.\\
+\parboxindent It is dangerous to stray from this rule, but many systems already do. Auto-updating software values the
+vendor's update policy over the user's preferences. Digital Rights Management software values corporations' data rights
+over the user's (sometimes to extremes \cite{eff_2020}). Unencrypted e-mail software values the e-mail provider's
+ability to collect personal information over the user's privacy. \Acl{EA} systems value lawful investigation over the
+user's absolute privacy. Intentional subversion of the user's will violates a security practitioner's instincts, but it
+is a frequent reality.
 
-In the broader threat model, the platform abuser uses encryption to hide illicit activities. He or she is a threat to
-public safety.}
+\parboxindent In the broader threat model, the platform abuser uses encryption to hide illicit activities. He or she is
+a threat to public safety.}
 
 \modelitem{Hawkish lawmakers}{In the pursuit of security and privacy for society as a whole, aggressive lawmakers that
 have the power to \ii{mandate} arbitrary data access present perhaps the largest threat of all. Crypto-anarchists will
 encrypt their data above the compromised layer regardless, but above-the-table organizations and most individuals who
-use default products will abide by U.S. law.\\
+use default products will abide by U.S. law.
 
-Hawkish lawmakers threaten the security of a cryptosystem (whether it uses \ac{EA} or not) because they may judge the
-system as too inhibitive to law enforcement. Therefore, they may outlaw its use and mandate something weaker in its
-place.}
+\parboxindent Hawkish lawmakers threaten the security of a cryptosystem (whether it uses \ac{EA} or not) because they
+may judge the system as too inhibitive to law enforcement. Therefore, they may outlaw its use and mandate something
+weaker in its place.}
 
 \modelend
 
@@ -132,11 +132,11 @@ The following considerations are beyond the scope of this threat model.
 are always a risk. Defending against such workarounds is not the role of the \ac{EA} system itself.}
 
 \modelitem{\ac{EA} workarounds}{The user can evade \ac{EA} mechanisms by encrypting data at a higher level in the tech
-stack, for example by encrypting files before saving them to disk. Additionally, investigators or attackers can often
-bypass current lockout mechanisms. This has already been discussed, and is not relevant when evaluating the \ac{EA}
-system itself.}
+stack, for example by encrypting files in software before saving them to disk. Additionally, investigators or attackers
+can often bypass current lockout mechanisms. This has already been discussed, and is not relevant when evaluating the
+\ac{EA} system itself.}
 
-\modelitem{Supply chain attacks}{It is necessary to protecting device hardware and software supply chains in order to
+\modelitem{Supply chain attacks}{It is necessary to protect device hardware and software supply chains in order to
 prevent surreptitious, trivially exploitable backdoors. For the purposes of this threat model, device hardware and
 software are assumed to be uncompromised, aside from the standard amount of bugs and side-channels.}
 
@@ -179,7 +179,7 @@ passed to the Encryption Module. The Encryption Module performs encryption and d
 the operating system and the encrypted storage.
 
 The \ac{UID} is not depicted in key storage because it is burned into the secure processor silicon and cannot be read by
-software. The Volume key is encrypted by the Class key before it is stored. When a user updates his \ac{PIN}, the
+software. The Volume key is encrypted by the Class key before it is stored. When a user updates his or her \ac{PIN}, the
 encrypted Volume key in storage is replaced with the copy encrypted with the new Class key. Application processors do
 not handle any keys or secret information besides the \ac{PIN}. Due to inline encryption in the Encryption Module,
 persistent storage does not handle \ac{plaintext} data.
@@ -285,7 +285,7 @@ for these scenarios.
 The next step in threat modeling is to elicit threats based on the system's goals, threat actors, scope, and design.
 Recall from \mysec{sec-crypto-basics} that security can be expressed in terms of authentication, integrity,
 non-repudiation, confidentiality, availability, and authorization. Threats are often expressed as the opposite of these
-properties: spoofing, tampering, repudiation, information disclosure, \acl{DOS}, and elevation of privileged
+properties: spoofing, tampering, repudiation, information disclosure, \acl{DOS}, and elevation of privilege
 \cite{shostack_threat_2014}. This section analyzes \ldawmsr according to these categories. Threats that could fall into
 multiple categories, such as tampering for the effect of repudiation, are listed only once.
 
@@ -544,7 +544,7 @@ to be physically present on LEA premises the entire duration it is unlocked, and
 the lawful right to use the \ac{EA} mechanism. Requiring destructive disassembly entirely precludes certain attacks.
 Requiring the device to be on LEA premises prevents attackers from manipulating LE into achieving the attackers' ends.
 Limiting the number of LE facilities that can participate in the \ac{EA} process prevents LE impersonation attacks.
-Together, these mitigations make the proposal more resistant to attacks.
+Together, these mitigations make the proposal more resistant to attack.
 
 \ii{R2}, \ii{R3}, and \ii{R4} are repudiation attacks that belie the system's potential for abuse. The system relies on
 legal processes and cooperation of several parties. Even in the U.S., the legal process may involve secret courts,
@@ -559,10 +559,10 @@ Finally, there are the threats of \ii{I4}, \ii{I5}, and \ii{E3}, which each repr
 data (the DID-DSK database). These threats create a large amount of risk that cannot be safely mitigated. Storing so
 much sensitive data in a central database creates a high-value target for foreign intelligence and cyber criminals. The
 vendor needs to protect this database from the most advanced attackers in the world while also regularly updating and
-accessing it. \Acp{HSM} and robust security policies would make that a difficult task. The data will almost certainly
-leak eventually. The effects of such an event would depend on who stole the unlock artifacts. Criminals would use the
-data for personal and financial gain; foreign intelligence and authoritarian regimes would use it to spy on their
-enemies. In the worst-case scenario, anyone with specialized tools and disregard for the law could get into any
+accessing it. \Acp{HSM} and robust security policies would make that a difficult task. However, the data will almost
+certainly leak eventually. The effects of such an event would depend on who stole the unlock artifacts. Criminals would
+use the data for personal and financial gain; foreign intelligence and authoritarian regimes would use it to spy on
+their enemies. In the worst-case scenario, anyone with specialized tools and disregard for the law could get into any
 compliant device after disassembling it and waiting through the time vault.
 
 It is important to give \ldawmsr (and similar \ac{DAR} \ac{EA} proposals) its due. The worst case scenario still
@@ -603,8 +603,8 @@ time vault prevents against time-sensitive attacks, though destructive disassemb
 may be enough to cover these cases. The time vault period could be decreased without significant impact. Limiting the
 number of laboratories that can use the system reduces the risk of spoofing attacks; local law enforcement would have to
 cooperate with one of these special laboratories, such as a regional \ac{FBI} office, to unlock a device. In the end,
-law enforcement still has a reliable way to get into lawfully seized devices. \ldawmsr upholds its end, but the
-government must fund the \ac{FBI} operation and cultivate cooperation between local and federal agencies.
+law enforcement still has a reliable way to get into lawfully seized devices. \ldawmsr does its part, but the government
+must fund the \ac{FBI} operation and cultivate cooperation between local and federal agencies.
 
 \paragraph*{Economic impact} Expenses to the vendor fall into three categories---the costs of implementing the design,
 running the system, and absorbing lost business. Even if a proposal like \ldawmsr was refined enough to be implemented,
@@ -614,4 +614,4 @@ unlock artifacts. Finally, the vendor would certainly lose privacy-conscious cus
 competitors, or resellers offering pre-\ac{EA} devices. The scale of these costs relative to device manufacturer's large
 size is unclear. Costs to the government include the \ac{FBI} laboratory cost and the cost of law enforcement resources
 and training. \acs{CALEA} includes provisions for government reimbursement of vendor compliance costs, and a similar
-provision could be applied to a \ac{DAR} \ac{EA} regulation \cite{edwards_hr4922_1994}.
+provision could be applied to \ac{DAR} \ac{EA} regulation \cite{edwards_hr4922_1994}.
