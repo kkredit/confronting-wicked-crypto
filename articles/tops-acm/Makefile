@@ -1,6 +1,7 @@
 DOCNAME := manuscript
 OUTDIR := build
 TEMPLATE := ../acm-template
+THESIS_BASE := ../..
 
 ARG_SRC_DIR := ../../arguments
 ARG_IMAGE_SOURCES  := $(wildcard $(ARG_SRC_DIR)/*.ad)
@@ -16,7 +17,7 @@ SOURCES := $(wildcard *.tex) $(wildcard *.bib) $(wildcard $(TEMPLATE)/*.tex) $(w
 			$(ARG_IMAGE_SOURCES) $(DFD_IMAGE_SOURCES)
 LATEX_OPTS := -xelatex -bibtex -outdir=$(OUTDIR) -halt-on-error -file-line-error
 LIVE_OPTS := -pvc -view=none
-LATEX_PATHS := '.:./$(TEMPLATE):'
+LATEX_PATHS := '.:./$(TEMPLATE):./$(THESIS_BASE):'
 ENVIRON := TEXINPUTS=$(LATEX_PATHS) TEXFORMATS=$(LATEX_PATHS)
 
 .PHONY: all pdf images live clean clean-all prereqs
