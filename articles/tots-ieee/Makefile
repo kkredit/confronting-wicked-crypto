@@ -44,5 +44,8 @@ $(OUTDIR)/$(DOCNAME).pdf: $(SOURCES) | prereqs
 live: | prereqs
 	$(ENVIRON) latexmk -jobname=$(DOCNAME) $(LATEX_OPTS) $(LIVE_OPTS) $(DOCNAME)
 
+$(DOCNAME).bib:
+	$(MAKE) -C $(THESIS_BASE) Thesis.bib
+
 clean:
 	rm -rf $(OUTDIR)
