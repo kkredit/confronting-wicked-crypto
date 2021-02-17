@@ -11,7 +11,7 @@ OUTFILE="../Thesis.bib"
 function check_for_duplicate_refname() {
   local REFNAME
   REFNAME="$(echo "$REF" | grep ^@ | cut -d\{ -f2 | cut -d, -f1)"
-  if grep -q "$REFNAME" "$OUTFILE"; then
+  if grep -w -q "$REFNAME" "$OUTFILE"; then
     echo "Duplicate reference name: $REFNAME"
     exit 1
   fi
