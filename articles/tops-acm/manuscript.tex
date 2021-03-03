@@ -203,10 +203,68 @@ analysis.
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PAPER %
-\section{Introduction}
+
+% TODO: add actual intro.
+
+\section{Threat Modeling with Data Flow Diagrams}
+\label{sec-threat-model-intro}
+
+Threat modeling is an important step in analyzing the security at the systems level. Models abstract away fine details
+and focus on the architecture, processes, and dataflows in a system. They assist in the understanding of current systems
+and the prevention of problems in new systems, both of which are important when facing the prospect of designing an
+\ac{EA} mechanism built on top of a complex and aging technology stack.
+
+Threat modeling begins with the questions, ``What are you building?'' and ``What can go wrong?''
+\cite{shostack_threat_2014}. Accurately answering the first question is crucial, particularly for the field of
+cryptography, which hinges on precise definitions of security requirements \cite{varia_2018}. The answer to the second
+question depends on the types of attackers under consideration and determines the scope of threats to be considered.
+``What are you building?'' hasn't been asked enough in the current phase of the \ac{EA} debate, and ``What can go
+wrong?'' cannot be faithfully answered without knowing what is being built.
+
+\Acp{DFD} were designed to address these questions. \Acp{DFD} feature processes, data flows, data stores, and external
+entities. \Acp{DFD} are well-suited for threat modeling because security vulnerabilities tend to follow data flow, not
+control flow \cite{shostack_threat_2014}. They are particularly well-suited for \ac{EA}, as data privacy is of primary
+concern. \myfig{fig-dfd-dh-traditional} shows the basic elements of a \ac{DFD} of a simplified Diffie-Hellman key
+exchange.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{dfds/build/diffie-hellman-traditional.png}
+    \caption{A \acs{DFD} for a simplified Diffie-Hellman key exchange}
+    \label{fig-dfd-dh-traditional}
+\end{figure}
+
+\Acp{DFD} show what data is transferred via labels on the flows. However, labels can be insufficient in complex
+\acp{DFD}, and the method has no syntax for computation or cryptographic protocols. In order to maximize their
+communicative ability in the context of encryption and \acl{EA} schemes, I introduce the additional syntax show in
+\myfig{fig-dfd-dh-updated}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{dfds/build/diffie-hellman.png}
+    \caption{A Diffie-Hellman key exchange illustrated with additional syntax}
+    \label{fig-dfd-dh-updated}
+\end{figure}
+
+The new syntax illustrates the data in more detail as it is stored, transferred, and operated on. By illustrating the
+data itself, it eliminates the need for labels on lines and can be used to communicate entire protocols in a single
+diagram. \myfig{fig-dfd-key} contains the full set of symbols. \mysec{sec-intro} includes \acp{DFD} in this style to
+analyze threats that EA would introduce.
+
+% TODO: fix \mysec{sec-intro} reference in above paragraph
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.85\linewidth]{dfds/build/dfd-key.png}
+    \caption{Expanded set of DFD symbols}
+    \label{fig-dfd-key}
+\end{figure}
+
+
+\section{Analysis Introduction}
 \label{sec-intro}
 
-% TODO: add actual intro, not just chapter intro. Take some from paper intro, but also introduce the diagram syntax
+% TODO: add actual intro, not just chapter intro. Take some from Thesis intro.
 
 This chapter consists of a threat model and analysis of a specific device key escrow \ac{LA} proposal, Stefan Savage's
 ``Lawful Device Access without Mass Surveillance Risk: A Technical Design Discussion'' \cite{savage_lawful_2018}. The
