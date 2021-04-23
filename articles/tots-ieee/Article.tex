@@ -53,8 +53,6 @@
 
 \begin{abstract}
 
-% NOTE: I think we should switch terminology to "Lawful access" for the paper (as opposed to EA)
-
 % NOTE: The first paragraph of the abstract was copied. The second I tweaked.
 Public debate has resumed on the topic of lawful access (LA) to encrypted data, which refers to alternative means of
 decryption intended for law enforcement use. The resumption of this debate is not a renege on a resolute promise made at
@@ -83,11 +81,12 @@ encryption, exceptional access, policy, wicked problems
 \section{Introduction}
 \label{sec-intro}
 
-% TODO: add actual intro, not just chapter intro. Take some from paper intro, but also briefly discuss wicked problems
+% TODO: add actual intro, not just chapter intro. Take some from paper intro. Introduce topic as complex and
+% multifaceted, but avoid actual "wicked problem" terminology for sake of space.
 
-In encryption policy, \ac{EA} is alternative means of
-decryption intended for law enforcement use. Characterized by a dynamic technological environment, disagreement about
-underlying values, and resistance to a clear solution, the debate on \ac{EA} will not go away. 
+In encryption policy, \ac{EA} is alternative means of decryption intended for law enforcement use. Characterized by a
+dynamic technological environment, disagreement about underlying values, and resistance to a clear solution, the debate
+on \ac{EA} will not go away.
 
 The conflict at the heart of the encryption and \ac{EA} debate is this: the same cryptographic and design principles
 that underlie nearly all digital security also enable an unprecedented degree of individual privacy. Encryption is a
@@ -117,13 +116,13 @@ Bad policy is just as much a threat as weak passwords. Due to this threat, as lo
 \ac{EA} regulation, it is the responsibility of the technical community to engage in discussion and respond to the
 presented arguments.
 
-This paper will analyze the \ac{encryption} debate using \acp{argmap}. The maps facilitate comprehension of the
-debate, although two important shortcomings of the maps presented here must be acknowledged. First, argument maps should be used simply
-as tools in the collaborative pursuit of the problem definition and solution. Maps assembled from research are not a
-replacement for debate arising from live discussion. Second, \acp{argmap} may deceptively portray the strength of an
-argument. Argument nodes do not indicate their strength or validity. If ten unsound arguments were presented against one
-indisputable argument, the side with more arguments would, regardless of the arguments' integrity, appear stronger. With
-those qualifications in mind, let us begin by examining the factors at the center of the conflict.
+This paper will analyze the \ac{encryption} debate using \acp{argmap}. The maps facilitate comprehension of the debate,
+although two important shortcomings of the maps presented here must be acknowledged. First, argument maps should be used
+simply as tools in the collaborative pursuit of the problem definition and solution. Maps assembled from research are
+not a replacement for debate arising from live discussion. Second, \acp{argmap} may deceptively portray the strength of
+an argument. Argument nodes do not indicate their strength or validity. If ten unsound arguments were presented against
+one indisputable argument, the side with more arguments would, regardless of the arguments' integrity, appear stronger.
+With those qualifications in mind, let us begin by examining the factors at the center of the conflict.
 
 
 \section{Contributing Factors}
@@ -169,12 +168,13 @@ collect accurate statistics, and because one can never be sure of how an investi
 absence of encryption'' \cite{rozenshtein_wicked_2018}. However, it is still crucial to have an accurate depiction of
 the problem in order to come to justified and helpful solutions. This argument is analyzed further in the next section.
 
-Information security is the remaining central issue in the debate. \ac{cryptography}
-plays a foundational role in nearly every aspect of security. Past \ac{EA} regulation efforts sought to compromise the
-cryptographic foundations of encryption; however, this is seen as too risky today. Although there are several alternative technical approaches to \ac{EA}, experts still emphasize that current systems cannot securely provide
-the level of access \acl{LE} asks for \cite{abelson_2015} \cite{abelson_risks_1997}. Security was an afterthought in
-early computing and networking designs. The field of cybersecurity is still equal parts art and science; mandated
-\ac{EA} would put a heavy burden on a field still finding its legs.
+Information security is the remaining central issue in the debate. \ac{cryptography} plays a foundational role in nearly
+every aspect of security. Past \ac{EA} regulation efforts sought to compromise the cryptographic foundations of
+encryption; however, this is seen as too risky today. Although there are several alternative technical approaches to
+\ac{EA}, experts still emphasize that current systems cannot securely provide the level of access \acl{LE} asks for
+\cite{abelson_2015} \cite{abelson_risks_1997}. Security was an afterthought in early computing and networking designs.
+The field of cybersecurity is still equal parts art and science; mandated \ac{EA} would put a heavy burden on a field
+still finding its legs.
 
 Finally, it is arguable that \ac{EA} could have positive alternative applications. It could enable malware scanning,
 password recovery, or administrator access in a business setting. Typically these applications have other solutions,
@@ -552,7 +552,9 @@ can be better informed.
 \bibliography{IEEEabrv,Article} % IEEEfull or IEEEabrv
 
 \begin{IEEEbiography}{Kevin Kredit}
-  Placeholder biography for Kevin. Please fill in.
+  B.S Engineering from Calvin University, M.S. Applied Computer Science from Grand Valley State University.
+  % NOTE: I'm not really sure what these are supposed to contain. I tried to view some example papers, but couldn't get
+  % access.
 \end{IEEEbiography}
 
 \begin{IEEEbiography}{Andrew Kalafut}
