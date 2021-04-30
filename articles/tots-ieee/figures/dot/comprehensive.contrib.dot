@@ -1,9 +1,11 @@
 digraph "Argument Map" {
 
 rankdir = "BT";
+ranksep = "0.25";
+nodesep = "0.1"
 concentrate = "false";
-ratio = "auto";
-size = "10,10";
+ratio = "compress";
+size = "6,8.5";
 edge[arrowsize="1", penwidth="1"]graph [bgcolor = "transparent" ]
 subgraph cluster_1 {
   label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Central&#x20;Issues&#x20;</FONT>>;
