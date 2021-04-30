@@ -1,0 +1,89 @@
+digraph "Argument Map" {
+
+rankdir = "BT";
+concentrate = "false";
+ratio = "compress";
+size = "8,10";
+edge[arrowsize="1", penwidth="1"]graph [bgcolor = "transparent" ]
+subgraph cluster_1 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Central&#x20;Issues&#x20;</FONT>>;
+  color = "#DADADA";
+  margin="8" style = filled;
+ labelloc = "b";
+
+  n0 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Data&#x20;Privacy&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Individuals&#x20;in&#x20;a&#x20;free&#x20;society&#x20;<BR/>have&#x20;the&#x20;right&#x20;to&#x20;a&#x20;<BR/>reasonable&#x20;expectation&#x20;of&#x20;<BR/>privacy.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#d95f02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n1 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Institutional&#x20;Trust&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Governments&#x20;and&#x20;<BR/>corporations&#x20;have&#x20;an&#x20;<BR/>obligation&#x20;to&#x20;honor&#x20;their&#x20;<BR/>citizens&#x27;&#x20;and&#x20;customers&#x27;&#x20;<BR/>trust.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#d95f02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+
+}
+
+
+subgraph cluster_2 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Golden&#x20;Age&#x20;Argument&#x20;</FONT>>;
+  color = "#DADADA";
+  margin="8" style = filled;
+ labelloc = "b";
+
+  n5 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Mass&#x20;Surveillance&#x20;Highly&#x20;<BR/>Negative&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Mass&#x20;surveillance&#x20;violates&#x20;<BR/>liberal&#x20;values.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n6 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Technology&#x20;a&#x20;Boon&#x20;to&#x20;<BR/>Surveillance&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Technology&#x20;as&#x20;a&#x20;whole&#x20;has&#x20;<BR/>enabled&#x20;unprecedented&#x20;<BR/>levels&#x20;of&#x20;surveillance.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n7 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Encryption&#x20;Mitigates&#x20;<BR/>Surveillance&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">The&#x20;data&#x20;protection&#x20;offered&#x20;<BR/>by&#x20;encryption&#x20;limits&#x20;<BR/>surveillance&#x20;effectiveness.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n11 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>&#x22;Golden&#x20;Age&#x22;&#x20;Argument&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Technology-enabled&#x20;<BR/>surveillance&#x20;has&#x20;emerged&#x20;<BR/>as&#x20;a&#x20;severe&#x20;threat.&#x20;<BR/>Encryption&#x20;must&#x20;be&#x20;<BR/>encouraged&#x20;as&#x20;a&#x20;<BR/>desperately&#x20;needed&#x20;<BR/>defense.&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#d95f02", fontcolor="#000000",  type="argument-map-node"];
+
+}
+
+
+subgraph cluster_3 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Response&#x20;Measures&#x20;</FONT>>;
+  color = "#DADADA";
+  margin="8" style = filled;
+ labelloc = "b";
+
+
+subgraph cluster_4 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Exceptional&#x20;Access&#x20;</FONT>>;
+  color = "#BABABA";
+  margin="8" style = filled;
+ labelloc = "b";
+
+  n2 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Exceptional&#x20;Access&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Broadly&#x20;deploy&#x20;<BR/>cryptosystems&#x20;with&#x20;some&#x20;<BR/>form&#x20;of&#x20;exceptional&#x20;access.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#63AEF2", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+
+}
+
+
+}
+
+  n3 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>&#x22;Going&#x20;Dark&#x22;&#x20;Conclusion&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Law&#x20;enforcement&#x20;is&#x20;&#x22;Going&#x20;<BR/>Dark&#x22;&#x20;due&#x20;to&#x20;<BR/>evidence-hiding&#x20;encryption.&#x20;<BR/>EA&#x20;is&#x20;needed&#x20;to&#x20;restore&#x20;the&#x20;<BR/>balance&#x20;between&#x20;privacy&#x20;<BR/>and&#x20;safety.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#1b9e77", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n4 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>&#x22;Golden&#x20;Age&#x22;&#x20;Conclusion&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Technology&#x20;is&#x20;enabling&#x20;a&#x20;<BR/>&#x22;Golden&#x20;Age&#x20;for&#x20;<BR/>Surveillance&#x22;&#x20;for&#x20;which&#x20;<BR/>encryption&#x20;is&#x20;the&#x20;strongest&#x20;<BR/>defense.&#x20;EA&#x20;would&#x20;<BR/>compromise&#x20;this&#x20;goal.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#d95f02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n8 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Surveillance&#x20;a&#x20;Tool&#x20;of&#x20;<BR/>Power&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Power&#x20;that&#x20;comes&#x20;from&#x20;the&#x20;<BR/>people&#x20;is&#x20;valid&#x2C;&#x20;but&#x20;<BR/>violations&#x20;and&#x20;weak&#x20;<BR/>oversight&#x20;have&#x20;diminished&#x20;<BR/>trust.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n9 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Surveillance&#x20;Has&#x20;Negative&#x20;<BR/>Side&#x20;Effects&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Such&#x20;as&#x20;chilling&#x20;free&#x20;speech&#x20;<BR/>and&#x20;precluding&#x20;reform.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n10 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Mass&#x20;Surveillance&#x20;<BR/>Contradicts&#x20;Privacy&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Privacy&#x20;and&#x20;mass&#x20;<BR/>surveillance&#x20;are&#x20;mutually&#x20;<BR/>exclusive.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n12 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Argument&#x20;Against&#x20;Mass&#x20;<BR/>Surveillance&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Surveillance&#x20;is&#x20;a&#x20;dangerous&#x20;<BR/>tool.&#x20;Any&#x20;use&#x20;must&#x20;include&#x20;<BR/>oversight&#x2C;&#x20;and&#x20;mass&#x20;<BR/>application&#x20;violates&#x20;liberal&#x20;<BR/>values.&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#929292", fontcolor="#000000",  type="argument-map-node"];
+  n13 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>EA&#x20;Without&#x20;Mass&#x20;<BR/>Surveillance&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">EA&#x20;can&#x20;be&#x20;conceived&#x20;in&#x20;<BR/>manners&#x20;that&#x20;also&#x20;preclude&#x20;<BR/>mass&#x20;surveillance.&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#929292", fontcolor="#000000",  type="argument-map-node"];
+  n14 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Assumes&#x20;Law&#x20;<BR/>Enforcement&#x20;Has&#x20;Access&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">The&#x20;data&#x20;exists&#x2C;&#x20;but&#x20;law&#x20;<BR/>enforcement&#x20;often&#x20;has&#x20;<BR/>trouble&#x20;accessing&#x20;it&#x20;even&#x20;<BR/>via&#x20;traditional&#x20;means.&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#929292", fontcolor="#000000",  type="argument-map-node"];
+  n15 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Access&#x20;not&#x20;a&#x20;problem&#x20;for&#x20;<BR/>Mobile&#x20;Phones&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">As&#x20;of&#x20;this&#x20;research&#x2C;&#x20;law&#x20;<BR/>enforcement&#x20;has&#x20;extensive&#x20;<BR/>access&#x20;to&#x20;data&#x20;on&#x20;mobile&#x20;<BR/>phones&#x2C;&#x20;encrypted&#x20;or&#x20;not.&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#929292", fontcolor="#000000",  type="argument-map-node"];
+
+
+  n3 -> n2 [type="entails", color="#00ff00"];
+  n4 -> n2 [type="contrary", color="#ff0000", dir="both"];
+  n4 -> n3 [type="contradictory", color="#ff0000", dir="both", arrowtail="diamond", arrowhead="diamond"];
+  n1 -> n8 [type="entails", color="#00ff00"];
+  n0 -> n10 [type="entails", color="#00ff00"];
+  n13 -> n4 [type="undercut", color="#551A8B"];
+  n14 -> n6 [type="undercut", color="#551A8B"];
+  n15 -> n6 [type="support", color="#00ff00"];
+  n11 -> n4 [type="support", color="#00ff00"];
+  n12 -> n5 [type="support", color="#00ff00"];
+  n5 -> n11 [type="support", color="#00ff00"];
+  n6 -> n11 [type="support", color="#00ff00"];
+  n7 -> n11 [type="support", color="#00ff00"];
+  n8 -> n12 [type="support", color="#00ff00"];
+  n9 -> n12 [type="support", color="#00ff00"];
+  n10 -> n12 [type="support", color="#00ff00"];
+{ rank = same;
+n15;
+};
+{ rank = same;
+n3;
+n4;
+};
+
+}

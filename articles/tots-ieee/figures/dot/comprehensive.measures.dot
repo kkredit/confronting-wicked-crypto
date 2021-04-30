@@ -1,0 +1,117 @@
+digraph "Argument Map" {
+
+ranksep = "0.7";
+rankdir = "BT";
+concentrate = "false";
+ratio = "auto";
+size = "10,10";
+edge[arrowsize="1", penwidth="1"]graph [bgcolor = "transparent" ]
+subgraph cluster_1 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Central&#x20;Issues&#x20;</FONT>>;
+  color = "#DADADA";
+  margin="8" style = filled;
+ labelloc = "b";
+
+  n0 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Information&#x20;Security&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Information&#x20;security&#x20;is&#x20;<BR/>critical&#x20;for&#x20;modern&#x20;digital&#x20;<BR/>infrastructure.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#d95f02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n1 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Public&#x20;Safety&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">The&#x20;ability&#x20;to&#x20;investigate&#x2C;&#x20;<BR/>interrupt&#x2C;&#x20;and&#x20;litigate&#x20;<BR/>wrongdoing&#x20;is&#x20;central&#x20;to&#x20;law&#x20;<BR/>enforcement&#x27;s&#x20;mandate.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#d95f02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n2 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Data&#x20;Privacy&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Individuals&#x20;in&#x20;a&#x20;free&#x20;society&#x20;<BR/>have&#x20;the&#x20;right&#x20;to&#x20;a&#x20;<BR/>reasonable&#x20;expectation&#x20;of&#x20;<BR/>privacy.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#d95f02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n3 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Institutional&#x20;Trust&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Governments&#x20;and&#x20;<BR/>corporations&#x20;have&#x20;an&#x20;<BR/>obligation&#x20;to&#x20;honor&#x20;their&#x20;<BR/>citizens&#x27;&#x20;and&#x20;customers&#x27;&#x20;<BR/>trust.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#d95f02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+
+}
+
+
+subgraph cluster_2 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Response&#x20;Measures&#x20;</FONT>>;
+  color = "#DADADA";
+  margin="8" style = filled;
+ labelloc = "b";
+
+
+subgraph cluster_3 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Current&#x20;Capabilities&#x20;</FONT>>;
+  color = "#BABABA";
+  margin="8" style = filled;
+ labelloc = "b";
+
+  n4 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Do&#x20;Nothing&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Conclude&#x20;that&#x20;the&#x20;status&#x20;<BR/>quo&#x20;is&#x2C;&#x20;indeed&#x2C;&#x20;okay.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#63AEF2", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n5 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Increase&#x20;Investment&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Invest&#x20;in&#x20;traditional&#x20;<BR/>investigative&#x20;techniques.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#63AEF2", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+
+}
+
+
+subgraph cluster_4 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Legal&#x20;Measures&#x20;</FONT>>;
+  color = "#BABABA";
+  margin="8" style = filled;
+ labelloc = "b";
+
+  n6 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Forced&#x20;Password&#x20;<BR/>Disclosure&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Establish&#x20;legal&#x20;authority&#x20;to&#x20;<BR/>compel&#x20;password&#x20;<BR/>disclosure.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#63AEF2", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n7 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Lawful&#x20;Hacking&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Establish&#x20;legal&#x20;authority&#x20;for&#x20;<BR/>law&#x20;enforcement&#x20;to&#x20;<BR/>offensively&#x20;hack&#x20;access&#x20;to&#x20;<BR/>data.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#63AEF2", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+
+}
+
+
+subgraph cluster_5 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Exceptional&#x20;Access&#x20;</FONT>>;
+  color = "#BABABA";
+  margin="8" style = filled;
+ labelloc = "b";
+
+  n8 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Exceptional&#x20;Access&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Broadly&#x20;deploy&#x20;<BR/>cryptosystems&#x20;with&#x20;some&#x20;<BR/>form&#x20;of&#x20;exceptional&#x20;access.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#63AEF2", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n9 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Weak&#x20;Cryptography&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Use&#x20;breakable&#x20;<BR/>cryptographic&#x20;ciphers.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#63AEF2", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+
+}
+
+
+}
+
+  n10 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Minimize&#x20;Increased&#x20;<BR/>Security&#x20;Risk&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Measures&#x20;should&#x20;not&#x20;<BR/>dramatically&#x20;increase&#x20;risk&#x20;<BR/>for&#x20;either&#x20;specific&#x20;data&#x20;or&#x20;<BR/>cybersecurity&#x20;in&#x20;general.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n11 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Law&#x20;Enforcement&#x20;Utility&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Measures&#x20;should&#x20;actually&#x20;<BR/>be&#x20;useful&#x20;to&#x20;law&#x20;<BR/>enforcement&#x20;in&#x20;terms&#x20;of&#x20;<BR/>reliability&#x2C;&#x20;speed&#x2C;&#x20;and&#x20;cost.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n12 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Protection&#x20;of&#x20;Civil&#x20;<BR/>Liberties&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Measures&#x20;must&#x20;preclude&#x20;<BR/>mass&#x20;surveillance&#x20;and&#x20;<BR/>international&#x20;abuse&#x20;<BR/>generally.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n13 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Transparency&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Measures&#x20;should&#x20;be&#x20;<BR/>reasonably&#x20;auditable&#x20;to&#x20;the&#x20;<BR/>search&#x20;target&#x20;and&#x20;the&#x20;<BR/>public.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n14 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Economic&#x20;Impacts&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Measures&#x20;should&#x20;consider&#x20;<BR/>competitiveness&#x20;and&#x20;cost&#x20;<BR/>burdens.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#929292", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n15 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Relying&#x20;Current&#x20;<BR/>Capabilities&#x20;a&#x20;<BR/>Conservative&#x20;Choice&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Introduces&#x20;no&#x20;new&#x20;risks&#x20;to&#x20;<BR/>security&#x20;or&#x20;liberty.&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#929292", fontcolor="#000000",  type="argument-map-node"];
+  n16 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Lawful&#x20;Hacking&#x20;Misaligns&#x20;<BR/>Incentives&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Would&#x20;create&#x20;an&#x20;adversarial&#x20;<BR/>relationship&#x20;between&#x20;law&#x20;<BR/>enforcement&#x20;and&#x20;tech.&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#929292", fontcolor="#000000",  type="argument-map-node"];
+  n17 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Usefulness&#x20;for&#x20;Common&#x20;<BR/>Crime&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Would&#x20;local&#x20;agencies&#x20;be&#x20;<BR/>able&#x20;to&#x20;use&#x20;it&#x20;at&#x20;scale&#x3F;&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#929292", fontcolor="#000000",  type="argument-map-node"];
+  n18 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Usefulness&#x20;for&#x20;Organized&#x20;<BR/>Crime&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Would&#x20;organized&#x20;threat&#x20;<BR/>actors&#x20;be&#x20;able&#x20;to&#x20;evade&#x20;the&#x20;<BR/>measure&#x3F;&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#929292", fontcolor="#000000",  type="argument-map-node"];
+  n19 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>EA&#x20;Very&#x20;Difficult&#x20;to&#x20;do&#x20;<BR/>Securely&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Even&#x20;accepting&#x20;some&#x20;risk&#x2C;&#x20;<BR/>regardless&#x20;of&#x20;<BR/>implementation&#x20;EA&#x20;is&#x20;hard&#x20;<BR/>to&#x20;do&#x20;safely.&#x20;&#x20;</FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#929292", fontcolor="#000000",  type="argument-map-node"];
+
+
+  n10 -> n9 [type="contrary", color="#ff0000", dir="both"];
+  n0 -> n10 [type="entails", color="#00ff00"];
+  n1 -> n11 [type="entails", color="#00ff00"];
+  n11 -> n5 [type="entails", color="#00ff00"];
+  n2 -> n12 [type="entails", color="#00ff00"];
+  n3 -> n12 [type="entails", color="#00ff00"];
+  n12 -> n6 [type="contrary", color="#ff0000", dir="both"];
+  n3 -> n13 [type="entails", color="#00ff00"];
+  n14 -> n6 [type="entails", color="#00ff00"];
+  n14 -> n4 [type="entails", color="#00ff00"];
+  n14 -> n8 [type="contrary", color="#ff0000", dir="both"];
+  n10 -> n15 [type="support", color="#00ff00"];
+  n12 -> n15 [type="support", color="#00ff00"];
+  n15 -> n4 [type="support", color="#00ff00"];
+  n15 -> n5 [type="support", color="#00ff00"];
+  n10 -> n16 [type="support", color="#00ff00"];
+  n13 -> n16 [type="support", color="#00ff00"];
+  n16 -> n7 [type="attack", color="#ff0000"];
+  n11 -> n17 [type="support", color="#00ff00"];
+  n17 -> n7 [type="attack", color="#ff0000"];
+  n17 -> n8 [type="support", color="#00ff00"];
+  n11 -> n18 [type="support", color="#00ff00"];
+  n18 -> n6 [type="attack", color="#ff0000"];
+  n18 -> n8 [type="attack", color="#ff0000"];
+  n18 -> n7 [type="support", color="#00ff00"];
+  n10 -> n19 [type="support", color="#00ff00"];
+  n19 -> n8 [type="attack", color="#ff0000"];
+{ rank = same;
+n10;
+n11;
+n12;
+n13;
+n14;
+};
+{ rank = same;
+};
+
+}

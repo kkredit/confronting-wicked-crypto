@@ -1,0 +1,59 @@
+digraph "Argument Map" {
+
+rankdir = "LR";
+concentrate = "false";
+ratio = "auto";
+size = "10,10";
+edge[arrowsize="1", penwidth="1"]graph [bgcolor = "transparent" ]
+subgraph cluster_1 {
+  label = <<FONT FACE="arial" POINT-SIZE="12" COLOR="#000000">Exceptional&#x20;Access&#x20;</FONT>>;
+  color = "#DADADA";
+  margin="8" style = filled;
+ labelloc = "t";
+
+  n0 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Exceptional&#x20;Access&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Broadly&#x20;deploy&#x20;<BR/>cryptosystems&#x20;with&#x20;some&#x20;<BR/>form&#x20;of&#x20;exceptional&#x20;access.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#63AEF2", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+
+}
+
+  n1 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Missing&#x20;the&#x20;Point&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">The&#x20;premises&#x20;of&#x20;the&#x20;<BR/>argument&#x20;support&#x20;a&#x20;<BR/>conclusion&#x2C;&#x20;but&#x20;not&#x20;the&#x20;<BR/>conclusion&#x20;drawn.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#e6ab02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n2 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Slippery&#x20;Slope&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Arguing&#x20;that&#x20;a&#x20;single&#x20;step&#x20;in&#x20;<BR/>one&#x20;direction&#x20;will&#x20;inevitably&#x20;<BR/>result&#x20;in&#x20;sliding&#x20;all&#x20;the&#x20;way&#x20;<BR/>to&#x20;the&#x20;extreme.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#e6ab02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n3 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Weak&#x20;Analogy&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Arguing&#x20;by&#x20;comparison&#x20;to&#x20;<BR/>something&#x20;that&#x20;is&#x20;unalike&#x20;in&#x20;<BR/>relevant&#x20;aspects.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#e6ab02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n4 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Tu&#x20;Quoque&#x20;&#x28;Hypocrisy&#x29;&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Stating&#x20;that&#x20;an&#x20;argument&#x20;is&#x20;<BR/>invalid&#x20;because&#x20;the&#x20;arguer&#x20;<BR/>has&#x20;hypocritically&#x20;acted&#x20;<BR/>against&#x20;their&#x20;own&#x20;argument.&#x20;<BR/>&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#e6ab02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n5 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Appeal&#x20;to&#x20;Emotion&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Attempting&#x20;to&#x20;convince&#x20;the&#x20;<BR/>audience&#x20;by&#x20;making&#x20;them&#x20;<BR/>feel&#x20;pity&#x2C;&#x20;anger&#x2C;&#x20;or&#x20;fear.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#e6ab02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n6 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Straw&#x20;Man&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Setting&#x20;up&#x20;a&#x20;weak&#x20;version&#x20;<BR/>of&#x20;the&#x20;opposing&#x20;argument&#x20;in&#x20;<BR/>order&#x20;to&#x20;tear&#x20;it&#x20;down.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#e6ab02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n7 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>False&#x20;Dichotomy&#x20;</B></FONT></TD></TR><TR><TD ALIGN="TEXT" WIDTH="0" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000">Presenting&#x20;a&#x20;situation&#x20;as&#x20;if&#x20;<BR/>there&#x20;are&#x20;only&#x20;two&#x20;choices.&#x20;&#x20;</FONT></TD></TR></TABLE>>, shape="box",  margin="0.11,0.055", style="filled,rounded,bold", color="#e6ab02", fillcolor="white", labelfontcolor="white", fontcolor="#000000", type="statement-map-node"];
+  n8 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>EA&#x20;is&#x20;a&#x20;bad&#x20;idea&#x20;because&#x20;<BR/>backdoors&#x20;are&#x20;insecure&#x20;</B></FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#a6761d", fontcolor="#000000",  type="argument-map-node"];
+  n9 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>The&#x20;technical&#x20;community&#x20;<BR/>cannot&#x20;give&#x20;any&#x20;ground&#x20;<BR/>on&#x20;EA&#x20;because&#x20;the&#x20;<BR/>government&#x20;will&#x20;never&#x20;be&#x20;<BR/>satisfied&#x20;</B></FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#a6761d", fontcolor="#000000",  type="argument-map-node"];
+  n10 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Government&#x20;calls&#x20;for&#x20;EA&#x20;<BR/>on&#x20;the&#x20;basis&#x20;of&#x20;CSAM&#x20;are&#x20;<BR/>disingenuous&#x20;</B></FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#a6761d", fontcolor="#000000",  type="argument-map-node"];
+  n11 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>The&#x20;only&#x20;acceptable&#x20;<BR/>choices&#x20;are&#x20;no&#x20;EA&#x20;and&#x20;<BR/>perfect&#x20;EA&#x2C;&#x20;but&#x20;perfect&#x20;EA&#x20;<BR/>is&#x20;impossible&#x20;</B></FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#a6761d", fontcolor="#000000",  type="argument-map-node"];
+  n12 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>We&#x20;either&#x20;have&#x20;strong&#x20;<BR/>encryption&#x20;or&#x20;a&#x20;mass&#x20;<BR/>surveillance&#x20;dystopia&#x20;</B></FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#a6761d", fontcolor="#000000",  type="argument-map-node"];
+  n13 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>We&#x20;need&#x20;EA&#x20;now&#x20;because&#x20;<BR/>victims&#x20;of&#x20;CSAM&#x20;are&#x20;<BR/>suffering&#x20;</B></FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#a6761d", fontcolor="#000000",  type="argument-map-node"];
+  n14 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Without&#x20;EA&#x20;we&#x20;will&#x20;be&#x20;<BR/>victims&#x20;to&#x20;terrorists&#x2C;&#x20;<BR/>pedophiles&#x2C;&#x20;drug&#x20;dealers&#x2C;&#x20;<BR/>and&#x20;kidnappers&#x20;</B></FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#a6761d", fontcolor="#000000",  type="argument-map-node"];
+  n15 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>If&#x20;we&#x20;put&#x20;a&#x20;man&#x20;on&#x20;the&#x20;<BR/>moon&#x2C;&#x20;we&#x20;can&#x20;make&#x20;<BR/>secure&#x20;EA&#x20;</B></FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#a6761d", fontcolor="#000000",  type="argument-map-node"];
+  n16 [label=<<TABLE WIDTH="0" ALIGN="CENTER" BORDER="0" CELLSPACING="0"><TR><TD WIDTH="0" ALIGN="TEXT" BALIGN="CENTER"><FONT FACE="arial" POINT-SIZE="10" COLOR="#000000"><B>Experts&#x20;say&#x20;EA&#x20;is&#x20;hard&#x2C;&#x20;<BR/>so&#x20;it&#x20;just&#x20;needs&#x20;to&#x20;be&#x20;<BR/>researched&#x20;more&#x20;</B></FONT></TD></TR></TABLE>>, margin="0.11,0.055", shape="box", style="filled,rounded", fillcolor="#a6761d", fontcolor="#000000",  type="argument-map-node"];
+
+
+  n8 -> n0 [type="attack", color="#ff0000"];
+  n6 -> n8 [type="undercut", color="#551A8B"];
+  n9 -> n0 [type="attack", color="#ff0000"];
+  n2 -> n9 [type="undercut", color="#551A8B"];
+  n10 -> n0 [type="attack", color="#ff0000"];
+  n4 -> n10 [type="undercut", color="#551A8B"];
+  n11 -> n0 [type="attack", color="#ff0000"];
+  n7 -> n11 [type="undercut", color="#551A8B"];
+  n12 -> n0 [type="attack", color="#ff0000"];
+  n7 -> n12 [type="undercut", color="#551A8B"];
+  n13 -> n0 [type="support", color="#00ff00"];
+  n5 -> n13 [type="undercut", color="#551A8B"];
+  n14 -> n0 [type="support", color="#00ff00"];
+  n5 -> n14 [type="undercut", color="#551A8B"];
+  n15 -> n0 [type="support", color="#00ff00"];
+  n3 -> n15 [type="undercut", color="#551A8B"];
+  n16 -> n0 [type="support", color="#00ff00"];
+  n1 -> n16 [type="undercut", color="#551A8B"];
+{ rank = same;
+};
+{ rank = same;
+};
+
+}
