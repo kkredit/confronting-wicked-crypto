@@ -13,7 +13,6 @@ sudo apt-get install -y \
     texlive-latex-extra \
     texlive-science \
     texlive-xetex \
-    texlive-generic-extra \
     texlive-publishers \
     latexmk \
     inkscape \
