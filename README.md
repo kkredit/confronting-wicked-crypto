@@ -1,5 +1,12 @@
 # Confronting Wicked Crypto
 
+## LINKS
+
+[Citable publication](https://scholarworks.gvsu.edu/theses/995/)  
+[Full thesis in readable format](./Thesis.pdf)
+
+## Intro
+
 This repository contains the source for my master's thesis on addressing the
 [wicked problem](https://en.wikipedia.org/wiki/Wicked_problem) of cryptography and exceptional access in the midst of
 overlapping issues of security, safety, privacy, and trust.
